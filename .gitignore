@@ -1,0 +1,29 @@
+# 데이터셋과 가공 데이터 (용량이 크고 원본 배포 대상이 아님)
+dataset/
+data/
+
+# 환경 변수와 비밀 값
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# 로컬 저장소와 로그
+qdrant_storage/
+logs/
+*.log
+
+# OS·에디터
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
