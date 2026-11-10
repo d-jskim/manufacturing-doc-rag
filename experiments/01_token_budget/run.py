@@ -1,5 +1,6 @@
 """문맥 토큰 한도 결정을 위한 측정: 페이지 토큰 수와 질문별 근거 수."""
 
+import argparse
 import json
 import math
 import statistics
@@ -49,11 +50,11 @@ def choose_context_page_count(evidence_page_counts: list[int], coverage: float) 
     return max(evidence_page_counts)
 
 
-def main() -> None:
-    config = yaml.safe_load((Path(__file__).parent / "config.yaml").read_text(encoding="utf-8"))
-    paths = {key: ROOT / value.format(dataset=config["dataset"]) for key, value in config["paths"].items()}
+def run(config: dict, dataset: str, timestamp: str) -> None:
+    """데이터셋 하나를 측정하고, 데이터셋마다 실행 ID와 결과 파일을 따로 남긴다."""
+    paths = {key: ROOT / value.format(dataset=dataset) for key, value in config["paths"].items()}
     p = config["percentile"]
-    run_id = "e01_c0_p0_r0_" + datetime.now().strftime("%Y%m%d_%H%M")
+    run_id = f"e01_c0_p0_r0_{timestamp}"
 
     # 1. 페이지 추출과 두 기준의 토큰 측정
     pages, failed_files = extract_folder(paths["documents"])
@@ -87,6 +88,7 @@ def main() -> None:
 
     summary = {
         "run_id": run_id,
+        "dataset": dataset,
         "extraction": {"extracted_page_count": extracted_page_count, "failed_files": failed_files},
         "generation_tokenizer": {"name": generation_counter.name, "approximate": generation_counter.is_approximate},
         "generation_input_token_count": summarize(generation_input_token_counts, p),
@@ -113,7 +115,21 @@ def main() -> None:
     (paths["results"] / f"{run_id}_token_budget.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8"
     )
-    print(json.dumps(summary, ensure_ascii=False, indent=2))
+    print(f"{dataset}: 페이지 {extracted_page_count}쪽, N={context_page_count}, "
+          f"문맥 토큰 한도 {context_token_budget}")
+
+
+def main() -> None:
+    """설정의 datasets를 차례로 실행한다. --dataset을 주면 그 하나만 실행한다."""
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dataset", help="하나만 실행할 때 데이터셋 이름(생략하면 설정의 datasets 전체)")
+    args = parser.parse_args()
+
+    config = yaml.safe_load((Path(__file__).parent / "config.yaml").read_text(encoding="utf-8"))
+    datasets = [args.dataset] if args.dataset else config["datasets"]
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M")
+    for dataset in datasets:
+        run(config, dataset, timestamp)
 
 
 if __name__ == "__main__":

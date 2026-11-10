@@ -13,9 +13,9 @@ def results_dir(experiment: str, dataset: str) -> Path:
 
 
 def list_datasets(experiment: str) -> list[str]:
-    """결과가 있는 데이터셋 폴더 이름 목록."""
+    """보고서(report.yaml)가 있는 데이터셋 폴더 이름 목록. baseline이 확정된 데이터셋만 보인다."""
     base = EXPERIMENTS_DIR / experiment / "results"
-    return sorted(path.name for path in base.iterdir() if path.is_dir())
+    return sorted(path.name for path in base.iterdir() if (path / "report.yaml").exists())
 
 
 def list_result_files(experiment: str, dataset: str) -> list[Path]:

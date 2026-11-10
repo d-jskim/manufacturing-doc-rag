@@ -1,0 +1,2752 @@
+{
+  "summary": {
+    "run_id": "e01_c0_p0_r0_20261110_1801",
+    "dataset": "manufacturing_basic",
+    "extraction": {
+      "extracted_page_count": 360,
+      "failed_files": []
+    },
+    "generation_tokenizer": {
+      "name": "o200k_base",
+      "approximate": true
+    },
+    "generation_input_token_count": {
+      "min": 328,
+      "median": 712.0,
+      "p90": 791.0,
+      "max": 891
+    },
+    "embedding_input_token_count": {
+      "min": 291,
+      "median": 641.0,
+      "p90": 712.0,
+      "max": 810
+    },
+    "embedding_input_limit": {
+      "max_tokens": 512,
+      "extracted_page_count": 360,
+      "over_limit_page_count": 301,
+      "over_limit_page_ratio": 0.836
+    },
+    "chars_per_embedding_input_token": 1.96,
+    "questions": {
+      "question_count": 30,
+      "no_evidence_question_count": 1
+    },
+    "evidence_page_count_distribution": {
+      "1": 13,
+      "2": 14,
+      "3": 2
+    },
+    "evidence_doc_count_distribution": {
+      "1": 14,
+      "2": 15
+    },
+    "context_page_count": 2,
+    "context_token_budget": 1582
+  },
+  "pages": [
+    {
+      "book_id": "MB01",
+      "page": 1,
+      "char_count": 649,
+      "generation_input_token_count": 359,
+      "embedding_input_token_count": 317
+    },
+    {
+      "book_id": "MB01",
+      "page": 2,
+      "char_count": 700,
+      "generation_input_token_count": 391,
+      "embedding_input_token_count": 345
+    },
+    {
+      "book_id": "MB01",
+      "page": 3,
+      "char_count": 659,
+      "generation_input_token_count": 367,
+      "embedding_input_token_count": 330
+    },
+    {
+      "book_id": "MB01",
+      "page": 4,
+      "char_count": 642,
+      "generation_input_token_count": 359,
+      "embedding_input_token_count": 328
+    },
+    {
+      "book_id": "MB01",
+      "page": 5,
+      "char_count": 1359,
+      "generation_input_token_count": 746,
+      "embedding_input_token_count": 681
+    },
+    {
+      "book_id": "MB01",
+      "page": 6,
+      "char_count": 1283,
+      "generation_input_token_count": 752,
+      "embedding_input_token_count": 668
+    },
+    {
+      "book_id": "MB01",
+      "page": 7,
+      "char_count": 1271,
+      "generation_input_token_count": 740,
+      "embedding_input_token_count": 676
+    },
+    {
+      "book_id": "MB01",
+      "page": 8,
+      "char_count": 1294,
+      "generation_input_token_count": 745,
+      "embedding_input_token_count": 683
+    },
+    {
+      "book_id": "MB01",
+      "page": 9,
+      "char_count": 1299,
+      "generation_input_token_count": 714,
+      "embedding_input_token_count": 647
+    },
+    {
+      "book_id": "MB01",
+      "page": 10,
+      "char_count": 1349,
+      "generation_input_token_count": 772,
+      "embedding_input_token_count": 711
+    },
+    {
+      "book_id": "MB01",
+      "page": 11,
+      "char_count": 1349,
+      "generation_input_token_count": 772,
+      "embedding_input_token_count": 709
+    },
+    {
+      "book_id": "MB01",
+      "page": 12,
+      "char_count": 1389,
+      "generation_input_token_count": 808,
+      "embedding_input_token_count": 725
+    },
+    {
+      "book_id": "MB01",
+      "page": 13,
+      "char_count": 1331,
+      "generation_input_token_count": 725,
+      "embedding_input_token_count": 660
+    },
+    {
+      "book_id": "MB01",
+      "page": 14,
+      "char_count": 1375,
+      "generation_input_token_count": 815,
+      "embedding_input_token_count": 716
+    },
+    {
+      "book_id": "MB01",
+      "page": 15,
+      "char_count": 1351,
+      "generation_input_token_count": 786,
+      "embedding_input_token_count": 700
+    },
+    {
+      "book_id": "MB01",
+      "page": 16,
+      "char_count": 1342,
+      "generation_input_token_count": 743,
+      "embedding_input_token_count": 656
+    },
+    {
+      "book_id": "MB01",
+      "page": 17,
+      "char_count": 1340,
+      "generation_input_token_count": 776,
+      "embedding_input_token_count": 713
+    },
+    {
+      "book_id": "MB01",
+      "page": 18,
+      "char_count": 1349,
+      "generation_input_token_count": 725,
+      "embedding_input_token_count": 649
+    },
+    {
+      "book_id": "MB01",
+      "page": 19,
+      "char_count": 1303,
+      "generation_input_token_count": 741,
+      "embedding_input_token_count": 682
+    },
+    {
+      "book_id": "MB01",
+      "page": 20,
+      "char_count": 1428,
+      "generation_input_token_count": 837,
+      "embedding_input_token_count": 737
+    },
+    {
+      "book_id": "MB01",
+      "page": 21,
+      "char_count": 1418,
+      "generation_input_token_count": 825,
+      "embedding_input_token_count": 742
+    },
+    {
+      "book_id": "MB01",
+      "page": 22,
+      "char_count": 1394,
+      "generation_input_token_count": 827,
+      "embedding_input_token_count": 735
+    },
+    {
+      "book_id": "MB01",
+      "page": 23,
+      "char_count": 1386,
+      "generation_input_token_count": 813,
+      "embedding_input_token_count": 709
+    },
+    {
+      "book_id": "MB01",
+      "page": 24,
+      "char_count": 1394,
+      "generation_input_token_count": 784,
+      "embedding_input_token_count": 706
+    },
+    {
+      "book_id": "MB02",
+      "page": 1,
+      "char_count": 648,
+      "generation_input_token_count": 359,
+      "embedding_input_token_count": 323
+    },
+    {
+      "book_id": "MB02",
+      "page": 2,
+      "char_count": 694,
+      "generation_input_token_count": 398,
+      "embedding_input_token_count": 352
+    },
+    {
+      "book_id": "MB02",
+      "page": 3,
+      "char_count": 609,
+      "generation_input_token_count": 354,
+      "embedding_input_token_count": 320
+    },
+    {
+      "book_id": "MB02",
+      "page": 4,
+      "char_count": 623,
+      "generation_input_token_count": 351,
+      "embedding_input_token_count": 318
+    },
+    {
+      "book_id": "MB02",
+      "page": 5,
+      "char_count": 1260,
+      "generation_input_token_count": 717,
+      "embedding_input_token_count": 653
+    },
+    {
+      "book_id": "MB02",
+      "page": 6,
+      "char_count": 1316,
+      "generation_input_token_count": 756,
+      "embedding_input_token_count": 679
+    },
+    {
+      "book_id": "MB02",
+      "page": 7,
+      "char_count": 1312,
+      "generation_input_token_count": 753,
+      "embedding_input_token_count": 683
+    },
+    {
+      "book_id": "MB02",
+      "page": 8,
+      "char_count": 1275,
+      "generation_input_token_count": 721,
+      "embedding_input_token_count": 643
+    },
+    {
+      "book_id": "MB02",
+      "page": 9,
+      "char_count": 1394,
+      "generation_input_token_count": 788,
+      "embedding_input_token_count": 718
+    },
+    {
+      "book_id": "MB02",
+      "page": 10,
+      "char_count": 1412,
+      "generation_input_token_count": 829,
+      "embedding_input_token_count": 720
+    },
+    {
+      "book_id": "MB02",
+      "page": 11,
+      "char_count": 1335,
+      "generation_input_token_count": 762,
+      "embedding_input_token_count": 665
+    },
+    {
+      "book_id": "MB02",
+      "page": 12,
+      "char_count": 1327,
+      "generation_input_token_count": 772,
+      "embedding_input_token_count": 681
+    },
+    {
+      "book_id": "MB02",
+      "page": 13,
+      "char_count": 1379,
+      "generation_input_token_count": 746,
+      "embedding_input_token_count": 682
+    },
+    {
+      "book_id": "MB02",
+      "page": 14,
+      "char_count": 1371,
+      "generation_input_token_count": 779,
+      "embedding_input_token_count": 691
+    },
+    {
+      "book_id": "MB02",
+      "page": 15,
+      "char_count": 1416,
+      "generation_input_token_count": 818,
+      "embedding_input_token_count": 723
+    },
+    {
+      "book_id": "MB02",
+      "page": 16,
+      "char_count": 1346,
+      "generation_input_token_count": 774,
+      "embedding_input_token_count": 699
+    },
+    {
+      "book_id": "MB02",
+      "page": 17,
+      "char_count": 1296,
+      "generation_input_token_count": 750,
+      "embedding_input_token_count": 667
+    },
+    {
+      "book_id": "MB02",
+      "page": 18,
+      "char_count": 1358,
+      "generation_input_token_count": 793,
+      "embedding_input_token_count": 718
+    },
+    {
+      "book_id": "MB02",
+      "page": 19,
+      "char_count": 1287,
+      "generation_input_token_count": 716,
+      "embedding_input_token_count": 655
+    },
+    {
+      "book_id": "MB02",
+      "page": 20,
+      "char_count": 1369,
+      "generation_input_token_count": 800,
+      "embedding_input_token_count": 714
+    },
+    {
+      "book_id": "MB02",
+      "page": 21,
+      "char_count": 1275,
+      "generation_input_token_count": 757,
+      "embedding_input_token_count": 681
+    },
+    {
+      "book_id": "MB02",
+      "page": 22,
+      "char_count": 1280,
+      "generation_input_token_count": 745,
+      "embedding_input_token_count": 666
+    },
+    {
+      "book_id": "MB02",
+      "page": 23,
+      "char_count": 1282,
+      "generation_input_token_count": 746,
+      "embedding_input_token_count": 649
+    },
+    {
+      "book_id": "MB02",
+      "page": 24,
+      "char_count": 1358,
+      "generation_input_token_count": 767,
+      "embedding_input_token_count": 684
+    },
+    {
+      "book_id": "MB03",
+      "page": 1,
+      "char_count": 614,
+      "generation_input_token_count": 328,
+      "embedding_input_token_count": 299
+    },
+    {
+      "book_id": "MB03",
+      "page": 2,
+      "char_count": 602,
+      "generation_input_token_count": 343,
+      "embedding_input_token_count": 317
+    },
+    {
+      "book_id": "MB03",
+      "page": 3,
+      "char_count": 593,
+      "generation_input_token_count": 339,
+      "embedding_input_token_count": 301
+    },
+    {
+      "book_id": "MB03",
+      "page": 4,
+      "char_count": 631,
+      "generation_input_token_count": 357,
+      "embedding_input_token_count": 321
+    },
+    {
+      "book_id": "MB03",
+      "page": 5,
+      "char_count": 1486,
+      "generation_input_token_count": 837,
+      "embedding_input_token_count": 751
+    },
+    {
+      "book_id": "MB03",
+      "page": 6,
+      "char_count": 1435,
+      "generation_input_token_count": 799,
+      "embedding_input_token_count": 712
+    },
+    {
+      "book_id": "MB03",
+      "page": 7,
+      "char_count": 1355,
+      "generation_input_token_count": 763,
+      "embedding_input_token_count": 683
+    },
+    {
+      "book_id": "MB03",
+      "page": 8,
+      "char_count": 1380,
+      "generation_input_token_count": 805,
+      "embedding_input_token_count": 722
+    },
+    {
+      "book_id": "MB03",
+      "page": 9,
+      "char_count": 1309,
+      "generation_input_token_count": 760,
+      "embedding_input_token_count": 686
+    },
+    {
+      "book_id": "MB03",
+      "page": 10,
+      "char_count": 1208,
+      "generation_input_token_count": 691,
+      "embedding_input_token_count": 629
+    },
+    {
+      "book_id": "MB03",
+      "page": 11,
+      "char_count": 1178,
+      "generation_input_token_count": 664,
+      "embedding_input_token_count": 614
+    },
+    {
+      "book_id": "MB03",
+      "page": 12,
+      "char_count": 1193,
+      "generation_input_token_count": 672,
+      "embedding_input_token_count": 605
+    },
+    {
+      "book_id": "MB03",
+      "page": 13,
+      "char_count": 1187,
+      "generation_input_token_count": 687,
+      "embedding_input_token_count": 623
+    },
+    {
+      "book_id": "MB03",
+      "page": 14,
+      "char_count": 1198,
+      "generation_input_token_count": 682,
+      "embedding_input_token_count": 612
+    },
+    {
+      "book_id": "MB03",
+      "page": 15,
+      "char_count": 1354,
+      "generation_input_token_count": 788,
+      "embedding_input_token_count": 703
+    },
+    {
+      "book_id": "MB03",
+      "page": 16,
+      "char_count": 1265,
+      "generation_input_token_count": 705,
+      "embedding_input_token_count": 641
+    },
+    {
+      "book_id": "MB03",
+      "page": 17,
+      "char_count": 1399,
+      "generation_input_token_count": 817,
+      "embedding_input_token_count": 748
+    },
+    {
+      "book_id": "MB03",
+      "page": 18,
+      "char_count": 1241,
+      "generation_input_token_count": 710,
+      "embedding_input_token_count": 648
+    },
+    {
+      "book_id": "MB03",
+      "page": 19,
+      "char_count": 1327,
+      "generation_input_token_count": 751,
+      "embedding_input_token_count": 691
+    },
+    {
+      "book_id": "MB03",
+      "page": 20,
+      "char_count": 1216,
+      "generation_input_token_count": 712,
+      "embedding_input_token_count": 651
+    },
+    {
+      "book_id": "MB03",
+      "page": 21,
+      "char_count": 1202,
+      "generation_input_token_count": 672,
+      "embedding_input_token_count": 603
+    },
+    {
+      "book_id": "MB03",
+      "page": 22,
+      "char_count": 1280,
+      "generation_input_token_count": 719,
+      "embedding_input_token_count": 646
+    },
+    {
+      "book_id": "MB03",
+      "page": 23,
+      "char_count": 1239,
+      "generation_input_token_count": 689,
+      "embedding_input_token_count": 619
+    },
+    {
+      "book_id": "MB03",
+      "page": 24,
+      "char_count": 1270,
+      "generation_input_token_count": 712,
+      "embedding_input_token_count": 645
+    },
+    {
+      "book_id": "MB04",
+      "page": 1,
+      "char_count": 650,
+      "generation_input_token_count": 361,
+      "embedding_input_token_count": 324
+    },
+    {
+      "book_id": "MB04",
+      "page": 2,
+      "char_count": 649,
+      "generation_input_token_count": 351,
+      "embedding_input_token_count": 321
+    },
+    {
+      "book_id": "MB04",
+      "page": 3,
+      "char_count": 633,
+      "generation_input_token_count": 340,
+      "embedding_input_token_count": 309
+    },
+    {
+      "book_id": "MB04",
+      "page": 4,
+      "char_count": 610,
+      "generation_input_token_count": 344,
+      "embedding_input_token_count": 305
+    },
+    {
+      "book_id": "MB04",
+      "page": 5,
+      "char_count": 1373,
+      "generation_input_token_count": 772,
+      "embedding_input_token_count": 708
+    },
+    {
+      "book_id": "MB04",
+      "page": 6,
+      "char_count": 1209,
+      "generation_input_token_count": 680,
+      "embedding_input_token_count": 606
+    },
+    {
+      "book_id": "MB04",
+      "page": 7,
+      "char_count": 1289,
+      "generation_input_token_count": 741,
+      "embedding_input_token_count": 664
+    },
+    {
+      "book_id": "MB04",
+      "page": 8,
+      "char_count": 1272,
+      "generation_input_token_count": 730,
+      "embedding_input_token_count": 656
+    },
+    {
+      "book_id": "MB04",
+      "page": 9,
+      "char_count": 1311,
+      "generation_input_token_count": 755,
+      "embedding_input_token_count": 664
+    },
+    {
+      "book_id": "MB04",
+      "page": 10,
+      "char_count": 1334,
+      "generation_input_token_count": 769,
+      "embedding_input_token_count": 686
+    },
+    {
+      "book_id": "MB04",
+      "page": 11,
+      "char_count": 1376,
+      "generation_input_token_count": 771,
+      "embedding_input_token_count": 709
+    },
+    {
+      "book_id": "MB04",
+      "page": 12,
+      "char_count": 1311,
+      "generation_input_token_count": 741,
+      "embedding_input_token_count": 676
+    },
+    {
+      "book_id": "MB04",
+      "page": 13,
+      "char_count": 1321,
+      "generation_input_token_count": 722,
+      "embedding_input_token_count": 668
+    },
+    {
+      "book_id": "MB04",
+      "page": 14,
+      "char_count": 1369,
+      "generation_input_token_count": 744,
+      "embedding_input_token_count": 669
+    },
+    {
+      "book_id": "MB04",
+      "page": 15,
+      "char_count": 1348,
+      "generation_input_token_count": 738,
+      "embedding_input_token_count": 676
+    },
+    {
+      "book_id": "MB04",
+      "page": 16,
+      "char_count": 1170,
+      "generation_input_token_count": 677,
+      "embedding_input_token_count": 607
+    },
+    {
+      "book_id": "MB04",
+      "page": 17,
+      "char_count": 1292,
+      "generation_input_token_count": 730,
+      "embedding_input_token_count": 647
+    },
+    {
+      "book_id": "MB04",
+      "page": 18,
+      "char_count": 1378,
+      "generation_input_token_count": 743,
+      "embedding_input_token_count": 678
+    },
+    {
+      "book_id": "MB04",
+      "page": 19,
+      "char_count": 1289,
+      "generation_input_token_count": 721,
+      "embedding_input_token_count": 655
+    },
+    {
+      "book_id": "MB04",
+      "page": 20,
+      "char_count": 1514,
+      "generation_input_token_count": 855,
+      "embedding_input_token_count": 759
+    },
+    {
+      "book_id": "MB04",
+      "page": 21,
+      "char_count": 1343,
+      "generation_input_token_count": 791,
+      "embedding_input_token_count": 717
+    },
+    {
+      "book_id": "MB04",
+      "page": 22,
+      "char_count": 1396,
+      "generation_input_token_count": 770,
+      "embedding_input_token_count": 706
+    },
+    {
+      "book_id": "MB04",
+      "page": 23,
+      "char_count": 1368,
+      "generation_input_token_count": 748,
+      "embedding_input_token_count": 678
+    },
+    {
+      "book_id": "MB04",
+      "page": 24,
+      "char_count": 1380,
+      "generation_input_token_count": 752,
+      "embedding_input_token_count": 692
+    },
+    {
+      "book_id": "MB05",
+      "page": 1,
+      "char_count": 657,
+      "generation_input_token_count": 353,
+      "embedding_input_token_count": 325
+    },
+    {
+      "book_id": "MB05",
+      "page": 2,
+      "char_count": 619,
+      "generation_input_token_count": 354,
+      "embedding_input_token_count": 312
+    },
+    {
+      "book_id": "MB05",
+      "page": 3,
+      "char_count": 631,
+      "generation_input_token_count": 348,
+      "embedding_input_token_count": 325
+    },
+    {
+      "book_id": "MB05",
+      "page": 4,
+      "char_count": 606,
+      "generation_input_token_count": 337,
+      "embedding_input_token_count": 311
+    },
+    {
+      "book_id": "MB05",
+      "page": 5,
+      "char_count": 1238,
+      "generation_input_token_count": 703,
+      "embedding_input_token_count": 637
+    },
+    {
+      "book_id": "MB05",
+      "page": 6,
+      "char_count": 1247,
+      "generation_input_token_count": 698,
+      "embedding_input_token_count": 640
+    },
+    {
+      "book_id": "MB05",
+      "page": 7,
+      "char_count": 1254,
+      "generation_input_token_count": 687,
+      "embedding_input_token_count": 614
+    },
+    {
+      "book_id": "MB05",
+      "page": 8,
+      "char_count": 1162,
+      "generation_input_token_count": 665,
+      "embedding_input_token_count": 598
+    },
+    {
+      "book_id": "MB05",
+      "page": 9,
+      "char_count": 1218,
+      "generation_input_token_count": 699,
+      "embedding_input_token_count": 641
+    },
+    {
+      "book_id": "MB05",
+      "page": 10,
+      "char_count": 1142,
+      "generation_input_token_count": 663,
+      "embedding_input_token_count": 593
+    },
+    {
+      "book_id": "MB05",
+      "page": 11,
+      "char_count": 1119,
+      "generation_input_token_count": 645,
+      "embedding_input_token_count": 576
+    },
+    {
+      "book_id": "MB05",
+      "page": 12,
+      "char_count": 1159,
+      "generation_input_token_count": 655,
+      "embedding_input_token_count": 596
+    },
+    {
+      "book_id": "MB05",
+      "page": 13,
+      "char_count": 1065,
+      "generation_input_token_count": 593,
+      "embedding_input_token_count": 549
+    },
+    {
+      "book_id": "MB05",
+      "page": 14,
+      "char_count": 1201,
+      "generation_input_token_count": 674,
+      "embedding_input_token_count": 610
+    },
+    {
+      "book_id": "MB05",
+      "page": 15,
+      "char_count": 1396,
+      "generation_input_token_count": 786,
+      "embedding_input_token_count": 722
+    },
+    {
+      "book_id": "MB05",
+      "page": 16,
+      "char_count": 1309,
+      "generation_input_token_count": 760,
+      "embedding_input_token_count": 676
+    },
+    {
+      "book_id": "MB05",
+      "page": 17,
+      "char_count": 1310,
+      "generation_input_token_count": 761,
+      "embedding_input_token_count": 692
+    },
+    {
+      "book_id": "MB05",
+      "page": 18,
+      "char_count": 1312,
+      "generation_input_token_count": 745,
+      "embedding_input_token_count": 658
+    },
+    {
+      "book_id": "MB05",
+      "page": 19,
+      "char_count": 1408,
+      "generation_input_token_count": 800,
+      "embedding_input_token_count": 735
+    },
+    {
+      "book_id": "MB05",
+      "page": 20,
+      "char_count": 1243,
+      "generation_input_token_count": 724,
+      "embedding_input_token_count": 664
+    },
+    {
+      "book_id": "MB05",
+      "page": 21,
+      "char_count": 1267,
+      "generation_input_token_count": 716,
+      "embedding_input_token_count": 649
+    },
+    {
+      "book_id": "MB05",
+      "page": 22,
+      "char_count": 1280,
+      "generation_input_token_count": 720,
+      "embedding_input_token_count": 648
+    },
+    {
+      "book_id": "MB05",
+      "page": 23,
+      "char_count": 1226,
+      "generation_input_token_count": 711,
+      "embedding_input_token_count": 618
+    },
+    {
+      "book_id": "MB05",
+      "page": 24,
+      "char_count": 1280,
+      "generation_input_token_count": 729,
+      "embedding_input_token_count": 650
+    },
+    {
+      "book_id": "MB06",
+      "page": 1,
+      "char_count": 627,
+      "generation_input_token_count": 354,
+      "embedding_input_token_count": 311
+    },
+    {
+      "book_id": "MB06",
+      "page": 2,
+      "char_count": 604,
+      "generation_input_token_count": 343,
+      "embedding_input_token_count": 301
+    },
+    {
+      "book_id": "MB06",
+      "page": 3,
+      "char_count": 610,
+      "generation_input_token_count": 342,
+      "embedding_input_token_count": 302
+    },
+    {
+      "book_id": "MB06",
+      "page": 4,
+      "char_count": 645,
+      "generation_input_token_count": 340,
+      "embedding_input_token_count": 291
+    },
+    {
+      "book_id": "MB06",
+      "page": 5,
+      "char_count": 1315,
+      "generation_input_token_count": 734,
+      "embedding_input_token_count": 652
+    },
+    {
+      "book_id": "MB06",
+      "page": 6,
+      "char_count": 1191,
+      "generation_input_token_count": 678,
+      "embedding_input_token_count": 609
+    },
+    {
+      "book_id": "MB06",
+      "page": 7,
+      "char_count": 1180,
+      "generation_input_token_count": 669,
+      "embedding_input_token_count": 605
+    },
+    {
+      "book_id": "MB06",
+      "page": 8,
+      "char_count": 1134,
+      "generation_input_token_count": 658,
+      "embedding_input_token_count": 589
+    },
+    {
+      "book_id": "MB06",
+      "page": 9,
+      "char_count": 1262,
+      "generation_input_token_count": 722,
+      "embedding_input_token_count": 632
+    },
+    {
+      "book_id": "MB06",
+      "page": 10,
+      "char_count": 1205,
+      "generation_input_token_count": 691,
+      "embedding_input_token_count": 607
+    },
+    {
+      "book_id": "MB06",
+      "page": 11,
+      "char_count": 1215,
+      "generation_input_token_count": 690,
+      "embedding_input_token_count": 606
+    },
+    {
+      "book_id": "MB06",
+      "page": 12,
+      "char_count": 1180,
+      "generation_input_token_count": 667,
+      "embedding_input_token_count": 588
+    },
+    {
+      "book_id": "MB06",
+      "page": 13,
+      "char_count": 1254,
+      "generation_input_token_count": 705,
+      "embedding_input_token_count": 619
+    },
+    {
+      "book_id": "MB06",
+      "page": 14,
+      "char_count": 1233,
+      "generation_input_token_count": 713,
+      "embedding_input_token_count": 641
+    },
+    {
+      "book_id": "MB06",
+      "page": 15,
+      "char_count": 1276,
+      "generation_input_token_count": 729,
+      "embedding_input_token_count": 655
+    },
+    {
+      "book_id": "MB06",
+      "page": 16,
+      "char_count": 1194,
+      "generation_input_token_count": 693,
+      "embedding_input_token_count": 598
+    },
+    {
+      "book_id": "MB06",
+      "page": 17,
+      "char_count": 1211,
+      "generation_input_token_count": 678,
+      "embedding_input_token_count": 604
+    },
+    {
+      "book_id": "MB06",
+      "page": 18,
+      "char_count": 1266,
+      "generation_input_token_count": 691,
+      "embedding_input_token_count": 619
+    },
+    {
+      "book_id": "MB06",
+      "page": 19,
+      "char_count": 1215,
+      "generation_input_token_count": 686,
+      "embedding_input_token_count": 608
+    },
+    {
+      "book_id": "MB06",
+      "page": 20,
+      "char_count": 1404,
+      "generation_input_token_count": 804,
+      "embedding_input_token_count": 693
+    },
+    {
+      "book_id": "MB06",
+      "page": 21,
+      "char_count": 1411,
+      "generation_input_token_count": 793,
+      "embedding_input_token_count": 695
+    },
+    {
+      "book_id": "MB06",
+      "page": 22,
+      "char_count": 1416,
+      "generation_input_token_count": 791,
+      "embedding_input_token_count": 688
+    },
+    {
+      "book_id": "MB06",
+      "page": 23,
+      "char_count": 1378,
+      "generation_input_token_count": 791,
+      "embedding_input_token_count": 692
+    },
+    {
+      "book_id": "MB06",
+      "page": 24,
+      "char_count": 1465,
+      "generation_input_token_count": 827,
+      "embedding_input_token_count": 730
+    },
+    {
+      "book_id": "MB07",
+      "page": 1,
+      "char_count": 626,
+      "generation_input_token_count": 363,
+      "embedding_input_token_count": 325
+    },
+    {
+      "book_id": "MB07",
+      "page": 2,
+      "char_count": 636,
+      "generation_input_token_count": 343,
+      "embedding_input_token_count": 308
+    },
+    {
+      "book_id": "MB07",
+      "page": 3,
+      "char_count": 651,
+      "generation_input_token_count": 351,
+      "embedding_input_token_count": 316
+    },
+    {
+      "book_id": "MB07",
+      "page": 4,
+      "char_count": 657,
+      "generation_input_token_count": 369,
+      "embedding_input_token_count": 334
+    },
+    {
+      "book_id": "MB07",
+      "page": 5,
+      "char_count": 1202,
+      "generation_input_token_count": 683,
+      "embedding_input_token_count": 611
+    },
+    {
+      "book_id": "MB07",
+      "page": 6,
+      "char_count": 1197,
+      "generation_input_token_count": 700,
+      "embedding_input_token_count": 615
+    },
+    {
+      "book_id": "MB07",
+      "page": 7,
+      "char_count": 1155,
+      "generation_input_token_count": 664,
+      "embedding_input_token_count": 584
+    },
+    {
+      "book_id": "MB07",
+      "page": 8,
+      "char_count": 1176,
+      "generation_input_token_count": 675,
+      "embedding_input_token_count": 601
+    },
+    {
+      "book_id": "MB07",
+      "page": 9,
+      "char_count": 1186,
+      "generation_input_token_count": 653,
+      "embedding_input_token_count": 587
+    },
+    {
+      "book_id": "MB07",
+      "page": 10,
+      "char_count": 1272,
+      "generation_input_token_count": 743,
+      "embedding_input_token_count": 666
+    },
+    {
+      "book_id": "MB07",
+      "page": 11,
+      "char_count": 1214,
+      "generation_input_token_count": 688,
+      "embedding_input_token_count": 611
+    },
+    {
+      "book_id": "MB07",
+      "page": 12,
+      "char_count": 1262,
+      "generation_input_token_count": 712,
+      "embedding_input_token_count": 621
+    },
+    {
+      "book_id": "MB07",
+      "page": 13,
+      "char_count": 1241,
+      "generation_input_token_count": 703,
+      "embedding_input_token_count": 642
+    },
+    {
+      "book_id": "MB07",
+      "page": 14,
+      "char_count": 1284,
+      "generation_input_token_count": 734,
+      "embedding_input_token_count": 663
+    },
+    {
+      "book_id": "MB07",
+      "page": 15,
+      "char_count": 1233,
+      "generation_input_token_count": 694,
+      "embedding_input_token_count": 611
+    },
+    {
+      "book_id": "MB07",
+      "page": 16,
+      "char_count": 1213,
+      "generation_input_token_count": 706,
+      "embedding_input_token_count": 635
+    },
+    {
+      "book_id": "MB07",
+      "page": 17,
+      "char_count": 1200,
+      "generation_input_token_count": 713,
+      "embedding_input_token_count": 619
+    },
+    {
+      "book_id": "MB07",
+      "page": 18,
+      "char_count": 1275,
+      "generation_input_token_count": 728,
+      "embedding_input_token_count": 644
+    },
+    {
+      "book_id": "MB07",
+      "page": 19,
+      "char_count": 1264,
+      "generation_input_token_count": 739,
+      "embedding_input_token_count": 678
+    },
+    {
+      "book_id": "MB07",
+      "page": 20,
+      "char_count": 1293,
+      "generation_input_token_count": 748,
+      "embedding_input_token_count": 670
+    },
+    {
+      "book_id": "MB07",
+      "page": 21,
+      "char_count": 1302,
+      "generation_input_token_count": 716,
+      "embedding_input_token_count": 650
+    },
+    {
+      "book_id": "MB07",
+      "page": 22,
+      "char_count": 1238,
+      "generation_input_token_count": 719,
+      "embedding_input_token_count": 651
+    },
+    {
+      "book_id": "MB07",
+      "page": 23,
+      "char_count": 1296,
+      "generation_input_token_count": 752,
+      "embedding_input_token_count": 650
+    },
+    {
+      "book_id": "MB07",
+      "page": 24,
+      "char_count": 1301,
+      "generation_input_token_count": 733,
+      "embedding_input_token_count": 652
+    },
+    {
+      "book_id": "MB08",
+      "page": 1,
+      "char_count": 614,
+      "generation_input_token_count": 341,
+      "embedding_input_token_count": 301
+    },
+    {
+      "book_id": "MB08",
+      "page": 2,
+      "char_count": 620,
+      "generation_input_token_count": 331,
+      "embedding_input_token_count": 306
+    },
+    {
+      "book_id": "MB08",
+      "page": 3,
+      "char_count": 635,
+      "generation_input_token_count": 362,
+      "embedding_input_token_count": 327
+    },
+    {
+      "book_id": "MB08",
+      "page": 4,
+      "char_count": 630,
+      "generation_input_token_count": 350,
+      "embedding_input_token_count": 319
+    },
+    {
+      "book_id": "MB08",
+      "page": 5,
+      "char_count": 1213,
+      "generation_input_token_count": 699,
+      "embedding_input_token_count": 649
+    },
+    {
+      "book_id": "MB08",
+      "page": 6,
+      "char_count": 1208,
+      "generation_input_token_count": 721,
+      "embedding_input_token_count": 634
+    },
+    {
+      "book_id": "MB08",
+      "page": 7,
+      "char_count": 1253,
+      "generation_input_token_count": 697,
+      "embedding_input_token_count": 626
+    },
+    {
+      "book_id": "MB08",
+      "page": 8,
+      "char_count": 1248,
+      "generation_input_token_count": 735,
+      "embedding_input_token_count": 639
+    },
+    {
+      "book_id": "MB08",
+      "page": 9,
+      "char_count": 1276,
+      "generation_input_token_count": 699,
+      "embedding_input_token_count": 641
+    },
+    {
+      "book_id": "MB08",
+      "page": 10,
+      "char_count": 1266,
+      "generation_input_token_count": 733,
+      "embedding_input_token_count": 659
+    },
+    {
+      "book_id": "MB08",
+      "page": 11,
+      "char_count": 1466,
+      "generation_input_token_count": 815,
+      "embedding_input_token_count": 736
+    },
+    {
+      "book_id": "MB08",
+      "page": 12,
+      "char_count": 1548,
+      "generation_input_token_count": 869,
+      "embedding_input_token_count": 780
+    },
+    {
+      "book_id": "MB08",
+      "page": 13,
+      "char_count": 1485,
+      "generation_input_token_count": 825,
+      "embedding_input_token_count": 757
+    },
+    {
+      "book_id": "MB08",
+      "page": 14,
+      "char_count": 1561,
+      "generation_input_token_count": 891,
+      "embedding_input_token_count": 810
+    },
+    {
+      "book_id": "MB08",
+      "page": 15,
+      "char_count": 1227,
+      "generation_input_token_count": 687,
+      "embedding_input_token_count": 630
+    },
+    {
+      "book_id": "MB08",
+      "page": 16,
+      "char_count": 1190,
+      "generation_input_token_count": 649,
+      "embedding_input_token_count": 588
+    },
+    {
+      "book_id": "MB08",
+      "page": 17,
+      "char_count": 1191,
+      "generation_input_token_count": 677,
+      "embedding_input_token_count": 602
+    },
+    {
+      "book_id": "MB08",
+      "page": 18,
+      "char_count": 1193,
+      "generation_input_token_count": 674,
+      "embedding_input_token_count": 611
+    },
+    {
+      "book_id": "MB08",
+      "page": 19,
+      "char_count": 1191,
+      "generation_input_token_count": 690,
+      "embedding_input_token_count": 619
+    },
+    {
+      "book_id": "MB08",
+      "page": 20,
+      "char_count": 1306,
+      "generation_input_token_count": 755,
+      "embedding_input_token_count": 677
+    },
+    {
+      "book_id": "MB08",
+      "page": 21,
+      "char_count": 1369,
+      "generation_input_token_count": 774,
+      "embedding_input_token_count": 682
+    },
+    {
+      "book_id": "MB08",
+      "page": 22,
+      "char_count": 1232,
+      "generation_input_token_count": 670,
+      "embedding_input_token_count": 616
+    },
+    {
+      "book_id": "MB08",
+      "page": 23,
+      "char_count": 1214,
+      "generation_input_token_count": 689,
+      "embedding_input_token_count": 624
+    },
+    {
+      "book_id": "MB08",
+      "page": 24,
+      "char_count": 1340,
+      "generation_input_token_count": 760,
+      "embedding_input_token_count": 694
+    },
+    {
+      "book_id": "MB09",
+      "page": 1,
+      "char_count": 634,
+      "generation_input_token_count": 349,
+      "embedding_input_token_count": 316
+    },
+    {
+      "book_id": "MB09",
+      "page": 2,
+      "char_count": 613,
+      "generation_input_token_count": 353,
+      "embedding_input_token_count": 308
+    },
+    {
+      "book_id": "MB09",
+      "page": 3,
+      "char_count": 642,
+      "generation_input_token_count": 351,
+      "embedding_input_token_count": 317
+    },
+    {
+      "book_id": "MB09",
+      "page": 4,
+      "char_count": 638,
+      "generation_input_token_count": 358,
+      "embedding_input_token_count": 319
+    },
+    {
+      "book_id": "MB09",
+      "page": 5,
+      "char_count": 1336,
+      "generation_input_token_count": 767,
+      "embedding_input_token_count": 692
+    },
+    {
+      "book_id": "MB09",
+      "page": 6,
+      "char_count": 1241,
+      "generation_input_token_count": 724,
+      "embedding_input_token_count": 638
+    },
+    {
+      "book_id": "MB09",
+      "page": 7,
+      "char_count": 1263,
+      "generation_input_token_count": 725,
+      "embedding_input_token_count": 653
+    },
+    {
+      "book_id": "MB09",
+      "page": 8,
+      "char_count": 1213,
+      "generation_input_token_count": 701,
+      "embedding_input_token_count": 627
+    },
+    {
+      "book_id": "MB09",
+      "page": 9,
+      "char_count": 1251,
+      "generation_input_token_count": 723,
+      "embedding_input_token_count": 654
+    },
+    {
+      "book_id": "MB09",
+      "page": 10,
+      "char_count": 1322,
+      "generation_input_token_count": 770,
+      "embedding_input_token_count": 690
+    },
+    {
+      "book_id": "MB09",
+      "page": 11,
+      "char_count": 1363,
+      "generation_input_token_count": 780,
+      "embedding_input_token_count": 702
+    },
+    {
+      "book_id": "MB09",
+      "page": 12,
+      "char_count": 1286,
+      "generation_input_token_count": 731,
+      "embedding_input_token_count": 660
+    },
+    {
+      "book_id": "MB09",
+      "page": 13,
+      "char_count": 1287,
+      "generation_input_token_count": 729,
+      "embedding_input_token_count": 647
+    },
+    {
+      "book_id": "MB09",
+      "page": 14,
+      "char_count": 1384,
+      "generation_input_token_count": 773,
+      "embedding_input_token_count": 685
+    },
+    {
+      "book_id": "MB09",
+      "page": 15,
+      "char_count": 1277,
+      "generation_input_token_count": 750,
+      "embedding_input_token_count": 666
+    },
+    {
+      "book_id": "MB09",
+      "page": 16,
+      "char_count": 1276,
+      "generation_input_token_count": 734,
+      "embedding_input_token_count": 667
+    },
+    {
+      "book_id": "MB09",
+      "page": 17,
+      "char_count": 1218,
+      "generation_input_token_count": 676,
+      "embedding_input_token_count": 605
+    },
+    {
+      "book_id": "MB09",
+      "page": 18,
+      "char_count": 1202,
+      "generation_input_token_count": 696,
+      "embedding_input_token_count": 626
+    },
+    {
+      "book_id": "MB09",
+      "page": 19,
+      "char_count": 1265,
+      "generation_input_token_count": 743,
+      "embedding_input_token_count": 662
+    },
+    {
+      "book_id": "MB09",
+      "page": 20,
+      "char_count": 1495,
+      "generation_input_token_count": 842,
+      "embedding_input_token_count": 757
+    },
+    {
+      "book_id": "MB09",
+      "page": 21,
+      "char_count": 1510,
+      "generation_input_token_count": 871,
+      "embedding_input_token_count": 767
+    },
+    {
+      "book_id": "MB09",
+      "page": 22,
+      "char_count": 1423,
+      "generation_input_token_count": 831,
+      "embedding_input_token_count": 745
+    },
+    {
+      "book_id": "MB09",
+      "page": 23,
+      "char_count": 1412,
+      "generation_input_token_count": 799,
+      "embedding_input_token_count": 713
+    },
+    {
+      "book_id": "MB09",
+      "page": 24,
+      "char_count": 1404,
+      "generation_input_token_count": 794,
+      "embedding_input_token_count": 713
+    },
+    {
+      "book_id": "MB10",
+      "page": 1,
+      "char_count": 845,
+      "generation_input_token_count": 471,
+      "embedding_input_token_count": 432
+    },
+    {
+      "book_id": "MB10",
+      "page": 2,
+      "char_count": 820,
+      "generation_input_token_count": 463,
+      "embedding_input_token_count": 418
+    },
+    {
+      "book_id": "MB10",
+      "page": 3,
+      "char_count": 804,
+      "generation_input_token_count": 454,
+      "embedding_input_token_count": 403
+    },
+    {
+      "book_id": "MB10",
+      "page": 4,
+      "char_count": 825,
+      "generation_input_token_count": 460,
+      "embedding_input_token_count": 413
+    },
+    {
+      "book_id": "MB10",
+      "page": 5,
+      "char_count": 1198,
+      "generation_input_token_count": 687,
+      "embedding_input_token_count": 621
+    },
+    {
+      "book_id": "MB10",
+      "page": 6,
+      "char_count": 1183,
+      "generation_input_token_count": 690,
+      "embedding_input_token_count": 618
+    },
+    {
+      "book_id": "MB10",
+      "page": 7,
+      "char_count": 1231,
+      "generation_input_token_count": 719,
+      "embedding_input_token_count": 651
+    },
+    {
+      "book_id": "MB10",
+      "page": 8,
+      "char_count": 1308,
+      "generation_input_token_count": 738,
+      "embedding_input_token_count": 665
+    },
+    {
+      "book_id": "MB10",
+      "page": 9,
+      "char_count": 1184,
+      "generation_input_token_count": 665,
+      "embedding_input_token_count": 609
+    },
+    {
+      "book_id": "MB10",
+      "page": 10,
+      "char_count": 1140,
+      "generation_input_token_count": 672,
+      "embedding_input_token_count": 608
+    },
+    {
+      "book_id": "MB10",
+      "page": 11,
+      "char_count": 1194,
+      "generation_input_token_count": 670,
+      "embedding_input_token_count": 603
+    },
+    {
+      "book_id": "MB10",
+      "page": 12,
+      "char_count": 1189,
+      "generation_input_token_count": 659,
+      "embedding_input_token_count": 594
+    },
+    {
+      "book_id": "MB10",
+      "page": 13,
+      "char_count": 1205,
+      "generation_input_token_count": 678,
+      "embedding_input_token_count": 619
+    },
+    {
+      "book_id": "MB10",
+      "page": 14,
+      "char_count": 1191,
+      "generation_input_token_count": 696,
+      "embedding_input_token_count": 616
+    },
+    {
+      "book_id": "MB10",
+      "page": 15,
+      "char_count": 1226,
+      "generation_input_token_count": 704,
+      "embedding_input_token_count": 658
+    },
+    {
+      "book_id": "MB10",
+      "page": 16,
+      "char_count": 1176,
+      "generation_input_token_count": 661,
+      "embedding_input_token_count": 589
+    },
+    {
+      "book_id": "MB10",
+      "page": 17,
+      "char_count": 1162,
+      "generation_input_token_count": 666,
+      "embedding_input_token_count": 599
+    },
+    {
+      "book_id": "MB10",
+      "page": 18,
+      "char_count": 1159,
+      "generation_input_token_count": 671,
+      "embedding_input_token_count": 609
+    },
+    {
+      "book_id": "MB10",
+      "page": 19,
+      "char_count": 1184,
+      "generation_input_token_count": 649,
+      "embedding_input_token_count": 597
+    },
+    {
+      "book_id": "MB10",
+      "page": 20,
+      "char_count": 1246,
+      "generation_input_token_count": 720,
+      "embedding_input_token_count": 655
+    },
+    {
+      "book_id": "MB10",
+      "page": 21,
+      "char_count": 1276,
+      "generation_input_token_count": 723,
+      "embedding_input_token_count": 658
+    },
+    {
+      "book_id": "MB10",
+      "page": 22,
+      "char_count": 1382,
+      "generation_input_token_count": 785,
+      "embedding_input_token_count": 712
+    },
+    {
+      "book_id": "MB10",
+      "page": 23,
+      "char_count": 1294,
+      "generation_input_token_count": 733,
+      "embedding_input_token_count": 650
+    },
+    {
+      "book_id": "MB10",
+      "page": 24,
+      "char_count": 1280,
+      "generation_input_token_count": 712,
+      "embedding_input_token_count": 647
+    },
+    {
+      "book_id": "MB11",
+      "page": 1,
+      "char_count": 983,
+      "generation_input_token_count": 556,
+      "embedding_input_token_count": 494
+    },
+    {
+      "book_id": "MB11",
+      "page": 2,
+      "char_count": 821,
+      "generation_input_token_count": 464,
+      "embedding_input_token_count": 419
+    },
+    {
+      "book_id": "MB11",
+      "page": 3,
+      "char_count": 792,
+      "generation_input_token_count": 449,
+      "embedding_input_token_count": 400
+    },
+    {
+      "book_id": "MB11",
+      "page": 4,
+      "char_count": 850,
+      "generation_input_token_count": 475,
+      "embedding_input_token_count": 416
+    },
+    {
+      "book_id": "MB11",
+      "page": 5,
+      "char_count": 1264,
+      "generation_input_token_count": 756,
+      "embedding_input_token_count": 662
+    },
+    {
+      "book_id": "MB11",
+      "page": 6,
+      "char_count": 1268,
+      "generation_input_token_count": 732,
+      "embedding_input_token_count": 657
+    },
+    {
+      "book_id": "MB11",
+      "page": 7,
+      "char_count": 1274,
+      "generation_input_token_count": 764,
+      "embedding_input_token_count": 658
+    },
+    {
+      "book_id": "MB11",
+      "page": 8,
+      "char_count": 1250,
+      "generation_input_token_count": 731,
+      "embedding_input_token_count": 642
+    },
+    {
+      "book_id": "MB11",
+      "page": 9,
+      "char_count": 1317,
+      "generation_input_token_count": 763,
+      "embedding_input_token_count": 664
+    },
+    {
+      "book_id": "MB11",
+      "page": 10,
+      "char_count": 1319,
+      "generation_input_token_count": 772,
+      "embedding_input_token_count": 675
+    },
+    {
+      "book_id": "MB11",
+      "page": 11,
+      "char_count": 1323,
+      "generation_input_token_count": 754,
+      "embedding_input_token_count": 683
+    },
+    {
+      "book_id": "MB11",
+      "page": 12,
+      "char_count": 1279,
+      "generation_input_token_count": 764,
+      "embedding_input_token_count": 675
+    },
+    {
+      "book_id": "MB11",
+      "page": 13,
+      "char_count": 1291,
+      "generation_input_token_count": 743,
+      "embedding_input_token_count": 661
+    },
+    {
+      "book_id": "MB11",
+      "page": 14,
+      "char_count": 1303,
+      "generation_input_token_count": 746,
+      "embedding_input_token_count": 681
+    },
+    {
+      "book_id": "MB11",
+      "page": 15,
+      "char_count": 1289,
+      "generation_input_token_count": 755,
+      "embedding_input_token_count": 677
+    },
+    {
+      "book_id": "MB11",
+      "page": 16,
+      "char_count": 1256,
+      "generation_input_token_count": 734,
+      "embedding_input_token_count": 639
+    },
+    {
+      "book_id": "MB11",
+      "page": 17,
+      "char_count": 1207,
+      "generation_input_token_count": 708,
+      "embedding_input_token_count": 633
+    },
+    {
+      "book_id": "MB11",
+      "page": 18,
+      "char_count": 1251,
+      "generation_input_token_count": 710,
+      "embedding_input_token_count": 641
+    },
+    {
+      "book_id": "MB11",
+      "page": 19,
+      "char_count": 1278,
+      "generation_input_token_count": 731,
+      "embedding_input_token_count": 658
+    },
+    {
+      "book_id": "MB11",
+      "page": 20,
+      "char_count": 1522,
+      "generation_input_token_count": 863,
+      "embedding_input_token_count": 767
+    },
+    {
+      "book_id": "MB11",
+      "page": 21,
+      "char_count": 1378,
+      "generation_input_token_count": 769,
+      "embedding_input_token_count": 679
+    },
+    {
+      "book_id": "MB11",
+      "page": 22,
+      "char_count": 1468,
+      "generation_input_token_count": 854,
+      "embedding_input_token_count": 750
+    },
+    {
+      "book_id": "MB11",
+      "page": 23,
+      "char_count": 1443,
+      "generation_input_token_count": 848,
+      "embedding_input_token_count": 753
+    },
+    {
+      "book_id": "MB11",
+      "page": 24,
+      "char_count": 1453,
+      "generation_input_token_count": 862,
+      "embedding_input_token_count": 760
+    },
+    {
+      "book_id": "MB12",
+      "page": 1,
+      "char_count": 857,
+      "generation_input_token_count": 483,
+      "embedding_input_token_count": 429
+    },
+    {
+      "book_id": "MB12",
+      "page": 2,
+      "char_count": 811,
+      "generation_input_token_count": 428,
+      "embedding_input_token_count": 396
+    },
+    {
+      "book_id": "MB12",
+      "page": 3,
+      "char_count": 824,
+      "generation_input_token_count": 449,
+      "embedding_input_token_count": 413
+    },
+    {
+      "book_id": "MB12",
+      "page": 4,
+      "char_count": 808,
+      "generation_input_token_count": 432,
+      "embedding_input_token_count": 378
+    },
+    {
+      "book_id": "MB12",
+      "page": 5,
+      "char_count": 1320,
+      "generation_input_token_count": 750,
+      "embedding_input_token_count": 687
+    },
+    {
+      "book_id": "MB12",
+      "page": 6,
+      "char_count": 1293,
+      "generation_input_token_count": 760,
+      "embedding_input_token_count": 686
+    },
+    {
+      "book_id": "MB12",
+      "page": 7,
+      "char_count": 1308,
+      "generation_input_token_count": 741,
+      "embedding_input_token_count": 663
+    },
+    {
+      "book_id": "MB12",
+      "page": 8,
+      "char_count": 1313,
+      "generation_input_token_count": 744,
+      "embedding_input_token_count": 668
+    },
+    {
+      "book_id": "MB12",
+      "page": 9,
+      "char_count": 1284,
+      "generation_input_token_count": 730,
+      "embedding_input_token_count": 643
+    },
+    {
+      "book_id": "MB12",
+      "page": 10,
+      "char_count": 1282,
+      "generation_input_token_count": 743,
+      "embedding_input_token_count": 678
+    },
+    {
+      "book_id": "MB12",
+      "page": 11,
+      "char_count": 1237,
+      "generation_input_token_count": 705,
+      "embedding_input_token_count": 643
+    },
+    {
+      "book_id": "MB12",
+      "page": 12,
+      "char_count": 1228,
+      "generation_input_token_count": 691,
+      "embedding_input_token_count": 626
+    },
+    {
+      "book_id": "MB12",
+      "page": 13,
+      "char_count": 1166,
+      "generation_input_token_count": 643,
+      "embedding_input_token_count": 577
+    },
+    {
+      "book_id": "MB12",
+      "page": 14,
+      "char_count": 1294,
+      "generation_input_token_count": 715,
+      "embedding_input_token_count": 639
+    },
+    {
+      "book_id": "MB12",
+      "page": 15,
+      "char_count": 1282,
+      "generation_input_token_count": 732,
+      "embedding_input_token_count": 672
+    },
+    {
+      "book_id": "MB12",
+      "page": 16,
+      "char_count": 1304,
+      "generation_input_token_count": 736,
+      "embedding_input_token_count": 675
+    },
+    {
+      "book_id": "MB12",
+      "page": 17,
+      "char_count": 1274,
+      "generation_input_token_count": 708,
+      "embedding_input_token_count": 655
+    },
+    {
+      "book_id": "MB12",
+      "page": 18,
+      "char_count": 1187,
+      "generation_input_token_count": 679,
+      "embedding_input_token_count": 610
+    },
+    {
+      "book_id": "MB12",
+      "page": 19,
+      "char_count": 1289,
+      "generation_input_token_count": 737,
+      "embedding_input_token_count": 667
+    },
+    {
+      "book_id": "MB12",
+      "page": 20,
+      "char_count": 1375,
+      "generation_input_token_count": 766,
+      "embedding_input_token_count": 694
+    },
+    {
+      "book_id": "MB12",
+      "page": 21,
+      "char_count": 1337,
+      "generation_input_token_count": 743,
+      "embedding_input_token_count": 671
+    },
+    {
+      "book_id": "MB12",
+      "page": 22,
+      "char_count": 1298,
+      "generation_input_token_count": 731,
+      "embedding_input_token_count": 645
+    },
+    {
+      "book_id": "MB12",
+      "page": 23,
+      "char_count": 1253,
+      "generation_input_token_count": 709,
+      "embedding_input_token_count": 633
+    },
+    {
+      "book_id": "MB12",
+      "page": 24,
+      "char_count": 1346,
+      "generation_input_token_count": 748,
+      "embedding_input_token_count": 688
+    },
+    {
+      "book_id": "MB13",
+      "page": 1,
+      "char_count": 840,
+      "generation_input_token_count": 449,
+      "embedding_input_token_count": 396
+    },
+    {
+      "book_id": "MB13",
+      "page": 2,
+      "char_count": 822,
+      "generation_input_token_count": 480,
+      "embedding_input_token_count": 425
+    },
+    {
+      "book_id": "MB13",
+      "page": 3,
+      "char_count": 801,
+      "generation_input_token_count": 451,
+      "embedding_input_token_count": 401
+    },
+    {
+      "book_id": "MB13",
+      "page": 4,
+      "char_count": 828,
+      "generation_input_token_count": 432,
+      "embedding_input_token_count": 397
+    },
+    {
+      "book_id": "MB13",
+      "page": 5,
+      "char_count": 1210,
+      "generation_input_token_count": 680,
+      "embedding_input_token_count": 607
+    },
+    {
+      "book_id": "MB13",
+      "page": 6,
+      "char_count": 1216,
+      "generation_input_token_count": 686,
+      "embedding_input_token_count": 616
+    },
+    {
+      "book_id": "MB13",
+      "page": 7,
+      "char_count": 1232,
+      "generation_input_token_count": 708,
+      "embedding_input_token_count": 624
+    },
+    {
+      "book_id": "MB13",
+      "page": 8,
+      "char_count": 1203,
+      "generation_input_token_count": 684,
+      "embedding_input_token_count": 612
+    },
+    {
+      "book_id": "MB13",
+      "page": 9,
+      "char_count": 1244,
+      "generation_input_token_count": 723,
+      "embedding_input_token_count": 667
+    },
+    {
+      "book_id": "MB13",
+      "page": 10,
+      "char_count": 1179,
+      "generation_input_token_count": 702,
+      "embedding_input_token_count": 627
+    },
+    {
+      "book_id": "MB13",
+      "page": 11,
+      "char_count": 1207,
+      "generation_input_token_count": 699,
+      "embedding_input_token_count": 628
+    },
+    {
+      "book_id": "MB13",
+      "page": 12,
+      "char_count": 1273,
+      "generation_input_token_count": 713,
+      "embedding_input_token_count": 646
+    },
+    {
+      "book_id": "MB13",
+      "page": 13,
+      "char_count": 1274,
+      "generation_input_token_count": 707,
+      "embedding_input_token_count": 622
+    },
+    {
+      "book_id": "MB13",
+      "page": 14,
+      "char_count": 1239,
+      "generation_input_token_count": 710,
+      "embedding_input_token_count": 637
+    },
+    {
+      "book_id": "MB13",
+      "page": 15,
+      "char_count": 1246,
+      "generation_input_token_count": 712,
+      "embedding_input_token_count": 644
+    },
+    {
+      "book_id": "MB13",
+      "page": 16,
+      "char_count": 1240,
+      "generation_input_token_count": 692,
+      "embedding_input_token_count": 617
+    },
+    {
+      "book_id": "MB13",
+      "page": 17,
+      "char_count": 1143,
+      "generation_input_token_count": 629,
+      "embedding_input_token_count": 589
+    },
+    {
+      "book_id": "MB13",
+      "page": 18,
+      "char_count": 1114,
+      "generation_input_token_count": 635,
+      "embedding_input_token_count": 562
+    },
+    {
+      "book_id": "MB13",
+      "page": 19,
+      "char_count": 1125,
+      "generation_input_token_count": 621,
+      "embedding_input_token_count": 555
+    },
+    {
+      "book_id": "MB13",
+      "page": 20,
+      "char_count": 1204,
+      "generation_input_token_count": 726,
+      "embedding_input_token_count": 630
+    },
+    {
+      "book_id": "MB13",
+      "page": 21,
+      "char_count": 1102,
+      "generation_input_token_count": 636,
+      "embedding_input_token_count": 570
+    },
+    {
+      "book_id": "MB13",
+      "page": 22,
+      "char_count": 1115,
+      "generation_input_token_count": 634,
+      "embedding_input_token_count": 559
+    },
+    {
+      "book_id": "MB13",
+      "page": 23,
+      "char_count": 1209,
+      "generation_input_token_count": 670,
+      "embedding_input_token_count": 601
+    },
+    {
+      "book_id": "MB13",
+      "page": 24,
+      "char_count": 1211,
+      "generation_input_token_count": 693,
+      "embedding_input_token_count": 622
+    },
+    {
+      "book_id": "MB14",
+      "page": 1,
+      "char_count": 788,
+      "generation_input_token_count": 442,
+      "embedding_input_token_count": 389
+    },
+    {
+      "book_id": "MB14",
+      "page": 2,
+      "char_count": 781,
+      "generation_input_token_count": 440,
+      "embedding_input_token_count": 398
+    },
+    {
+      "book_id": "MB14",
+      "page": 3,
+      "char_count": 807,
+      "generation_input_token_count": 441,
+      "embedding_input_token_count": 393
+    },
+    {
+      "book_id": "MB14",
+      "page": 4,
+      "char_count": 818,
+      "generation_input_token_count": 447,
+      "embedding_input_token_count": 401
+    },
+    {
+      "book_id": "MB14",
+      "page": 5,
+      "char_count": 1438,
+      "generation_input_token_count": 872,
+      "embedding_input_token_count": 751
+    },
+    {
+      "book_id": "MB14",
+      "page": 6,
+      "char_count": 1279,
+      "generation_input_token_count": 769,
+      "embedding_input_token_count": 673
+    },
+    {
+      "book_id": "MB14",
+      "page": 7,
+      "char_count": 1288,
+      "generation_input_token_count": 736,
+      "embedding_input_token_count": 656
+    },
+    {
+      "book_id": "MB14",
+      "page": 8,
+      "char_count": 1315,
+      "generation_input_token_count": 768,
+      "embedding_input_token_count": 664
+    },
+    {
+      "book_id": "MB14",
+      "page": 9,
+      "char_count": 1280,
+      "generation_input_token_count": 733,
+      "embedding_input_token_count": 654
+    },
+    {
+      "book_id": "MB14",
+      "page": 10,
+      "char_count": 1154,
+      "generation_input_token_count": 694,
+      "embedding_input_token_count": 626
+    },
+    {
+      "book_id": "MB14",
+      "page": 11,
+      "char_count": 1172,
+      "generation_input_token_count": 696,
+      "embedding_input_token_count": 609
+    },
+    {
+      "book_id": "MB14",
+      "page": 12,
+      "char_count": 1215,
+      "generation_input_token_count": 706,
+      "embedding_input_token_count": 640
+    },
+    {
+      "book_id": "MB14",
+      "page": 13,
+      "char_count": 1228,
+      "generation_input_token_count": 706,
+      "embedding_input_token_count": 631
+    },
+    {
+      "book_id": "MB14",
+      "page": 14,
+      "char_count": 1220,
+      "generation_input_token_count": 735,
+      "embedding_input_token_count": 659
+    },
+    {
+      "book_id": "MB14",
+      "page": 15,
+      "char_count": 1158,
+      "generation_input_token_count": 698,
+      "embedding_input_token_count": 606
+    },
+    {
+      "book_id": "MB14",
+      "page": 16,
+      "char_count": 1159,
+      "generation_input_token_count": 659,
+      "embedding_input_token_count": 598
+    },
+    {
+      "book_id": "MB14",
+      "page": 17,
+      "char_count": 1170,
+      "generation_input_token_count": 672,
+      "embedding_input_token_count": 600
+    },
+    {
+      "book_id": "MB14",
+      "page": 18,
+      "char_count": 1252,
+      "generation_input_token_count": 703,
+      "embedding_input_token_count": 637
+    },
+    {
+      "book_id": "MB14",
+      "page": 19,
+      "char_count": 1202,
+      "generation_input_token_count": 680,
+      "embedding_input_token_count": 599
+    },
+    {
+      "book_id": "MB14",
+      "page": 20,
+      "char_count": 1196,
+      "generation_input_token_count": 678,
+      "embedding_input_token_count": 619
+    },
+    {
+      "book_id": "MB14",
+      "page": 21,
+      "char_count": 1235,
+      "generation_input_token_count": 725,
+      "embedding_input_token_count": 632
+    },
+    {
+      "book_id": "MB14",
+      "page": 22,
+      "char_count": 1255,
+      "generation_input_token_count": 716,
+      "embedding_input_token_count": 612
+    },
+    {
+      "book_id": "MB14",
+      "page": 23,
+      "char_count": 1231,
+      "generation_input_token_count": 697,
+      "embedding_input_token_count": 635
+    },
+    {
+      "book_id": "MB14",
+      "page": 24,
+      "char_count": 1264,
+      "generation_input_token_count": 754,
+      "embedding_input_token_count": 666
+    },
+    {
+      "book_id": "MB15",
+      "page": 1,
+      "char_count": 855,
+      "generation_input_token_count": 477,
+      "embedding_input_token_count": 425
+    },
+    {
+      "book_id": "MB15",
+      "page": 2,
+      "char_count": 1105,
+      "generation_input_token_count": 580,
+      "embedding_input_token_count": 521
+    },
+    {
+      "book_id": "MB15",
+      "page": 3,
+      "char_count": 874,
+      "generation_input_token_count": 478,
+      "embedding_input_token_count": 422
+    },
+    {
+      "book_id": "MB15",
+      "page": 4,
+      "char_count": 863,
+      "generation_input_token_count": 473,
+      "embedding_input_token_count": 422
+    },
+    {
+      "book_id": "MB15",
+      "page": 5,
+      "char_count": 1106,
+      "generation_input_token_count": 635,
+      "embedding_input_token_count": 589
+    },
+    {
+      "book_id": "MB15",
+      "page": 6,
+      "char_count": 1100,
+      "generation_input_token_count": 602,
+      "embedding_input_token_count": 548
+    },
+    {
+      "book_id": "MB15",
+      "page": 7,
+      "char_count": 1120,
+      "generation_input_token_count": 630,
+      "embedding_input_token_count": 567
+    },
+    {
+      "book_id": "MB15",
+      "page": 8,
+      "char_count": 1105,
+      "generation_input_token_count": 656,
+      "embedding_input_token_count": 597
+    },
+    {
+      "book_id": "MB15",
+      "page": 9,
+      "char_count": 1067,
+      "generation_input_token_count": 614,
+      "embedding_input_token_count": 565
+    },
+    {
+      "book_id": "MB15",
+      "page": 10,
+      "char_count": 1092,
+      "generation_input_token_count": 654,
+      "embedding_input_token_count": 582
+    },
+    {
+      "book_id": "MB15",
+      "page": 11,
+      "char_count": 1102,
+      "generation_input_token_count": 649,
+      "embedding_input_token_count": 584
+    },
+    {
+      "book_id": "MB15",
+      "page": 12,
+      "char_count": 1065,
+      "generation_input_token_count": 633,
+      "embedding_input_token_count": 549
+    },
+    {
+      "book_id": "MB15",
+      "page": 13,
+      "char_count": 1138,
+      "generation_input_token_count": 619,
+      "embedding_input_token_count": 556
+    },
+    {
+      "book_id": "MB15",
+      "page": 14,
+      "char_count": 1145,
+      "generation_input_token_count": 646,
+      "embedding_input_token_count": 575
+    },
+    {
+      "book_id": "MB15",
+      "page": 15,
+      "char_count": 1181,
+      "generation_input_token_count": 674,
+      "embedding_input_token_count": 594
+    },
+    {
+      "book_id": "MB15",
+      "page": 16,
+      "char_count": 1424,
+      "generation_input_token_count": 840,
+      "embedding_input_token_count": 727
+    },
+    {
+      "book_id": "MB15",
+      "page": 17,
+      "char_count": 1247,
+      "generation_input_token_count": 706,
+      "embedding_input_token_count": 631
+    },
+    {
+      "book_id": "MB15",
+      "page": 18,
+      "char_count": 1235,
+      "generation_input_token_count": 685,
+      "embedding_input_token_count": 621
+    },
+    {
+      "book_id": "MB15",
+      "page": 19,
+      "char_count": 1225,
+      "generation_input_token_count": 705,
+      "embedding_input_token_count": 635
+    },
+    {
+      "book_id": "MB15",
+      "page": 20,
+      "char_count": 1275,
+      "generation_input_token_count": 747,
+      "embedding_input_token_count": 674
+    },
+    {
+      "book_id": "MB15",
+      "page": 21,
+      "char_count": 1335,
+      "generation_input_token_count": 746,
+      "embedding_input_token_count": 685
+    },
+    {
+      "book_id": "MB15",
+      "page": 22,
+      "char_count": 1270,
+      "generation_input_token_count": 706,
+      "embedding_input_token_count": 636
+    },
+    {
+      "book_id": "MB15",
+      "page": 23,
+      "char_count": 1313,
+      "generation_input_token_count": 734,
+      "embedding_input_token_count": 662
+    },
+    {
+      "book_id": "MB15",
+      "page": 24,
+      "char_count": 1396,
+      "generation_input_token_count": 795,
+      "embedding_input_token_count": 718
+    }
+  ],
+  "questions": [
+    {
+      "id": "M-DEV-01",
+      "expected_action": "answer",
+      "evidence_page_count": 1,
+      "evidence_doc_count": 1
+    },
+    {
+      "id": "M-DEV-02",
+      "expected_action": "answer",
+      "evidence_page_count": 2,
+      "evidence_doc_count": 2
+    },
+    {
+      "id": "M-DEV-03",
+      "expected_action": "answer",
+      "evidence_page_count": 1,
+      "evidence_doc_count": 1
+    },
+    {
+      "id": "M-DEV-04",
+      "expected_action": "answer",
+      "evidence_page_count": 1,
+      "evidence_doc_count": 1
+    },
+    {
+      "id": "M-DEV-05",
+      "expected_action": "answer",
+      "evidence_page_count": 2,
+      "evidence_doc_count": 2
+    },
+    {
+      "id": "M-DEV-06",
+      "expected_action": "answer",
+      "evidence_page_count": 2,
+      "evidence_doc_count": 2
+    },
+    {
+      "id": "M-DEV-07",
+      "expected_action": "answer",
+      "evidence_page_count": 2,
+      "evidence_doc_count": 2
+    },
+    {
+      "id": "M-DEV-08",
+      "expected_action": "clarify",
+      "evidence_page_count": 1,
+      "evidence_doc_count": 1
+    },
+    {
+      "id": "M-DEV-09",
+      "expected_action": "answer",
+      "evidence_page_count": 1,
+      "evidence_doc_count": 1
+    },
+    {
+      "id": "M-DEV-10",
+      "expected_action": "answer",
+      "evidence_page_count": 2,
+      "evidence_doc_count": 2
+    },
+    {
+      "id": "M-DEV-11",
+      "expected_action": "answer",
+      "evidence_page_count": 1,
+      "evidence_doc_count": 1
+    },
+    {
+      "id": "M-DEV-12",
+      "expected_action": "abstain",
+      "evidence_page_count": 1,
+      "evidence_doc_count": 1
+    },
+    {
+      "id": "M-DEV-13",
+      "expected_action": "answer",
+      "evidence_page_count": 3,
+      "evidence_doc_count": 2
+    },
+    {
+      "id": "M-DEV-14",
+      "expected_action": "answer",
+      "evidence_page_count": 2,
+      "evidence_doc_count": 2
+    },
+    {
+      "id": "M-DEV-15",
+      "expected_action": "answer",
+      "evidence_page_count": 2,
+      "evidence_doc_count": 2
+    },
+    {
+      "id": "M-DEV-16",
+      "expected_action": "answer",
+      "evidence_page_count": 2,
+      "evidence_doc_count": 2
+    },
+    {
+      "id": "M-DEV-17",
+      "expected_action": "answer",
+      "evidence_page_count": 1,
+      "evidence_doc_count": 1
+    },
+    {
+      "id": "M-DEV-18",
+      "expected_action": "answer",
+      "evidence_page_count": 1,
+      "evidence_doc_count": 1
+    },
+    {
+      "id": "M-DEV-19",
+      "expected_action": "abstain",
+      "evidence_page_count": 2,
+      "evidence_doc_count": 2
+    },
+    {
+      "id": "M-DEV-20",
+      "expected_action": "answer",
+      "evidence_page_count": 2,
+      "evidence_doc_count": 1
+    },
+    {
+      "id": "M-DEV-21",
+      "expected_action": "answer",
+      "evidence_page_count": 2,
+      "evidence_doc_count": 2
+    },
+    {
+      "id": "M-DEV-22",
+      "expected_action": "answer",
+      "evidence_page_count": 2,
+      "evidence_doc_count": 2
+    },
+    {
+      "id": "M-DEV-23",
+      "expected_action": "answer",
+      "evidence_page_count": 1,
+      "evidence_doc_count": 1
+    },
+    {
+      "id": "M-DEV-24",
+      "expected_action": "clarify",
+      "evidence_page_count": 0,
+      "evidence_doc_count": 0
+    },
+    {
+      "id": "M-DEV-25",
+      "expected_action": "abstain",
+      "evidence_page_count": 1,
+      "evidence_doc_count": 1
+    },
+    {
+      "id": "M-DEV-26",
+      "expected_action": "answer",
+      "evidence_page_count": 1,
+      "evidence_doc_count": 1
+    },
+    {
+      "id": "M-DEV-27",
+      "expected_action": "answer",
+      "evidence_page_count": 3,
+      "evidence_doc_count": 2
+    },
+    {
+      "id": "M-DEV-28",
+      "expected_action": "answer",
+      "evidence_page_count": 2,
+      "evidence_doc_count": 2
+    },
+    {
+      "id": "M-DEV-29",
+      "expected_action": "answer",
+      "evidence_page_count": 1,
+      "evidence_doc_count": 1
+    },
+    {
+      "id": "M-DEV-30",
+      "expected_action": "answer",
+      "evidence_page_count": 2,
+      "evidence_doc_count": 2
+    }
+  ]
+}

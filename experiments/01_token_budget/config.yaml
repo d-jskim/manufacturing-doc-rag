@@ -1,5 +1,5 @@
 experiment: 01_token_budget
-dataset: manufacturing_basic
+datasets: [manufacturing_basic, manufacturing_intermediate, manufacturing_advanced]
 
 paths:
   documents: data/raw/{dataset}/documents
