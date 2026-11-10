@@ -1,0 +1,10 @@
+# 서비스가 사용하는 조합(운영 설정). 실험으로 더 나은 조합을 정하면 이 파일만 바꿈
+dataset: manufacturing_basic
+chunk_version: c1                # 02 청킹 실험 결과
+embedding: m1
+prompt: p1
+retrieval_modes:                 # 요청의 retrieval_mode → 검색 설정 버전(configs/retrieval/)
+  naive: r1
+default_retrieval_mode: naive
+context_token_budget: 1582       # 01 토큰 한도 실험 결과
+qdrant_url: http://127.0.0.1:6333
