@@ -1,0 +1,768 @@
+{
+  "summary": {
+    "run_id": "e02_c1_m1_p0_r1_20261110_1922",
+    "dataset": "manufacturing_basic",
+    "chunk_version": "c1",
+    "embedding": "m1",
+    "embedding_device": "cuda:0",
+    "retrieval": "r1",
+    "collection": "manufacturing_basic_c1_m1",
+    "index_reused": true,
+    "context_token_budget": 1582,
+    "candidate_count": 20,
+    "chunk_stats": {
+      "chunk_count": 360,
+      "chunk_text_token_count": {
+        "min": 287,
+        "median": 637.0,
+        "max": 806
+      },
+      "chunk_encoded_token_count": {
+        "min": 291,
+        "median": 641.0,
+        "max": 810
+      },
+      "over_limit_chunk_count": 301,
+      "cross_page_chunk_count": 0
+    },
+    "retrieval_metrics": {
+      "evaluated_count": 29,
+      "not_applicable_count": 1,
+      "hit_at_k": 0.7586,
+      "recall_at_k": 0.569,
+      "quote_recall_at_k": 0.4368,
+      "mean_k": 2.2069
+    },
+    "ann_comparison": {
+      "question_count": 30,
+      "same_ranking_count": 30,
+      "mean_ann_recall": 1.0
+    },
+    "cost": {
+      "stage_seconds": {
+        "extract_shared": 26.357,
+        "chunk": 0.372,
+        "embed_index": 0.057,
+        "retrieval_eval": 1.417
+      },
+      "total_seconds": 28.203,
+      "request_seconds": {
+        "search_exact": {
+          "count": 30,
+          "mean": 0.0176,
+          "median": 0.0201,
+          "p95": 0.024
+        },
+        "search_ann": {
+          "count": 30,
+          "mean": 0.0073,
+          "median": 0.0039,
+          "p95": 0.0147
+        }
+      },
+      "token_counts": {
+        "embedding_passage": 0,
+        "embedding_query": 1541
+      },
+      "environment": {
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.13",
+        "cpu": "Intel64 Family 6 Model 198 Stepping 2, GenuineIntel",
+        "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU"
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": "M-DEV-01",
+      "k": 3,
+      "context_chunk_ids": [
+        "MB01_c1_0001",
+        "MB10_c1_0003",
+        "MB02_c1_0001"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB02"
+      ],
+      "found_book_ids": [
+        "MB02"
+      ],
+      "hit": 1,
+      "recall": 1.0,
+      "quote_recall": 1.0,
+      "context_token_count": 1172,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-02",
+      "k": 2,
+      "context_chunk_ids": [
+        "MB01_c1_0002",
+        "MB08_c1_0024"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB01",
+        "MB04"
+      ],
+      "found_book_ids": [
+        "MB01"
+      ],
+      "hit": 1,
+      "recall": 0.5,
+      "quote_recall": 0.5,
+      "context_token_count": 1151,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-03",
+      "k": 2,
+      "context_chunk_ids": [
+        "MB02_c1_0003",
+        "MB03_c1_0012"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB02"
+      ],
+      "found_book_ids": [
+        "MB02"
+      ],
+      "hit": 1,
+      "recall": 1.0,
+      "quote_recall": 1.0,
+      "context_token_count": 1026,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-04",
+      "k": 2,
+      "context_chunk_ids": [
+        "MB13_c1_0019",
+        "MB13_c1_0012"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB03"
+      ],
+      "found_book_ids": [],
+      "hit": 0,
+      "recall": 0.0,
+      "quote_recall": 0.0,
+      "context_token_count": 1334,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-05",
+      "k": 2,
+      "context_chunk_ids": [
+        "MB13_c1_0013",
+        "MB06_c1_0021"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB01",
+        "MB06"
+      ],
+      "found_book_ids": [
+        "MB06"
+      ],
+      "hit": 1,
+      "recall": 0.5,
+      "quote_recall": 0.0,
+      "context_token_count": 1500,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-06",
+      "k": 3,
+      "context_chunk_ids": [
+        "MB08_c1_0003",
+        "MB05_c1_0002",
+        "MB15_c1_0009"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB04",
+        "MB05"
+      ],
+      "found_book_ids": [
+        "MB05"
+      ],
+      "hit": 1,
+      "recall": 0.5,
+      "quote_recall": 0.5,
+      "context_token_count": 1330,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-07",
+      "k": 2,
+      "context_chunk_ids": [
+        "MB01_c1_0016",
+        "MB01_c1_0002"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB01",
+        "MB07"
+      ],
+      "found_book_ids": [
+        "MB01"
+      ],
+      "hit": 1,
+      "recall": 0.5,
+      "quote_recall": 0.5,
+      "context_token_count": 1134,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-08",
+      "k": 1,
+      "context_chunk_ids": [
+        "MB15_c1_0016"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB01"
+      ],
+      "found_book_ids": [],
+      "hit": 0,
+      "recall": 0.0,
+      "quote_recall": 0.0,
+      "context_token_count": 840,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-09",
+      "k": 3,
+      "context_chunk_ids": [
+        "MB13_c1_0016",
+        "MB04_c1_0004",
+        "MB06_c1_0003"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB06"
+      ],
+      "found_book_ids": [
+        "MB06"
+      ],
+      "hit": 1,
+      "recall": 1.0,
+      "quote_recall": 1.0,
+      "context_token_count": 1378,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-10",
+      "k": 2,
+      "context_chunk_ids": [
+        "MB13_c1_0017",
+        "MB04_c1_0002"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB02",
+        "MB04"
+      ],
+      "found_book_ids": [
+        "MB04"
+      ],
+      "hit": 1,
+      "recall": 0.5,
+      "quote_recall": 0.5,
+      "context_token_count": 980,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-11",
+      "k": 3,
+      "context_chunk_ids": [
+        "MB12_c1_0008",
+        "MB08_c1_0003",
+        "MB05_c1_0003"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB02"
+      ],
+      "found_book_ids": [],
+      "hit": 0,
+      "recall": 0.0,
+      "quote_recall": 0.0,
+      "context_token_count": 1454,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-12",
+      "k": 3,
+      "context_chunk_ids": [
+        "MB03_c1_0001",
+        "MB09_c1_0021",
+        "MB01_c1_0001"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB03"
+      ],
+      "found_book_ids": [
+        "MB03"
+      ],
+      "hit": 1,
+      "recall": 1.0,
+      "quote_recall": 1.0,
+      "context_token_count": 1558,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-13",
+      "k": 2,
+      "context_chunk_ids": [
+        "MB07_c1_0006",
+        "MB07_c1_0001"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB04",
+        "MB07"
+      ],
+      "found_book_ids": [
+        "MB07"
+      ],
+      "hit": 1,
+      "recall": 0.5,
+      "quote_recall": 0.6667,
+      "context_token_count": 1063,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-14",
+      "k": 2,
+      "context_chunk_ids": [
+        "MB09_c1_0008",
+        "MB14_c1_0012"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB03",
+        "MB05"
+      ],
+      "found_book_ids": [],
+      "hit": 0,
+      "recall": 0.0,
+      "quote_recall": 0.0,
+      "context_token_count": 1407,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-15",
+      "k": 2,
+      "context_chunk_ids": [
+        "MB13_c1_0008",
+        "MB06_c1_0011"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB04",
+        "MB12"
+      ],
+      "found_book_ids": [],
+      "hit": 0,
+      "recall": 0.0,
+      "quote_recall": 0.0,
+      "context_token_count": 1374,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-16",
+      "k": 2,
+      "context_chunk_ids": [
+        "MB07_c1_0018",
+        "MB15_c1_0007"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB07",
+        "MB11"
+      ],
+      "found_book_ids": [
+        "MB07"
+      ],
+      "hit": 1,
+      "recall": 0.5,
+      "quote_recall": 0.0,
+      "context_token_count": 1358,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-17",
+      "k": 2,
+      "context_chunk_ids": [
+        "MB11_c1_0001",
+        "MB11_c1_0006"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB11"
+      ],
+      "found_book_ids": [
+        "MB11"
+      ],
+      "hit": 1,
+      "recall": 1.0,
+      "quote_recall": 1.0,
+      "context_token_count": 1288,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-18",
+      "k": 2,
+      "context_chunk_ids": [
+        "MB02_c1_0002",
+        "MB02_c1_0023"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB11"
+      ],
+      "found_book_ids": [],
+      "hit": 0,
+      "recall": 0.0,
+      "quote_recall": 0.0,
+      "context_token_count": 1144,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-19",
+      "k": 2,
+      "context_chunk_ids": [
+        "MB11_c1_0001",
+        "MB11_c1_0006"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB02",
+        "MB11"
+      ],
+      "found_book_ids": [
+        "MB11"
+      ],
+      "hit": 1,
+      "recall": 0.5,
+      "quote_recall": 1.0,
+      "context_token_count": 1288,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-20",
+      "k": 2,
+      "context_chunk_ids": [
+        "MB02_c1_0023",
+        "MB11_c1_0005"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB11"
+      ],
+      "found_book_ids": [
+        "MB11"
+      ],
+      "hit": 1,
+      "recall": 1.0,
+      "quote_recall": 0.0,
+      "context_token_count": 1502,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-21",
+      "k": 2,
+      "context_chunk_ids": [
+        "MB04_c1_0017",
+        "MB04_c1_0003"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB04",
+        "MB06"
+      ],
+      "found_book_ids": [
+        "MB04"
+      ],
+      "hit": 1,
+      "recall": 0.5,
+      "quote_recall": 0.5,
+      "context_token_count": 1070,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-22",
+      "k": 2,
+      "context_chunk_ids": [
+        "MB04_c1_0001",
+        "MB06_c1_0011"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB04",
+        "MB06"
+      ],
+      "found_book_ids": [
+        "MB04",
+        "MB06"
+      ],
+      "hit": 1,
+      "recall": 1.0,
+      "quote_recall": 0.0,
+      "context_token_count": 1051,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-23",
+      "k": 2,
+      "context_chunk_ids": [
+        "MB03_c1_0020",
+        "MB03_c1_0018"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB03"
+      ],
+      "found_book_ids": [
+        "MB03"
+      ],
+      "hit": 1,
+      "recall": 1.0,
+      "quote_recall": 0.0,
+      "context_token_count": 1422,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-24",
+      "k": 3,
+      "context_chunk_ids": [
+        "MB01_c1_0002",
+        "MB05_c1_0001",
+        "MB13_c1_0007"
+      ],
+      "applicable": false,
+      "reason": "참고 근거 문서 없음",
+      "context_token_count": 1452,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-25",
+      "k": 3,
+      "context_chunk_ids": [
+        "MB07_c1_0001",
+        "MB01_c1_0021",
+        "MB01_c1_0001"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB07"
+      ],
+      "found_book_ids": [
+        "MB07"
+      ],
+      "hit": 1,
+      "recall": 1.0,
+      "quote_recall": 1.0,
+      "context_token_count": 1547,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-26",
+      "k": 2,
+      "context_chunk_ids": [
+        "MB12_c1_0002",
+        "MB15_c1_0002"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB12"
+      ],
+      "found_book_ids": [
+        "MB12"
+      ],
+      "hit": 1,
+      "recall": 1.0,
+      "quote_recall": 1.0,
+      "context_token_count": 1008,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-27",
+      "k": 2,
+      "context_chunk_ids": [
+        "MB11_c1_0001",
+        "MB11_c1_0020"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB04",
+        "MB11"
+      ],
+      "found_book_ids": [
+        "MB11"
+      ],
+      "hit": 1,
+      "recall": 0.5,
+      "quote_recall": 0.5,
+      "context_token_count": 1419,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-28",
+      "k": 3,
+      "context_chunk_ids": [
+        "MB05_c1_0002",
+        "MB05_c1_0003",
+        "MB10_c1_0024"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB03",
+        "MB04"
+      ],
+      "found_book_ids": [],
+      "hit": 0,
+      "recall": 0.0,
+      "quote_recall": 0.0,
+      "context_token_count": 1414,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-29",
+      "k": 2,
+      "context_chunk_ids": [
+        "MB06_c1_0003",
+        "MB06_c1_0017"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB06"
+      ],
+      "found_book_ids": [
+        "MB06"
+      ],
+      "hit": 1,
+      "recall": 1.0,
+      "quote_recall": 1.0,
+      "context_token_count": 1020,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    },
+    {
+      "id": "M-DEV-30",
+      "k": 2,
+      "context_chunk_ids": [
+        "MB07_c1_0006",
+        "MB09_c1_0009"
+      ],
+      "applicable": true,
+      "reference_book_ids": [
+        "MB04",
+        "MB07"
+      ],
+      "found_book_ids": [
+        "MB07"
+      ],
+      "hit": 1,
+      "recall": 0.5,
+      "quote_recall": 0.0,
+      "context_token_count": 1423,
+      "ann": {
+        "same_ranking": true,
+        "ann_recall": 1.0
+      }
+    }
+  ]
+}
