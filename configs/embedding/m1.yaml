@@ -1,0 +1,6 @@
+model_code: m1
+model: intfloat/multilingual-e5-base
+passage_prefix: "passage: "
+query_prefix: "query: "
+max_tokens: 512
+batch_size: 32

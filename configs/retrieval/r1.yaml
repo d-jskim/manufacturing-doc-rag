@@ -1,0 +1,5 @@
+retrieval_version: r1
+method: dense            # 임베딩 유사도만 사용(Naive RAG)
+candidate_count: 20      # 문맥을 채우기 전에 가져올 후보 청크 수
+exact: true              # 평가 지표는 전체 비교(exact) 결과로 계산
+compare_ann: true        # 같은 질문을 근사 검색(ANN)으로도 실행해 결과·시간을 함께 기록

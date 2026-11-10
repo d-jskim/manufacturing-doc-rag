@@ -1,9 +1,24 @@
 experiment: 02_chunking
-dataset: manufacturing_basic
+datasets: [manufacturing_basic]   # 01 토큰 한도 baseline이 확정된 데이터셋만
 
 paths:
   documents: data/raw/{dataset}/documents
+  evaluation: data/raw/{dataset}/evaluation
   chunks: data/processed/{dataset}/{chunk_version}
-    results: experiments/02_chunking/results/{dataset}
+  results: experiments/02_chunking/results/{dataset}
 
-chunk_versions: [c1, c2, c3]   # configs/chunking/{버전}.yaml을 참조
+evaluation_files:
+  - development.json  # 설정 조정은 개발 질문만 사용
+
+chunk_versions: [c1, c2, c3]   # configs/chunking/{버전}.yaml
+embedding: m1                  # configs/embedding/{버전}.yaml
+retrieval: r1                  # configs/retrieval/{버전}.yaml
+
+context_token_budget:          # 01 토큰 한도 baseline(report.yaml이 있는 데이터셋)
+  manufacturing_basic: 1582
+
+generation_tokenizer:          # 문맥 한도는 생성 모델 입력 기준으로 셈
+  model: gpt-6-luna
+  fallback: o200k_base
+
+qdrant_url: http://127.0.0.1:6333
