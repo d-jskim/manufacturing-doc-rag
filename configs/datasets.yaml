@@ -1,0 +1,10 @@
+# 데이터셋 ZIP 위치(저장소 기준 상대 경로)와 기대 PDF 수
+manufacturing_basic:
+  source: ../dataset/Basic/Basic_제조
+  expected_pdf_count: 15
+manufacturing_intermediate:
+  source: ../dataset/Intermediate/Intermediate_제조
+  expected_pdf_count: 50
+manufacturing_advanced:
+  source: ../dataset/Advanced/Advanced_제조
+  expected_pdf_count: 120
