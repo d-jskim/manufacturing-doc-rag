@@ -1,0 +1,1092 @@
+{
+  "summary": {
+    "dataset": "manufacturing_basic",
+    "chunk_version": "c1",
+    "retrieval": "bm25_only",
+    "context_token_budget": 1582,
+    "candidate_count": 20,
+    "tokenizers": {
+      "whitespace": {
+        "evaluated_count": 29,
+        "not_applicable_count": 1,
+        "hit_at_k": 0.7241,
+        "recall_at_k": 0.5517,
+        "quote_recall_at_k": 0.3103,
+        "mean_k": 2.1034,
+        "index_build_seconds": 0.02
+      },
+      "kiwi": {
+        "evaluated_count": 29,
+        "not_applicable_count": 1,
+        "hit_at_k": 0.5172,
+        "recall_at_k": 0.3966,
+        "quote_recall_at_k": 0.1897,
+        "mean_k": 2.069,
+        "index_build_seconds": 3.94
+      }
+    }
+  },
+  "questions": {
+    "whitespace": [
+      {
+        "id": "M-DEV-01",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB15_c1_0003",
+          "MB12_c1_0007"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB02"
+        ],
+        "found_book_ids": [],
+        "hit": 0,
+        "recall": 0.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-02",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB08_c1_0024",
+          "MB01_c1_0019"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB01",
+          "MB04"
+        ],
+        "found_book_ids": [
+          "MB01"
+        ],
+        "hit": 1,
+        "recall": 0.5,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-03",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB05_c1_0009",
+          "MB02_c1_0021"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB02"
+        ],
+        "found_book_ids": [
+          "MB02"
+        ],
+        "hit": 1,
+        "recall": 1.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-04",
+        "k": 3,
+        "context_chunk_ids": [
+          "MB11_c1_0019",
+          "MB03_c1_0001",
+          "MB10_c1_0002"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB03"
+        ],
+        "found_book_ids": [
+          "MB03"
+        ],
+        "hit": 1,
+        "recall": 1.0,
+        "quote_recall": 1.0
+      },
+      {
+        "id": "M-DEV-05",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB06_c1_0021",
+          "MB12_c1_0008"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB01",
+          "MB06"
+        ],
+        "found_book_ids": [
+          "MB06"
+        ],
+        "hit": 1,
+        "recall": 0.5,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-06",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB10_c1_0002",
+          "MB15_c1_0014"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB04",
+          "MB05"
+        ],
+        "found_book_ids": [],
+        "hit": 0,
+        "recall": 0.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-07",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB07_c1_0001",
+          "MB07_c1_0011"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB01",
+          "MB07"
+        ],
+        "found_book_ids": [
+          "MB07"
+        ],
+        "hit": 1,
+        "recall": 0.5,
+        "quote_recall": 0.5
+      },
+      {
+        "id": "M-DEV-08",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB11_c1_0023",
+          "MB13_c1_0020"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB01"
+        ],
+        "found_book_ids": [],
+        "hit": 0,
+        "recall": 0.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-09",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB13_c1_0016",
+          "MB15_c1_0003"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB06"
+        ],
+        "found_book_ids": [],
+        "hit": 0,
+        "recall": 0.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-10",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB13_c1_0004",
+          "MB13_c1_0017"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB02",
+          "MB04"
+        ],
+        "found_book_ids": [],
+        "hit": 0,
+        "recall": 0.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-11",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB10_c1_0002",
+          "MB12_c1_0008"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB02"
+        ],
+        "found_book_ids": [],
+        "hit": 0,
+        "recall": 0.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-12",
+        "k": 3,
+        "context_chunk_ids": [
+          "MB08_c1_0013",
+          "MB03_c1_0001",
+          "MB08_c1_0002"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB03"
+        ],
+        "found_book_ids": [
+          "MB03"
+        ],
+        "hit": 1,
+        "recall": 1.0,
+        "quote_recall": 1.0
+      },
+      {
+        "id": "M-DEV-13",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB07_c1_0011",
+          "MB07_c1_0019"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB04",
+          "MB07"
+        ],
+        "found_book_ids": [
+          "MB07"
+        ],
+        "hit": 1,
+        "recall": 0.5,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-14",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB14_c1_0012",
+          "MB09_c1_0008"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB03",
+          "MB05"
+        ],
+        "found_book_ids": [],
+        "hit": 0,
+        "recall": 0.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-15",
+        "k": 3,
+        "context_chunk_ids": [
+          "MB12_c1_0003",
+          "MB04_c1_0001",
+          "MB12_c1_0020"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB04",
+          "MB12"
+        ],
+        "found_book_ids": [
+          "MB04",
+          "MB12"
+        ],
+        "hit": 1,
+        "recall": 1.0,
+        "quote_recall": 1.0
+      },
+      {
+        "id": "M-DEV-16",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB07_c1_0001",
+          "MB07_c1_0018"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB07",
+          "MB11"
+        ],
+        "found_book_ids": [
+          "MB07"
+        ],
+        "hit": 1,
+        "recall": 0.5,
+        "quote_recall": 0.5
+      },
+      {
+        "id": "M-DEV-17",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB11_c1_0001",
+          "MB02_c1_0002"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB11"
+        ],
+        "found_book_ids": [
+          "MB11"
+        ],
+        "hit": 1,
+        "recall": 1.0,
+        "quote_recall": 1.0
+      },
+      {
+        "id": "M-DEV-18",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB11_c1_0013",
+          "MB11_c1_0001"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB11"
+        ],
+        "found_book_ids": [
+          "MB11"
+        ],
+        "hit": 1,
+        "recall": 1.0,
+        "quote_recall": 1.0
+      },
+      {
+        "id": "M-DEV-19",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB14_c1_0021",
+          "MB11_c1_0023"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB02",
+          "MB11"
+        ],
+        "found_book_ids": [
+          "MB11"
+        ],
+        "hit": 1,
+        "recall": 0.5,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-20",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB11_c1_0012",
+          "MB02_c1_0023"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB11"
+        ],
+        "found_book_ids": [
+          "MB11"
+        ],
+        "hit": 1,
+        "recall": 1.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-21",
+        "k": 3,
+        "context_chunk_ids": [
+          "MB10_c1_0004",
+          "MB04_c1_0003",
+          "MB04_c1_0017"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB04",
+          "MB06"
+        ],
+        "found_book_ids": [
+          "MB04"
+        ],
+        "hit": 1,
+        "recall": 0.5,
+        "quote_recall": 0.5
+      },
+      {
+        "id": "M-DEV-22",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB06_c1_0011",
+          "MB06_c1_0009"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB04",
+          "MB06"
+        ],
+        "found_book_ids": [
+          "MB06"
+        ],
+        "hit": 1,
+        "recall": 0.5,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-23",
+        "k": 1,
+        "context_chunk_ids": [
+          "MB03_c1_0017"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB03"
+        ],
+        "found_book_ids": [
+          "MB03"
+        ],
+        "hit": 1,
+        "recall": 1.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-24",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB01_c1_0015",
+          "MB15_c1_0007"
+        ],
+        "applicable": false,
+        "reason": "참고 근거 문서 없음"
+      },
+      {
+        "id": "M-DEV-25",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB15_c1_0002",
+          "MB07_c1_0001"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB07"
+        ],
+        "found_book_ids": [
+          "MB07"
+        ],
+        "hit": 1,
+        "recall": 1.0,
+        "quote_recall": 1.0
+      },
+      {
+        "id": "M-DEV-26",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB04_c1_0008",
+          "MB12_c1_0021"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB12"
+        ],
+        "found_book_ids": [
+          "MB12"
+        ],
+        "hit": 1,
+        "recall": 1.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-27",
+        "k": 1,
+        "context_chunk_ids": [
+          "MB11_c1_0013"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB04",
+          "MB11"
+        ],
+        "found_book_ids": [
+          "MB11"
+        ],
+        "hit": 1,
+        "recall": 0.5,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-28",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB10_c1_0009",
+          "MB15_c1_0010"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB03",
+          "MB04"
+        ],
+        "found_book_ids": [],
+        "hit": 0,
+        "recall": 0.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-29",
+        "k": 3,
+        "context_chunk_ids": [
+          "MB06_c1_0003",
+          "MB06_c1_0018",
+          "MB04_c1_0004"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB06"
+        ],
+        "found_book_ids": [
+          "MB06"
+        ],
+        "hit": 1,
+        "recall": 1.0,
+        "quote_recall": 1.0
+      },
+      {
+        "id": "M-DEV-30",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB07_c1_0014",
+          "MB07_c1_0002"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB04",
+          "MB07"
+        ],
+        "found_book_ids": [
+          "MB07"
+        ],
+        "hit": 1,
+        "recall": 0.5,
+        "quote_recall": 0.5
+      }
+    ],
+    "kiwi": [
+      {
+        "id": "M-DEV-01",
+        "k": 3,
+        "context_chunk_ids": [
+          "MB08_c1_0002",
+          "MB10_c1_0003",
+          "MB15_c1_0003"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB02"
+        ],
+        "found_book_ids": [],
+        "hit": 0,
+        "recall": 0.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-02",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB04_c1_0006",
+          "MB01_c1_0002"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB01",
+          "MB04"
+        ],
+        "found_book_ids": [
+          "MB01",
+          "MB04"
+        ],
+        "hit": 1,
+        "recall": 1.0,
+        "quote_recall": 0.5
+      },
+      {
+        "id": "M-DEV-03",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB02_c1_0016",
+          "MB02_c1_0021"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB02"
+        ],
+        "found_book_ids": [
+          "MB02"
+        ],
+        "hit": 1,
+        "recall": 1.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-04",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB15_c1_0004",
+          "MB10_c1_0002"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB03"
+        ],
+        "found_book_ids": [],
+        "hit": 0,
+        "recall": 0.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-05",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB06_c1_0011",
+          "MB12_c1_0008"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB01",
+          "MB06"
+        ],
+        "found_book_ids": [
+          "MB06"
+        ],
+        "hit": 1,
+        "recall": 0.5,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-06",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB01_c1_0019",
+          "MB01_c1_0008"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB04",
+          "MB05"
+        ],
+        "found_book_ids": [],
+        "hit": 0,
+        "recall": 0.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-07",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB07_c1_0012",
+          "MB07_c1_0007"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB01",
+          "MB07"
+        ],
+        "found_book_ids": [
+          "MB07"
+        ],
+        "hit": 1,
+        "recall": 0.5,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-08",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB11_c1_0006",
+          "MB14_c1_0001"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB01"
+        ],
+        "found_book_ids": [],
+        "hit": 0,
+        "recall": 0.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-09",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB06_c1_0018",
+          "MB04_c1_0020"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB06"
+        ],
+        "found_book_ids": [
+          "MB06"
+        ],
+        "hit": 1,
+        "recall": 1.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-10",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB10_c1_0019",
+          "MB11_c1_0024"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB02",
+          "MB04"
+        ],
+        "found_book_ids": [],
+        "hit": 0,
+        "recall": 0.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-11",
+        "k": 3,
+        "context_chunk_ids": [
+          "MB10_c1_0002",
+          "MB01_c1_0002",
+          "MB12_c1_0003"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB02"
+        ],
+        "found_book_ids": [],
+        "hit": 0,
+        "recall": 0.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-12",
+        "k": 3,
+        "context_chunk_ids": [
+          "MB09_c1_0002",
+          "MB08_c1_0013",
+          "MB03_c1_0001"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB03"
+        ],
+        "found_book_ids": [
+          "MB03"
+        ],
+        "hit": 1,
+        "recall": 1.0,
+        "quote_recall": 1.0
+      },
+      {
+        "id": "M-DEV-13",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB07_c1_0012",
+          "MB07_c1_0009"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB04",
+          "MB07"
+        ],
+        "found_book_ids": [
+          "MB07"
+        ],
+        "hit": 1,
+        "recall": 0.5,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-14",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB13_c1_0002",
+          "MB11_c1_0017"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB03",
+          "MB05"
+        ],
+        "found_book_ids": [],
+        "hit": 0,
+        "recall": 0.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-15",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB13_c1_0008",
+          "MB06_c1_0011"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB04",
+          "MB12"
+        ],
+        "found_book_ids": [],
+        "hit": 0,
+        "recall": 0.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-16",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB07_c1_0007",
+          "MB07_c1_0018"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB07",
+          "MB11"
+        ],
+        "found_book_ids": [
+          "MB07"
+        ],
+        "hit": 1,
+        "recall": 0.5,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-17",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB02_c1_0002",
+          "MB15_c1_0016"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB11"
+        ],
+        "found_book_ids": [],
+        "hit": 0,
+        "recall": 0.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-18",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB02_c1_0002",
+          "MB15_c1_0016"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB11"
+        ],
+        "found_book_ids": [],
+        "hit": 0,
+        "recall": 0.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-19",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB14_c1_0001",
+          "MB11_c1_0006"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB02",
+          "MB11"
+        ],
+        "found_book_ids": [
+          "MB11"
+        ],
+        "hit": 1,
+        "recall": 0.5,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-20",
+        "k": 1,
+        "context_chunk_ids": [
+          "MB02_c1_0023"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB11"
+        ],
+        "found_book_ids": [],
+        "hit": 0,
+        "recall": 0.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-21",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB10_c1_0004",
+          "MB15_c1_0018"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB04",
+          "MB06"
+        ],
+        "found_book_ids": [],
+        "hit": 0,
+        "recall": 0.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-22",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB06_c1_0011",
+          "MB06_c1_0012"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB04",
+          "MB06"
+        ],
+        "found_book_ids": [
+          "MB06"
+        ],
+        "hit": 1,
+        "recall": 0.5,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-23",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB03_c1_0004",
+          "MB11_c1_0022"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB03"
+        ],
+        "found_book_ids": [
+          "MB03"
+        ],
+        "hit": 1,
+        "recall": 1.0,
+        "quote_recall": 1.0
+      },
+      {
+        "id": "M-DEV-24",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB13_c1_0007",
+          "MB03_c1_0009"
+        ],
+        "applicable": false,
+        "reason": "참고 근거 문서 없음"
+      },
+      {
+        "id": "M-DEV-25",
+        "k": 3,
+        "context_chunk_ids": [
+          "MB07_c1_0001",
+          "MB12_c1_0004",
+          "MB14_c1_0009"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB07"
+        ],
+        "found_book_ids": [
+          "MB07"
+        ],
+        "hit": 1,
+        "recall": 1.0,
+        "quote_recall": 1.0
+      },
+      {
+        "id": "M-DEV-26",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB12_c1_0020",
+          "MB12_c1_0002"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB12"
+        ],
+        "found_book_ids": [
+          "MB12"
+        ],
+        "hit": 1,
+        "recall": 1.0,
+        "quote_recall": 1.0
+      },
+      {
+        "id": "M-DEV-27",
+        "k": 1,
+        "context_chunk_ids": [
+          "MB15_c1_0016"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB04",
+          "MB11"
+        ],
+        "found_book_ids": [],
+        "hit": 0,
+        "recall": 0.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-28",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB11_c1_0018",
+          "MB13_c1_0011"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB03",
+          "MB04"
+        ],
+        "found_book_ids": [],
+        "hit": 0,
+        "recall": 0.0,
+        "quote_recall": 0.0
+      },
+      {
+        "id": "M-DEV-29",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB06_c1_0018",
+          "MB06_c1_0003"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB06"
+        ],
+        "found_book_ids": [
+          "MB06"
+        ],
+        "hit": 1,
+        "recall": 1.0,
+        "quote_recall": 1.0
+      },
+      {
+        "id": "M-DEV-30",
+        "k": 2,
+        "context_chunk_ids": [
+          "MB07_c1_0012",
+          "MB07_c1_0005"
+        ],
+        "applicable": true,
+        "reference_book_ids": [
+          "MB04",
+          "MB07"
+        ],
+        "found_book_ids": [
+          "MB07"
+        ],
+        "hit": 1,
+        "recall": 0.5,
+        "quote_recall": 0.0
+      }
+    ]
+  }
+}
