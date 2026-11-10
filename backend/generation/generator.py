@@ -72,7 +72,7 @@ class Generator:
                 options[key] = self.settings[key]
         self._llm = ChatOpenAI(**options).bind(response_format={"type": "json_object"})
 
-    def generate(self, question: str, chunks: list[dict]) -> dict:
+    def generate(self, question: str, chunks: list[dict], callbacks: list | None = None) -> dict:
         context, sources = build_context(chunks)
         messages = self._prompt.format_messages(question=question, context=context)
         usages: list[dict | None] = []
@@ -82,7 +82,7 @@ class Generator:
 
         for attempts in range(1, self.settings["output_retries"] + 2):
             try:
-                response = self._llm.invoke(messages)
+                response = self._llm.invoke(messages, config={"callbacks": callbacks or []})  # Langfuse 기록 연결
             except Exception as exc:  # 시간 초과, 인증, 잘못된 요청, 서버 오류 등 모델 호출 실패
                 error = f"model_error:{type(exc).__name__}: {exc}"
                 break

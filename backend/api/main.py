@@ -24,6 +24,7 @@ async def lifespan(app: FastAPI):
     global pipeline
     pipeline = RAGPipeline()
     yield
+    pipeline.flush()  # 평소에는 자동 전송, 서버가 꺼질 때 아직 보내지 않은 기록을 마저 보냄
 
 
 app = FastAPI(title="제조 문서 RAG", lifespan=lifespan)
