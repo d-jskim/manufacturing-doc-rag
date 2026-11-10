@@ -3,8 +3,10 @@ name = "manufacturing-doc-rag"
 version = "0.1.0"
 requires-python = ">=3.12"
 dependencies = [
+    "langchain-openai>=1.7.4",
     "langchain-text-splitters>=1.1.3",
     "pypdf>=7.0.0",
+    "python-dotenv>=1.2.4",
     "pyyaml>=6.0.3",
     "qdrant-client>=1.20.0",
     "sentence-transformers>=6.2.0",
