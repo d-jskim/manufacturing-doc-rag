@@ -1,0 +1,8 @@
+chunk_version: c2
+method: recursive       # 길이 기준 재귀 분할
+cross_page: false       # 페이지 안에서만 분할
+chunk_size: auto        # 본문 토큰 한도 = max_encoded_tokens − (접두어 + 특수 토큰), 실행 시 계산
+chunk_overlap: 50
+split_tokenizer: intfloat/multilingual-e5-base
+prefix: "passage: "
+max_encoded_tokens: 512

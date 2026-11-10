@@ -1,0 +1,6 @@
+chunk_version: c1
+method: page            # 1페이지 = 1청크
+cross_page: false
+split_tokenizer: intfloat/multilingual-e5-base   # c1은 분할하지 않고 길이 측정에만 사용
+prefix: "passage: "
+max_encoded_tokens: 512

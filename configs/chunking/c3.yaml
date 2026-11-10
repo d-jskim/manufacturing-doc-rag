@@ -1,0 +1,8 @@
+chunk_version: c3
+method: recursive
+cross_page: true        # 페이지 경계를 넘어 분할
+chunk_size: auto
+chunk_overlap: 50
+split_tokenizer: intfloat/multilingual-e5-base
+prefix: "passage: "
+max_encoded_tokens: 512

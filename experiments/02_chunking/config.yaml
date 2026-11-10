@@ -1,0 +1,9 @@
+experiment: 02_chunking
+dataset: manufacturing_basic
+
+paths:
+  documents: data/raw/{dataset}/documents
+  chunks: data/processed/{dataset}/{chunk_version}
+  results: experiments/02_chunking/results
+
+chunk_versions: [c1, c2, c3]   # configs/chunking/{버전}.yaml을 참조

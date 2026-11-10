@@ -1,0 +1,19 @@
+{
+  "summary": {
+    "run_id": "e02_c1_p0_r0_20261110_1557",
+    "dataset": "manufacturing_basic",
+    "chunk_count": 360,
+    "chunk_text_token_count": {
+      "min": 287,
+      "median": 637.0,
+      "max": 806
+    },
+    "chunk_encoded_token_count": {
+      "min": 291,
+      "median": 641.0,
+      "max": 810
+    },
+    "over_limit_chunk_count": 301,
+    "cross_page_chunk_count": 0
+  }
+}
