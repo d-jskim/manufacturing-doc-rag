@@ -10,7 +10,7 @@ class TiktokenCounter:
     
     def __init__(self, model: str, fallback_encoding: str):
         try:
-            self._encoding = tiktoken.get_encoding(fallback_encoding)
+            self._encoding = tiktoken.encoding_for_model(model)
             self.is_approximate = False
         except KeyError:
             self._encoding = tiktoken.get_encoding(fallback_encoding)
@@ -34,4 +34,14 @@ class HuggingFaceCounter:
         
     
     def count(self, text: str) -> int:
-        return len(self._tokenizer.encode(self.prefix + text, add_special_tokens=True))
+        return len(self._tokenizer.encode(self.prefix + text, add_special_tokens=True, verbose=False))
+
+
+    def count_body(self, text: str) -> int:
+        """본문만 센다(접두어·특수 토큰 제외). 청크 분할의 길이 기준."""
+        return len(self._tokenizer.encode(text, add_special_tokens=False, verbose=False))
+
+
+    def count_overhead(self) -> int:
+        """본문 없이 접두어와 특수 토큰만 넣었을 때의 토큰 수."""
+        return self.count("")

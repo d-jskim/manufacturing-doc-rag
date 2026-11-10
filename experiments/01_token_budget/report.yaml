@@ -1,6 +1,6 @@
 title: 문맥 토큰 한도 결정
 purpose: c1·c2·c3 비교에 공통으로 적용할 문맥 토큰 한도를 데이터로 결정함
-result_file: e01_c0_p0_r0_20261110_1038_token_budget.json
+result_file: e01_c0_p0_r0_20261110_1501_token_budget.json
 
 predictions:
   - item: 페이지 토큰 중앙값(생성 모델 기준)

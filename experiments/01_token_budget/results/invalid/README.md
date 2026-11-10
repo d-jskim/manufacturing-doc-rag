@@ -23,3 +23,14 @@
     - 개발 질문(`development.json`)만 사용하여 1번의 무효 사유는 해당하지 않음.
     - 10:22와 10:23은 같은 조건의 중복 실행이며 값이 동일함.
 - **조치**: 값이 나온 로직을 드러내는 이름 규칙(`…_input_token_count`, `extracted_page_count`, `over_limit_page_count` 등)으로 코드를 수정하고 재실행함.
+
+
+## 3. 생성 토크나이저 근사 여부 기록 오류
+
+- **대상**: 2026-11-10 10:38 실행 결과 파일 1개
+- **무효 사유**: 생성 토크나이저가 근사값인데 정확한 값으로 기록됨.
+    - `TiktokenCounter`가 모델 이름(`gpt-6-luna`)을 확인하지 않고 대체 인코딩(`o200k_base`)을 바로 불러옴.
+    - tiktoken은 이 모델 이름을 알지 못하므로 실제로는 대체 인코딩을 사용한 근사값이지만, `generation_tokenizer.approximate`가 `false`로 기록됨.
+- **무효 범위**: `generation_tokenizer.approximate` 기록에 한정하며, 측정값은 모두 유효함.
+    - 재실행 결과(15:01)와 비교한 결과, `approximate`와 `run_id` 외의 값은 모두 동일함.
+- **조치**: `encoding_for_model(model)`로 모델 이름을 먼저 확인하고, 실패할 때만 대체 인코딩을 사용하도록 코드를 수정하고 재실행함.
