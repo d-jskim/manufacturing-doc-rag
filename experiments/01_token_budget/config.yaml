@@ -1,0 +1,22 @@
+experiment: 01_token_budget
+dataset: manufacturing_basic
+
+paths:
+  documents: data/raw/{dataset}/documents
+  evaluation: data/raw/{dataset}/evaluation
+  results: experiments/01_token_budget/results
+
+evaluation_files:
+  - development.json  # 설정 조정은 개발 질문만 사용
+
+generation_tokenizer:
+  model: gpt-6-luna
+  fallback: o200k_base
+
+embedding_tokenizer:
+  model: intfloat/multilingual-e5-base
+  prefix: "passage: "
+  max_tokens: 512
+
+percentile: 90          # 페이지 토큰 수 기준 백분위수
+question_coverage: 0.9  # N이 담아야 하는 질문 비율

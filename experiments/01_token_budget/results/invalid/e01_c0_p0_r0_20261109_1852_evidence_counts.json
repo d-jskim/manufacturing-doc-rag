@@ -1,0 +1,506 @@
+[
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-01",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-02",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-03",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-04",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-05",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-06",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-07",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-08",
+    "expected_action": "clarify",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-09",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-10",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-11",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-12",
+    "expected_action": "abstain",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-13",
+    "expected_action": "answer",
+    "evidence_pages": 3,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-14",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-15",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-16",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-17",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-18",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-19",
+    "expected_action": "abstain",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-20",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-21",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-22",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-23",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-24",
+    "expected_action": "clarify",
+    "evidence_pages": 0,
+    "evidence_docs": 0
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-25",
+    "expected_action": "abstain",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-26",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-27",
+    "expected_action": "answer",
+    "evidence_pages": 3,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-28",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-29",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "development.json",
+    "id": "M-DEV-30",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-01",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-02",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-03",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-04",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-05",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-06",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-07",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-08",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-09",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-10",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-11",
+    "expected_action": "answer",
+    "evidence_pages": 3,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-12",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-13",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-14",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-15",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-16",
+    "expected_action": "answer",
+    "evidence_pages": 3,
+    "evidence_docs": 3
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-17",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-18",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-19",
+    "expected_action": "clarify",
+    "evidence_pages": 0,
+    "evidence_docs": 0
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-20",
+    "expected_action": "abstain",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-21",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-22",
+    "expected_action": "answer",
+    "evidence_pages": 3,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-23",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-24",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-25",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-26",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-27",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-28",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-29",
+    "expected_action": "abstain",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "additional.json",
+    "id": "M-FINAL-30",
+    "expected_action": "clarify",
+    "evidence_pages": 0,
+    "evidence_docs": 0
+  },
+  {
+    "source_file": "expansion_validation.json",
+    "id": "M-VAL-DEV-01",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "expansion_validation.json",
+    "id": "M-VAL-DEV-02",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "expansion_validation.json",
+    "id": "M-VAL-DEV-03",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "expansion_validation.json",
+    "id": "M-VAL-DEV-04",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "expansion_validation.json",
+    "id": "M-VAL-DEV-05",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "expansion_validation.json",
+    "id": "M-VAL-DEV-06",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "expansion_validation.json",
+    "id": "M-VAL-FINAL-01",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "expansion_validation.json",
+    "id": "M-VAL-FINAL-02",
+    "expected_action": "answer",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "expansion_validation.json",
+    "id": "M-VAL-FINAL-03",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  },
+  {
+    "source_file": "expansion_validation.json",
+    "id": "M-VAL-FINAL-04",
+    "expected_action": "abstain",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "expansion_validation.json",
+    "id": "M-VAL-FINAL-05",
+    "expected_action": "abstain",
+    "evidence_pages": 1,
+    "evidence_docs": 1
+  },
+  {
+    "source_file": "expansion_validation.json",
+    "id": "M-VAL-FINAL-06",
+    "expected_action": "answer",
+    "evidence_pages": 2,
+    "evidence_docs": 2
+  }
+]

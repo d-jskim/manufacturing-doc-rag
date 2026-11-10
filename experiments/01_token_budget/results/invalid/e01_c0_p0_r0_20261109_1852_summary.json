@@ -1,0 +1,44 @@
+{
+  "run_id": "e01_c0_p0_r0_20261109_1852",
+  "extraction": {
+    "pages": 360,
+    "failures": []
+  },
+  "generation_tokenizer": {
+    "name": "o200k_base",
+    "approximate": false
+  },
+  "generation_tokens": {
+    "min": 328,
+    "median": 712.0,
+    "p90": 791.0,
+    "max": 891
+  },
+  "embedding_tokens": {
+    "min": 291,
+    "median": 641.0,
+    "p90": 712.0,
+    "max": 810
+  },
+  "embedding_over_limit": {
+    "pages": 301,
+    "ratio": 0.836
+  },
+  "chars_per_embedding_token": 1.96,
+  "questions": {
+    "total": 72,
+    "not_applicable": 3
+  },
+  "evidence_pages_distribution": {
+    "1": 33,
+    "2": 31,
+    "3": 5
+  },
+  "evidence_docs_distribution": {
+    "1": 35,
+    "2": 33,
+    "3": 1
+  },
+  "N": 2,
+  "context_token_budget": 1582
+}
