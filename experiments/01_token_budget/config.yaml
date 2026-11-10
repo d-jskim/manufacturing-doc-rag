@@ -4,7 +4,7 @@ dataset: manufacturing_basic
 paths:
   documents: data/raw/{dataset}/documents
   evaluation: data/raw/{dataset}/evaluation
-  results: experiments/01_token_budget/results
+  results: experiments/01_token_budget/results/{dataset}
 
 evaluation_files:
   - development.json  # 설정 조정은 개발 질문만 사용

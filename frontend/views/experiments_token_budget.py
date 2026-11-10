@@ -5,12 +5,13 @@ from components.report import (
     format_value, show_conclusion, show_count_bars, show_header,
     show_histogram, show_metrics, show_predictions,
 )
-from results_loader import list_result_files, load_report, load_result
+from results_loader import list_datasets, list_result_files, load_report, load_result
 
 EXPERIMENT = "01_token_budget"
 
-report = load_report(EXPERIMENT)
-result_files = list_result_files(EXPERIMENT)
+dataset = st.selectbox("데이터셋", list_datasets(EXPERIMENT))
+report = load_report(EXPERIMENT, dataset)
+result_files = list_result_files(EXPERIMENT, dataset)
 result_names = [path.name for path in result_files]
 
 header_col, select_col = st.columns([3, 1])

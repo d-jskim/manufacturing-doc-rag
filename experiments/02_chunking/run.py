@@ -60,7 +60,7 @@ def main() -> None:
     config = yaml.safe_load((Path(__file__).parent / "config.yaml").read_text(encoding="utf-8"))
     dataset = config["dataset"]
     documents_dir = ROOT / config["paths"]["documents"].format(dataset=dataset)
-    results_dir = ROOT / config["paths"]["results"]
+    results_dir = ROOT / config["paths"]["results"].format(dataset=dataset)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M")
 
     pages, failed_files = extract_folder(documents_dir)

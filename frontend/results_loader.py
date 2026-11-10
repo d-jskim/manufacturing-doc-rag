@@ -8,10 +8,19 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 EXPERIMENTS_DIR = PROJECT_ROOT / "experiments"
 
 
-def list_result_files(experiment: str) -> list[Path]:
-    """results/ 바로 아래의 유효 결과만 최신순으로 반환함(invalid/ 제외)."""
-    results_dir = EXPERIMENTS_DIR / experiment / "results"
-    return sorted(results_dir.glob("*.json"), reverse=True)
+def results_dir(experiment: str, dataset: str) -> Path:
+    return EXPERIMENTS_DIR / experiment / "results" / dataset
+
+
+def list_datasets(experiment: str) -> list[str]:
+    """결과가 있는 데이터셋 폴더 이름 목록."""
+    base = EXPERIMENTS_DIR / experiment / "results"
+    return sorted(path.name for path in base.iterdir() if path.is_dir())
+
+
+def list_result_files(experiment: str, dataset: str) -> list[Path]:
+    """데이터셋 폴더 바로 아래의 유효 결과만 최신순으로 반환함(invalid/ 제외)."""
+    return sorted(results_dir(experiment, dataset).glob("*.json"), reverse=True)
 
 
 def load_result(path: Path) -> dict:
@@ -19,8 +28,8 @@ def load_result(path: Path) -> dict:
         return json.load(f)
 
 
-def load_report(experiment: str) -> dict:
-    with (EXPERIMENTS_DIR / experiment / "report.yaml").open(encoding="utf-8") as f:
+def load_report(experiment: str, dataset: str) -> dict:
+    with (results_dir(experiment, dataset) / "report.yaml").open(encoding="utf-8") as f:
         return yaml.safe_load(f)
 
 
