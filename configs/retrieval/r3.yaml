@@ -1,0 +1,15 @@
+retrieval_version: r3
+method: hybrid_rerank          # 하이브리드 검색 결과에 Cross-encoder 재순위 적용
+candidate_count: 20            # RRF 결합 후 리랭커에 전달할 후보 청크 수
+exact: true                    # 의미 검색은 r1·r2와 같이 전체 비교(exact)
+compare_ann: true              # 근사 검색(ANN) 결과와 시간을 함께 기록
+dense_candidate_count: 20      # 의미 검색에서 가져올 후보 수
+keyword_candidate_count: 20    # 키워드 검색에서 가져올 후보 수
+keyword_tokenizer: whitespace  # 키워드 검색 단어 분리 사전 실험 결과
+fusion: rrf                    # Dense와 BM25 결과를 순위 기반으로 결합
+rrf_k: 60                      # RRF 결합 상수
+
+reranker_model: BAAI/bge-reranker-v2-m3
+reranker_device: cuda
+reranker_max_length: 1024
+reranker_batch_size: 4
