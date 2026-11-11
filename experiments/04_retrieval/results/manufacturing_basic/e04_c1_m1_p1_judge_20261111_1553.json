@@ -1,0 +1,4228 @@
+{
+  "evaluation": "llm_as_a_judge",
+  "model": "gpt-6-luna",
+  "criteria": [
+    "facts",
+    "conditions",
+    "evidence",
+    "decision"
+  ],
+  "answer_result": "experiments\\04_retrieval\\results\\manufacturing_basic\\e04_c1_m1_p1_all_20261111_1553.json",
+  "retrieval_result": "experiments\\04_retrieval\\results\\manufacturing_basic\\e04_c1_m1_p1_k235_20261111_1415.json",
+  "summary": {
+    "naive": {
+      "request_count": 30,
+      "evaluation_error_count": 0,
+      "facts": {
+        "pass_rate": 0.9333,
+        "evaluated_count": 30,
+        "not_applicable_count": 0
+      },
+      "conditions": {
+        "pass_rate": 0.9667,
+        "evaluated_count": 30,
+        "not_applicable_count": 0
+      },
+      "evidence": {
+        "pass_rate": 0.8333,
+        "evaluated_count": 30,
+        "not_applicable_count": 0
+      },
+      "decision": {
+        "pass_rate": 0.9667,
+        "evaluated_count": 30,
+        "not_applicable_count": 0
+      }
+    },
+    "hybrid": {
+      "request_count": 30,
+      "evaluation_error_count": 0,
+      "facts": {
+        "pass_rate": 0.9,
+        "evaluated_count": 30,
+        "not_applicable_count": 0
+      },
+      "conditions": {
+        "pass_rate": 1.0,
+        "evaluated_count": 30,
+        "not_applicable_count": 0
+      },
+      "evidence": {
+        "pass_rate": 0.8667,
+        "evaluated_count": 30,
+        "not_applicable_count": 0
+      },
+      "decision": {
+        "pass_rate": 0.9333,
+        "evaluated_count": 30,
+        "not_applicable_count": 0
+      }
+    },
+    "rerank": {
+      "request_count": 30,
+      "evaluation_error_count": 0,
+      "facts": {
+        "pass_rate": 0.9667,
+        "evaluated_count": 30,
+        "not_applicable_count": 0
+      },
+      "conditions": {
+        "pass_rate": 1.0,
+        "evaluated_count": 30,
+        "not_applicable_count": 0
+      },
+      "evidence": {
+        "pass_rate": 0.9667,
+        "evaluated_count": 30,
+        "not_applicable_count": 0
+      },
+      "decision": {
+        "pass_rate": 0.9667,
+        "evaluated_count": 30,
+        "not_applicable_count": 0
+      }
+    }
+  },
+  "rows": [
+    {
+      "question_id": "M-DEV-01",
+      "retrieval_mode": "naive",
+      "service_request_id": "a0464da3-9a6f-473b-9251-2cff756e59cb",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB01_c1_0001",
+        "MB10_c1_0003",
+        "MB02_c1_0001"
+      ],
+      "context_token_count": 1172,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "정상이 모델명·출처 이름·기준 시각을 갖춘 자료의 조회 확인 완료를 뜻하며, 현장 안전이나 운전 허가를 뜻하지 않는다고 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "표시의 적용 범위를 자료 확인 상태로 한정했고, 원자료의 상태와 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 자료들이 정상 표시의 의미와 안전 보증·운전 허가가 아님을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 직접 답했으며, 기대된 조치와 부합합니다."
+        }
+      },
+      "seconds": 5.961,
+      "usage": {
+        "input_tokens": 2200,
+        "output_tokens": 272,
+        "total_tokens": 2472,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2197
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 110
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-01",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "d3095ea2-3325-4efd-8378-44fe36a52384",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB15_c1_0003",
+        "MB14_c1_0004",
+        "MB02_c1_0005"
+      ],
+      "context_token_count": 1642,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "정상 표시가 필수 자료 항목을 갖추고 조회 확인을 마친 상태이며, 현장 안전이나 운전 허가를 보증하지 않는다고 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "모델명·출처·기준 시각과 담당자의 조회 확인이라는 적용 범위를 정확히 밝혔습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 MB14와 MB02의 검색 문맥이 자료 상태와 현장 안전 판단의 구분을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "요구된 범위는 자료로 답할 수 있으므로 답변한 결정이 적절합니다."
+        }
+      },
+      "seconds": 5.628,
+      "usage": {
+        "input_tokens": 2626,
+        "output_tokens": 307,
+        "total_tokens": 2933,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2623
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 99
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-01",
+      "retrieval_mode": "rerank",
+      "service_request_id": "7127c591-f3d2-41c4-a781-633e9faaca3f",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB15_c1_0003",
+        "MB14_c1_0004",
+        "MB10_c1_0003"
+      ],
+      "context_token_count": 1379,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "정상 표시가 모델명·출처 이름·기준 시각을 갖춘 자료의 조회 확인을 뜻하며, 현장 안전이나 운전 허가를 보증하지 않는다고 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "자료 확인 상태와 원자료의 ‘정상’ 표현을 구별하고, 적용 범위를 현장 안전 판단과 분리했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 S2와 S3가 자료 확인 상태의 의미와 현장 안전 판단의 한계를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "검색 자료로 답할 수 있는 질문에 직접 답했고, 별도 확인이 필요한 현장 상태와 승인 절차도 구분했습니다."
+        }
+      },
+      "seconds": 5.498,
+      "usage": {
+        "input_tokens": 2395,
+        "output_tokens": 370,
+        "total_tokens": 2765,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2392
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 189
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-02",
+      "retrieval_mode": "naive",
+      "service_request_id": "c1fe6625-a845-422e-a3e2-e1ba6ae72acd",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB01_c1_0002",
+        "MB08_c1_0024",
+        "MB03_c1_0005"
+      ],
+      "context_token_count": 1988,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-10의 현장조회 및 네트워크 수신 미지원, CV-20의 네트워크 수신조회, 두 모델의 파일 내보내기를 모두 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "모델별 조회 경로와 적용 범위를 올바르게 구분했고, CV-20의 승인된 시험 자료라는 조건도 반영했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 문맥이 조회 경로 차이와 양 모델의 내보내기를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "검색 자료로 충분히 답할 수 있는 질문에 직접 답했습니다."
+        }
+      },
+      "seconds": 4.774,
+      "usage": {
+        "input_tokens": 3010,
+        "output_tokens": 312,
+        "total_tokens": 3322,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3007
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 107
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-02",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "cf33b6a7-4022-42c8-ad3a-71e5129132cf",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB08_c1_0024",
+        "MB04_c1_0001",
+        "MB01_c1_0002"
+      ],
+      "context_token_count": 1512,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-10의 현장조회·네트워크 수신 미지원, CV-20의 네트워크 수신조회, 두 모델의 파일 내보내기를 모두 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "모델별 조회 경로와 CV-20에서 승인된 시험 자료를 수신한다는 적용 범위가 맞습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료가 모델별 조회·수신 기능과 두 모델의 파일 내보내기를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "자료에 답이 명시되어 있으므로 답변한 판단이 적절합니다."
+        }
+      },
+      "seconds": 3.043,
+      "usage": {
+        "input_tokens": 2492,
+        "output_tokens": 253,
+        "total_tokens": 2745,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2489
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 64
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-02",
+      "retrieval_mode": "rerank",
+      "service_request_id": "0553aafd-610f-465e-839c-10dbade83c63",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB01_c1_0002",
+        "MB04_c1_0006",
+        "MB03_c1_0005"
+      ],
+      "context_token_count": 1908,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-10의 현장조회 및 네트워크 수신 미지원, CV-20의 수신조회, 두 모델의 파일 내보내기를 모두 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "모델별 조회 경로와 기능의 적용 범위를 정확히 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 자료가 조회 경로와 두 모델의 파일 내보내기 주장을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "자료에 답이 명시되어 있어 바로 답변한 판단이 적절합니다."
+        }
+      },
+      "seconds": 3.896,
+      "usage": {
+        "input_tokens": 2930,
+        "output_tokens": 282,
+        "total_tokens": 3212,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2927
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 91
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-03",
+      "retrieval_mode": "naive",
+      "service_request_id": "16aebc93-ddcd-44f9-90de-e43e2fae3326",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB02_c1_0003",
+        "MB03_c1_0012",
+        "MB02_c1_0021"
+      ],
+      "context_token_count": 1783,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "세 시각의 의미를 모두 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20과 체크뷰 사용자의 확인시각이라는 적용 범위가 맞습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료들이 각 시각의 정의와 구분을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 직접 답했고 추가 확인이나 보류가 필요하지 않습니다."
+        }
+      },
+      "seconds": 2.948,
+      "usage": {
+        "input_tokens": 2753,
+        "output_tokens": 185,
+        "total_tokens": 2938,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2750
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 67
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-03",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "2f8f9e0f-e73a-4cfb-b294-a83a7648c6f4",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB02_c1_0021",
+        "MB05_c1_0009",
+        "MB09_c1_0006"
+      ],
+      "context_token_count": 2180,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "기록시각·수신시각·확인시각의 세 의미를 모두 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20에 적용되는 설명이며 시각의 적용 범위를 잘못 확장하지 않았습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 S1, S2, S3의 검색 문맥이 각 시각의 설명과 대체 금지 주장을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "자료에 답이 명시되어 있어 추가 확인이나 보류 없이 답변한 것이 적절합니다."
+        }
+      },
+      "seconds": 4.217,
+      "usage": {
+        "input_tokens": 3144,
+        "output_tokens": 276,
+        "total_tokens": 3420,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3141
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 82
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-03",
+      "retrieval_mode": "rerank",
+      "service_request_id": "1edeabba-3a1f-4d67-ba78-adc7d36ab901",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB10_c1_0002",
+        "MB05_c1_0009",
+        "MB02_c1_0003"
+      ],
+      "context_token_count": 1516,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "세 시각의 의미를 모두 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20에 해당하는 설명이며 시각을 서로 대체하지 않는다는 내용도 자료와 일치합니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료들이 각 시각의 의미와 추가 설명을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 직접 답했으며 추가 확인이나 보류가 필요하지 않습니다."
+        }
+      },
+      "seconds": 3.776,
+      "usage": {
+        "input_tokens": 2460,
+        "output_tokens": 198,
+        "total_tokens": 2658,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2457
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 48
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-04",
+      "retrieval_mode": "naive",
+      "service_request_id": "ec0ed509-6f3f-401e-9a8b-1a884a32b21c",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB13_c1_0019",
+        "MB13_c1_0012",
+        "MB03_c1_0001"
+      ],
+      "context_token_count": 1662,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "최근 30일이 원자료 기록시각 기준의 현장조회 범위이며 외부 파일 삭제 기한이 아님을 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "조회 실행일·CV-20 수신시각과 구분했고, 외부 보관 기준을 별도로 확인해야 한다는 적용 범위도 맞습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 문맥이 조회 기준과 외부 파일 보존·삭제 기간 미지정을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 직접 답하고 별도 기준 확인을 안내한 결정이 적절합니다."
+        }
+      },
+      "seconds": 3.45,
+      "usage": {
+        "input_tokens": 2658,
+        "output_tokens": 261,
+        "total_tokens": 2919,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2655
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 56
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-04",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "33f79b50-6a99-4efe-8299-93dea795d4b0",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB03_c1_0001",
+        "MB13_c1_0019",
+        "MB11_c1_0019"
+      ],
+      "context_token_count": 1680,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "최근 30일이 원자료 기록시각 기준의 현장조회 범위이며 외부 파일 삭제 기한으로 적용할 수 없다는 핵심 사실을 모두 담았습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "현장조회와 외부 보관소의 범위를 구분했고, 기록시각을 기준으로 하며 수신시각·확인시각과 혼동하지 않았습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 S1은 조회 범위와 외부 보존 기간의 차이를 직접 뒷받침하며, S2와 S3도 시각 구분 및 별도 기준 확인을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "자료로 확인 가능한 내용에 답하고, 외부 파일의 보존·삭제 기준은 담당자나 별도 기준을 확인하도록 적절히 안내했습니다."
+        }
+      },
+      "seconds": 3.858,
+      "usage": {
+        "input_tokens": 2675,
+        "output_tokens": 301,
+        "total_tokens": 2976,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2672
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 49
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-04",
+      "retrieval_mode": "rerank",
+      "service_request_id": "61928f95-2d48-4329-9d0f-a1b76b74cddc",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB10_c1_0002",
+        "MB11_c1_0019",
+        "MB13_c1_0012"
+      ],
+      "context_token_count": 1907,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "최근 30일이 원자료 기록시각 기준의 현장조회 범위이며 외부 파일 삭제 기한이 아니고 별도 기준이 필요하다는 핵심 사실을 모두 담았습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "기준 시각을 조회·수신 시각과 구분했고, 적용 범위를 현장조회 표시로 한정했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 검색 문맥이 기준 시각과 외부 보관·삭제 기간의 구분을 직접 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "자료에 근거해 답변했으며 외부 보관소의 별도 기준을 확인하라고 안내한 판단이 적절합니다."
+        }
+      },
+      "seconds": 3.377,
+      "usage": {
+        "input_tokens": 2885,
+        "output_tokens": 229,
+        "total_tokens": 3114,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2882
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 49
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-05",
+      "retrieval_mode": "naive",
+      "service_request_id": "0dc29d69-6046-482f-9fa0-12b456baf47f",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB13_c1_0013",
+        "MB06_c1_0021",
+        "MB13_c1_0001"
+      ],
+      "context_token_count": 1949,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-10의 파일 내보내기는 주어진 역할·대상 권한과 검토 완료 범위에서 가능하고, 네트워크 수신은 지원되지 않는다고 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-10에 대한 기능 구분과 역할·권한 범위를 정확히 적용했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 문맥이 CV-10의 내보내기 지원 및 네트워크 수신 미지원, 역할과 허용 모델의 구분을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "주어진 조건으로 내보내기는 가능하고 수신은 불가하다고 직접 답한 판단이 적절합니다."
+        }
+      },
+      "seconds": 4.82,
+      "usage": {
+        "input_tokens": 3025,
+        "output_tokens": 340,
+        "total_tokens": 3365,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3022
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 121
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-05",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "4e2decf3-0abe-4699-82c2-feb8b01a0210",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB06_c1_0021",
+        "MB13_c1_0013",
+        "MB15_c1_0002"
+      ],
+      "context_token_count": 2080,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-10의 파일 내보내기 가능 여부와 네트워크 수신 미지원, 역할·대상 권한의 적용을 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-10에 대한 기능과 주어진 권한·검토 범위를 구분해 올바르게 적용했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료가 CV-10의 기능 제한과 기록담당 역할·허용 모델 범위를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "주어진 조건으로 가능한 작업과 불가능한 작업을 각각 답변했습니다."
+        }
+      },
+      "seconds": 4.787,
+      "usage": {
+        "input_tokens": 3111,
+        "output_tokens": 299,
+        "total_tokens": 3410,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3108
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 144
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-05",
+      "retrieval_mode": "rerank",
+      "service_request_id": "34dd709d-9936-4ac2-aa0b-ede07165c7bf",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB13_c1_0013",
+        "MB06_c1_0011",
+        "MB13_c1_0007"
+      ],
+      "context_token_count": 2105,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-10의 파일 내보내기 지원 및 네트워크 수신 미지원, 주어진 권한 범위에서의 내보내기 가능성을 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-10 모델과 기록담당 역할·대상 권한의 적용 범위를 구분했고, 네트워크 수신은 권한으로 추가되지 않는다고 설명했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료가 CV-10의 기능과 기록담당 역할의 범위를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "주어진 정보로 두 작업의 가능 여부를 직접 판단해 답변했습니다."
+        }
+      },
+      "seconds": 3.64,
+      "usage": {
+        "input_tokens": 3142,
+        "output_tokens": 268,
+        "total_tokens": 3410,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3139
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 100
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-06",
+      "retrieval_mode": "naive",
+      "service_request_id": "fe1e9a06-e4bc-40eb-8ac7-9d7d5fbdcf2b",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB08_c1_0003",
+        "MB05_c1_0002",
+        "MB15_c1_0009"
+      ],
+      "context_token_count": 1330,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "최신 수신이 현재 현장 상태를 보증하지 않으며, 원자료 기록시각 확인과 정상 자료 묶음의 외부 전달 보류가 필요하다고 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20의 최신 수신 표시와 원자료 기록시각 미확인 상태를 정확히 구분했습니다."
+        },
+        "evidence": {
+          "score": 0,
+          "reason": "인용은 최신 수신과 기록시각·검토 상태를 뒷받침하지만, 미확인 자료를 정상 묶음으로 외부 전달하지 말라는 핵심 판단을 직접 뒷받침하지 않습니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "현재 현장 상태로 단정하거나 정상 확인된 자료로 전달하지 않고, 기록시각 확인 전 판단을 보류하도록 한 결정이 적절합니다."
+        }
+      },
+      "seconds": 6.67,
+      "usage": {
+        "input_tokens": 2395,
+        "output_tokens": 584,
+        "total_tokens": 2979,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2392
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 342
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-06",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "640a5529-948c-4d42-a8b5-ef2a87faec8d",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB05_c1_0002",
+        "MB15_c1_0010",
+        "MB09_c1_0008"
+      ],
+      "context_token_count": 1709,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "최근 수신만으로 현재 현장 상태를 확정할 수 없고, 기록시각 확인이 필요하며, 미확인 자료의 외부 전달을 보류해야 한다고 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20의 ‘최신 수신’ 의미와 원자료 기록시각이 비어 있는 조건을 정확히 적용했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 MB05는 최신 수신과 기록시각의 구분 및 기록시각 미확인 시 보류를 뒷받침하고, MB15와 MB09는 미확인 자료의 외부 전달 보류를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "현재 상태로 설명하거나 정상 확인 자료로 전달하지 말고, 기록시각 확인 전까지 보류하라는 판단이 적절합니다."
+        }
+      },
+      "seconds": 5.607,
+      "usage": {
+        "input_tokens": 2807,
+        "output_tokens": 360,
+        "total_tokens": 3167,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2804
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 111
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-06",
+      "retrieval_mode": "rerank",
+      "service_request_id": "3a2a5a60-04cc-47bf-b4d6-e701533ee5cf",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB15_c1_0002",
+        "MB05_c1_0023",
+        "MB08_c1_0003"
+      ],
+      "context_token_count": 1653,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "최신 수신만으로 현장 상태를 확정할 수 없고, 원자료 기록시각 미확인 시 정상 자료 묶음의 외부 전달을 보류해야 한다는 핵심 사실이 모두 포함되었습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20의 최신 수신 표시와 비어 있는 원자료 기록시각을 정확히 구분했고, 수신시각을 기록시각으로 대체하지 않았습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료가 최신 수신은 현장 상태의 최신성을 보증하지 않는다는 점과 미확인 자료의 외부 전달 보류를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "현재 상태로 설명하거나 정상 확인 자료로 전달하지 말고 보류하라는 판단이 적절합니다."
+        }
+      },
+      "seconds": 5.328,
+      "usage": {
+        "input_tokens": 2715,
+        "output_tokens": 385,
+        "total_tokens": 3100,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2712
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 143
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-07",
+      "retrieval_mode": "naive",
+      "service_request_id": "56f722f3-d52d-4bfb-846d-9073f0d5872f",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB01_c1_0016",
+        "MB01_c1_0002",
+        "MB15_c1_0007"
+      ],
+      "context_token_count": 1764,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "12℃는 CV-10의 10~30℃ 범위에 들고 CV-20의 15~30℃ 하한보다 낮으며, CV-20만 네트워크 수신을 지원한다고 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "모델별 온도 범위와 건조한 실내·결로 없음 조건을 질문의 12℃에 올바르게 적용했고, 전체 설치 승인으로 확대하지 않았습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "S1·S3가 환경 조건과 온도 범위를, S2가 두 모델의 네트워크 수신 기능 차이를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 직접 답하면서 CV-20은 제시된 온도 기준을 충족하지 않는다고 판단했고, 설치 적합성 승인은 별개라고 적절히 한정했습니다."
+        }
+      },
+      "seconds": 4.863,
+      "usage": {
+        "input_tokens": 2970,
+        "output_tokens": 313,
+        "total_tokens": 3283,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2967
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 98
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-07",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "2c11d849-5f38-4ddd-9711-0e39c95c8e8e",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB15_c1_0007",
+        "MB01_c1_0016",
+        "MB07_c1_0001"
+      ],
+      "context_token_count": 1736,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "12℃는 CV-10의 10~30℃ 범위에 포함되고 CV-20의 15~30℃ 하한보다 낮으며, 네트워크 수신조회 지원 차이도 정확합니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "섭씨 단위와 모델별 적용 범위를 정확히 구분했고, 건조한 실내·결로 없음 조건 및 전체 설치 적합성 판단의 한계를 반영했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 자료가 모델별 온도 범위와 네트워크 수신 기능 여부를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 직접 답하면서 CV-20의 온도 조건 미충족을 설명하고, 전체 설치 적합성을 승인하지 않았습니다."
+        }
+      },
+      "seconds": 4.958,
+      "usage": {
+        "input_tokens": 2849,
+        "output_tokens": 327,
+        "total_tokens": 3176,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2846
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 135
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-07",
+      "retrieval_mode": "rerank",
+      "service_request_id": "7d8b2860-c1a7-47e0-a9dd-4461f3095db7",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB01_c1_0016",
+        "MB15_c1_0007",
+        "MB07_c1_0002"
+      ],
+      "context_token_count": 1716,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-10의 10~30℃ 범위, CV-20의 15~30℃ 범위와 12℃의 미충족 여부, 두 모델의 네트워크 수신 기능 차이를 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "건조한 실내·무결로 조건과 모델별 온도 조건을 구분하고, 12℃가 CV-20의 하한보다 낮음을 정확히 적용했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 자료가 모델별 온도 범위와 네트워크 수신 기능 차이를 직접 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "요구된 대조 결과에 답하면서 CV-20의 기능 지원만으로 전체 설치 적합성이 승인되는 것은 아니라고 범위를 적절히 한정했습니다."
+        }
+      },
+      "seconds": 6.831,
+      "usage": {
+        "input_tokens": 2865,
+        "output_tokens": 425,
+        "total_tokens": 3290,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2862
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 182
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-08",
+      "retrieval_mode": "naive",
+      "service_request_id": "a5455d97-1df5-4ce5-ac5b-aa1130b5c6ff",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "MB15_c1_0016",
+        "MB08_c1_0021",
+        "MB11_c1_0005"
+      ],
+      "context_token_count": 2370,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "실제 펌웨어 버전을 요청하고 안내서 개정번호와 제품 펌웨어가 다르다고 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20 펌웨어 2.1 이상은 15분, 2.0은 10분이라고 조건을 정확히 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료가 개정번호와 펌웨어의 구별 및 펌웨어별 기본값을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "개정 1.1만으로 적용값을 확정하지 않고 펌웨어 확인을 요청한 판단이 적절합니다."
+        }
+      },
+      "seconds": 6.636,
+      "usage": {
+        "input_tokens": 3298,
+        "output_tokens": 357,
+        "total_tokens": 3655,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3295
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 149
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-08",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "8d46461b-5030-4827-94ba-a9105a6762ef",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "MB11_c1_0001",
+        "MB08_c1_0021",
+        "MB15_c1_0016"
+      ],
+      "context_token_count": 2170,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "실제 펌웨어 버전을 요청하고 안내서 개정번호와 펌웨어가 다른 정보라고 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20 펌웨어 2.1 이상은 15분, 2.0은 10분이라고 조건을 정확히 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 정정 공지와 안내 자료가 버전별 기본값 및 개정번호와 펌웨어의 차이를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "개정번호만으로 적용값을 확정하지 않고 펌웨어 확인을 요청한 판단이 적절합니다."
+        }
+      },
+      "seconds": 6.738,
+      "usage": {
+        "input_tokens": 3098,
+        "output_tokens": 421,
+        "total_tokens": 3519,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3095
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 213
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-08",
+      "retrieval_mode": "rerank",
+      "service_request_id": "e2bcd345-070e-408f-aa75-a976ef272c36",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "MB15_c1_0016",
+        "MB02_c1_0002",
+        "MB08_c1_0021"
+      ],
+      "context_token_count": 2012,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "실제 펌웨어 버전을 요청하고 문서 개정 번호와 펌웨어가 별개임을 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "15분과 10분 값을 해당 CV-20 펌웨어 조건에 맞춰 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료가 개정 번호와 펌웨어의 구분 및 조건별 기본값을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "개정 번호만으로 현재 적용값을 단정하지 않고 펌웨어 확인을 요청했습니다."
+        }
+      },
+      "seconds": 6.594,
+      "usage": {
+        "input_tokens": 2931,
+        "output_tokens": 375,
+        "total_tokens": 3306,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2928
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 203
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-09",
+      "retrieval_mode": "naive",
+      "service_request_id": "c42ca72c-a7b4-4d6c-9dad-dd992a695a90",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB13_c1_0016",
+        "MB04_c1_0004",
+        "MB06_c1_0003"
+      ],
+      "context_token_count": 1378,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "지정 자료의 제한된 화면 조회만 허용되고 파일 내보내기와 네트워크 전달은 포함되지 않는다고 정확히 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "미확인 자료의 외부 전달 보류와 확인 후 재검토 조건도 문맥에 맞습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료들이 제한 조회 범위와 내보내기·전달 제외를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 바로 답했으며 추가 절차 설명도 적절합니다."
+        }
+      },
+      "seconds": 4.952,
+      "usage": {
+        "input_tokens": 2315,
+        "output_tokens": 252,
+        "total_tokens": 2567,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2312
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 79
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-09",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "c962a118-0a2b-43dd-8ab3-f37485ea9b05",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB13_c1_0016",
+        "MB04_c1_0004",
+        "MB06_c1_0003"
+      ],
+      "context_token_count": 1378,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "지정 자료의 제한된 화면 조회만 허용되고 파일 내보내기와 네트워크 전달은 포함되지 않는다고 정확히 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "허용 범위와 미확인 자료의 외부 전달 보류 조건을 자료 상태에 맞게 설명했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 문맥이 제한 조회와 내보내기·네트워크 전달의 구분 및 미확인 자료의 전달 보류를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "추가 확인이나 보류 없이 질문에 직접 답하는 것이 적절합니다."
+        }
+      },
+      "seconds": 3.138,
+      "usage": {
+        "input_tokens": 2321,
+        "output_tokens": 202,
+        "total_tokens": 2523,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2318
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 40
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-09",
+      "retrieval_mode": "rerank",
+      "service_request_id": "193577ac-1d51-4719-9362-0024f18d0d02",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB06_c1_0003",
+        "MB04_c1_0004",
+        "MB06_c1_0017"
+      ],
+      "context_token_count": 1364,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "지정 자료의 화면 조회만 허용되고 파일 내보내기와 네트워크 전달은 허용되지 않는다는 핵심 사실을 모두 정확히 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "허용 범위를 지정 자료에 한정했고, 미확인 상태에서는 전달을 보류해야 한다는 적용 범위도 검색 문맥과 일치합니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료들이 화면 조회 예외의 범위와 미확인 자료의 전달 보류를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 직접 답했으며 추가 확인이나 보류가 필요한 상황이 아닙니다."
+        }
+      },
+      "seconds": 4.546,
+      "usage": {
+        "input_tokens": 2274,
+        "output_tokens": 256,
+        "total_tokens": 2530,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2271
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 86
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-10",
+      "retrieval_mode": "naive",
+      "service_request_id": "2682bcc4-8937-4da2-9a95-613aeedab399",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB13_c1_0017",
+        "MB04_c1_0002",
+        "MB04_c1_0017"
+      ],
+      "context_token_count": 1710,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "정상 표시를 확인 상태로 표현하고 현장 안전 확인으로 확대 해석하지 않았으며, 파일 생성과 상대방 수신도 구분했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20의 확인 상태와 내보내기 파일 생성 상태에 대한 적용 범위가 적절합니다."
+        },
+        "evidence": {
+          "score": 0,
+          "reason": "인용 자료는 파일 생성과 수신 확인의 차이는 뒷받침하지만, ‘정상’ 표시가 자료 확인 상태라는 의미는 직접 뒷받침하지 않습니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "근거가 허용하는 범위에서 답하고, 확인되지 않은 현장 안전이나 상대방 수신을 단정하지 않았습니다."
+        }
+      },
+      "seconds": 7.961,
+      "usage": {
+        "input_tokens": 2698,
+        "output_tokens": 726,
+        "total_tokens": 3424,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2695
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 507
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-10",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "868a1a62-047c-41cc-9a5d-89fea8530ff7",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB13_c1_0017",
+        "MB01_c1_0018",
+        "MB13_c1_0024"
+      ],
+      "context_token_count": 2047,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "정상은 자료 확인 상태이지 현장 안전 확인이 아니며, 파일 생성 완료도 상대방 수신 완료를 뜻하지 않는다고 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20의 정상 상태 의미와 파일 생성·수신 확인의 구분을 올바르게 적용했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 검색 문맥이 자료 상태와 현장 안전의 구분, 파일 생성과 수신 확인의 구분을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 직접 답하고, 수신 확인이 없을 때 확인 대기로 표시하도록 적절히 안내했습니다."
+        }
+      },
+      "seconds": 4.671,
+      "usage": {
+        "input_tokens": 3067,
+        "output_tokens": 379,
+        "total_tokens": 3446,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3064
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 171
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-10",
+      "retrieval_mode": "rerank",
+      "service_request_id": "f1ca08eb-2f84-4dc0-b8d3-1254c2875773",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB01_c1_0018",
+        "MB08_c1_0016",
+        "MB04_c1_0024"
+      ],
+      "context_token_count": 2126,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "정상은 자료의 조회 확인 상태이지 현장 안전 보증이 아니며, 파일 생성 완료는 상대방 수신 완료를 뜻하지 않는다고 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20 표시의 의미와 적용 범위를 맞게 구분했고, 수신 확인 여부에 따른 표현도 적절합니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료가 정상 상태의 정의와 안전 보증이 아님을, 파일 생성과 전달·수신 확인의 구분을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 바로 답하고 확인되지 않은 수신을 단정하지 않도록 안내해 적절합니다."
+        }
+      },
+      "seconds": 4.761,
+      "usage": {
+        "input_tokens": 3198,
+        "output_tokens": 349,
+        "total_tokens": 3547,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3195
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 133
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-11",
+      "retrieval_mode": "naive",
+      "service_request_id": "78e12545-2abd-4b38-88b0-677818d6d585",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB12_c1_0008",
+        "MB08_c1_0003",
+        "MB05_c1_0003"
+      ],
+      "context_token_count": 1454,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-10은 네트워크 수신 기능이 없으며 수신시각이 비어 있다는 사실만으로 수신 오류라고 판정하지 않는다고 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "실제 모델이 CV-10인 경우라는 조건을 명시했고, 원자료 기록시각은 수신시각과 별도로 확인하도록 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 MB12 8쪽은 CV-10의 기능, 수신시각 부재만으로 오류로 판정하지 않는 점, 원자료 기록시각의 별도 확인을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 직접 아니라고 답했고, 검색 자료에 부합하는 판단과 적절한 추가 확인 사항을 제시했습니다."
+        }
+      },
+      "seconds": 4.267,
+      "usage": {
+        "input_tokens": 2338,
+        "output_tokens": 318,
+        "total_tokens": 2656,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2335
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 80
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-11",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "83f1a3c4-95d5-4e98-bbcb-f337a75e2013",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB12_c1_0008",
+        "MB10_c1_0002",
+        "MB01_c1_0002"
+      ],
+      "context_token_count": 1598,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-10 현장조회는 네트워크 수신시각을 요구하지 않으며, 빈 칸만으로 수신 오류라고 판정하지 않는다고 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "실제 모델이 CV-10이고 화면이 현장조회인 경우로 적용 범위를 적절히 한정했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 검색 자료가 CV-10의 기능 범위와 수신시각 부재만으로 오류를 판정하지 않는다는 주장을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 직접 답해 오류로 보고하지 말라고 판단했으며, 추가 확인을 요구한 범위도 적절합니다."
+        }
+      },
+      "seconds": 4.267,
+      "usage": {
+        "input_tokens": 2524,
+        "output_tokens": 299,
+        "total_tokens": 2823,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2521
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 120
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-11",
+      "retrieval_mode": "rerank",
+      "service_request_id": "77f5981c-00b4-4701-aa6b-0062857569b6",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB10_c1_0002",
+        "MB12_c1_0008",
+        "MB12_c1_0022"
+      ],
+      "context_token_count": 1938,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-10 현장조회는 네트워크 수신시각을 요구하지 않으며, 빈 칸만으로 수신 오류로 판정하지 않는다고 정확히 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "판단 범위를 CV-10 현장조회로 한정하고, 화면이나 모델이 다르면 먼저 확인하라고 했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 검색 문맥이 CV-10의 수신 기능 부재와 수신시각 미표시만으로 오류를 판정하지 않는다는 주장을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "추가 확인을 전제로 적절히 답변했고, 관찰 사실 기록과 필수 항목 점검도 안내했습니다."
+        }
+      },
+      "seconds": 4.506,
+      "usage": {
+        "input_tokens": 2850,
+        "output_tokens": 332,
+        "total_tokens": 3182,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2847
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 104
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-12",
+      "retrieval_mode": "naive",
+      "service_request_id": "bb4f6863-0cd2-4ba1-a5b7-4a32538a795a",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB03_c1_0001",
+        "MB09_c1_0021",
+        "MB01_c1_0001"
+      ],
+      "context_token_count": 1558,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "빈 목록은 선택한 조건에서 표시할 자료가 없다는 뜻이며, 현장에 이상이 없었다는 증거가 아니라고 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "질문의 최근 30일 조회 목록과 선택한 조건에 맞춰 답했으며, 범위를 벗어난 주장을 하지 않았습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 MB03 1쪽이 빈 목록만으로 현장에 이상이 없었다고 판단할 수 없다는 주장을 직접 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "화면만으로 확정할 수 없다고 보류한 판단이 적절합니다."
+        }
+      },
+      "seconds": 5.485,
+      "usage": {
+        "input_tokens": 2401,
+        "output_tokens": 288,
+        "total_tokens": 2689,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2398
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 78
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-12",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "fc2cdc82-e277-40d0-8e8e-3046f3df42c0",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "MB03_c1_0001",
+        "MB08_c1_0002",
+        "MB08_c1_0013"
+      ],
+      "context_token_count": 1484,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "빈 목록만으로 현장에 이상이 없었다고 확정할 수 없으며, 표시 결과와 실제 현장 상황을 구분했다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "최근 30일 조회 목록과 선택한 조건의 범위에 맞게 설명했다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 MB03 1쪽과 MB08 2쪽이 빈 목록의 의미와 확정할 수 없다는 주장을 뒷받침한다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "화면만으로 단정하지 않고 원자료 등록 여부와 별도 보관 자료 확인을 안내한 판단이 적절하다."
+        }
+      },
+      "seconds": 4.745,
+      "usage": {
+        "input_tokens": 2392,
+        "output_tokens": 248,
+        "total_tokens": 2640,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2389
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 85
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-12",
+      "retrieval_mode": "rerank",
+      "service_request_id": "168d07f7-d9ad-41ad-a253-762ee9384137",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "MB03_c1_0001",
+        "MB09_c1_0002",
+        "MB08_c1_0013"
+      ],
+      "context_token_count": 1506,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "빈 목록은 선택 조건에서 표시할 자료가 없다는 뜻이며, 현장에 이상이 없었다는 증거가 아니라고 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "최근 30일 및 선택한 조회 조건의 범위를 적절히 한정하고, 모델·기간과 원자료 등록 여부 확인을 언급했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "S1과 S2가 빈 목록만으로 현장 이상 여부나 전체 기록 부재를 단정할 수 없다는 주장을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "화면만으로 확정하지 않고 추가 확인이 필요하다고 보류한 판단이 적절합니다."
+        }
+      },
+      "seconds": 3.554,
+      "usage": {
+        "input_tokens": 2418,
+        "output_tokens": 306,
+        "total_tokens": 2724,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2415
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 93
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-13",
+      "retrieval_mode": "naive",
+      "service_request_id": "a93a469b-024e-4224-b033-1b2299ba97da",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "MB07_c1_0006",
+        "MB07_c1_0001",
+        "MB15_c1_0007"
+      ],
+      "context_token_count": 1693,
+      "scores": {
+        "facts": {
+          "score": 0,
+          "reason": "환경 조건은 맞게 판단했지만, 조회자 역할은 파일 내보내기를 실행할 수 없다는 필수 사실을 답하지 않았습니다."
+        },
+        "conditions": {
+          "score": 0,
+          "reason": "CV-10의 10~30℃ 및 건조한 실내·결로 없음 조건은 정확하지만, 조회자 역할의 권한 적용을 잘못 처리했습니다."
+        },
+        "evidence": {
+          "score": 0,
+          "reason": "인용은 환경 조건을 뒷받침하지만, 조회자 역할의 내보내기 불가를 뒷받침하는 근거는 인용되지 않았습니다."
+        },
+        "decision": {
+          "score": 0,
+          "reason": "자료는 역할별 권한을 명시하므로 보류할 사안이 아니라 조회자는 내보내기할 수 없다고 답해야 합니다."
+        }
+      },
+      "seconds": 5.305,
+      "usage": {
+        "input_tokens": 2806,
+        "output_tokens": 455,
+        "total_tokens": 3261,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2803
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 224
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-13",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "3e2b2f20-422a-484a-9844-0aa2ef922dba",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "MB15_c1_0007",
+        "MB07_c1_0006",
+        "MB07_c1_0001"
+      ],
+      "context_token_count": 1693,
+      "scores": {
+        "facts": {
+          "score": 0,
+          "reason": "환경 조건은 맞게 판단했지만, 조회자만으로는 파일 내보내기를 실행할 수 있다는 필수 사실을 누락했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-10의 10~30℃ 범위와 건조한 실내·결로 없음 조건을 12℃ 장소에 올바르게 적용했습니다."
+        },
+        "evidence": {
+          "score": 0,
+          "reason": "인용은 환경 조건을 뒷받침하지만, 조회자 역할의 내보내기 제한을 뒷받침하는 근거가 없습니다."
+        },
+        "decision": {
+          "score": 0,
+          "reason": "자료에 권한 정보가 없다고 보류했지만, 요구된 답은 조회자 역할만으로 내보내기를 실행할 수 없다는 판단입니다."
+        }
+      },
+      "seconds": 5.315,
+      "usage": {
+        "input_tokens": 2803,
+        "output_tokens": 442,
+        "total_tokens": 3245,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2800
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 218
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-13",
+      "retrieval_mode": "rerank",
+      "service_request_id": "338c300b-af87-4c53-bf6e-72eecf2dd61b",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB01_c1_0021",
+        "MB15_c1_0007",
+        "MB13_c1_0022"
+      ],
+      "context_token_count": 2089,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-10의 환경 조건 충족과 조회자 역할만으로 파일을 내보낼 수 없다는 두 핵심 사실을 모두 정확히 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "모델, 섭씨 단위와 12도 값, 실내·건조·결로 없음 조건 및 조회자 역할을 정확히 구분했고, 전체 설치 적합성 승인과는 다르다고 밝혔습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 문맥은 CV-10의 10~30℃ 범위와 건조한 실내·결로 없음 조건, 조회자와 기록담당의 내보내기 권한 구분을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "근거가 충분한 두 판단을 분리해 답변했으며, 추가 확인이나 보류가 필요하지 않습니다."
+        }
+      },
+      "seconds": 4.85,
+      "usage": {
+        "input_tokens": 3246,
+        "output_tokens": 354,
+        "total_tokens": 3600,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3243
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 143
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-14",
+      "retrieval_mode": "naive",
+      "service_request_id": "2c9bc700-d543-497e-8077-38fe3fff9309",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB09_c1_0008",
+        "MB14_c1_0012",
+        "MB15_c1_0009"
+      ],
+      "context_token_count": 2021,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "10월 21일인 A가 10월 19일인 B보다 원자료 기록시각이 늦다고 정확히 판단했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "제시된 모델·출처가 같다는 조건과 기록시각 및 수신 순서의 적용 범위를 혼동하지 않았습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 검색 문맥이 현장조회 정렬과 최신 수신의 의미를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "근거가 충분한 질문에 직접 답했으며 추가 확인이나 보류가 필요하지 않습니다."
+        }
+      },
+      "seconds": 5.245,
+      "usage": {
+        "input_tokens": 3120,
+        "output_tokens": 272,
+        "total_tokens": 3392,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3117
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 114
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-14",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "8c6259f2-d972-46d0-ac82-4879501a7add",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB09_c1_0008",
+        "MB14_c1_0012",
+        "MB05_c1_0002"
+      ],
+      "context_token_count": 1761,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "A의 10월 21일 기록시각이 B의 10월 19일보다 늦어 더 최근 발생 내용을 담습니다. 목록 정렬과 최신 수신의 의미도 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20과 두 자료의 날짜를 정확히 다루고, 현장조회 정렬과 최신 수신 표시의 적용 의미를 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 자료가 현장조회 등록 역순과 최신 수신이 도착 순서를 뜻한다는 주장을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "검색 근거와 질문의 전제가 충분하므로 바로 답한 것이 적절합니다."
+        }
+      },
+      "seconds": 5.585,
+      "usage": {
+        "input_tokens": 2869,
+        "output_tokens": 357,
+        "total_tokens": 3226,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2866
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 177
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-14",
+      "retrieval_mode": "rerank",
+      "service_request_id": "04723cbe-d776-4c83-84ec-95fd7cb0b141",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB13_c1_0011",
+        "MB09_c1_0008",
+        "MB14_c1_0012"
+      ],
+      "context_token_count": 2106,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "정확히 비교해 A(10월 21일)가 더 최근이라고 했고, 두 표시 기준이 발생 시점과 다를 수 있음을 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "모델·자료가 동일한 조건에서 원자료 기록시각과 등록·수신 기준을 구분해 적용했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 자료가 현장조회 정렬, 최신 수신의 의미, 원자료 기록시각과의 차이를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "근거가 충분한 질문에 직접 답했습니다."
+        }
+      },
+      "seconds": 3.892,
+      "usage": {
+        "input_tokens": 3219,
+        "output_tokens": 247,
+        "total_tokens": 3466,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3216
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 91
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-15",
+      "retrieval_mode": "naive",
+      "service_request_id": "2dc70764-0305-4c09-bf2e-445297548fff",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB13_c1_0008",
+        "MB06_c1_0011",
+        "MB15_c1_0002"
+      ],
+      "context_token_count": 1954,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "E07 해소가 내보내기 권한을 부여하지 않으며 조회자 역할만으로 내보낼 수 없다는 핵심 사실을 모두 정확히 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20 수신조회와 사용자의 조회자 역할만 보유한 조건을 정확히 반영했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "S1은 E07의 점검 의미와 조회자·기록담당의 역할 차이를 뒷받침합니다. S2도 역할과 허용 모델이 별도임을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "추가 확인이나 보류 없이 실행 불가라고 직접 답한 판단이 적절합니다."
+        }
+      },
+      "seconds": 3.984,
+      "usage": {
+        "input_tokens": 2931,
+        "output_tokens": 281,
+        "total_tokens": 3212,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2928
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 101
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-15",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "dddb552f-7d95-47de-8bf6-c7b4014fa103",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB12_c1_0020",
+        "MB12_c1_0003",
+        "MB13_c1_0008"
+      ],
+      "context_token_count": 1899,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "E07 해소는 수신 확인에 관한 것이며, 조회자 역할만으로는 내보내기할 수 없다고 정확히 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20 수신조회와 조회자 역할의 적용 범위를 정확히 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 문맥이 E07의 의미와 조회자·기록담당의 권한 차이를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "근거가 충분한 상황에서 바로 실행할 수 없다고 답한 판단이 적절합니다."
+        }
+      },
+      "seconds": 5.145,
+      "usage": {
+        "input_tokens": 2893,
+        "output_tokens": 249,
+        "total_tokens": 3142,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2890
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 96
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-15",
+      "retrieval_mode": "rerank",
+      "service_request_id": "5d8eb602-923e-4c9d-aeca-3875e3c7e4d8",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB13_c1_0008",
+        "MB06_c1_0021",
+        "MB06_c1_0011"
+      ],
+      "context_token_count": 2167,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "E07 해소가 내보내기 권한을 부여하지 않으며 조회자 역할만으로는 내보내기가 불가하다고 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20에서의 수신 확인과 사용자 역할·허용 모델 범위를 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 MB13 p.8과 MB06 p.21이 E07 점검, 조회자 역할의 내보내기 제한을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 직접 답해 실행할 수 없다고 판단했습니다."
+        }
+      },
+      "seconds": 4.222,
+      "usage": {
+        "input_tokens": 3118,
+        "output_tokens": 300,
+        "total_tokens": 3418,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3115
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 144
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-16",
+      "retrieval_mode": "naive",
+      "service_request_id": "71512d6f-880d-474d-a4e4-de002dc7ded1",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB07_c1_0018",
+        "MB15_c1_0007",
+        "MB11_c1_0001"
+      ],
+      "context_token_count": 1914,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "15분 기본값과 14℃가 CV-20 최저 기준 15℃ 미만이라는 핵심 사실이 정확합니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "2026년 10월 20일 정정의 적용 대상인 CV-20 펌웨어 2.1 이상을 맞게 적용했고, 건조·실내·결로 없음과 온도 조건을 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 자료가 15분 기본값, CV-20의 15~30℃ 범위 및 환경 조건을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 필요한 기본값과 환경 조건 충족 여부를 근거에 따라 답했습니다."
+        }
+      },
+      "seconds": 4.278,
+      "usage": {
+        "input_tokens": 3027,
+        "output_tokens": 305,
+        "total_tokens": 3332,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3024
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 124
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-16",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "492c17af-c7b0-4a2d-b0ef-3505aabfff56",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB07_c1_0018",
+        "MB07_c1_0001",
+        "MB15_c1_0007"
+      ],
+      "context_token_count": 1721,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "15분 기본값과 14℃가 CV-20의 15℃ 하한보다 낮다는 핵심 사실을 정확히 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "2026년 10월 20일 정정, 펌웨어 2.1 이상, 섭씨 단위와 CV-20 적용 범위를 올바르게 반영했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료가 펌웨어별 소등 안내와 CV-20 온도·설치 환경 조건을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "요구된 기본값과 환경 조건 충족 여부를 근거에 맞게 답했습니다."
+        }
+      },
+      "seconds": 4.929,
+      "usage": {
+        "input_tokens": 2766,
+        "output_tokens": 327,
+        "total_tokens": 3093,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2763
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 115
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-16",
+      "retrieval_mode": "rerank",
+      "service_request_id": "dfbe8f6c-269d-48dc-ba44-8802705e9490",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB07_c1_0023",
+        "MB07_c1_0017",
+        "MB07_c1_0018"
+      ],
+      "context_token_count": 2193,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-20 펌웨어 2.1의 소등 기본 안내를 15분으로 제시했고, 14℃가 하한 15℃보다 낮다고 정확히 판단했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "2026년 10월 20일 정정의 적용 대상과 CV-20 환경 범위(15~30℃)를 올바르게 적용했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 17~18쪽 자료가 15분 기본 안내와 CV-20의 온도 범위를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "요청된 기본값과 환경 충족 여부를 답했고, 개별 단말 설정은 자료만으로 단정하지 않는 적절한 한계를 덧붙였습니다."
+        }
+      },
+      "seconds": 5.685,
+      "usage": {
+        "input_tokens": 3235,
+        "output_tokens": 396,
+        "total_tokens": 3631,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3232
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 162
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-17",
+      "retrieval_mode": "naive",
+      "service_request_id": "595f829e-9e5f-4848-89fd-a341fc083d6b",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB11_c1_0001",
+        "MB11_c1_0006",
+        "MB02_c1_0002"
+      ],
+      "context_token_count": 1686,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-10은 15분 정정 대상이 아니며 기본값은 10분이라고 정확히 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "15분 적용 범위를 CV-20 펌웨어 2.1 이상으로 한정하고 CV-10과 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 S1 1쪽이 CV-10의 10분 기본값과 CV-20 펌웨어 2.1 이상에 대한 정정을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "모델과 펌웨어가 제시되어 있어 직접 답변하는 것이 적절합니다."
+        }
+      },
+      "seconds": 3.877,
+      "usage": {
+        "input_tokens": 2546,
+        "output_tokens": 284,
+        "total_tokens": 2830,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2543
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 79
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-17",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "e082ae54-07cd-4590-b3f2-0e40741c4ed8",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB11_c1_0001",
+        "MB02_c1_0002",
+        "MB11_c1_0006"
+      ],
+      "context_token_count": 1686,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-10은 15분 정정 대상이 아니며 기본값은 10분이라고 정확히 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "15분 적용 범위를 CV-20 펌웨어 2.1 이상으로 한정했고, 현장 별도 설정에 따른 차이도 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 S1 1쪽이 CV-10 기본값 10분과 CV-20 펌웨어 2.1 이상 적용 조건을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 필요한 적용 여부를 근거에 따라 직접 답했습니다."
+        }
+      },
+      "seconds": 4.773,
+      "usage": {
+        "input_tokens": 2568,
+        "output_tokens": 288,
+        "total_tokens": 2856,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2565
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 83
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-17",
+      "retrieval_mode": "rerank",
+      "service_request_id": "cb8496f1-4565-4ebe-a147-9668f602386b",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB11_c1_0001",
+        "MB11_c1_0023",
+        "MB11_c1_0013"
+      ],
+      "context_token_count": 2147,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-10은 15분 정정 대상이 아니며 기본값은 10분이라는 필수 사실을 정확히 제시했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "2026년 10월 25일 기준, 모델별 적용 범위와 펌웨어 조건을 정확히 구분했고 별도 승인 설정의 예외도 적절히 밝혔습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 1쪽과 23쪽이 CV-10의 10분 기본값, CV-20 펌웨어 2.1 이상에 적용되는 15분 및 설정 예외를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 직접 답하고 적용 대상이 아니라고 판단한 것이 적절합니다."
+        }
+      },
+      "seconds": 3.64,
+      "usage": {
+        "input_tokens": 3082,
+        "output_tokens": 272,
+        "total_tokens": 3354,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3079
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 82
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-18",
+      "retrieval_mode": "naive",
+      "service_request_id": "ba35fb21-fb00-4083-ba65-954e04a31096",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB02_c1_0002",
+        "MB02_c1_0023",
+        "MB11_c1_0005"
+      ],
+      "context_token_count": 1900,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-20 펌웨어 2.0의 10분 기본값과 2.1 이상에 적용되는 15분 정정을 모두 정확히 안내했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "기준일과 모델·펌웨어별 적용 범위를 구분했고, 기본값과 실제 설정의 차이도 밝혔습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 MB02 p.23과 MB11 p.5가 정정 효력일 및 펌웨어별 소등 기본값을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문의 대상과 기준일이 특정되어 있으므로 답변한 판단이 적절합니다."
+        }
+      },
+      "seconds": 4.378,
+      "usage": {
+        "input_tokens": 2907,
+        "output_tokens": 309,
+        "total_tokens": 3216,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2904
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 95
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-18",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "5bf073ca-1a39-48d7-8743-1a9b90409c7a",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB02_c1_0002",
+        "MB11_c1_0001",
+        "MB02_c1_0023"
+      ],
+      "context_token_count": 1700,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-20 펌웨어 2.0의 10분 기본값과 2.1 이상에 적용되는 15분 정정을 정확히 안내했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "2026년 10월 25일 기준과 모델·펌웨어 적용 범위를 구분했고, 별도 설정에 따른 예외도 적절히 밝혔습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 MB11 1쪽과 MB02 23쪽이 핵심 주장과 적용 범위를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "요구된 사실이 확인되므로 추가 확인이나 보류 없이 답변한 것이 적절합니다."
+        }
+      },
+      "seconds": 3.176,
+      "usage": {
+        "input_tokens": 2688,
+        "output_tokens": 251,
+        "total_tokens": 2939,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2685
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 77
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-18",
+      "retrieval_mode": "rerank",
+      "service_request_id": "acf18cb9-d3e0-4e7d-979e-70067a7ec5f6",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB11_c1_0023",
+        "MB11_c1_0013",
+        "MB02_c1_0023"
+      ],
+      "context_token_count": 2337,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-20 펌웨어 2.0의 10분 기본값 유지와 펌웨어 2.1 이상에 적용되는 15분 정정을 정확히 안내했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "2026년 10월 20일 정정 효력일과 펌웨어별 적용 범위를 구분했고, 기본값과 실제 설정도 혼동하지 않았습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료가 2.0의 10분 유지, 2.1 이상 15분 정정 및 별도 설정 가능성을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "검색 자료로 확인 가능한 질문에 직접 답했습니다."
+        }
+      },
+      "seconds": 4.518,
+      "usage": {
+        "input_tokens": 3408,
+        "output_tokens": 297,
+        "total_tokens": 3705,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3405
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 80
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-19",
+      "retrieval_mode": "naive",
+      "service_request_id": "631d1990-2c3d-40cb-8379-17fff6f0464f",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB11_c1_0001",
+        "MB11_c1_0006",
+        "MB02_c1_0023"
+      ],
+      "context_token_count": 2034,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "기본값은 15분이지만 실제 소등 시간은 확정할 수 없고 현재 표시 설정 확인이 필요하다고 정확히 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20 펌웨어 2.1 이상과 마지막 화면 입력 후 15분이라는 적용 범위를 정확히 제시했으며 별도 설정 가능성도 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료가 기본값, 실제 설정에 따른 차이, 설정 확인 필요성을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "실제 동작을 단정하지 않고 설정 확인이 필요하다고 한 판단이 적절합니다."
+        }
+      },
+      "seconds": 6.796,
+      "usage": {
+        "input_tokens": 3065,
+        "output_tokens": 451,
+        "total_tokens": 3516,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3062
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 240
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-19",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "1f300d89-b5c7-4d39-bcaa-61137ba89afc",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB14_c1_0021",
+        "MB11_c1_0006",
+        "MB02_c1_0023"
+      ],
+      "context_token_count": 2203,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "15분 기본값과 실제 소등 시간을 확정할 수 없다는 점, 설정 확인 필요성을 모두 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "10월 20일 정정, CV-20 펌웨어 2.1, 마지막 화면 입력 후 15분이라는 적용 조건이 맞습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료가 해당 기본값과 실제 설정 미확인 시 확정할 수 없다는 판단을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "확정 요청을 적절히 보류하고 그 이유를 밝혔습니다."
+        }
+      },
+      "seconds": 6.627,
+      "usage": {
+        "input_tokens": 3220,
+        "output_tokens": 320,
+        "total_tokens": 3540,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3217
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 140
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-19",
+      "retrieval_mode": "rerank",
+      "service_request_id": "eafb5548-6814-45f4-95de-eaecf8285a87",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB14_c1_0021",
+        "MB11_c1_0023",
+        "MB14_c1_0001"
+      ],
+      "context_token_count": 2015,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "기본값이 15분이며 실제 단말의 소등 시간은 확정할 수 없다고 밝혔습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20 펌웨어 2.1 조건에 맞춰 기본값을 안내하고 실제 설정과 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료가 해당 펌웨어 범위의 기본값과 개별 단말 설정 미확인 시 확정할 수 없다는 점을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "요청된 확정을 거부하고 실제 표시 설정 확인이 필요하다고 적절히 안내했습니다."
+        }
+      },
+      "seconds": 6.944,
+      "usage": {
+        "input_tokens": 3021,
+        "output_tokens": 397,
+        "total_tokens": 3418,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3018
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 193
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-20",
+      "retrieval_mode": "naive",
+      "service_request_id": "275c0a46-7a4b-4f36-a6aa-0e2e9cd1a1ce",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB02_c1_0023",
+        "MB11_c1_0005",
+        "MB15_c1_0016"
+      ],
+      "context_token_count": 2342,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-20 펌웨어 2.0의 10분 기본값과 15분 적용 범위, ‘최신’이 마지막 수신 자료를 뜻하며 원자료의 최신 작성 시각을 보장하지 않는다는 점을 모두 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "2026년 10월 25일 기준 CV-20 펌웨어 2.0에 두 정정 항목이 서로 다르게 적용됨을 정확히 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 S1·S2가 항목별 적용 범위와 표시 의미를 뒷받침하고, S3도 펌웨어 2.0의 10분 안내를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "대상 모델과 펌웨어가 명시되어 있어 추가 확인이나 보류 없이 항목별로 답한 것이 적절합니다."
+        }
+      },
+      "seconds": 5.6,
+      "usage": {
+        "input_tokens": 3557,
+        "output_tokens": 377,
+        "total_tokens": 3934,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3554
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 114
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-20",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "bf251c4a-798b-4a80-a664-f55ab37ca66d",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB02_c1_0023",
+        "MB11_c1_0005",
+        "MB11_c1_0012"
+      ],
+      "context_token_count": 2266,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-20 펌웨어 2.0의 10분 기본값과 ‘최신’ 표시가 마지막 수신을 뜻하며 최신 발생을 보증하지 않는다는 점을 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "15분 정정은 2.1 이상에만 적용되고, 수신목록 표시 의미 정정은 CV-20 전체에 적용된다고 구분했으며 기준일도 정정 효력일 이후입니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료가 두 정정의 적용 범위, 2.0의 10분 기본값, 최신 표시의 의미와 효력일을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "근거가 충분하고 질문에 필요한 항목별 적용 여부를 직접 답했습니다."
+        }
+      },
+      "seconds": 5.748,
+      "usage": {
+        "input_tokens": 3539,
+        "output_tokens": 322,
+        "total_tokens": 3861,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3536
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 84
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-20",
+      "retrieval_mode": "rerank",
+      "service_request_id": "d00e08f1-f619-4547-bdea-31aac6ce772c",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB02_c1_0023",
+        "MB08_c1_0008",
+        "MB11_c1_0023"
+      ],
+      "context_token_count": 2329,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "펌웨어 2.0의 10분 기본값과 15분 적용 제외, 그리고 ‘최신 수신’이 마지막으로 받은 자료를 뜻하며 최신 작성 시각을 보장하지 않는다는 점을 모두 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "2026년 10월 25일 기준으로 10월 20일 정정의 적용 범위를 구분했고, 15분은 CV-20 펌웨어 2.1 이상, 표시 의미 정정은 CV-20 전체라고 정확히 밝혔습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 검색 문맥이 기본값, 펌웨어 적용 범위, ‘최신 수신’의 의미를 직접 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 필요한 항목별 판단을 바로 답했으며, 실제 단말의 별도 설정은 확인이 필요하다고 적절히 한정했습니다."
+        }
+      },
+      "seconds": 5.534,
+      "usage": {
+        "input_tokens": 3578,
+        "output_tokens": 390,
+        "total_tokens": 3968,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3575
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 121
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-21",
+      "retrieval_mode": "naive",
+      "service_request_id": "0b9c1831-20d4-4677-93ae-65670f7e9e3c",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB04_c1_0017",
+        "MB04_c1_0003",
+        "MB15_c1_0018"
+      ],
+      "context_token_count": 1755,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "수신 확인과 초안 저장·검토 대기 상태를 모두 정확히 구분했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20의 수신 확인을 파일 수신에만 적용하고 검토 완료나 승인으로 확대하지 않았습니다."
+        },
+        "evidence": {
+          "score": 0,
+          "reason": "인용은 수신 확인의 범위는 뒷받침하지만, 메모의 초안 저장·검토 대기 상태를 뒷받침하는 근거는 없습니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 직접 답했으며 확인된 사실과 미완료 상태를 적절히 인계했습니다."
+        }
+      },
+      "seconds": 6.419,
+      "usage": {
+        "input_tokens": 2760,
+        "output_tokens": 464,
+        "total_tokens": 3224,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2757
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 278
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-21",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "bb6219ad-5c0a-4e9e-ac83-8ef2f73d4183",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB04_c1_0017",
+        "MB04_c1_0003",
+        "MB15_c1_0018"
+      ],
+      "context_token_count": 1755,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "파일 수신 확인과 메모의 초안·검토 대기 상태를 구분해 필수 사실을 모두 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "수신 확인을 검토 완료나 승인으로 확대하지 않았고, 메모도 검토 완료로 표시하지 않았습니다."
+        },
+        "evidence": {
+          "score": 0,
+          "reason": "인용 자료는 수신 확인과 검토의 구분을 뒷받침하지만, 메모가 초안 저장 상태이고 검토자가 미열람이라는 사실은 검색 문맥에서 확인되지 않습니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "필요한 상태를 명확히 인계하는 답변을 했으며 추가 확인이나 보류가 필요하지 않습니다."
+        }
+      },
+      "seconds": 6.06,
+      "usage": {
+        "input_tokens": 2744,
+        "output_tokens": 498,
+        "total_tokens": 3242,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2741
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 280
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-21",
+      "retrieval_mode": "rerank",
+      "service_request_id": "82771651-bcee-4d71-b3b3-e441654503f2",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB04_c1_0017",
+        "MB15_c1_0018",
+        "MB04_c1_0015"
+      ],
+      "context_token_count": 2153,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "파일 수신 확인과 메모의 초안 저장·검토 대기 상태를 구분해 핵심 사실을 모두 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "수신 확인을 내용 검토나 승인으로 확대하지 않았고, 메모를 미완료 상태로 정확히 인계했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용 자료가 수신 확인은 파일을 받은 사실만 뜻하며 검토 완료와 별개라는 구분을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "추가 확인이나 보류 없이 요청된 인계 상태를 적절히 제시했습니다."
+        }
+      },
+      "seconds": 9.113,
+      "usage": {
+        "input_tokens": 3110,
+        "output_tokens": 632,
+        "total_tokens": 3742,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3107
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 447
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-22",
+      "retrieval_mode": "naive",
+      "service_request_id": "54f660f3-6480-4e9a-997e-db47da97d675",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB04_c1_0001",
+        "MB06_c1_0011",
+        "MB08_c1_0024"
+      ],
+      "context_token_count": 1811,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-10만 허용된 계정은 CV-20 내보내기를 처리할 수 없고, 출처 미확인 자료는 외부 전달을 보류해야 한다고 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "계정의 허용 모델과 자료 확인 상태를 별개로 판단했으며, 권한을 확보해도 출처 미확인 상태가 해소되지 않으면 전달할 수 없다고 했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 자료가 CV-20 권한 범위, 미확인 자료의 취급, 외부 전달 보류를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 직접 답하고 권한 변경만으로는 곧바로 정상 묶음으로 전달할 수 없다는 결론을 제시했습니다."
+        }
+      },
+      "seconds": 4.273,
+      "usage": {
+        "input_tokens": 2942,
+        "output_tokens": 326,
+        "total_tokens": 3268,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2939
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 123
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-22",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "897939e3-ab05-4035-b28c-395388ef1cfe",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB06_c1_0011",
+        "MB06_c1_0012",
+        "MB08_c1_0024"
+      ],
+      "context_token_count": 2117,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-10만 허용된 계정은 CV-20을 처리할 수 없고, 권한 변경만으로 미확인 상태가 해소되지 않는다고 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20 권한 담당자에게 인계해야 한다는 점과 미확인·확인 필요 상태의 전달 조건을 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 문맥이 모델 권한 제한, 출처 확인 사안, 미확인 자료의 외부 전달 보류를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "권한 대상만 바꾸면 즉시 정상 묶음으로 전달할 수 없다고 적절히 판단했습니다."
+        }
+      },
+      "seconds": 6.645,
+      "usage": {
+        "input_tokens": 3221,
+        "output_tokens": 578,
+        "total_tokens": 3799,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3218
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 358
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-22",
+      "retrieval_mode": "rerank",
+      "service_request_id": "d721709a-84c8-4f34-96cf-9d511834a2fd",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB06_c1_0011",
+        "MB06_c1_0020",
+        "MB13_c1_0013"
+      ],
+      "context_token_count": 2201,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-10만 허용된 계정은 CV-20 자료를 내보낼 수 없고, 권한을 확보해도 출처 미확인 자료는 외부 전달할 수 없다고 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20 권한과 자료의 출처 확인 상태를 별개로 판단했으며, 미확인 상태의 자료를 정상 묶음으로 취급하지 않았습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 MB06 문맥이 모델 권한 제한과 출처 미확인 자료의 전달 보류를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 직접 아니라고 답하고 권한 변경만으로는 전달 가능해지지 않는 이유를 설명했습니다."
+        }
+      },
+      "seconds": 6.056,
+      "usage": {
+        "input_tokens": 3251,
+        "output_tokens": 398,
+        "total_tokens": 3649,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3248
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 168
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-23",
+      "retrieval_mode": "naive",
+      "service_request_id": "0957dc83-a655-4b20-af7b-3e3846bc14d4",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB03_c1_0020",
+        "MB03_c1_0018",
+        "MB03_c1_0004"
+      ],
+      "context_token_count": 1779,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "출처 이름만 정정하고 원자료 기록시각은 유지한다고 답해 핵심 사실을 모두 포함했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "정정 범위를 명시된 필드로 한정해 적용했고 기록시각을 정정 자료 발행 시각으로 바꾸지 않았습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 p.20과 p.4의 검색 문맥이 출처 이름만 정정될 때 원자료 기록시각을 유지한다는 주장을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "자료가 정정 범위를 명확히 하므로 추가 확인이나 보류 없이 직접 답한 것이 적절합니다."
+        }
+      },
+      "seconds": 3.263,
+      "usage": {
+        "input_tokens": 2687,
+        "output_tokens": 284,
+        "total_tokens": 2971,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2684
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 69
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-23",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "d44e750e-f508-4d35-a508-7aac7eac2889",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB03_c1_0020",
+        "MB03_c1_0017",
+        "MB03_c1_0004"
+      ],
+      "context_token_count": 1886,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "출처 이름만 정정하고 원자료 기록시각은 유지한다는 필수 사실을 모두 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "기록시각 변경이 명시되지 않은 경우라는 적용 조건을 정확히 반영했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 S1·S2·S3 문맥이 답변의 핵심 주장을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "자료에 근거해 질문에 직접 답했으며 추가 확인이나 보류가 필요하지 않습니다."
+        }
+      },
+      "seconds": 3.344,
+      "usage": {
+        "input_tokens": 2879,
+        "output_tokens": 212,
+        "total_tokens": 3091,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2876
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 68
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-23",
+      "retrieval_mode": "rerank",
+      "service_request_id": "2e81999e-7d42-4629-8af0-708dbd51dc6a",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB03_c1_0004",
+        "MB03_c1_0017",
+        "MB03_c1_0020"
+      ],
+      "context_token_count": 1886,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "출처 이름만 적용하고 원자료 기록시각을 유지한다는 필수 사실을 모두 담았습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "정정 범위를 출처 이름으로 한정하고 정정 자료의 발행 시각과 원자료 기록시각을 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 4쪽과 17쪽 자료가 출처 정정만으로 기록시각을 바꾸지 않는다는 주장을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "자료에 근거해 직접 답변했으며 추가 확인이나 보류가 필요하지 않습니다."
+        }
+      },
+      "seconds": 3.746,
+      "usage": {
+        "input_tokens": 2819,
+        "output_tokens": 226,
+        "total_tokens": 3045,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2816
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 67
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-24",
+      "retrieval_mode": "naive",
+      "service_request_id": "47141bfa-edfd-43ad-a377-8504787c7140",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "MB01_c1_0002",
+        "MB05_c1_0001",
+        "MB13_c1_0007"
+      ],
+      "context_token_count": 1452,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "지원 여부 판단에 필요한 정확한 모델명(CV-10 또는 CV-20)을 요청했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20은 지원하고 CV-10은 지원하지 않는다고 모델별 적용 범위를 정확히 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 자료가 모델별 네트워크 수신 지원 여부와 모델명 확인 필요성을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "모델명이 확인되지 않은 상황에서 추가 확인을 요청한 판단이 적절합니다."
+        }
+      },
+      "seconds": 3.035,
+      "usage": {
+        "input_tokens": 2224,
+        "output_tokens": 216,
+        "total_tokens": 2440,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2221
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 74
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-24",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "e0d74d03-8e61-481a-95a8-1b17b8e52b2e",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "MB05_c1_0001",
+        "MB01_c1_0015",
+        "MB11_c1_0014"
+      ],
+      "context_token_count": 1885,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "정확한 모델명 확인을 요청했고, CV-20과 CV-10의 지원 여부도 자료와 일치합니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "모델별 지원 범위를 구분했으며, 모델이 확인되지 않은 상황에서 적용 여부를 단정하지 않았습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료들이 모델별 네트워크 수신조회 지원 여부를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "모델에 따라 지원 여부가 달라지므로 모델명 확인을 요청한 조치가 적절합니다."
+        }
+      },
+      "seconds": 3.958,
+      "usage": {
+        "input_tokens": 2680,
+        "output_tokens": 315,
+        "total_tokens": 2995,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2677
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 123
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-24",
+      "retrieval_mode": "rerank",
+      "service_request_id": "4f182fe4-0d87-4a48-a991-79306a51133f",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "MB15_c1_0002",
+        "MB13_c1_0007",
+        "MB01_c1_0005"
+      ],
+      "context_token_count": 2034,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "모델별 지원 여부를 구분하고 정확한 모델명을 요청했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-10과 CV-20의 지원 범위를 올바르게 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료가 모델별 네트워크 수신 지원 여부를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "모델명이 확인되지 않아 추가 확인을 요청한 판단이 적절합니다."
+        }
+      },
+      "seconds": 3.312,
+      "usage": {
+        "input_tokens": 2810,
+        "output_tokens": 255,
+        "total_tokens": 3065,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2807
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 132
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-25",
+      "retrieval_mode": "naive",
+      "service_request_id": "ca4af1d4-71cd-4850-8f13-4000ebbb5acf",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "MB07_c1_0001",
+        "MB01_c1_0021",
+        "MB01_c1_0001"
+      ],
+      "context_token_count": 1547,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "정확히 IP 등급이 문서에 없고 일반 제품 사양을 적용할 수 없다고 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "질문의 대상인 CV-10과 방수 IP 등급에 관한 적용 범위를 올바르게 다뤘습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 MB07 1쪽이 방수 등급 수치의 부재와 일반 제품 사양을 적용하지 말라는 점을 직접 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "근거 없는 IP 숫자를 추정하지 않고 보류한 결정이 적절합니다."
+        }
+      },
+      "seconds": 3.369,
+      "usage": {
+        "input_tokens": 2439,
+        "output_tokens": 234,
+        "total_tokens": 2673,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2436
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 76
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-25",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "5651d3fa-0682-4768-8ded-b3b353e8c848",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "MB07_c1_0001",
+        "MB01_c1_0006",
+        "MB07_c1_0005"
+      ],
+      "context_token_count": 1798,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "문서에 IP 방수 등급이 없고 일반 제품 사양을 적용하지 않는다는 핵심 사실을 정확히 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "질문의 대상인 CV-10에 근거 없는 등급을 적용하지 않았습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "[S1]은 방수 등급을 제공하지 않으며 일반 제품 사양을 체크뷰에 적용하지 않는다고 명시해 주장을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "근거가 없어 IP 숫자를 제시하지 않고 보류한 판단이 적절합니다."
+        }
+      },
+      "seconds": 3.339,
+      "usage": {
+        "input_tokens": 2659,
+        "output_tokens": 223,
+        "total_tokens": 2882,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2656
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 67
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-25",
+      "retrieval_mode": "rerank",
+      "service_request_id": "bee92a58-1532-422a-a0f6-7f1160e38272",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "MB11_c1_0008",
+        "MB01_c1_0021",
+        "MB07_c1_0001"
+      ],
+      "context_token_count": 1919,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "문서에 방수 등급이 없고 일반 제품 사양을 적용할 수 없다는 핵심 사실을 정확히 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "대상 모델을 CV-10으로 유지했고 적용 범위를 혼동하지 않았습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 MB07 1쪽이 방수 등급 미제공 및 일반 사양 적용 금지를 직접 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "근거 없는 IP 숫자를 제시하지 않고 답변을 보류한 판단이 적절합니다."
+        }
+      },
+      "seconds": 4.704,
+      "usage": {
+        "input_tokens": 2762,
+        "output_tokens": 262,
+        "total_tokens": 3024,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2759
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 111
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-26",
+      "retrieval_mode": "naive",
+      "service_request_id": "e037c9a1-d141-40eb-92dd-7dfd4ca5d2c7",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB12_c1_0002",
+        "MB15_c1_0002",
+        "MB12_c1_0020"
+      ],
+      "context_token_count": 1774,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "E04를 모델 불일치로 설명하고 선택 모델과 자료별 모델 비교 및 네트워크 실패가 아니라는 점을 모두 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-10 내보내기 미리보기 상황에 맞게 적용했으며 모델명 임의 변경 금지와 생성·전달 이력의 별도 확인도 정확합니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "MB12 2쪽 인용이 E04의 의미와 비교할 항목, 네트워크 고장 판정 코드가 아니라는 주장을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "핵심 판단을 바로잡아 답변했으며 추가 확인이나 보류가 필요하지 않습니다."
+        }
+      },
+      "seconds": 4.782,
+      "usage": {
+        "input_tokens": 2735,
+        "output_tokens": 342,
+        "total_tokens": 3077,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2732
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 121
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-26",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "b6317b3b-d702-4abe-9758-3a72d1c45e8e",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB12_c1_0002",
+        "MB15_c1_0002",
+        "MB04_c1_0008"
+      ],
+      "context_token_count": 1738,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "E04의 모델 불일치 의미, 선택 모델과 자료별 모델 비교, 네트워크 전송 실패가 아니라는 점을 모두 정확히 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "근거가 CV-10에 적용됨을 확인했고, 적용 범위를 벗어나거나 조건을 왜곡한 내용이 없습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "S1의 MB12 2쪽이 E04 설명과 우선 비교 항목 및 전달 실패와의 구분을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 필요한 정정과 확인 항목을 바로 답했으며, 보류할 이유가 없습니다."
+        }
+      },
+      "seconds": 4.592,
+      "usage": {
+        "input_tokens": 2672,
+        "output_tokens": 288,
+        "total_tokens": 2960,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2669
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 78
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-26",
+      "retrieval_mode": "rerank",
+      "service_request_id": "12d258a0-d3f7-4a76-8913-4cf90727aaf0",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB12_c1_0002",
+        "MB01_c1_0009",
+        "MB12_c1_0020"
+      ],
+      "context_token_count": 1908,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "E04의 모델 불일치 의미, 선택 모델과 자료별 모델 비교, 네트워크 실패가 아니라는 핵심 사실을 모두 정확히 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-10 내보내기 미리보기 상황에 맞게 적용했고 모델 범위나 조건을 잘못 일반화하지 않았습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "S1이 E04의 정의와 먼저 비교할 항목, 네트워크 고장이 아니라는 설명을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 필요한 판단을 근거에 따라 바로잡아 답변했습니다."
+        }
+      },
+      "seconds": 3.437,
+      "usage": {
+        "input_tokens": 2820,
+        "output_tokens": 274,
+        "total_tokens": 3094,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2817
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 72
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-27",
+      "retrieval_mode": "naive",
+      "service_request_id": "75c2b691-6de4-4a1e-83ee-ca8dfa0d5217",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB11_c1_0001",
+        "MB11_c1_0020",
+        "MB11_c1_0005"
+      ],
+      "context_token_count": 2175,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "15분 기본값과 조회자에게 내보내기 권한이 새로 부여되지 않는다는 필수 사실을 모두 정확히 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20 펌웨어 2.1의 적용 범위를 맞게 반영했고, 별도 승인 설정에 따라 실제 소등 시간은 다를 수 있다고 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 1쪽은 기본값을, 20쪽은 역할별 권한 유지와 조회자·기록담당의 업무 구분을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "검색 자료로 확인 가능한 질문에 직접 답했고, 불필요한 보류나 추가 확인을 요구하지 않았습니다."
+        }
+      },
+      "seconds": 4.916,
+      "usage": {
+        "input_tokens": 3201,
+        "output_tokens": 372,
+        "total_tokens": 3573,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3198
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 144
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-27",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "c5265888-3b28-4c43-910d-68084c61a7dd",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB11_c1_0001",
+        "MB15_c1_0016",
+        "MB02_c1_0002"
+      ],
+      "context_token_count": 1794,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "15분 기본값과 조회자에게 내보내기 권한을 새로 부여하지 않는다는 필수 사실이 모두 정확합니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20 펌웨어 2.1 적용 범위와 10월 20일 정정 효력을 정확히 반영했고, 기본값과 실제 설정을 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료가 15분 기본값과 정정으로 자료 전달 권한이 변경되지 않는다는 주장을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "필요한 정보를 확인해 답변했으며, 보류나 추가 확인이 필요하지 않습니다."
+        }
+      },
+      "seconds": 4.514,
+      "usage": {
+        "input_tokens": 2806,
+        "output_tokens": 408,
+        "total_tokens": 3214,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2803
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 194
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-27",
+      "retrieval_mode": "rerank",
+      "service_request_id": "18fc78cd-babb-4112-ab63-5e5f032236e2",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB15_c1_0016",
+        "MB11_c1_0013",
+        "MB09_c1_0015"
+      ],
+      "context_token_count": 2333,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-20 펌웨어 2.1의 기본값 15분과 조회자에게 내보내기 권한이 추가되지 않는다는 필수 사실을 모두 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20 펌웨어 2.1 및 10월 20일 정정 기준을 정확히 적용했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료가 기본값과 조회자의 읽기·내보내기 권한 범위를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "자료로 확인 가능한 질문에 적절히 답했습니다."
+        }
+      },
+      "seconds": 4.057,
+      "usage": {
+        "input_tokens": 3372,
+        "output_tokens": 342,
+        "total_tokens": 3714,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3369
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 146
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-28",
+      "retrieval_mode": "naive",
+      "service_request_id": "d563bed4-975f-4f8d-a6fb-ca09ad4ec975",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB05_c1_0002",
+        "MB05_c1_0003",
+        "MB10_c1_0024"
+      ],
+      "context_token_count": 1414,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "원자료 기록시각으로 최신성을 판단하고, 파일 생성만으로 전달 완료를 확정하지 않는 핵심 사실을 담았습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "늦게 등록된 과거 자료와 수신 확인 대기 상태를 구분했으며, 적용 범위를 과도하게 넓히지 않았습니다."
+        },
+        "evidence": {
+          "score": 0,
+          "reason": "인용은 늦게 도착한 자료가 오래된 상황일 수 있다는 점과 파일 생성·수신 확인의 차이는 뒷받침하지만, 현장조회 맨 위가 등록 역순이라는 근거는 검색 문맥에 없습니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "추가 확인이나 보류가 아니라 질문에 맞는 정정 방향을 제시했습니다."
+        }
+      },
+      "seconds": 8.582,
+      "usage": {
+        "input_tokens": 2484,
+        "output_tokens": 812,
+        "total_tokens": 3296,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2481
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 577
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-28",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "bd784efb-a4ec-48e7-94be-e925523dfd66",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB09_c1_0008",
+        "MB01_c1_0008",
+        "MB05_c1_0002"
+      ],
+      "context_token_count": 1800,
+      "scores": {
+        "facts": {
+          "score": 0,
+          "reason": "최신성은 정확히 구분했지만, 전달 상태를 수신 확인 전까지 ‘확인 대기’로 두어야 한다는 점을 명시하지 않았습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "목록 순서와 원자료 기록시각을 구분했고, 파일 생성 완료를 실제 전달 완료로 확대하지 않았습니다."
+        },
+        "evidence": {
+          "score": 0,
+          "reason": "최신성 주장은 근거가 있으나, 파일 생성만으로 전달을 확정할 수 없고 수신 확인이 필요하다는 주장을 인용 문맥이 직접 뒷받침하지 않습니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 바로 답했으며, 최신성과 전달 완료 여부를 단정하지 않은 판단이 적절합니다."
+        }
+      },
+      "seconds": 8.111,
+      "usage": {
+        "input_tokens": 2859,
+        "output_tokens": 707,
+        "total_tokens": 3566,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2856
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 479
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-28",
+      "retrieval_mode": "rerank",
+      "service_request_id": "0db652f3-1caa-45e0-be62-f0f064247a08",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB09_c1_0008",
+        "MB13_c1_0011",
+        "MB15_c1_0010"
+      ],
+      "context_token_count": 2054,
+      "scores": {
+        "facts": {
+          "score": 0,
+          "reason": "최신성 판단은 정확하지만, 수신 확인 전 전달 상태를 ‘확인 대기’로 둬야 한다는 필수 사실이 빠졌습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "목록 순서·등록 시각과 원자료 기록시각을 구분했고, 최신 발생 여부를 확인하지 않은 경우 미확인으로 남기도록 했습니다."
+        },
+        "evidence": {
+          "score": 0,
+          "reason": "인용 자료는 최신성 판단을 뒷받침하지만, 파일 생성과 실제 수신 확인에 관한 전달 상태 주장을 뒷받침하지 않습니다."
+        },
+        "decision": {
+          "score": 0,
+          "reason": "질문에는 답했지만 전달 상태를 ‘파일 생성 완료’로 고치라고 했습니다. 수신 확인 전에는 ‘확인 대기’로 구분해야 합니다."
+        }
+      },
+      "seconds": 6.357,
+      "usage": {
+        "input_tokens": 3185,
+        "output_tokens": 512,
+        "total_tokens": 3697,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3182
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 275
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-29",
+      "retrieval_mode": "naive",
+      "service_request_id": "0e5784fa-23e8-4d8b-9a3a-5c98c12230f6",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB06_c1_0003",
+        "MB06_c1_0017",
+        "MB06_c1_0018"
+      ],
+      "context_token_count": 1711,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "예외는 지정된 자료와 목적에 한정되며, 같은 모델의 다른 자료에 자동 적용되지 않는다고 정확히 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "예외의 적용 범위를 지정된 자료의 화면 조회로 한정하고, 다른 자료는 별도 검토가 필요하다고 했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 S1–S3의 검색 문맥이 지정 자료 한정과 다른 자료에 대한 자동 재사용 불가를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 직접 답하고, 다른 자료는 별도로 검토해야 한다고 안내했습니다."
+        }
+      },
+      "seconds": 4.132,
+      "usage": {
+        "input_tokens": 2611,
+        "output_tokens": 299,
+        "total_tokens": 2910,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2608
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 92
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-29",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "9db9a7f1-0acc-4677-8775-d75816187db9",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB06_c1_0003",
+        "MB06_c1_0018",
+        "MB06_c1_0017"
+      ],
+      "context_token_count": 1711,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "예외가 지정된 자료에만 적용되며 같은 모델의 다른 자료로 자동 확대되지 않는다는 핵심 사실을 정확히 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "화면 조회 예외의 적용 범위를 지정된 자료로 한정해 설명했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료들이 지정 자료 한정과 다른 자료에 대한 별도 검토 필요성을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "근거가 명확하므로 자동 적용 불가라고 답한 판단이 적절합니다."
+        }
+      },
+      "seconds": 4.089,
+      "usage": {
+        "input_tokens": 2618,
+        "output_tokens": 237,
+        "total_tokens": 2855,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2615
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 90
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-29",
+      "retrieval_mode": "rerank",
+      "service_request_id": "e59181f4-e60b-450b-a89f-0b882397f0a8",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB06_c1_0018",
+        "MB06_c1_0003",
+        "MB06_c1_0017"
+      ],
+      "context_token_count": 1711,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "예외가 지정 자료에만 적용되고 같은 모델의 다른 자료에는 자동 확대되지 않는다는 핵심 사실을 담았습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "화면 조회 예외의 대상과 범위를 구분하고 다른 자료는 별도 검토가 필요하다고 했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 자료가 지정 자료 한정, 자동 적용 불가, 별도 검토 및 내보내기·전달 제외를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "자동 적용 여부에 직접 답하고, 별도 확인이 필요하다는 적절한 조치를 제시했습니다."
+        }
+      },
+      "seconds": 4.327,
+      "usage": {
+        "input_tokens": 2639,
+        "output_tokens": 262,
+        "total_tokens": 2901,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2636
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 98
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-30",
+      "retrieval_mode": "naive",
+      "service_request_id": "6fd2d099-b4d1-4773-9a1a-efe9a8c97be7",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB07_c1_0006",
+        "MB09_c1_0009",
+        "MB07_c1_0005"
+      ],
+      "context_token_count": 2106,
+      "scores": {
+        "facts": {
+          "score": 0,
+          "reason": "출처 미확인 자료의 전달 보류는 정확히 말했지만, 제시된 건조한 실내 12℃가 CV-10 환경 조건에 맞는다는 필수 사실을 명시하지 않았습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-10의 환경 검토와 자료 출처 확인·외부 전달 판단을 구분했고, 출처 확인 전 보류라는 적용 범위가 맞습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "MB07 인용은 환경 판단의 범위를, MB09 인용은 출처 미확인 자료의 외부 전달 보류를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "환경 검토 통과만으로 전달 보류가 해소되지 않는다고 답한 판단이 적절합니다."
+        }
+      },
+      "seconds": 8.807,
+      "usage": {
+        "input_tokens": 3067,
+        "output_tokens": 606,
+        "total_tokens": 3673,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3064
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 371
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-30",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "3cceba40-d752-46cd-bf91-48b5a8032ac3",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "MB07_c1_0005",
+        "MB07_c1_0006",
+        "MB07_c1_0002"
+      ],
+      "context_token_count": 1726,
+      "scores": {
+        "facts": {
+          "score": 0,
+          "reason": "CV-10 환경 조건의 적합성은 언급했지만, 출처 확인 전 외부 전달을 보류해야 한다는 핵심 사실과 명확한 결론을 제시하지 않았습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-10과 섭씨 12도의 범위를 올바르게 다뤘고, 환경 검토 결과를 다른 승인으로 확대하지 않았습니다."
+        },
+        "evidence": {
+          "score": 0,
+          "reason": "인용은 환경 범위와 출처 기록의 필요성은 뒷받침하지만, 출처 미확인 자료를 정상 자료 묶음으로 외부 전달하지 않는다는 주장을 직접 뒷받침하지 않습니다."
+        },
+        "decision": {
+          "score": 0,
+          "reason": "요구되는 판단은 환경 검토 통과가 전달 보류를 해소하지 않는다는 답변인데, 보류 해제 기준을 확인할 수 없다며 답변을 유보했습니다."
+        }
+      },
+      "seconds": 9.92,
+      "usage": {
+        "input_tokens": 2737,
+        "output_tokens": 894,
+        "total_tokens": 3631,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2734
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 627
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "M-DEV-30",
+      "retrieval_mode": "rerank",
+      "service_request_id": "88b25398-de5d-42f3-9a01-59d9a1788bc4",
+      "status": "answered",
+      "context_chunk_ids": [
+        "MB07_c1_0006",
+        "MB07_c1_0022",
+        "MB07_c1_0024"
+      ],
+      "context_token_count": 2152,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "환경 검토 통과를 전제로, 출처 미확인 자료는 별도로 보류해야 한다는 핵심 사실을 담았습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-10 환경 판단과 자료 출처 확인의 적용 범위를 구분했고, 조건을 혼동하지 않았습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 22·24쪽은 미확인 자료의 외부 전달 보류와 자료 상태·환경 판단의 구분을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 직접 답하고 출처 확인 전 외부 전달을 보류하도록 적절히 안내했습니다."
+        }
+      },
+      "seconds": 8.432,
+      "usage": {
+        "input_tokens": 3142,
+        "output_tokens": 662,
+        "total_tokens": 3804,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 3139
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 456
+        }
+      },
+      "error": null
+    }
+  ]
+}
