@@ -56,6 +56,19 @@ class Citation(BaseModel):
     page_end: int
 
 
+class TokenUsage(BaseModel):
+    input_tokens: int
+    output_tokens: int
+
+
+class QueryMetrics(BaseModel):
+    latency_seconds: float
+    retrieval_seconds: float
+    generation_seconds: float
+    attempts: int
+    usage: TokenUsage | None
+
+
 class QueryResponse(BaseModel):
     request_id: str
     status: Literal[
@@ -68,3 +81,4 @@ class QueryResponse(BaseModel):
     reason: str | None
     citations: list[Citation]
     retrieval_mode: str
+    metrics: QueryMetrics | None = None

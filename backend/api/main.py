@@ -11,7 +11,11 @@ from fastapi.responses import JSONResponse
 ROOT = Path(__file__).resolve().parents[2]
 load_dotenv(ROOT / ".env", override=True)
 
-from backend.api.schemas import QueryRequest, QueryResponse
+from backend.api.schemas import (
+    QueryMetrics,
+    QueryRequest,
+    QueryResponse,
+)
 from backend.generation.generator import ERROR_ANSWER
 from backend.pipeline import RAGPipeline
 
@@ -82,6 +86,7 @@ def query(request: QueryRequest) -> JSONResponse:
             reason=f"retrieval_error:{type(exc).__name__}",
             citations=[],
             retrieval_mode=mode,
+            metrics=None,
         )
         return JSONResponse(
             status_code=502,
@@ -91,11 +96,21 @@ def query(request: QueryRequest) -> JSONResponse:
     if result["status"] == "error":
         result["reason"] = result["reason"].split(": ", 1)[0]
 
+    metrics = QueryMetrics(
+        latency_seconds=result["latency_seconds"],
+        retrieval_seconds=result["retrieval"]["seconds"],
+        generation_seconds=result["generation_seconds"],
+        attempts=result["attempts"],
+        usage=result["usage"],
+    )
     body = QueryResponse(
-        **{
-            key: result[key]
-            for key in QueryResponse.model_fields
-        }
+        request_id=result["request_id"],
+        status=result["status"],
+        answer=result["answer"],
+        reason=result["reason"],
+        citations=result["citations"],
+        retrieval_mode=result["retrieval_mode"],
+        metrics=metrics,
     )
     return JSONResponse(
         status_code=(

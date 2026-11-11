@@ -1,9 +1,9 @@
-"""평가 요청의 실행 메타데이터 검증을 확인한다."""
+"""평가 요청과 운영 지표 응답 형식을 확인한다."""
 
 import pytest
 from pydantic import ValidationError
 
-from backend.api.schemas import QueryRequest
+from backend.api.schemas import QueryRequest, QueryResponse
 
 
 def test_service_request_does_not_require_execution_metadata():
@@ -62,3 +62,45 @@ def test_evaluation_request_requires_execution_metadata(
             source="evaluation",
             **values,
         )
+
+
+def test_query_response_accepts_operational_metrics():
+    response = QueryResponse(
+        request_id="request-1",
+        status="answered",
+        answer="답변",
+        reason="근거 확인",
+        citations=[],
+        retrieval_mode="hybrid",
+        metrics={
+            "latency_seconds": 2.5,
+            "retrieval_seconds": 0.2,
+            "generation_seconds": 2.3,
+            "attempts": 1,
+            "usage": {
+                "input_tokens": 1200,
+                "output_tokens": 100,
+            },
+        },
+    )
+
+    assert response.metrics.latency_seconds == 2.5
+    assert response.metrics.retrieval_seconds == 0.2
+    assert response.metrics.generation_seconds == 2.3
+    assert response.metrics.attempts == 1
+    assert response.metrics.usage.input_tokens == 1200
+    assert response.metrics.usage.output_tokens == 100
+
+
+def test_query_response_allows_unavailable_metrics():
+    response = QueryResponse(
+        request_id="request-1",
+        status="error",
+        answer="요청을 처리하지 못했습니다.",
+        reason="retrieval_error:ConnectError",
+        citations=[],
+        retrieval_mode="hybrid",
+        metrics=None,
+    )
+
+    assert response.metrics is None
