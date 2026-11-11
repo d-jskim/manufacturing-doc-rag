@@ -1,0 +1,3947 @@
+{
+  "run_id": "e04_c1_m1_p1_all_20261111_1553",
+  "dataset": "manufacturing_basic",
+  "question_source": "data\\raw\\manufacturing_basic\\evaluation\\development.json",
+  "question_count": 30,
+  "requested_modes": [
+    "naive",
+    "hybrid",
+    "rerank"
+  ],
+  "base_url": "http://127.0.0.1:8000",
+  "timeout_seconds": 180.0,
+  "summary": {
+    "naive": {
+      "request_count": 30,
+      "status_counts": {
+        "answered": 26,
+        "needs_clarification": 2,
+        "abstained": 2
+      },
+      "normal_latency_seconds": {
+        "mean": 3.4464,
+        "count": 30
+      },
+      "system_error_count": 0,
+      "system_error_rate": 0.0,
+      "token_usage": {
+        "input_tokens": 65555,
+        "output_tokens": 8534,
+        "confirmed_request_count": 30
+      }
+    },
+    "hybrid": {
+      "request_count": 30,
+      "status_counts": {
+        "answered": 24,
+        "needs_clarification": 2,
+        "abstained": 4
+      },
+      "normal_latency_seconds": {
+        "mean": 3.7166,
+        "count": 30
+      },
+      "system_error_count": 0,
+      "system_error_rate": 0.0,
+      "token_usage": {
+        "input_tokens": 66724,
+        "output_tokens": 8673,
+        "confirmed_request_count": 30
+      }
+    },
+    "rerank": {
+      "request_count": 30,
+      "status_counts": {
+        "answered": 26,
+        "needs_clarification": 2,
+        "abstained": 2
+      },
+      "normal_latency_seconds": {
+        "mean": 5.0309,
+        "count": 30
+      },
+      "system_error_count": 0,
+      "system_error_rate": 0.0,
+      "token_usage": {
+        "input_tokens": 71233,
+        "output_tokens": 8003,
+        "confirmed_request_count": 30
+      }
+    }
+  },
+  "records": [
+    {
+      "question_id": "M-DEV-01",
+      "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 3.898,
+      "response": {
+        "request_id": "a0464da3-9a6f-473b-9251-2cff756e59cb",
+        "status": "answered",
+        "answer": "체크뷰의 ‘정상’은 해당 기록의 모델명, 출처 이름, 기준 시각이 갖추어져 조회 확인을 마쳤다는 뜻입니다. 이는 자료의 확인 상태이지 원자료에 적힌 상태와 같은 판정은 아닙니다. 원자료에 조치 요청이 있을 수도 있습니다. 따라서 이 표시만으로 현장이나 제품 전체가 안전하다고 보증하거나, 설비 운전 허가·작업 재개를 판단할 수는 없습니다. 체크뷰는 설비를 움직이거나 안전장치를 제어하지 않으므로 현장 안전은 별도의 현장 확인과 적용되는 점검 절차로 판단해야 합니다.",
+        "reason": "자료는 ‘정상’을 필수 자료 항목의 조회 확인 완료로 정의하고, 현장 안전 보증이나 운전 허가와 구분합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB01",
+            "file_name": "MB01.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB10",
+            "file_name": "MB10.pdf",
+            "page_start": 3,
+            "page_end": 3
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB02",
+            "file_name": "MB02.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 3.892,
+          "retrieval_seconds": 0.097,
+          "generation_seconds": 3.794,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 1569,
+            "output_tokens": 307
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-01",
+      "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 4.653,
+      "response": {
+        "request_id": "d3095ea2-3325-4efd-8378-44fe36a52384",
+        "status": "answered",
+        "answer": "체크뷰의 자료 확인 상태가 ‘정상’이라는 표시는 모델명·출처·기준 시각이 갖추어졌고 담당자의 자료 조회 확인이 끝났다는 범위의 정보입니다. 원자료의 내용이 사실인지, 그 안의 ‘정상’ 판단이 맞는지까지 체크뷰가 검증했다는 뜻은 아닙니다. 따라서 이 표시만으로 실제 설비가 안전하다거나 운전해도 된다고 말할 수 없습니다. 현장 안전이나 운전 가능 여부는 실제 설비 상황과 별도의 점검·승인 근거를 확인해야 합니다.",
+        "reason": "자료 상태 확인과 원자료 내용의 검증, 실제 설비의 안전 판단은 서로 다른 범위라고 자료가 명시합니다.",
+        "citations": [
+          {
+            "source_id": "S2",
+            "book_id": "MB14",
+            "file_name": "MB14.pdf",
+            "page_start": 4,
+            "page_end": 4
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB02",
+            "file_name": "MB02.pdf",
+            "page_start": 5,
+            "page_end": 5
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 4.649,
+          "retrieval_seconds": 0.108,
+          "generation_seconds": 4.541,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2039,
+            "output_tokens": 280
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-01",
+      "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 4.843,
+      "response": {
+        "request_id": "7127c591-f3d2-41c4-a781-633e9faaca3f",
+        "status": "answered",
+        "answer": "체크뷰의 ‘정상’ 표시는 모델명·출처 이름·기준 시각을 갖춘 자료에 대해 조회 확인을 마쳤다는 뜻입니다. 자료의 확인 상태를 나타내며, 원자료에 적힌 ‘정상’이라는 표현과도 구별됩니다. 따라서 이 표시만으로 실제 설비가 안전하다거나 바로 운전해도 된다고 판단하거나 승인할 수는 없습니다. 현장 상태와 운전 승인 절차는 별도로 확인해야 합니다. [S1, S2, S3]",
+        "reason": "자료는 ‘정상’의 범위를 자료 조회 확인으로 한정하고, 현장 안전 보증이나 운전 승인은 별도 판단 사항이라고 명시합니다. [S2, S3]",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB15",
+            "file_name": "MB15.pdf",
+            "page_start": 3,
+            "page_end": 3
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB14",
+            "file_name": "MB14.pdf",
+            "page_start": 4,
+            "page_end": 4
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB10",
+            "file_name": "MB10.pdf",
+            "page_start": 3,
+            "page_end": 3
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 4.839,
+          "retrieval_seconds": 1.375,
+          "generation_seconds": 3.464,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 1776,
+            "output_tokens": 307
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-02",
+      "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 3.285,
+      "response": {
+        "request_id": "c1fe6625-a845-422e-a3e2-e1ba6ae72acd",
+        "status": "answered",
+        "answer": "CV-10은 단말에 등록된 기록을 현장조회하는 경로만 제공하고, CV-20은 현장조회에 더해 승인된 시험 자료를 네트워크로 받은 뒤 수신조회할 수 있습니다. 기록 묶음의 파일 내보내기는 CV-10과 CV-20 모두에서 제공됩니다.",
+        "reason": "자료에서 두 모델의 조회 경로 차이와 각 모델의 내보내기 지원 여부를 확인했습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB01",
+            "file_name": "MB01.pdf",
+            "page_start": 2,
+            "page_end": 2
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB08",
+            "file_name": "MB08.pdf",
+            "page_start": 24,
+            "page_end": 24
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB03",
+            "file_name": "MB03.pdf",
+            "page_start": 5,
+            "page_end": 5
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 3.282,
+          "retrieval_seconds": 0.051,
+          "generation_seconds": 3.23,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2385,
+            "output_tokens": 217
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-02",
+      "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 2.622,
+      "response": {
+        "request_id": "cf33b6a7-4022-42c8-ad3a-71e5129132cf",
+        "status": "answered",
+        "answer": "CV-10은 단말에 등록된 기록을 현장에서 조회하며 네트워크 수신조회는 지원하지 않습니다. CV-20은 현장조회에 더해 승인된 시험 자료를 네트워크로 수신해 수신조회 화면에서 확인할 수 있습니다. 기록 묶음의 파일 내보내기는 두 모델 모두 제공합니다.",
+        "reason": "모델별 조회 경로와 내보내기 기능 범위가 자료에 명시되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB08",
+            "file_name": "MB08.pdf",
+            "page_start": 24,
+            "page_end": 24
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB01",
+            "file_name": "MB01.pdf",
+            "page_start": 2,
+            "page_end": 2
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 2.62,
+          "retrieval_seconds": 0.048,
+          "generation_seconds": 2.572,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 1909,
+            "output_tokens": 210
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-02",
+      "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 6.711,
+      "response": {
+        "request_id": "0553aafd-610f-465e-839c-10dbade83c63",
+        "status": "answered",
+        "answer": "CV-10은 단말에 등록된 기록을 현장조회하며, 네트워크 수신조회는 지원하지 않습니다. CV-20은 현장조회에 더해 네트워크로 수신한 승인 자료를 수신조회 화면에서 조회할 수 있습니다. 기록 묶음의 파일 내보내기는 CV-10과 CV-20 모두 제공합니다.",
+        "reason": "모델별 조회 경로와 내보내기 기능이 자료에 명시되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB01",
+            "file_name": "MB01.pdf",
+            "page_start": 2,
+            "page_end": 2
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB04",
+            "file_name": "MB04.pdf",
+            "page_start": 6,
+            "page_end": 6
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB03",
+            "file_name": "MB03.pdf",
+            "page_start": 5,
+            "page_end": 5
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 6.708,
+          "retrieval_seconds": 1.67,
+          "generation_seconds": 5.037,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2305,
+            "output_tokens": 227
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-03",
+      "question": "CV-20 자료에 기록시각, 수신시각, 확인시각이 서로 다르게 적혀 있습니다. 세 시각은 각각 무엇을 뜻하나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 3.011,
+      "response": {
+        "request_id": "16aebc93-ddcd-44f9-90de-e43e2fae3326",
+        "status": "answered",
+        "answer": "기록시각은 원자료에 작성자가 남긴 시각, 수신시각은 CV-20이 자료를 받은 시각, 확인시각은 체크뷰 사용자가 자료 확인을 마친 시각입니다. 서로 다른 시각이므로 바꾸어 해석하거나 대신 사용할 수 없습니다. 특히 수신이 늦었다면 기록시각과 수신시각이 다를 수 있습니다. [S1, S2, S3]",
+        "reason": "자료에서 세 시각의 의미와 서로 구분해야 한다는 점을 설명합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB02",
+            "file_name": "MB02.pdf",
+            "page_start": 3,
+            "page_end": 3
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB03",
+            "file_name": "MB03.pdf",
+            "page_start": 12,
+            "page_end": 12
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB02",
+            "file_name": "MB02.pdf",
+            "page_start": 21,
+            "page_end": 21
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 3.009,
+          "retrieval_seconds": 0.026,
+          "generation_seconds": 2.982,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2178,
+            "output_tokens": 206
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-03",
+      "question": "CV-20 자료에 기록시각, 수신시각, 확인시각이 서로 다르게 적혀 있습니다. 세 시각은 각각 무엇을 뜻하나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 2.48,
+      "response": {
+        "request_id": "2f8f9e0f-e73a-4cfb-b294-a83a7648c6f4",
+        "status": "answered",
+        "answer": "기록시각은 원자료가 작성된 시각, 수신시각은 자료가 CV-20에 도착한 시각, 확인시각은 담당자가 조회·확인을 마친 시각입니다. 세 시각은 서로 다른 사건을 나타내므로 서로 바꾸어 쓰거나, 한 시각이 비어 있을 때 다른 시각으로 대신 채우지 않습니다. [S1, S2, S3]",
+        "reason": "CV-20의 세 시각 의미가 자료에 명시되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB02",
+            "file_name": "MB02.pdf",
+            "page_start": 21,
+            "page_end": 21
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB05",
+            "file_name": "MB05.pdf",
+            "page_start": 9,
+            "page_end": 9
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB09",
+            "file_name": "MB09.pdf",
+            "page_start": 6,
+            "page_end": 6
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 2.477,
+          "retrieval_seconds": 0.08,
+          "generation_seconds": 2.396,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2575,
+            "output_tokens": 200
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-03",
+      "question": "CV-20 자료에 기록시각, 수신시각, 확인시각이 서로 다르게 적혀 있습니다. 세 시각은 각각 무엇을 뜻하나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 5.507,
+      "response": {
+        "request_id": "1edeabba-3a1f-4d67-ba78-adc7d36ab901",
+        "status": "answered",
+        "answer": "기록시각은 원자료에 기록된 시각, 수신시각은 자료가 CV-20에 도착한 시각, 확인시각은 사용자가 자료 확인을 마친 시각입니다. 세 시각은 서로 다른 사건을 나타내므로 서로 바꾸거나 빈 항목을 다른 시각으로 대신 채우지 않습니다.",
+        "reason": "CV-20의 세 시각의 의미가 자료에 명시되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB10",
+            "file_name": "MB10.pdf",
+            "page_start": 2,
+            "page_end": 2
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB05",
+            "file_name": "MB05.pdf",
+            "page_start": 9,
+            "page_end": 9
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB02",
+            "file_name": "MB02.pdf",
+            "page_start": 3,
+            "page_end": 3
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 5.504,
+          "retrieval_seconds": 1.726,
+          "generation_seconds": 3.778,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 1911,
+            "output_tokens": 167
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-04",
+      "question": "체크뷰 현장조회 안내의 최근 30일은 어떤 시각을 기준으로 한 범위인가요? 이 값을 외부 보관소의 파일 삭제 기한으로 사용해도 되나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 3.372,
+      "response": {
+        "request_id": "ec0ed509-6f3f-401e-9a8b-1a884a32b21c",
+        "status": "answered",
+        "answer": "현장조회 ‘최근 30일’은 원자료의 기록시각을 기준으로 한 조회 범위입니다. 조회 실행일이나 CV-20 수신시각 기준이 아닙니다. 이 범위는 외부 보관소의 파일 삭제 기한으로 사용하면 안 됩니다. 외부 파일의 보존·삭제 기간은 안내 자료에 정해져 있지 않으므로, 파일 관리 담당자나 별도 보관 기준을 확인해야 합니다.",
+        "reason": "자료는 최근 30일을 원자료 기록시각 기준의 단말 조회 범위로 설명하며, 외부 파일의 보존·삭제 기간과는 구분합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB13",
+            "file_name": "MB13.pdf",
+            "page_start": 19,
+            "page_end": 19
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB13",
+            "file_name": "MB13.pdf",
+            "page_start": 12,
+            "page_end": 12
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB03",
+            "file_name": "MB03.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 3.369,
+          "retrieval_seconds": 0.045,
+          "generation_seconds": 3.323,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2065,
+            "output_tokens": 256
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-04",
+      "question": "체크뷰 현장조회 안내의 최근 30일은 어떤 시각을 기준으로 한 범위인가요? 이 값을 외부 보관소의 파일 삭제 기한으로 사용해도 되나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 2.795,
+      "response": {
+        "request_id": "33f79b50-6a99-4efe-8299-93dea795d4b0",
+        "status": "answered",
+        "answer": "최근 30일은 원자료의 기록시각을 기준으로 한 현장조회 목록 범위입니다. 수신시각이나 확인시각을 기준으로 하지 않습니다. 이 범위를 외부 보관소 파일의 삭제 기한으로 사용하면 안 됩니다. 외부 파일의 보존·삭제 기간은 체크뷰 자료에 정해져 있지 않으므로 해당 파일을 관리하는 담당자나 별도 보관 기준을 확인해야 합니다. [S1][S2][S3]",
+        "reason": "자료에서 조회 범위의 기준 시각과 외부 파일 보존·삭제 기간이 서로 다른 사항임을 명시합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB03",
+            "file_name": "MB03.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB13",
+            "file_name": "MB13.pdf",
+            "page_start": 19,
+            "page_end": 19
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 19,
+            "page_end": 19
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 2.792,
+          "retrieval_seconds": 0.076,
+          "generation_seconds": 2.715,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2083,
+            "output_tokens": 176
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-04",
+      "question": "체크뷰 현장조회 안내의 최근 30일은 어떤 시각을 기준으로 한 범위인가요? 이 값을 외부 보관소의 파일 삭제 기한으로 사용해도 되나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 4.608,
+      "response": {
+        "request_id": "61928f95-2d48-4329-9d0f-a1b76b74cddc",
+        "status": "answered",
+        "answer": "현장조회 안내의 최근 30일은 원자료 기록시각을 기준으로 한 조회 표시 범위입니다. 자료를 조회한 시각이나 CV-20 수신시각 기준이 아닙니다. 이 값을 외부 보관소의 보존 기간이나 이미 내보낸 파일의 삭제 기한으로 사용하면 안 됩니다. 외부 보관소의 보존·삭제 기준은 별도로 확인해야 합니다.",
+        "reason": "자료에서 조회 범위의 기준 시각과 외부 파일 보존·삭제 기한을 명확히 구분합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB10",
+            "file_name": "MB10.pdf",
+            "page_start": 2,
+            "page_end": 2
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 19,
+            "page_end": 19
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB13",
+            "file_name": "MB13.pdf",
+            "page_start": 12,
+            "page_end": 12
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 4.605,
+          "retrieval_seconds": 1.555,
+          "generation_seconds": 3.049,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2310,
+            "output_tokens": 225
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-05",
+      "question": "CV-10 담당자에게 기록담당 역할과 CV-10 대상 권한이 있습니다. 자료 확인과 전달 범위 검토도 끝났습니다. 이 담당자가 기록 파일을 내보내는 일과 CV-10에서 네트워크 자료를 수신하는 일을 각각 할 수 있는지, 기능과 역할 범위로 설명해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 3.92,
+      "response": {
+        "request_id": "0dc29d69-6046-482f-9fa0-12b456baf47f",
+        "status": "answered",
+        "answer": "기록 파일 내보내기는 할 수 있습니다. CV-10은 파일 내보내기를 지원하고, 기록담당 역할은 내보내기 업무를 맡으며, CV-10 대상 권한도 있다고 하셨습니다. 자료 확인과 전달 범위 검토까지 끝났으므로 해당 범위에서 내보낼 수 있습니다. 반면 CV-10에서 네트워크 자료를 수신하는 일은 할 수 없습니다. 이는 역할이나 권한 부족이 아니라 CV-10이 네트워크 수신 기능을 제공하지 않기 때문입니다.",
+        "reason": "내보내기는 CV-10 기능 및 기록담당 역할 범위에 해당하지만, 네트워크 수신은 CV-10에서 지원하지 않습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB13",
+            "file_name": "MB13.pdf",
+            "page_start": 13,
+            "page_end": 13
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB06",
+            "file_name": "MB06.pdf",
+            "page_start": 21,
+            "page_end": 21
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB13",
+            "file_name": "MB13.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 3.917,
+          "retrieval_seconds": 0.051,
+          "generation_seconds": 3.865,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2382,
+            "output_tokens": 326
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-05",
+      "question": "CV-10 담당자에게 기록담당 역할과 CV-10 대상 권한이 있습니다. 자료 확인과 전달 범위 검토도 끝났습니다. 이 담당자가 기록 파일을 내보내는 일과 CV-10에서 네트워크 자료를 수신하는 일을 각각 할 수 있는지, 기능과 역할 범위로 설명해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 4.46,
+      "response": {
+        "request_id": "4e2decf3-0abe-4699-82c2-feb8b01a0210",
+        "status": "answered",
+        "answer": "기록 파일 내보내기는 할 수 있습니다. 기록담당 역할에 내보내기 업무가 포함되고, CV-10이 파일 내보내기를 지원하며, CV-10 대상 권한과 자료·전달 범위 검토도 확인되었다고 하셨습니다. 반면 CV-10에서 네트워크 자료를 수신하는 일은 할 수 없습니다. CV-10은 네트워크 수신조회 기능을 제공하지 않으므로, 기록담당 역할이나 대상 권한이 있어도 이 기능 제한은 달라지지 않습니다.",
+        "reason": "기록담당의 역할 범위와 CV-10의 기능 지원 여부를 구분해 판단했습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB06",
+            "file_name": "MB06.pdf",
+            "page_start": 21,
+            "page_end": 21
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB13",
+            "file_name": "MB13.pdf",
+            "page_start": 13,
+            "page_end": 13
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 4.458,
+          "retrieval_seconds": 0.052,
+          "generation_seconds": 4.405,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2513,
+            "output_tokens": 406
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-05",
+      "question": "CV-10 담당자에게 기록담당 역할과 CV-10 대상 권한이 있습니다. 자료 확인과 전달 범위 검토도 끝났습니다. 이 담당자가 기록 파일을 내보내는 일과 CV-10에서 네트워크 자료를 수신하는 일을 각각 할 수 있는지, 기능과 역할 범위로 설명해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 5.538,
+      "response": {
+        "request_id": "34dd709d-9936-4ac2-aa0b-ede07165c7bf",
+        "status": "answered",
+        "answer": "기록 파일 내보내기는 할 수 있습니다. 기록담당 역할은 내보내기 업무를 맡고, 담당자에게 CV-10 대상 권한이 있으며 자료 확인과 전달 범위 검토도 끝났기 때문입니다. CV-10은 파일 내보내기를 지원합니다. 반면 CV-10에서 네트워크 자료를 수신하는 일은 할 수 없습니다. CV-10은 네트워크 수신 기능을 지원하지 않으며, 역할이나 대상 권한이 있어도 장비 기능 범위는 달라지지 않습니다.",
+        "reason": "기록담당 역할과 허용 모델은 각각 작업 권한과 대상 범위를 정하고, 장비의 기능 지원 여부는 별도로 판단합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB13",
+            "file_name": "MB13.pdf",
+            "page_start": 13,
+            "page_end": 13
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB13",
+            "file_name": "MB13.pdf",
+            "page_start": 7,
+            "page_end": 7
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 5.535,
+          "retrieval_seconds": 1.875,
+          "generation_seconds": 3.659,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2538,
+            "output_tokens": 302
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-06",
+      "question": "CV-20에서 오늘 받은 자료에 최신 수신 표시가 있습니다. 출처와 모델은 확인되었지만 원자료 기록시각은 비어 있습니다. 이 자료를 현재 현장 상태라고 설명하면서 정상 확인된 자료 묶음으로 외부 전달해도 되나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 3.637,
+      "response": {
+        "request_id": "fe1e9a06-e4bc-40eb-8ac7-9d7d5fbdcf2b",
+        "status": "answered",
+        "answer": "아니요. 최신 수신 표시는 마지막으로 도착한 자료라는 뜻이지 가장 최근 현장 상태를 보증하지 않습니다. 원자료 기록시각이 비어 있으므로 발생 시점과 최신성은 확인되지 않았고, 수신시각으로 대신할 수 없습니다. 또한 출처와 모델 확인만으로 정상 확인이 완료되는 것은 아닙니다. 정상 확인된 자료 묶음으로 표시해 외부 전달하지 말고, 시점 미확인 및 필수 항목·내용 검토 상태를 분리해 기록한 뒤 승인된 출처에 원자료 기록시각을 확인하세요.",
+        "reason": "자료는 최신 수신과 최신 발생을 구분하며, 원자료 기록시각이 없으면 최신성 판단을 보류하고 필수 항목 및 내용 검토도 별도로 요구합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB08",
+            "file_name": "MB08.pdf",
+            "page_start": 3,
+            "page_end": 3
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB05",
+            "file_name": "MB05.pdf",
+            "page_start": 2,
+            "page_end": 2
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 3.634,
+          "retrieval_seconds": 0.03,
+          "generation_seconds": 3.604,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 1749,
+            "output_tokens": 323
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-06",
+      "question": "CV-20에서 오늘 받은 자료에 최신 수신 표시가 있습니다. 출처와 모델은 확인되었지만 원자료 기록시각은 비어 있습니다. 이 자료를 현재 현장 상태라고 설명하면서 정상 확인된 자료 묶음으로 외부 전달해도 되나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 4.054,
+      "response": {
+        "request_id": "640a5529-948c-4d42-a8b5-ef2a87faec8d",
+        "status": "answered",
+        "answer": "아니요. ‘최신 수신’은 마지막으로 도착한 자료라는 뜻일 뿐, 현재 현장 상태나 최신 발생 자료임을 뜻하지 않습니다. 원자료 기록시각이 비어 있으므로 최신성 판단은 보류하고 출처에 기록시각을 확인해야 합니다. 필수 시각을 확인하지 못한 자료는 미확인으로 보며 외부 전달을 보류하세요. 정상으로 보이는 내용이나 수신 성공만으로 자료 확인이 완료되지는 않습니다.",
+        "reason": "CV-20의 최신 수신 표시는 수신 순서를 가리킵니다. 원자료 기록시각이 없으면 발생 시점을 판단할 수 없고, 필수 항목 미확인 자료는 정상 확인된 자료로 간주해 전달할 수 없습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB05",
+            "file_name": "MB05.pdf",
+            "page_start": 2,
+            "page_end": 2
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB15",
+            "file_name": "MB15.pdf",
+            "page_start": 10,
+            "page_end": 10
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB09",
+            "file_name": "MB09.pdf",
+            "page_start": 8,
+            "page_end": 8
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 4.051,
+          "retrieval_seconds": 0.079,
+          "generation_seconds": 3.972,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2128,
+            "output_tokens": 296
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-06",
+      "question": "CV-20에서 오늘 받은 자료에 최신 수신 표시가 있습니다. 출처와 모델은 확인되었지만 원자료 기록시각은 비어 있습니다. 이 자료를 현재 현장 상태라고 설명하면서 정상 확인된 자료 묶음으로 외부 전달해도 되나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 5.59,
+      "response": {
+        "request_id": "3a2a5a60-04cc-47bf-b4d6-e701533ee5cf",
+        "status": "answered",
+        "answer": "아니요. 최신 수신 표시는 CV-20에 마지막으로 도착한 자료라는 뜻일 뿐, 가장 최근 현장 상태를 보증하지 않습니다. 원자료 기록시각이 비어 있으므로 자료 상태는 미확인으로 남겨야 하며, 정상 확인된 자료 묶음으로 외부 전달하는 것은 보류하세요. 필요하면 화면에서 확인한 내용과 원자료 기록시각이 미확인이라는 점을 분명히 구분해 알리세요.",
+        "reason": "원자료 기록시각은 수신시각과 별개인 필수 확인 항목이며, 누락된 경우 자료를 정상으로 판정하거나 외부 전달할 수 없다는 안내가 있습니다. 최신 수신 표시는 현장 상태의 최신성을 증명하지 않습니다.",
+        "citations": [
+          {
+            "source_id": "S2",
+            "book_id": "MB05",
+            "file_name": "MB05.pdf",
+            "page_start": 23,
+            "page_end": 23
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB08",
+            "file_name": "MB08.pdf",
+            "page_start": 3,
+            "page_end": 3
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 5.588,
+          "retrieval_seconds": 1.595,
+          "generation_seconds": 3.992,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2072,
+            "output_tokens": 328
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-07",
+      "question": "건조한 실내이고 결로가 없는 섭씨 12도 장소에서 CV-10을 검토하고 있습니다. 네트워크 수신조회를 쓰려고 CV-20으로 바꾸면 환경 조건과 수신 기능은 각각 어떻게 달라지나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 3.987,
+      "response": {
+        "request_id": "56f722f3-d52d-4bfb-846d-9073f0d5872f",
+        "status": "answered",
+        "answer": "건조한 실내·결로 없음 조건은 두 모델에 공통입니다. 온도 범위는 CV-10이 10~30℃, CV-20이 15~30℃이므로, 12℃는 CV-10 범위에는 들어가지만 CV-20의 최저 온도보다 낮습니다. 따라서 제시된 조건에서는 CV-20의 온도 기준을 충족하지 않습니다. [S1, S3]\n\n수신 기능은 다릅니다. CV-10은 네트워크 수신 기능이 없고, CV-20은 승인된 시험 자료를 네트워크로 받아 수신조회 화면에서 확인할 수 있습니다. 기능은 자료 수신과 전달 상태 확인에 한정됩니다. [S2]\n\n이는 온도 기준과 기능 범위의 비교이며, 전체 설치 적합성이나 현장의 수신 준비 상태를 승인하는 것은 아닙니다. [S1, S3]",
+        "reason": "모델별 환경 온도 범위와 네트워크 수신 기능이 자료에 명시되어 있으며, 질문에 제시된 12℃와 실내 조건에 대조할 수 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB01",
+            "file_name": "MB01.pdf",
+            "page_start": 16,
+            "page_end": 16
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB01",
+            "file_name": "MB01.pdf",
+            "page_start": 2,
+            "page_end": 2
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB15",
+            "file_name": "MB15.pdf",
+            "page_start": 7,
+            "page_end": 7
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 3.984,
+          "retrieval_seconds": 0.031,
+          "generation_seconds": 3.953,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2180,
+            "output_tokens": 390
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-07",
+      "question": "건조한 실내이고 결로가 없는 섭씨 12도 장소에서 CV-10을 검토하고 있습니다. 네트워크 수신조회를 쓰려고 CV-20으로 바꾸면 환경 조건과 수신 기능은 각각 어떻게 달라지나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 3.591,
+      "response": {
+        "request_id": "2c11d849-5f38-4ddd-9711-0e39c95c8e8e",
+        "status": "answered",
+        "answer": "건조한 실내이고 결로가 없다는 조건은 두 모델 모두에 해당합니다. 다만 12℃는 CV-10의 사용 온도 범위(10~30℃)에는 들어가지만, CV-20의 범위(15~30℃) 하한보다 낮습니다. 따라서 제시된 환경 조건만 보면 CV-20은 온도 조건에 맞지 않습니다. 기능은 CV-20이 네트워크 수신조회를 지원하고 CV-10은 지원하지 않는다는 차이가 있습니다. 온도 대조만으로 전체 설치 적합성을 판단할 수는 없습니다.",
+        "reason": "모델별 온도 범위와 네트워크 수신조회 지원 여부가 자료에 명시되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB15",
+            "file_name": "MB15.pdf",
+            "page_start": 7,
+            "page_end": 7
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB01",
+            "file_name": "MB01.pdf",
+            "page_start": 16,
+            "page_end": 16
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB07",
+            "file_name": "MB07.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 3.588,
+          "retrieval_seconds": 0.079,
+          "generation_seconds": 3.508,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2152,
+            "output_tokens": 298
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-07",
+      "question": "건조한 실내이고 결로가 없는 섭씨 12도 장소에서 CV-10을 검토하고 있습니다. 네트워크 수신조회를 쓰려고 CV-20으로 바꾸면 환경 조건과 수신 기능은 각각 어떻게 달라지나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 5.494,
+      "response": {
+        "request_id": "7d8b2860-c1a7-47e0-a9dd-4461f3095db7",
+        "status": "answered",
+        "answer": "환경 조건: 건조한 실내이며 결로가 없는 조건은 두 모델에 해당합니다. 다만 온도 범위는 CV-10이 10~30℃, CV-20이 15~30℃입니다. 따라서 12℃는 CV-10 범위에는 들어가지만 CV-20 하한보다 낮아, 제시된 조건에서는 CV-20의 온도 범위에 맞지 않습니다. 수신 기능: CV-20은 네트워크 수신조회를 지원하지만 CV-10은 네트워크 수신을 사용할 수 없습니다. CV-20의 기능 지원만으로 현장의 수신 준비 상태까지 확인되는 것은 아닙니다. 이는 온도와 기능의 대조 결과이며, 전체 설치 적합성 승인을 뜻하지 않습니다.",
+        "reason": "제시된 장소 조건과 모델별 온도 범위 및 수신 기능을 자료에서 직접 확인했습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB01",
+            "file_name": "MB01.pdf",
+            "page_start": 16,
+            "page_end": 16
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB15",
+            "file_name": "MB15.pdf",
+            "page_start": 7,
+            "page_end": 7
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB07",
+            "file_name": "MB07.pdf",
+            "page_start": 2,
+            "page_end": 2
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 5.49,
+          "retrieval_seconds": 1.603,
+          "generation_seconds": 3.886,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2132,
+            "output_tokens": 324
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-08",
+      "question": "CV-20 고객이 안내서 표지의 개정 1.1만 알려 주었습니다. 이 정보로 현재 자동 소등 기본값을 알려 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 3.347,
+      "response": {
+        "request_id": "a5455d97-1df5-4ce5-ac5b-aa1130b5c6ff",
+        "status": "needs_clarification",
+        "answer": "CV-20의 펌웨어 버전을 알려 주세요. 안내서 표지의 개정 1.1만으로는 적용되는 기본값을 정할 수 없습니다. 펌웨어 2.1 이상은 마지막 화면 입력 후 15분, 펌웨어 2.0은 10분입니다.",
+        "reason": "안내서 개정번호와 제품 펌웨어는 서로 다른 정보이며, CV-20 자동 소등 기본값은 펌웨어 조건에 따라 달라집니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB15",
+            "file_name": "MB15.pdf",
+            "page_start": 16,
+            "page_end": 16
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB08",
+            "file_name": "MB08.pdf",
+            "page_start": 21,
+            "page_end": 21
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 3.343,
+          "retrieval_seconds": 0.035,
+          "generation_seconds": 3.307,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2763,
+            "output_tokens": 281
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-08",
+      "question": "CV-20 고객이 안내서 표지의 개정 1.1만 알려 주었습니다. 이 정보로 현재 자동 소등 기본값을 알려 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 3.359,
+      "response": {
+        "request_id": "8d46461b-5030-4827-94ba-a9105a6762ef",
+        "status": "needs_clarification",
+        "answer": "안내서 개정 1.1만으로는 적용되는 기본값을 정할 수 없습니다. CV-20의 펌웨어 버전을 알려 주세요. 펌웨어 2.1 이상이면 기본값은 마지막 화면 입력 후 15분이고, 펌웨어 2.0이면 10분입니다.",
+        "reason": "안내서 개정번호와 제품 펌웨어는 서로 다른 정보이며, CV-20의 기본값은 펌웨어 조건에 따라 달라집니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB08",
+            "file_name": "MB08.pdf",
+            "page_start": 21,
+            "page_end": 21
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 3.355,
+          "retrieval_seconds": 0.074,
+          "generation_seconds": 3.28,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2563,
+            "output_tokens": 261
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-08",
+      "question": "CV-20 고객이 안내서 표지의 개정 1.1만 알려 주었습니다. 이 정보로 현재 자동 소등 기본값을 알려 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 4.934,
+      "response": {
+        "request_id": "e2bcd345-070e-408f-aa75-a976ef272c36",
+        "status": "needs_clarification",
+        "answer": "안내서 표지의 개정 1.1만으로는 현재 기본값을 정할 수 없습니다. CV-20의 펌웨어 버전을 알려 주세요. 펌웨어 2.1 이상은 마지막 화면 입력 후 15분, 펌웨어 2.0은 10분입니다.",
+        "reason": "안내서 개정번호와 제품 펌웨어는 별개이며, CV-20 기본값은 펌웨어 조건에 따라 다릅니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB15",
+            "file_name": "MB15.pdf",
+            "page_start": 16,
+            "page_end": 16
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB08",
+            "file_name": "MB08.pdf",
+            "page_start": 21,
+            "page_end": 21
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 4.93,
+          "retrieval_seconds": 1.581,
+          "generation_seconds": 3.348,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2405,
+            "output_tokens": 316
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-09",
+      "question": "출처가 미확인인 자료에 대해 검토자가 대상 자료와 목적을 적어 제한된 화면 조회를 허용했습니다. 이 허용으로 파일 내보내기와 네트워크 전달도 할 수 있나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 2.909,
+      "response": {
+        "request_id": "c42ca72c-a7b4-4d6c-9dad-dd992a695a90",
+        "status": "answered",
+        "answer": "아니요. 허용된 범위는 지정된 자료의 제한된 화면 조회뿐이며, 파일 내보내기나 네트워크 전달은 포함되지 않습니다. 출처 등 필수 항목이 미확인인 자료는 외부 전달을 보류하고, 항목이 확인된 뒤에도 자료 상태와 별도 권한·전달 범위를 다시 검토해야 합니다.",
+        "reason": "자료들은 제한 조회 예외를 화면 열람으로 한정하고 파일 내보내기 및 네트워크 전달을 별도 범위로 명시합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB13",
+            "file_name": "MB13.pdf",
+            "page_start": 16,
+            "page_end": 16
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB04",
+            "file_name": "MB04.pdf",
+            "page_start": 4,
+            "page_end": 4
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB06",
+            "file_name": "MB06.pdf",
+            "page_start": 3,
+            "page_end": 3
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 2.905,
+          "retrieval_seconds": 0.042,
+          "generation_seconds": 2.862,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 1786,
+            "output_tokens": 159
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-09",
+      "question": "출처가 미확인인 자료에 대해 검토자가 대상 자료와 목적을 적어 제한된 화면 조회를 허용했습니다. 이 허용으로 파일 내보내기와 네트워크 전달도 할 수 있나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 2.333,
+      "response": {
+        "request_id": "c962a118-0a2b-43dd-8ab3-f37485ea9b05",
+        "status": "answered",
+        "answer": "아니요. 허용된 범위는 지정된 자료의 제한된 화면 조회뿐이며, 파일 내보내기나 네트워크 전달은 포함되지 않습니다. 출처 등 필수 항목이 미확인인 자료는 외부 전달을 보류하고, 항목이 확인된 뒤에도 자료 상태와 별도 권한·전달 범위를 다시 검토해야 합니다.",
+        "reason": "자료들은 제한 조회 허용과 파일 내보내기·네트워크 전달을 명확히 구분하며, 미확인 자료의 외부 전달을 보류하도록 안내합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB13",
+            "file_name": "MB13.pdf",
+            "page_start": 16,
+            "page_end": 16
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB04",
+            "file_name": "MB04.pdf",
+            "page_start": 4,
+            "page_end": 4
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB06",
+            "file_name": "MB06.pdf",
+            "page_start": 3,
+            "page_end": 3
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 2.329,
+          "retrieval_seconds": 0.043,
+          "generation_seconds": 2.286,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 1786,
+            "output_tokens": 165
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-09",
+      "question": "출처가 미확인인 자료에 대해 검토자가 대상 자료와 목적을 적어 제한된 화면 조회를 허용했습니다. 이 허용으로 파일 내보내기와 네트워크 전달도 할 수 있나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 3.538,
+      "response": {
+        "request_id": "193577ac-1d51-4719-9362-0024f18d0d02",
+        "status": "answered",
+        "answer": "아니요. 허용은 지정된 자료의 화면 조회에만 해당하며, 파일 내보내기와 네트워크 전달은 포함하지 않습니다. 출처가 미확인인 동안에는 전달을 보류해야 합니다.",
+        "reason": "제한된 화면 조회 예외는 내보내기나 전달 권한을 부여하지 않으며, 미확인 자료는 확인이 끝날 때까지 전달 대상이 아닙니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB06",
+            "file_name": "MB06.pdf",
+            "page_start": 3,
+            "page_end": 3
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB04",
+            "file_name": "MB04.pdf",
+            "page_start": 4,
+            "page_end": 4
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB06",
+            "file_name": "MB06.pdf",
+            "page_start": 17,
+            "page_end": 17
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 3.535,
+          "retrieval_seconds": 1.46,
+          "generation_seconds": 2.074,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 1772,
+            "output_tokens": 132
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-10",
+      "question": "CV-20 기록은 확인 상태가 정상이고 내보내기에는 파일 생성 완료가 보입니다. 이 두 표시만으로 현장 안전 확인과 상대방 수신 완료를 보고하려고 합니다. 각각 어떤 의미로 고쳐 써야 하나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 6.379,
+      "response": {
+        "request_id": "2682bcc4-8937-4da2-9a95-613aeedab399",
+        "status": "answered",
+        "answer": "① “확인 상태가 정상으로 표시됨”이라고 적으세요. 이 표시만으로 현장 안전 확인이 완료됐다고 보고할 수는 없습니다. ② “내보내기 파일 생성 완료, 상대방 수신 확인은 미확보(확인 대기)”라고 적으세요. 파일 생성 완료는 상대방이 받았다는 뜻이 아닙니다.",
+        "reason": "자료는 CV-20 수신조회와 파일의 상대방 전달 확인을 구분하며, 파일 생성 표시만으로 수신을 확정하지 말라고 안내합니다. ‘정상’ 표시의 의미가 현장 안전 확인이라는 근거도 없습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB13",
+            "file_name": "MB13.pdf",
+            "page_start": 17,
+            "page_end": 17
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB04",
+            "file_name": "MB04.pdf",
+            "page_start": 2,
+            "page_end": 2
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 6.375,
+          "retrieval_seconds": 0.039,
+          "generation_seconds": 6.336,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2124,
+            "output_tokens": 659
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-10",
+      "question": "CV-20 기록은 확인 상태가 정상이고 내보내기에는 파일 생성 완료가 보입니다. 이 두 표시만으로 현장 안전 확인과 상대방 수신 완료를 보고하려고 합니다. 각각 어떤 의미로 고쳐 써야 하나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 4.756,
+      "response": {
+        "request_id": "868a1a62-047c-41cc-9a5d-89fea8530ff7",
+        "status": "answered",
+        "answer": "‘확인 상태 정상’은 해당 자료의 모델·출처·기준 시각을 갖추고 조회 확인이 완료됐다는 뜻으로 적으세요. 현장 안전 확인 완료를 뜻하지는 않습니다. ‘내보내기 파일 생성 완료’는 파일이 생성됐다는 뜻으로만 적고, 상대방 수신은 확인되지 않았으므로 ‘수신 확인 미확보, 확인 대기’로 표시하세요.",
+        "reason": "자료 확인 상태와 현장 안전 확인은 별개이며, 파일 생성만으로 상대방 전달이나 수신 완료를 입증할 수 없습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB13",
+            "file_name": "MB13.pdf",
+            "page_start": 17,
+            "page_end": 17
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB01",
+            "file_name": "MB01.pdf",
+            "page_start": 18,
+            "page_end": 18
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB13",
+            "file_name": "MB13.pdf",
+            "page_start": 24,
+            "page_end": 24
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 4.752,
+          "retrieval_seconds": 0.096,
+          "generation_seconds": 4.655,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2461,
+            "output_tokens": 360
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-10",
+      "question": "CV-20 기록은 확인 상태가 정상이고 내보내기에는 파일 생성 완료가 보입니다. 이 두 표시만으로 현장 안전 확인과 상대방 수신 완료를 보고하려고 합니다. 각각 어떤 의미로 고쳐 써야 하나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 5.38,
+      "response": {
+        "request_id": "f1ca08eb-2f84-4dc0-b8d3-1254c2875773",
+        "status": "answered",
+        "answer": "‘확인 상태 정상’은 모델·출처·기준 시각이 갖춰지고 조회 확인이 완료됐다는 뜻으로 고쳐 쓰세요. 현장 안전 확인이나 원자료 내용의 정상성을 뜻하지 않습니다. ‘내보내기 파일 생성 완료’는 파일 생성 단계가 끝났다는 뜻으로 고쳐 쓰세요. 상대방에게 전달됐거나 수신이 완료됐다는 뜻은 아닙니다. 수신 확인 근거가 없으면 ‘수신 확인 대기’로 기록하고, 수신 확인이 있더라도 받은 사실만 확인된 것으로 쓰세요.",
+        "reason": "자료는 조회 확인, 파일 생성, 전달, 수신 확인을 서로 다른 상태로 구분하며, 확인 상태 정상이나 파일 생성 완료만으로 안전 확인 또는 상대방 수신 완료를 단정할 수 없다고 안내합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB01",
+            "file_name": "MB01.pdf",
+            "page_start": 18,
+            "page_end": 18
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB08",
+            "file_name": "MB08.pdf",
+            "page_start": 16,
+            "page_end": 16
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB04",
+            "file_name": "MB04.pdf",
+            "page_start": 24,
+            "page_end": 24
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 5.378,
+          "retrieval_seconds": 1.501,
+          "generation_seconds": 3.876,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2540,
+            "output_tokens": 315
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-11",
+      "question": "CV-10 현장조회 양식에 네트워크 수신시각이 비어 있습니다. 다른 정보는 정상입니다. 빈 수신시각만으로 수신 오류라고 보고해도 되나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 3.042,
+      "response": {
+        "request_id": "78e12545-2abd-4b38-88b0-677818d6d585",
+        "status": "answered",
+        "answer": "아니요. 실제 모델이 CV-10이라면 네트워크 수신 기능이 없으므로, 현장조회 양식에 수신시각이 비어 있다는 사실만으로 수신 오류라고 보고하지 않습니다. 관찰 내용은 ‘CV-10 현장조회, 수신시각 표시 없음’으로 기록하고, 모델·출처·원자료 기록시각 등 필수 항목은 별도로 확인하세요.",
+        "reason": "자료는 CV-10의 수신시각 부재를 수신 오류나 필수 항목 누락으로 판정하지 말라고 안내합니다. 다만 원자료 기록시각이 누락되었다면 수신시각과 별개로 확인해야 합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB12",
+            "file_name": "MB12.pdf",
+            "page_start": 8,
+            "page_end": 8
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 3.039,
+          "retrieval_seconds": 0.018,
+          "generation_seconds": 3.02,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 1857,
+            "output_tokens": 244
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-11",
+      "question": "CV-10 현장조회 양식에 네트워크 수신시각이 비어 있습니다. 다른 정보는 정상입니다. 빈 수신시각만으로 수신 오류라고 보고해도 되나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 3.2,
+      "response": {
+        "request_id": "83f1a3c4-95d5-4e98-bbcb-f337a75e2013",
+        "status": "answered",
+        "answer": "아니요. 모델이 실제로 CV-10이고 화면이 현장조회라면, CV-10은 네트워크 수신 기능을 제공하지 않으므로 수신시각이 비어 있다는 사실만으로 수신 오류라고 보고하지 않습니다. 수신시각 대신 조회에 필요한 필수 항목을 기준으로 자료 상태를 판단하세요.",
+        "reason": "자료는 CV-10 현장조회의 수신시각 부재를 수신 오류로 판정하지 말라고 안내하며, 실제 모델과 화면을 확인하도록 합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB12",
+            "file_name": "MB12.pdf",
+            "page_start": 8,
+            "page_end": 8
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB10",
+            "file_name": "MB10.pdf",
+            "page_start": 2,
+            "page_end": 2
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB01",
+            "file_name": "MB01.pdf",
+            "page_start": 2,
+            "page_end": 2
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 3.196,
+          "retrieval_seconds": 0.06,
+          "generation_seconds": 3.136,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2001,
+            "output_tokens": 247
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-11",
+      "question": "CV-10 현장조회 양식에 네트워크 수신시각이 비어 있습니다. 다른 정보는 정상입니다. 빈 수신시각만으로 수신 오류라고 보고해도 되나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 4.765,
+      "response": {
+        "request_id": "77f5981c-00b4-4701-aa6b-0062857569b6",
+        "status": "answered",
+        "answer": "아니요. 실제로 CV-10 현장조회 화면이라면 네트워크 수신 기능이 없으므로 수신시각이 비어 있는 것만으로 수신 오류라고 보고하지 않습니다. ‘CV-10 현장조회, 수신시각 표시 없음’으로 관찰 사실을 기록하고, 모델·출처·원자료 기록시각 등 필요한 항목이 확인됐는지 별도로 점검하세요. 조회 화면이나 모델명이 다른 경우에는 먼저 확인해야 합니다.",
+        "reason": "자료는 CV-10 현장조회에 수신시각이 표시되지 않는 것을 수신 오류로 판정하지 말라고 설명합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB10",
+            "file_name": "MB10.pdf",
+            "page_start": 2,
+            "page_end": 2
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB12",
+            "file_name": "MB12.pdf",
+            "page_start": 8,
+            "page_end": 8
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 4.762,
+          "retrieval_seconds": 1.412,
+          "generation_seconds": 3.349,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2341,
+            "output_tokens": 283
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-12",
+      "question": "체크뷰의 최근 30일 조회 목록이 비어 있습니다. 이 화면만 근거로 그 기간에 해당 현장에 이상이 전혀 없었다고 확정해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 2.895,
+      "response": {
+        "request_id": "bb4f6863-0cd2-4ba1-a5b7-4a32538a795a",
+        "status": "answered",
+        "answer": "확정할 수 없습니다. 최근 30일 조회 목록이 비어 있다는 것은 선택한 조건에서 표시할 자료가 없다는 뜻일 뿐, 해당 기간에 현장 이상이 없었다는 증거가 아닙니다.",
+        "reason": "안내 문서는 빈 목록만으로 현장에 이상이 없었다고 결론 내리지 말라고 명시합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB03",
+            "file_name": "MB03.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 2.893,
+          "retrieval_seconds": 0.037,
+          "generation_seconds": 2.855,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 1957,
+            "output_tokens": 210
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-12",
+      "question": "체크뷰의 최근 30일 조회 목록이 비어 있습니다. 이 화면만 근거로 그 기간에 해당 현장에 이상이 전혀 없었다고 확정해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 1.902,
+      "response": {
+        "request_id": "fc2cdc82-e277-40d0-8e8e-3046f3df42c0",
+        "status": "abstained",
+        "answer": "그렇게 확정할 수 없습니다. 최근 30일 조회 목록이 비어 있다는 것은 선택한 조건에서 표시할 자료가 없다는 뜻일 뿐, 해당 기간에 현장 이상이 전혀 없었다는 증거가 아닙니다. 원자료 등록 여부와 별도 보관 자료를 확인해야 합니다. (S1, S2)",
+        "reason": "안내 자료는 빈 목록만으로 현장에 일이 없었다고 결론 내리지 말라고 명시합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB03",
+            "file_name": "MB03.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB08",
+            "file_name": "MB08.pdf",
+            "page_start": 2,
+            "page_end": 2
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 1.899,
+          "retrieval_seconds": 0.018,
+          "generation_seconds": 1.881,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 1883,
+            "output_tokens": 127
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-12",
+      "question": "체크뷰의 최근 30일 조회 목록이 비어 있습니다. 이 화면만 근거로 그 기간에 해당 현장에 이상이 전혀 없었다고 확정해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 3.753,
+      "response": {
+        "request_id": "168d07f7-d9ad-41ad-a253-762ee9384137",
+        "status": "abstained",
+        "answer": "이 화면만으로 최근 30일 동안 해당 현장에 이상이 전혀 없었다고 확정할 수 없습니다. 확인 가능한 것은 선택한 조회 조건에서 표시할 자료가 없었다는 점뿐입니다. 모델·기간 조건과 원자료 등록 여부, 외부 보관 자료를 확인해야 합니다.",
+        "reason": "최근 30일 목록의 공백은 현장에 이상이 없었다거나 기록 자체가 없다는 증거가 아니라고 안내되어 있습니다. [S1][S2]",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB03",
+            "file_name": "MB03.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB09",
+            "file_name": "MB09.pdf",
+            "page_start": 2,
+            "page_end": 2
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 3.75,
+          "retrieval_seconds": 1.381,
+          "generation_seconds": 2.368,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 1905,
+            "output_tokens": 143
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-13",
+      "question": "CV-10을 건조한 실내, 결로 없는 섭씨 12도 장소에서 사용하려고 합니다. 사용자의 역할은 조회자뿐입니다. 제공된 환경 조건 충족 여부와 이 사용자의 파일 내보내기 가능 여부를 구분해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 3.903,
+      "response": {
+        "request_id": "a93a469b-024e-4224-b033-1b2299ba97da",
+        "status": "abstained",
+        "answer": "환경 조건: 충족합니다. CV-10의 안내 온도 범위는 10~30℃이며, 건조한 실내이고 결로가 없는 12℃ 장소는 제시된 조건에 맞습니다. 이는 환경 조건만의 대조이며 전체 설치나 안전 적합성 승인은 아닙니다. 파일 내보내기: 조회자 역할의 내보내기 가능 여부는 제공된 자료에 권한 정보가 없어 판단할 수 없습니다.",
+        "reason": "자료는 CV-10의 환경 기준은 제시하지만, 사용자 역할별 파일 내보내기 권한은 설명하지 않습니다.",
+        "citations": [
+          {
+            "source_id": "S2",
+            "book_id": "MB07",
+            "file_name": "MB07.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB15",
+            "file_name": "MB15.pdf",
+            "page_start": 7,
+            "page_end": 7
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 3.899,
+          "retrieval_seconds": 0.029,
+          "generation_seconds": 3.87,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2111,
+            "output_tokens": 337
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-13",
+      "question": "CV-10을 건조한 실내, 결로 없는 섭씨 12도 장소에서 사용하려고 합니다. 사용자의 역할은 조회자뿐입니다. 제공된 환경 조건 충족 여부와 이 사용자의 파일 내보내기 가능 여부를 구분해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 4.452,
+      "response": {
+        "request_id": "3e2b2f20-422a-484a-9844-0aa2ef922dba",
+        "status": "abstained",
+        "answer": "환경 조건은 제공된 기준을 충족합니다. CV-10의 안내 온도 범위는 10~30℃이며, 건조한 실내·결로 없음 조건도 제시되어 있으므로 섭씨 12도는 해당 환경 조건에 포함됩니다. 다만 이는 환경 항목에 한정된 판단입니다. 조회자 역할의 파일 내보내기 가능 여부는 제공된 자료에 권한 정보가 없어 확인할 수 없습니다.",
+        "reason": "자료는 CV-10의 환경 조건은 설명하지만 사용자 역할별 파일 내보내기 권한은 다루지 않습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB15",
+            "file_name": "MB15.pdf",
+            "page_start": 7,
+            "page_end": 7
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB07",
+            "file_name": "MB07.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 4.45,
+          "retrieval_seconds": 0.038,
+          "generation_seconds": 4.412,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2111,
+            "output_tokens": 375
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-13",
+      "question": "CV-10을 건조한 실내, 결로 없는 섭씨 12도 장소에서 사용하려고 합니다. 사용자의 역할은 조회자뿐입니다. 제공된 환경 조건 충족 여부와 이 사용자의 파일 내보내기 가능 여부를 구분해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 5.834,
+      "response": {
+        "request_id": "338c300b-af87-4c53-bf6e-72eecf2dd61b",
+        "status": "answered",
+        "answer": "환경 조건: 건조한 실내, 결로 없음, 12℃는 CV-10의 제공된 사용 환경 범위인 10~30℃에 해당합니다. 이는 온도·실내·결로 조건의 비교이며, 전체 설치 적합성 승인을 뜻하지는 않습니다. 파일 내보내기: 조회자 역할만으로는 내보낼 수 없습니다. 내보내기는 기록담당의 업무 범위입니다.",
+        "reason": "환경 조건과 사용자 권한은 별도로 판단했습니다. CV-10의 온도 범위와 내보내기 역할 구분이 자료에 제시되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB01",
+            "file_name": "MB01.pdf",
+            "page_start": 21,
+            "page_end": 21
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB15",
+            "file_name": "MB15.pdf",
+            "page_start": 7,
+            "page_end": 7
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB13",
+            "file_name": "MB13.pdf",
+            "page_start": 22,
+            "page_end": 22
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 5.831,
+          "retrieval_seconds": 1.794,
+          "generation_seconds": 4.036,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2507,
+            "output_tokens": 294
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-14",
+      "question": "CV-20의 현장조회 맨 위 자료 A는 원자료 기록시각이 10월 21일이고, 수신목록의 최신 수신 자료 B는 기록시각이 10월 19일입니다. 모델과 출처는 같습니다. A와 B 중 더 최근에 발생한 내용을 담은 자료는 무엇이며, 목록 위치나 최신 수신 표시로 판단하면 안 되는 이유는 무엇인가요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 3.124,
+      "response": {
+        "request_id": "2c9bc700-d543-497e-8077-38fe3fff9309",
+        "status": "answered",
+        "answer": "원자료 기록시각 기준으로 A가 더 최근입니다(10월 21일, B는 10월 19일). 현장조회 맨 위 위치는 등록 순서 역순에 따른 표시일 뿐 기록시각을 뜻하지 않고, 수신목록의 ‘최신 수신’은 마지막으로 받은 자료를 뜻하므로 원자료에서 더 최근에 발생한 내용을 가리킨다고 볼 수 없습니다. [S1, S2, S3]",
+        "reason": "두 자료의 모델과 출처가 같고, 발생 시점 비교 기준인 원자료 기록시각이 제시되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB09",
+            "file_name": "MB09.pdf",
+            "page_start": 8,
+            "page_end": 8
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB14",
+            "file_name": "MB14.pdf",
+            "page_start": 12,
+            "page_end": 12
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB15",
+            "file_name": "MB15.pdf",
+            "page_start": 9,
+            "page_end": 9
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 3.121,
+          "retrieval_seconds": 0.04,
+          "generation_seconds": 3.081,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2472,
+            "output_tokens": 288
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-14",
+      "question": "CV-20의 현장조회 맨 위 자료 A는 원자료 기록시각이 10월 21일이고, 수신목록의 최신 수신 자료 B는 기록시각이 10월 19일입니다. 모델과 출처는 같습니다. A와 B 중 더 최근에 발생한 내용을 담은 자료는 무엇이며, 목록 위치나 최신 수신 표시로 판단하면 안 되는 이유는 무엇인가요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 3.217,
+      "response": {
+        "request_id": "8c6259f2-d972-46d0-ac82-4879501a7add",
+        "status": "answered",
+        "answer": "A가 더 최근에 발생한 내용을 담은 자료입니다. 원자료 기록시각이 A는 10월 21일, B는 10월 19일이므로 기록시각을 비교하면 A가 더 늦습니다. 현장조회 맨 위는 등록 순서 역순 표시일 뿐 최신 기록이라는 뜻이 아니며, 수신목록의 ‘최신 수신’은 마지막으로 받은 자료를 뜻하므로 원자료의 발생 시점과 다를 수 있습니다. [S1, S2, S3]",
+        "reason": "자료들은 목록 위치와 수신 최신 표시의 기준을 원자료 기록시각과 구분하도록 안내합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB09",
+            "file_name": "MB09.pdf",
+            "page_start": 8,
+            "page_end": 8
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB14",
+            "file_name": "MB14.pdf",
+            "page_start": 12,
+            "page_end": 12
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB05",
+            "file_name": "MB05.pdf",
+            "page_start": 2,
+            "page_end": 2
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 3.215,
+          "retrieval_seconds": 0.093,
+          "generation_seconds": 3.122,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2212,
+            "output_tokens": 251
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-14",
+      "question": "CV-20의 현장조회 맨 위 자료 A는 원자료 기록시각이 10월 21일이고, 수신목록의 최신 수신 자료 B는 기록시각이 10월 19일입니다. 모델과 출처는 같습니다. A와 B 중 더 최근에 발생한 내용을 담은 자료는 무엇이며, 목록 위치나 최신 수신 표시로 판단하면 안 되는 이유는 무엇인가요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 4.779,
+      "response": {
+        "request_id": "04723cbe-d776-4c83-84ec-95fd7cb0b141",
+        "status": "answered",
+        "answer": "원자료 기록시각 기준으로 더 최근에 발생한 내용을 담은 자료는 A입니다(10월 21일이 10월 19일보다 늦음). 현장조회 맨 위는 등록 순서 역순에 따른 위치이고, 수신목록의 ‘최신 수신’ 표시는 마지막으로 받은 자료를 뜻합니다. 등록·수신 시점은 원자료 기록시각과 다를 수 있으므로 목록 위치나 최신 수신 표시만으로 발생 시점의 최신성을 판단하면 안 됩니다.",
+        "reason": "자료의 발생 시점은 원자료 기록시각으로 비교하며, 목록 정렬과 수신 순서는 별개의 기준입니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB13",
+            "file_name": "MB13.pdf",
+            "page_start": 11,
+            "page_end": 11
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB09",
+            "file_name": "MB09.pdf",
+            "page_start": 8,
+            "page_end": 8
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB14",
+            "file_name": "MB14.pdf",
+            "page_start": 12,
+            "page_end": 12
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 4.776,
+          "retrieval_seconds": 1.767,
+          "generation_seconds": 3.008,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2557,
+            "output_tokens": 259
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-15",
+      "question": "CV-20 수신조회에서 E07이 해소되어 수신 사실을 확인했습니다. 현재 사용자는 CV-20 조회자 역할만 갖고 있습니다. 코드가 해소되었다는 이유로 이 사용자가 바로 파일 내보내기를 실행할 수 있나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 3.625,
+      "response": {
+        "request_id": "2dc70764-0305-4c09-bf2e-445297548fff",
+        "status": "answered",
+        "answer": "아니요. E07 해소로 수신 사실을 확인했더라도 파일 내보내기 권한이 생기지는 않습니다. 조회자는 자료와 메모를 읽는 역할이며, 내보내기는 기록담당의 업무입니다. 따라서 조회자 역할만 가진 사용자는 바로 내보내기를 실행할 수 없습니다. [S1]",
+        "reason": "자료 확인 상태와 사용자 역할·허용 모델은 별도로 적용되며, E07은 수신 확인 정보를 점검하는 단서이지 권한 부여가 아닙니다. [S1, S2]",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB13",
+            "file_name": "MB13.pdf",
+            "page_start": 8,
+            "page_end": 8
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB06",
+            "file_name": "MB06.pdf",
+            "page_start": 11,
+            "page_end": 11
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 3.622,
+          "retrieval_seconds": 0.019,
+          "generation_seconds": 3.602,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2371,
+            "output_tokens": 296
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-15",
+      "question": "CV-20 수신조회에서 E07이 해소되어 수신 사실을 확인했습니다. 현재 사용자는 CV-20 조회자 역할만 갖고 있습니다. 코드가 해소되었다는 이유로 이 사용자가 바로 파일 내보내기를 실행할 수 있나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 2.485,
+      "response": {
+        "request_id": "dddb552f-7d95-47de-8bf6-c7b4014fa103",
+        "status": "answered",
+        "answer": "아니요. E07 해소와 수신 사실 확인은 수신 확인에 관한 것이며 내보내기 권한을 부여하지 않습니다. 조회자 역할만 가진 사용자는 자료와 메모를 읽을 수 있고, 파일 내보내기는 기록담당 역할에 해당합니다. 따라서 이 사용자는 바로 내보내기를 실행할 수 없습니다.",
+        "reason": "자료는 코드 해소와 사용자 역할·권한을 별도로 판단하도록 안내합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB12",
+            "file_name": "MB12.pdf",
+            "page_start": 20,
+            "page_end": 20
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB12",
+            "file_name": "MB12.pdf",
+            "page_start": 3,
+            "page_end": 3
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB13",
+            "file_name": "MB13.pdf",
+            "page_start": 8,
+            "page_end": 8
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 2.481,
+          "retrieval_seconds": 0.04,
+          "generation_seconds": 2.441,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2316,
+            "output_tokens": 190
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-15",
+      "question": "CV-20 수신조회에서 E07이 해소되어 수신 사실을 확인했습니다. 현재 사용자는 CV-20 조회자 역할만 갖고 있습니다. 코드가 해소되었다는 이유로 이 사용자가 바로 파일 내보내기를 실행할 수 있나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 4.218,
+      "response": {
+        "request_id": "5d8eb602-923e-4c9d-aeca-3875e3c7e4d8",
+        "status": "answered",
+        "answer": "아니요. E07 해소로 수신 사실을 확인했더라도 조회자 역할은 자료와 메모를 읽는 권한이며 파일 내보내기는 허용되지 않습니다. 내보내기에는 내보내기 권한이 있는 역할과 허용 모델 범위도 확인해야 합니다.",
+        "reason": "자료 확인 상태와 사용자 권한은 별도로 적용되며, 조회자 역할은 내보내기를 허용하지 않는다고 안내되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB13",
+            "file_name": "MB13.pdf",
+            "page_start": 8,
+            "page_end": 8
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB06",
+            "file_name": "MB06.pdf",
+            "page_start": 21,
+            "page_end": 21
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 4.215,
+          "retrieval_seconds": 1.697,
+          "generation_seconds": 2.517,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2584,
+            "output_tokens": 198
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-16",
+      "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.1의 자동 소등 기본값과 설치 환경 조건을 검토합니다. 장소는 건조한 실내이며 결로가 없고 섭씨 14도입니다. 적용 기본값과 환경 조건 충족 여부를 알려 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 3.654,
+      "response": {
+        "request_id": "71512d6f-880d-474d-a4e4-de002dc7ded1",
+        "status": "answered",
+        "answer": "2026년 10월 25일 기준, CV-20 펌웨어 2.1의 화면 자동 소등 기본값은 마지막 화면 입력 후 15분입니다. 다만 이는 기본 안내값이며, 개별 단말에 별도 승인 설정이 있으면 실제 소등 시간은 다를 수 있습니다. CV-20의 설치 환경 온도 범위는 15~30℃이고 건조한 실내 및 결로 없음이 조건입니다. 장소 조건은 충족하지만 14℃는 최저 기준인 15℃보다 낮아 온도 조건은 충족하지 않습니다.",
+        "reason": "2026년 10월 20일 정정은 CV-20 펌웨어 2.1 이상에 15분 기본값을 적용합니다. 환경 자료는 CV-20의 온도 범위를 15~30℃로 제시합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB07",
+            "file_name": "MB07.pdf",
+            "page_start": 18,
+            "page_end": 18
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB15",
+            "file_name": "MB15.pdf",
+            "page_start": 7,
+            "page_end": 7
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 3.65,
+          "retrieval_seconds": 0.046,
+          "generation_seconds": 3.604,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2342,
+            "output_tokens": 332
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-16",
+      "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.1의 자동 소등 기본값과 설치 환경 조건을 검토합니다. 장소는 건조한 실내이며 결로가 없고 섭씨 14도입니다. 적용 기본값과 환경 조건 충족 여부를 알려 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 3.492,
+      "response": {
+        "request_id": "492c17af-c7b0-4a2d-b0ef-3505aabfff56",
+        "status": "answered",
+        "answer": "CV-20 펌웨어 2.1의 자동 소등 기본 안내는 마지막 화면 입력 후 15분입니다. 이는 안내된 기본값이며, 개별 단말에 별도 승인 설정이 적용됐는지는 확인되지 않습니다. 환경 조건은 충족하지 않습니다. 건조한 실내이고 결로가 없지만, 14℃는 CV-20의 허용 범위인 15~30℃보다 낮습니다.",
+        "reason": "2026년 10월 20일 정정 안내에 따라 CV-20 펌웨어 2.1 이상에는 15분 소등 안내가 적용됩니다. CV-20 환경 온도 하한은 15℃이며, 제시된 14℃는 범위 미달입니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB07",
+            "file_name": "MB07.pdf",
+            "page_start": 18,
+            "page_end": 18
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB07",
+            "file_name": "MB07.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 3.488,
+          "retrieval_seconds": 0.064,
+          "generation_seconds": 3.423,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2149,
+            "output_tokens": 286
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-16",
+      "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.1의 자동 소등 기본값과 설치 환경 조건을 검토합니다. 장소는 건조한 실내이며 결로가 없고 섭씨 14도입니다. 적용 기본값과 환경 조건 충족 여부를 알려 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 4.662,
+      "response": {
+        "request_id": "dfbe8f6c-269d-48dc-ba44-8802705e9490",
+        "status": "answered",
+        "answer": "CV-20 펌웨어 2.1의 소등 기본 안내는 마지막 화면 입력 후 15분입니다. 건조한 실내이고 결로가 없다는 조건은 충족하지만, 14℃는 CV-20의 환경 범위인 15℃ 이상 30℃ 이하보다 낮으므로 환경 조건은 충족하지 않습니다. 별도 승인 설정 여부는 자료에서 확인되지 않으며, 이 기본 안내만으로 실제 단말의 설정을 단정할 수는 없습니다.",
+        "reason": "2026년 10월 20일 정정은 CV-20 펌웨어 2.1 이상에 15분 소등 기본 안내를 적용하며, 환경 범위는 별도로 판단합니다.",
+        "citations": [
+          {
+            "source_id": "S2",
+            "book_id": "MB07",
+            "file_name": "MB07.pdf",
+            "page_start": 17,
+            "page_end": 17
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB07",
+            "file_name": "MB07.pdf",
+            "page_start": 18,
+            "page_end": 18
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 4.659,
+          "retrieval_seconds": 1.574,
+          "generation_seconds": 3.085,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2621,
+            "output_tokens": 295
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-17",
+      "question": "2026년 10월 25일에 CV-10 펌웨어 2.1 단말의 화면 자동 소등 기본값을 안내하려고 합니다. 새 정정 공지에 15분이 보이는데 이 단말에도 15분을 적용하나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 2.093,
+      "response": {
+        "request_id": "595f829e-9e5f-4848-89fd-a341fc083d6b",
+        "status": "answered",
+        "answer": "아니요. CV-10의 화면 자동 소등 기본값은 10분이며, 15분 정정은 CV-20 펌웨어 2.1 이상에만 적용됩니다. (S1)",
+        "reason": "질문의 모델과 펌웨어가 확인되어 정정 공지의 적용 범위와 대조할 수 있습니다. 안내하는 값은 기본값이며, 실제 단말의 현재 설정은 별도로 확인해야 합니다. (S1)",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 2.09,
+          "retrieval_seconds": 0.039,
+          "generation_seconds": 2.051,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2105,
+            "output_tokens": 120
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-17",
+      "question": "2026년 10월 25일에 CV-10 펌웨어 2.1 단말의 화면 자동 소등 기본값을 안내하려고 합니다. 새 정정 공지에 15분이 보이는데 이 단말에도 15분을 적용하나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 3.043,
+      "response": {
+        "request_id": "e082ae54-07cd-4590-b3f2-0e40741c4ed8",
+        "status": "answered",
+        "answer": "아니요. CV-10 펌웨어 2.1 단말의 화면 자동 소등 기본값은 10분입니다. 15분 정정은 CV-20 펌웨어 2.1 이상에 적용됩니다. 다만 현장에서 별도 승인 표시 설정을 사용한다면 실제 소등 시간은 기본값과 다를 수 있습니다. [S1]",
+        "reason": "정정 공지는 적용 대상을 CV-20 펌웨어 2.1 이상으로 한정하고 CV-10 기본값은 10분으로 유지한다고 명시합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 3.04,
+          "retrieval_seconds": 0.022,
+          "generation_seconds": 3.018,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2105,
+            "output_tokens": 220
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-17",
+      "question": "2026년 10월 25일에 CV-10 펌웨어 2.1 단말의 화면 자동 소등 기본값을 안내하려고 합니다. 새 정정 공지에 15분이 보이는데 이 단말에도 15분을 적용하나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 4.63,
+      "response": {
+        "request_id": "cb8496f1-4565-4ebe-a147-9668f602386b",
+        "status": "answered",
+        "answer": "아니요. 2026년 10월 25일 기준으로 CV-10의 화면 자동 소등 기본값은 펌웨어 2.1이어도 10분입니다. 15분 정정은 CV-20 펌웨어 2.1 이상에 적용됩니다. 다만 별도 승인 설정이 있다면 실제 소등 시간은 기본값과 다를 수 있습니다.",
+        "reason": "정정 공지는 CV-10의 10분 기본값을 유지한다고 명시하고, 15분 적용 대상을 CV-20 펌웨어 2.1 이상으로 한정합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 23,
+            "page_end": 23
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 4.628,
+          "retrieval_seconds": 1.623,
+          "generation_seconds": 3.004,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2566,
+            "output_tokens": 244
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-18",
+      "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.0의 화면 자동 소등 기본값을 안내해 주세요. 2.1 이상을 대상으로 한 정정과 어떻게 구별하나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 2.578,
+      "response": {
+        "request_id": "ba35fb21-fb00-4083-ba65-954e04a31096",
+        "status": "answered",
+        "answer": "2026년 10월 25일 기준, CV-20 펌웨어 2.0의 화면 자동 소등 기본값은 마지막 화면 입력 후 10분입니다. 2026년 10월 20일 정정은 CV-20 펌웨어 2.1 이상에만 15분을 적용하며, 펌웨어 2.0의 10분 안내는 유지됩니다. 구별할 때는 정정의 적용 조건인 모델과 펌웨어를 확인하세요. 이 값은 별도 설정이 없는 경우의 기본값이므로, 실제 단말의 소등 시간은 현재 표시 설정에 따라 다를 수 있습니다.",
+        "reason": "자료에서 정정 효력일과 펌웨어별 적용 범위를 명시하고 있으며, 질문의 기준일과 대상은 해당 범위에 특정됩니다.",
+        "citations": [
+          {
+            "source_id": "S2",
+            "book_id": "MB02",
+            "file_name": "MB02.pdf",
+            "page_start": 23,
+            "page_end": 23
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 5,
+            "page_end": 5
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 2.575,
+          "retrieval_seconds": 0.018,
+          "generation_seconds": 2.556,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2308,
+            "output_tokens": 212
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-18",
+      "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.0의 화면 자동 소등 기본값을 안내해 주세요. 2.1 이상을 대상으로 한 정정과 어떻게 구별하나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 3.303,
+      "response": {
+        "request_id": "5bf073ca-1a39-48d7-8743-1a9b90409c7a",
+        "status": "answered",
+        "answer": "2026년 10월 25일 기준 CV-20 펌웨어 2.0의 화면 자동 소등 기본값은 마지막 화면 입력 후 10분입니다. 2026년 10월 20일 정정의 15분 값은 CV-20 펌웨어 2.1 이상에만 적용되므로, 모델과 펌웨어 버전을 대조해 구별합니다. 이는 기본값 안내이며, 별도 승인된 표시 설정이 있으면 실제 소등 시간은 다를 수 있습니다.",
+        "reason": "정정 공지는 CV-20 펌웨어 2.0의 10분 기본값을 유지하고, 2.1 이상에 한해 15분으로 바로잡았다고 명시합니다.",
+        "citations": [
+          {
+            "source_id": "S2",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB02",
+            "file_name": "MB02.pdf",
+            "page_start": 23,
+            "page_end": 23
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 3.3,
+          "retrieval_seconds": 0.058,
+          "generation_seconds": 3.241,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2108,
+            "output_tokens": 289
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-18",
+      "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.0의 화면 자동 소등 기본값을 안내해 주세요. 2.1 이상을 대상으로 한 정정과 어떻게 구별하나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 5.256,
+      "response": {
+        "request_id": "acf18cb9-d3e0-4e7d-979e-70067a7ec5f6",
+        "status": "answered",
+        "answer": "2026년 10월 25일 기준, CV-20 펌웨어 2.0의 화면 자동 소등 기본값은 마지막 화면 입력 후 10분입니다. 2026년 10월 20일 효력의 정정은 CV-20 펌웨어 2.1 이상에 적용되며, 해당 범위의 기본값을 15분으로 바로잡았습니다. 따라서 정정 대상과 펌웨어 2.0을 구별하면, 펌웨어 2.0의 10분 안내는 유지됩니다. 이는 기본값 안내이며, 별도 승인 설정이 있을 수 있으므로 특정 단말의 실제 소등 시간과는 구분해야 합니다.",
+        "reason": "자료에서 정정의 적용 범위를 CV-20 펌웨어 2.1 이상으로 한정하고, CV-20 펌웨어 2.0의 10분 기본값은 유지한다고 명시합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 23,
+            "page_end": 23
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 13,
+            "page_end": 13
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB02",
+            "file_name": "MB02.pdf",
+            "page_start": 23,
+            "page_end": 23
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 5.253,
+          "retrieval_seconds": 1.677,
+          "generation_seconds": 3.576,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2745,
+            "output_tokens": 335
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-19",
+      "question": "10월 20일 정정 대상인 CV-20 펌웨어 2.1 단말입니다. 현재 표시 설정은 확인하지 않았습니다. 정정 공지만으로 이 단말이 실제로 반드시 15분 뒤 소등한다고 확정해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 3.186,
+      "response": {
+        "request_id": "631d1990-2c3d-40cb-8379-17fff6f0464f",
+        "status": "answered",
+        "answer": "아니요. 정정 공지로 확인되는 것은 CV-20 펌웨어 2.1 이상의 기본 소등 시간이 마지막 화면 입력 후 15분이라는 점입니다. 실제 표시 설정은 확인되지 않았으므로 이 단말이 반드시 15분 뒤 소등한다고 확정할 수 없습니다. 실제 동작 시간을 확인하려면 현재 표시 설정을 확인해야 합니다.",
+        "reason": "정정은 기본값 안내를 바로잡은 것이며, 별도 승인 설정이 적용된 단말의 실제 소등 시간까지 확정하거나 설정을 변경하지 않습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 6,
+            "page_end": 6
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB02",
+            "file_name": "MB02.pdf",
+            "page_start": 23,
+            "page_end": 23
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 3.184,
+          "retrieval_seconds": 0.02,
+          "generation_seconds": 3.163,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2449,
+            "output_tokens": 258
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-19",
+      "question": "10월 20일 정정 대상인 CV-20 펌웨어 2.1 단말입니다. 현재 표시 설정은 확인하지 않았습니다. 정정 공지만으로 이 단말이 실제로 반드시 15분 뒤 소등한다고 확정해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 3.441,
+      "response": {
+        "request_id": "1f300d89-b5c7-4d39-bcaa-61137ba89afc",
+        "status": "answered",
+        "answer": "아니요. 10월 20일 정정 공지로 확인되는 것은 CV-20 펌웨어 2.1의 기본 소등 시간이 마지막 화면 입력 후 15분이라는 점뿐입니다. 해당 단말의 표시 설정을 확인하지 않았으므로 실제로 반드시 15분 뒤 소등한다고 확정할 수 없습니다.",
+        "reason": "정정 공지는 기본값을 바로잡은 것이며, 개별 단말의 실제 설정을 확인하거나 변경한 기록은 아닙니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB14",
+            "file_name": "MB14.pdf",
+            "page_start": 21,
+            "page_end": 21
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 6,
+            "page_end": 6
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB02",
+            "file_name": "MB02.pdf",
+            "page_start": 23,
+            "page_end": 23
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 3.439,
+          "retrieval_seconds": 0.029,
+          "generation_seconds": 3.409,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2618,
+            "output_tokens": 291
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-19",
+      "question": "10월 20일 정정 대상인 CV-20 펌웨어 2.1 단말입니다. 현재 표시 설정은 확인하지 않았습니다. 정정 공지만으로 이 단말이 실제로 반드시 15분 뒤 소등한다고 확정해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 4.728,
+      "response": {
+        "request_id": "eafb5548-6814-45f4-95de-eaecf8285a87",
+        "status": "answered",
+        "answer": "정정 공지상 CV-20 펌웨어 2.1의 소등 기본값은 마지막 화면 입력 후 15분입니다. 그러나 표시 설정을 확인하지 않았으므로 이 단말이 실제로 반드시 15분 뒤 소등한다고 확정할 수는 없습니다.",
+        "reason": "정정 공지는 해당 모델·펌웨어의 기본값을 안내하지만, 개별 단말의 실제 설정은 별도 확인이 필요합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB14",
+            "file_name": "MB14.pdf",
+            "page_start": 21,
+            "page_end": 21
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 23,
+            "page_end": 23
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB14",
+            "file_name": "MB14.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 4.724,
+          "retrieval_seconds": 1.692,
+          "generation_seconds": 3.031,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2430,
+            "output_tokens": 234
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-20",
+      "question": "2026년 10월 25일에 CV-20 펌웨어 2.0을 사용합니다. 정정 공지의 15분 기본값과 최신 수신이라는 표시 의미가 모두 2.1 이상에만 적용되는지 항목별로 설명해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 4.065,
+      "response": {
+        "request_id": "275c0a46-7a4b-4f36-a6aa-0e2e9cd1a1ce",
+        "status": "answered",
+        "answer": "2026년 10월 25일 기준 CV-20 펌웨어 2.0에는 두 정정 항목이 다르게 적용됩니다.\n- 소등 기본값: 15분 정정은 CV-20 펌웨어 2.1 이상에만 적용됩니다. 펌웨어 2.0에는 10분 안내가 유지되므로, 15분 정정은 해당하지 않습니다. (S1, S2, S3)\n- ‘최신 수신’ 표시 의미: 이 정정은 CV-20 전체에 적용되며 펌웨어 2.1 이상으로 한정되지 않습니다. 따라서 펌웨어 2.0에서도 수신목록의 ‘최신’은 마지막으로 받은 자료를 뜻하며, 원자료 작성 시각이 가장 최근이라는 뜻은 아닙니다. (S1, S2)",
+        "reason": "정정 공지는 소등 기본값과 수신목록 표시 의미에 서로 다른 적용 조건을 명시합니다. 대상 모델과 펌웨어가 확인되어 항목별 적용 여부를 판단할 수 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB02",
+            "file_name": "MB02.pdf",
+            "page_start": 23,
+            "page_end": 23
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 5,
+            "page_end": 5
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB15",
+            "file_name": "MB15.pdf",
+            "page_start": 16,
+            "page_end": 16
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 4.061,
+          "retrieval_seconds": 0.02,
+          "generation_seconds": 4.041,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2762,
+            "output_tokens": 374
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-20",
+      "question": "2026년 10월 25일에 CV-20 펌웨어 2.0을 사용합니다. 정정 공지의 15분 기본값과 최신 수신이라는 표시 의미가 모두 2.1 이상에만 적용되는지 항목별로 설명해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 4.656,
+      "response": {
+        "request_id": "bf251c4a-798b-4a80-a664-f55ab37ca66d",
+        "status": "answered",
+        "answer": "2026년 10월 25일 기준, CV-20 펌웨어 2.0에는 두 정정 항목의 적용 범위가 다릅니다.\n- **화면 소등 기본값:** 15분 정정은 CV-20 펌웨어 2.1 이상에만 적용됩니다. 펌웨어 2.0은 기존 10분 안내가 유지되므로 15분 기본값은 적용되지 않습니다. 이는 기본값 안내이며, 실제 단말에 별도 설정이 있는지는 별도로 확인해야 합니다. [S1, S2, S3]\n- **수신목록의 ‘최신’ 표시:** ‘마지막으로 받은 자료’를 뜻한다는 정정은 CV-20 전체에 적용되며, 펌웨어 2.1 이상으로 한정되지 않습니다. 따라서 펌웨어 2.0에도 적용됩니다. 이는 원자료 작성 시각이 가장 최근이라는 뜻이 아닙니다. [S1, S2]",
+        "reason": "정정 공지는 소등 기본값과 ‘최신’ 표시 의미에 서로 다른 모델·펌웨어 적용 범위를 명시합니다. 정정 효력일은 2026년 10월 20일이므로 질문의 기준일인 10월 25일에는 해당 정정 범위를 적용해 판단할 수 있습니다. [S1, S2]",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB02",
+            "file_name": "MB02.pdf",
+            "page_start": 23,
+            "page_end": 23
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 5,
+            "page_end": 5
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 12,
+            "page_end": 12
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 4.652,
+          "retrieval_seconds": 0.051,
+          "generation_seconds": 4.601,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2686,
+            "output_tokens": 448
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-20",
+      "question": "2026년 10월 25일에 CV-20 펌웨어 2.0을 사용합니다. 정정 공지의 15분 기본값과 최신 수신이라는 표시 의미가 모두 2.1 이상에만 적용되는지 항목별로 설명해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 7.399,
+      "response": {
+        "request_id": "d00e08f1-f619-4547-bdea-31aac6ce772c",
+        "status": "answered",
+        "answer": "2026년 10월 25일 기준, CV-20 펌웨어 2.0에는 두 정정이 똑같이 적용되지 않습니다.\n- **소등 기본값:** 15분 정정은 CV-20 펌웨어 2.1 이상에만 적용됩니다. 펌웨어 2.0은 기존 10분 기본값 안내가 유지됩니다. 따라서 질문하신 펌웨어 2.0에는 15분이 적용되지 않습니다. [S1, S2, S3]\n- **‘최신 수신’ 표시 의미:** 이 정정은 CV-20 전체에 적용되며 펌웨어 2.1 이상으로 한정되지 않습니다. 펌웨어 2.0에서도 ‘최신’은 마지막으로 받은 자료를 뜻하고, 원자료 작성 시각이 가장 최근이라는 뜻은 아닙니다. [S1, S2]\n위 소등 시간은 기본값 안내이며, 실제 단말에 별도 설정이 있는지는 별도로 확인해야 합니다. [S1, S3]",
+        "reason": "2026년 10월 20일 효력의 정정 공지가 소등 기본값과 ‘최신 수신’ 의미에 서로 다른 적용 범위를 명시합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB02",
+            "file_name": "MB02.pdf",
+            "page_start": 23,
+            "page_end": 23
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB08",
+            "file_name": "MB08.pdf",
+            "page_start": 8,
+            "page_end": 8
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 23,
+            "page_end": 23
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 7.396,
+          "retrieval_seconds": 1.655,
+          "generation_seconds": 5.74,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2749,
+            "output_tokens": 441
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-21",
+      "question": "CV-20으로 보낸 파일에는 상대 경로의 수신 확인이 있습니다. 관련 확인 메모는 초안 저장 상태이고 검토자가 아직 읽지 않았습니다. 파일 전달과 메모 검토를 각각 어떤 상태로 인계해야 하나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 3.836,
+      "response": {
+        "request_id": "0b9c1831-20d4-4677-93ae-65670f7e9e3c",
+        "status": "answered",
+        "answer": "파일 전달은 ‘수신 확인됨’으로 인계하세요. 이는 상대 경로가 파일을 받은 사실만 확인하며, 내용 검토나 승인을 뜻하지 않습니다. 메모 검토는 ‘초안 저장됨·검토자 미열람·검토 대기’로 별도 인계하고, 검토 완료로 표시하지 마세요.",
+        "reason": "자료는 수신 확인과 내용 검토를 별도 상태로 관리하고, 수신 확인만으로 검토 완료나 승인을 판단하지 않도록 안내합니다. S1은 검토 회신 대기를 구분하고, S2와 S3는 수신 확인의 범위를 파일을 받은 사실로 한정합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB04",
+            "file_name": "MB04.pdf",
+            "page_start": 17,
+            "page_end": 17
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB04",
+            "file_name": "MB04.pdf",
+            "page_start": 3,
+            "page_end": 3
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB15",
+            "file_name": "MB15.pdf",
+            "page_start": 18,
+            "page_end": 18
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 3.833,
+          "retrieval_seconds": 0.029,
+          "generation_seconds": 3.804,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2169,
+            "output_tokens": 327
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-21",
+      "question": "CV-20으로 보낸 파일에는 상대 경로의 수신 확인이 있습니다. 관련 확인 메모는 초안 저장 상태이고 검토자가 아직 읽지 않았습니다. 파일 전달과 메모 검토를 각각 어떤 상태로 인계해야 하나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 5.257,
+      "response": {
+        "request_id": "bb6219ad-5c0a-4e9e-ac83-8ef2f73d4183",
+        "status": "answered",
+        "answer": "파일 전달은 ‘상대 경로 수신 확인 있음’으로 인계하세요. 이는 파일을 받은 사실만 확인하며 내용 검토나 승인을 뜻하지 않습니다. 확인 메모는 ‘초안 저장, 검토자 미열람—검토 대기’로 인계하고, 검토 완료로 표시하지 마세요. 두 상태를 각각 기록합니다. [S1, S2, S3]",
+        "reason": "자료는 CV-20 수신 확인과 내용 검토를 별도 상태로 관리하고, 담당자 인계 시 확인된 사실과 남은 검토 업무를 구분하도록 안내합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB04",
+            "file_name": "MB04.pdf",
+            "page_start": 17,
+            "page_end": 17
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB04",
+            "file_name": "MB04.pdf",
+            "page_start": 3,
+            "page_end": 3
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB15",
+            "file_name": "MB15.pdf",
+            "page_start": 18,
+            "page_end": 18
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 5.253,
+          "retrieval_seconds": 0.089,
+          "generation_seconds": 5.164,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2169,
+            "output_tokens": 395
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-21",
+      "question": "CV-20으로 보낸 파일에는 상대 경로의 수신 확인이 있습니다. 관련 확인 메모는 초안 저장 상태이고 검토자가 아직 읽지 않았습니다. 파일 전달과 메모 검토를 각각 어떤 상태로 인계해야 하나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 5.103,
+      "response": {
+        "request_id": "82771651-bcee-4d71-b3b3-e441654503f2",
+        "status": "answered",
+        "answer": "파일 전달은 ‘상대 수신 확인됨’으로 인계하세요. 이는 파일을 받은 사실만 확인하는 상태이며, 내용 검토 완료나 업무 승인을 뜻하지 않습니다. 확인 메모는 ‘초안 저장, 검토자 미열람·검토 대기’로 별도 인계하고 완료 처리하지 마세요.",
+        "reason": "수신 확인, 내용 검토, 메모 검토는 서로 구분해 기록해야 합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB04",
+            "file_name": "MB04.pdf",
+            "page_start": 17,
+            "page_end": 17
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB15",
+            "file_name": "MB15.pdf",
+            "page_start": 18,
+            "page_end": 18
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB04",
+            "file_name": "MB04.pdf",
+            "page_start": 15,
+            "page_end": 15
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 5.1,
+          "retrieval_seconds": 1.617,
+          "generation_seconds": 3.482,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2567,
+            "output_tokens": 294
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-22",
+      "question": "CV-10만 허용된 기록담당 계정으로 CV-20 자료를 내보내려 합니다. 그 자료는 출처 이름도 미확인입니다. 허용 대상을 CV-20으로 바꾸기만 하면 곧바로 정상 확인된 묶음으로 외부 전달할 수 있나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 5.305,
+      "response": {
+        "request_id": "54f660f3-6480-4e9a-997e-db47da97d675",
+        "status": "answered",
+        "answer": "아니요. CV-10만 허용된 계정의 기록담당 권한은 CV-20 자료에 적용되지 않으므로, 허용 대상을 바꾸기만 해서 내보낼 수 있다고 볼 수 없습니다. CV-20이 허용된 담당자에게 자료를 인계해야 합니다. 또한 출처 이름이 미확인인 자료는 정상 확인된 자료처럼 외부 전달할 수 없습니다. 출처를 확인하고 자료를 다시 검토한 뒤, 검토자가 전달 대상과 범위를 확인해야 합니다. 미확인 상태가 계속되면 외부 전달을 보류해야 합니다.",
+        "reason": "자료는 역할과 허용 모델을 별도로 판단하고, 미확인 필수 항목이 있는 자료는 확인된 것처럼 내보내지 말도록 안내합니다. CV-20 처리에는 해당 모델이 허용된 담당자에게 인계하고, 내보내기와 외부 전달도 별도로 확인해야 합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB04",
+            "file_name": "MB04.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB06",
+            "file_name": "MB06.pdf",
+            "page_start": 11,
+            "page_end": 11
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB08",
+            "file_name": "MB08.pdf",
+            "page_start": 24,
+            "page_end": 24
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 5.302,
+          "retrieval_seconds": 0.036,
+          "generation_seconds": 5.265,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2238,
+            "output_tokens": 484
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-22",
+      "question": "CV-10만 허용된 기록담당 계정으로 CV-20 자료를 내보내려 합니다. 그 자료는 출처 이름도 미확인입니다. 허용 대상을 CV-20으로 바꾸기만 하면 곧바로 정상 확인된 묶음으로 외부 전달할 수 있나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 5.007,
+      "response": {
+        "request_id": "897939e3-ab05-4035-b28c-395388ef1cfe",
+        "status": "answered",
+        "answer": "아니요. 허용 대상을 CV-20으로 바꾸는 것만으로는 권한과 자료 확인 상태가 모두 해결되지 않습니다. CV-20이 허용된 담당자가 처리해야 하며, 출처 미확인은 CV-20 수신 자료의 출처·수신 확인 정보를 점검할 사안(E07)입니다. 필수 항목이 확인되지 않아 자료가 미확인 상태라면 외부 전달을 보류해야 합니다. 확인 필요 상태인 경우에도 검토자가 사유와 전달 범위를 확인한 이력을 남긴 뒤에만 해당 범위로 전달할 수 있습니다.",
+        "reason": "계정의 모델 권한과 자료의 확인 상태는 별개이며, 권한 변경이나 적합한 담당자의 존재가 미확인 항목을 자동으로 해소하지 않습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB06",
+            "file_name": "MB06.pdf",
+            "page_start": 11,
+            "page_end": 11
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB06",
+            "file_name": "MB06.pdf",
+            "page_start": 12,
+            "page_end": 12
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB08",
+            "file_name": "MB08.pdf",
+            "page_start": 24,
+            "page_end": 24
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 5.003,
+          "retrieval_seconds": 0.084,
+          "generation_seconds": 4.919,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2544,
+            "output_tokens": 418
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-22",
+      "question": "CV-10만 허용된 기록담당 계정으로 CV-20 자료를 내보내려 합니다. 그 자료는 출처 이름도 미확인입니다. 허용 대상을 CV-20으로 바꾸기만 하면 곧바로 정상 확인된 묶음으로 외부 전달할 수 있나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 4.695,
+      "response": {
+        "request_id": "d721709a-84c8-4f34-96cf-9d511834a2fd",
+        "status": "answered",
+        "answer": "아니요. CV-20이 실제 허용 모델로 확인되더라도 출처가 미확인인 자료는 필수 항목 미확인 상태이므로 외부 전달을 보류해야 합니다. 먼저 CV-20 권한을 확인하고 자료의 출처를 확인할 근거를 확보해야 하며, 권한 변경만으로 자료가 정상 확인되거나 전달 가능해지지는 않습니다.",
+        "reason": "권한 범위와 자료 확인 상태는 별도로 판단하며, 출처가 확인되지 않은 자료는 외부 전달할 수 없습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB06",
+            "file_name": "MB06.pdf",
+            "page_start": 11,
+            "page_end": 11
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB06",
+            "file_name": "MB06.pdf",
+            "page_start": 20,
+            "page_end": 20
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB13",
+            "file_name": "MB13.pdf",
+            "page_start": 13,
+            "page_end": 13
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 4.692,
+          "retrieval_seconds": 1.624,
+          "generation_seconds": 3.067,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2628,
+            "output_tokens": 239
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-23",
+      "question": "체크뷰 개별 기록에 대한 정정 자료가 원자료를 정확히 지정하고 출처 이름만 바로잡는다고 명시했습니다. 원자료 기록시각도 정정 자료의 발행 시각으로 바꾸어 읽어야 하나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 1.87,
+      "response": {
+        "request_id": "0957dc83-a655-4b20-af7b-3e3846bc14d4",
+        "status": "answered",
+        "answer": "아니요. 정정 자료가 원자료를 정확히 지정하고 출처 이름만 바로잡는다고 명시했다면, 기록시각은 원자료 값을 유지합니다. 정정 자료의 발행 시각으로 바꾸어 읽지 않습니다. [S1][S3]",
+        "reason": "정정은 명시된 변경 필드에만 적용하며, 기록시각을 바꾸려면 그 변경이 명시되어야 한다고 자료가 안내합니다. [S1][S3]",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB03",
+            "file_name": "MB03.pdf",
+            "page_start": 20,
+            "page_end": 20
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB03",
+            "file_name": "MB03.pdf",
+            "page_start": 4,
+            "page_end": 4
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 1.867,
+          "retrieval_seconds": 0.034,
+          "generation_seconds": 1.833,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2193,
+            "output_tokens": 142
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-23",
+      "question": "체크뷰 개별 기록에 대한 정정 자료가 원자료를 정확히 지정하고 출처 이름만 바로잡는다고 명시했습니다. 원자료 기록시각도 정정 자료의 발행 시각으로 바꾸어 읽어야 하나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 4.451,
+      "response": {
+        "request_id": "d44e750e-f508-4d35-a508-7aac7eac2889",
+        "status": "answered",
+        "answer": "아니요. 정정 자료가 원자료를 정확히 지정하더라도 출처 이름만 정정한다고 명시했다면, 원자료 기록시각은 원래 값으로 유지합니다. 정정 자료의 발행·작성 시각을 원자료 기록시각으로 바꾸어 읽지 않습니다. 기록시각 변경은 정정 내용에 명시된 경우에만 반영합니다. [S1][S2][S3]",
+        "reason": "자료는 변경 필드가 출처 이름에 한정되면 기록시각 등 나머지 필드는 원자료 값으로 유지하고, 정정 기록의 작성·도착 시각과 원자료 기록시각을 구별하라고 안내합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB03",
+            "file_name": "MB03.pdf",
+            "page_start": 20,
+            "page_end": 20
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB03",
+            "file_name": "MB03.pdf",
+            "page_start": 17,
+            "page_end": 17
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB03",
+            "file_name": "MB03.pdf",
+            "page_start": 4,
+            "page_end": 4
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 4.447,
+          "retrieval_seconds": 0.035,
+          "generation_seconds": 4.411,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2300,
+            "output_tokens": 191
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-23",
+      "question": "체크뷰 개별 기록에 대한 정정 자료가 원자료를 정확히 지정하고 출처 이름만 바로잡는다고 명시했습니다. 원자료 기록시각도 정정 자료의 발행 시각으로 바꾸어 읽어야 하나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 3.99,
+      "response": {
+        "request_id": "2e81999e-7d42-4629-8af0-708dbd51dc6a",
+        "status": "answered",
+        "answer": "아니요. 정정 자료가 출처 이름만 바로잡는다면 원자료 기록시각은 원자료에 표시된 값으로 유지합니다. 정정 자료의 발행 시각은 원자료 기록시각과 별개이며, 기록시각을 변경한다고 명시한 정정이 있을 때만 변경 전후 시각을 기록합니다. [S1][S2]",
+        "reason": "자료는 출처 이름 정정만으로 기록시각을 바꾸어 읽지 말고, 원자료의 기록시각과 정정 기록의 작성·도착 시각을 구분하라고 안내합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB03",
+            "file_name": "MB03.pdf",
+            "page_start": 4,
+            "page_end": 4
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB03",
+            "file_name": "MB03.pdf",
+            "page_start": 17,
+            "page_end": 17
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 3.987,
+          "retrieval_seconds": 1.641,
+          "generation_seconds": 2.346,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2300,
+            "output_tokens": 166
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-24",
+      "question": "체크뷰를 사용 중인데 모델명은 아직 확인하지 않았습니다. 네트워크 수신조회가 지원되나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 2.523,
+      "response": {
+        "request_id": "47141bfa-edfd-43ad-a377-8504787c7140",
+        "status": "needs_clarification",
+        "answer": "모델명 확인이 필요합니다. 제품 정보 화면에서 전체 모델명이 CV-10인지 CV-20인지 알려 주세요. CV-20은 승인된 시험 자료의 네트워크 수신조회가 가능하고, CV-10은 지원하지 않습니다.",
+        "reason": "체크뷰라는 제품군 이름만으로는 지원 여부를 판단할 수 없습니다. 수신조회 지원 범위는 모델별로 다릅니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB01",
+            "file_name": "MB01.pdf",
+            "page_start": 2,
+            "page_end": 2
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB05",
+            "file_name": "MB05.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 2.521,
+          "retrieval_seconds": 0.034,
+          "generation_seconds": 2.487,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 1838,
+            "output_tokens": 176
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-24",
+      "question": "체크뷰를 사용 중인데 모델명은 아직 확인하지 않았습니다. 네트워크 수신조회가 지원되나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 2.01,
+      "response": {
+        "request_id": "e0d74d03-8e61-481a-95a8-1b17b8e52b2e",
+        "status": "needs_clarification",
+        "answer": "체크뷰의 모델명을 확인해 주세요. CV-20은 네트워크 수신조회를 지원하지만, CV-10은 지원하지 않습니다.",
+        "reason": "수신조회 지원 여부는 모델에 따라 달라지므로 현재 모델명이 확인되지 않아 적용 여부를 단정할 수 없습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB05",
+            "file_name": "MB05.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB01",
+            "file_name": "MB01.pdf",
+            "page_start": 15,
+            "page_end": 15
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 14,
+            "page_end": 14
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 2.006,
+          "retrieval_seconds": 0.043,
+          "generation_seconds": 1.962,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2271,
+            "output_tokens": 145
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-24",
+      "question": "체크뷰를 사용 중인데 모델명은 아직 확인하지 않았습니다. 네트워크 수신조회가 지원되나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 4.041,
+      "response": {
+        "request_id": "4f182fe4-0d87-4a48-a991-79306a51133f",
+        "status": "needs_clarification",
+        "answer": "모델명을 확인해 주시겠어요? CV-10은 네트워크 수신조회를 지원하지 않고, CV-20은 지원합니다. (S3)",
+        "reason": "체크뷰의 네트워크 수신조회 지원 여부는 모델에 따라 다르므로, 현재 정보만으로는 해당 제품의 지원 여부를 확정할 수 없습니다. (S2, S3)",
+        "citations": [
+          {
+            "source_id": "S2",
+            "book_id": "MB13",
+            "file_name": "MB13.pdf",
+            "page_start": 7,
+            "page_end": 7
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB01",
+            "file_name": "MB01.pdf",
+            "page_start": 5,
+            "page_end": 5
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 4.038,
+          "retrieval_seconds": 1.53,
+          "generation_seconds": 2.507,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2420,
+            "output_tokens": 192
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-25",
+      "question": "체크뷰 CV-10의 방수 등급을 IP 숫자로 알려 주세요. 제공된 문서에 등급이 없다면 일반적인 표시 단말과 같다고 가정해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 2.296,
+      "response": {
+        "request_id": "ca4af1d4-71cd-4850-8f13-4000ebbb5acf",
+        "status": "abstained",
+        "answer": "제공된 문서에는 체크뷰 CV-10의 방수 등급(IP 숫자)이 없습니다. 일반적인 표시 단말의 등급을 CV-10에 적용할 근거도 없으므로, IP 등급을 특정할 수 없습니다.",
+        "reason": "문서는 방수 등급 수치를 제공하지 않으며, 문서에 없는 환경 성능을 일반 제품 사양으로 보완하지 말라고 안내합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB07",
+            "file_name": "MB07.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB01",
+            "file_name": "MB01.pdf",
+            "page_start": 21,
+            "page_end": 21
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 2.292,
+          "retrieval_seconds": 0.028,
+          "generation_seconds": 2.263,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 1947,
+            "output_tokens": 188
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-25",
+      "question": "체크뷰 CV-10의 방수 등급을 IP 숫자로 알려 주세요. 제공된 문서에 등급이 없다면 일반적인 표시 단말과 같다고 가정해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 2.642,
+      "response": {
+        "request_id": "5651d3fa-0682-4768-8ded-b3b353e8c848",
+        "status": "abstained",
+        "answer": "체크뷰 CV-10의 방수 등급(IP 숫자)은 제공된 문서에서 확인되지 않습니다. 일반적인 표시 단말의 등급을 CV-10에 적용할 근거도 없어 IP 등급을 제시할 수 없습니다.",
+        "reason": "문서는 방수 등급을 제공하지 않으며, 문서에 없는 환경 성능을 일반 제품 사양으로 보완하지 말라고 명시합니다. [S1]",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB07",
+            "file_name": "MB07.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 2.639,
+          "retrieval_seconds": 0.018,
+          "generation_seconds": 2.62,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2198,
+            "output_tokens": 184
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-25",
+      "question": "체크뷰 CV-10의 방수 등급을 IP 숫자로 알려 주세요. 제공된 문서에 등급이 없다면 일반적인 표시 단말과 같다고 가정해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 4.197,
+      "response": {
+        "request_id": "bee92a58-1532-422a-a0f6-7f1160e38272",
+        "status": "abstained",
+        "answer": "제공된 문서에는 CV-10의 IP 방수 등급이 없습니다. 일반 표시 단말의 등급을 가정해 CV-10의 IP 숫자로 안내할 수는 없습니다.",
+        "reason": "문서는 방수 등급을 제공하지 않으며, 일반 제품 사양을 체크뷰에 적용하지 말라고 명시합니다. [S3]",
+        "citations": [
+          {
+            "source_id": "S3",
+            "book_id": "MB07",
+            "file_name": "MB07.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 4.194,
+          "retrieval_seconds": 1.522,
+          "generation_seconds": 2.671,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2319,
+            "output_tokens": 208
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-26",
+      "question": "CV-10 내보내기 미리보기에서 E04가 보입니다. 담당자는 이를 네트워크 전송 실패라고 기록했습니다. 코드가 뜻하는 문제와 먼저 비교할 항목을 바로잡아 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 3.129,
+      "response": {
+        "request_id": "e037c9a1-d141-40eb-92dd-7dfd4ca5d2c7",
+        "status": "answered",
+        "answer": "E04는 네트워크 전송 실패가 아니라, 내보내기에서 선택한 모델과 미리보기에 포함된 자료의 모델이 일치하지 않는다는 뜻입니다. 먼저 선택 모델이 CV-10인지 확인하고, 미리보기의 자료별 모델명을 선택값과 대조하세요. 불일치 항목은 자료의 실제 출처와 기간도 확인하고, 모델명을 임의로 바꾸지 마세요. 파일 생성·전달 여부는 별도의 이력으로 확인해야 합니다. [S1]",
+        "reason": "자료에서 E04를 내보내기 대상 모델 불일치로 정의하고, 네트워크 고장 판정 코드가 아니라고 명시합니다. [S1]",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB12",
+            "file_name": "MB12.pdf",
+            "page_start": 2,
+            "page_end": 2
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 3.126,
+          "retrieval_seconds": 0.039,
+          "generation_seconds": 3.086,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2180,
+            "output_tokens": 256
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-26",
+      "question": "CV-10 내보내기 미리보기에서 E04가 보입니다. 담당자는 이를 네트워크 전송 실패라고 기록했습니다. 코드가 뜻하는 문제와 먼저 비교할 항목을 바로잡아 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 2.867,
+      "response": {
+        "request_id": "b6317b3b-d702-4abe-9758-3a72d1c45e8e",
+        "status": "answered",
+        "answer": "E04는 네트워크 전송 실패가 아니라 내보내기에서 선택한 모델과 미리보기 자료의 모델이 일치하지 않는다는 뜻입니다. 먼저 선택한 모델과 미리보기의 각 자료에 표시된 모델명을 비교하세요. 불일치 자료는 출처와 기록 기간도 확인하고, 대상과 미리보기를 다시 점검해야 합니다. 파일 생성·전달 여부는 E04와 별도로 각 이력에서 확인합니다. [S1]",
+        "reason": "CV-10에 적용되는 E04 설명과 우선 확인 항목이 자료에 명시되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB12",
+            "file_name": "MB12.pdf",
+            "page_start": 2,
+            "page_end": 2
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 2.863,
+          "retrieval_seconds": 0.042,
+          "generation_seconds": 2.82,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2144,
+            "output_tokens": 224
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-26",
+      "question": "CV-10 내보내기 미리보기에서 E04가 보입니다. 담당자는 이를 네트워크 전송 실패라고 기록했습니다. 코드가 뜻하는 문제와 먼저 비교할 항목을 바로잡아 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 4.308,
+      "response": {
+        "request_id": "12d258a0-d3f7-4a76-8913-4cf90727aaf0",
+        "status": "answered",
+        "answer": "E04는 네트워크 전송 실패가 아니라 내보내기에서 선택한 모델과 미리보기에 포함된 자료의 모델이 일치하지 않는다는 뜻입니다. 먼저 선택 모델과 미리보기의 자료별 모델명을 대조하세요. 불일치 항목은 실제 출처와 기록 기간도 확인하고, 파일명만으로 판단하지 마세요. [S1]",
+        "reason": "자료에서 E04의 의미와 우선 대조할 항목을 명시하고 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB12",
+            "file_name": "MB12.pdf",
+            "page_start": 2,
+            "page_end": 2
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 4.304,
+          "retrieval_seconds": 1.525,
+          "generation_seconds": 2.778,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2314,
+            "output_tokens": 218
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-27",
+      "question": "10월 25일 CV-20 펌웨어 2.1을 조회자 역할로 사용합니다. 자동 소등 기본값 안내는 무엇이며, 이번 소등 정정 자체가 조회자에게 파일 내보내기 권한을 새로 부여하나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 2.197,
+      "response": {
+        "request_id": "75c2b691-6de4-4a1e-83ee-ca8dfa0d5217",
+        "status": "answered",
+        "answer": "CV-20 펌웨어 2.1의 자동 소등 기본값은 마지막 화면 입력 후 15분입니다. 실제로 승인된 별도 표시 설정이 있다면 실제 소등 시간은 다를 수 있습니다. 소등 정정은 조회자에게 파일 내보내기 권한을 새로 부여하지 않습니다. 자료 내보내기는 기록담당의 업무이며, 조회자는 허용된 자료와 메모를 읽을 수 있습니다.",
+        "reason": "정정은 CV-20 펌웨어 2.1 이상에 적용되고, 화면 기본값 변경은 사용자 역할이나 자료 업무 권한을 바꾸지 않는다고 자료에 명시되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 20,
+            "page_end": 20
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 2.193,
+          "retrieval_seconds": 0.022,
+          "generation_seconds": 2.171,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2592,
+            "output_tokens": 178
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-27",
+      "question": "10월 25일 CV-20 펌웨어 2.1을 조회자 역할로 사용합니다. 자동 소등 기본값 안내는 무엇이며, 이번 소등 정정 자체가 조회자에게 파일 내보내기 권한을 새로 부여하나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 3.298,
+      "response": {
+        "request_id": "c5265888-3b28-4c43-910d-68084c61a7dd",
+        "status": "answered",
+        "answer": "CV-20 펌웨어 2.1의 화면 자동 소등 기본값은 마지막 화면 입력 후 15분입니다. 이는 기본값 안내이며, 현장에서 별도 승인한 표시 설정이 있으면 실제 소등 시간은 다를 수 있습니다. 소등 정정은 조회자에게 파일 내보내기 권한을 새로 부여하지 않습니다.",
+        "reason": "정정은 2026년 10월 20일 효력으로 CV-20 펌웨어 2.1 이상에 15분 기본값을 적용하며, 자료 전달 권한은 변경하지 않는다고 안내합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB15",
+            "file_name": "MB15.pdf",
+            "page_start": 16,
+            "page_end": 16
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 3.295,
+          "retrieval_seconds": 0.043,
+          "generation_seconds": 3.251,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2211,
+            "output_tokens": 253
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-27",
+      "question": "10월 25일 CV-20 펌웨어 2.1을 조회자 역할로 사용합니다. 자동 소등 기본값 안내는 무엇이며, 이번 소등 정정 자체가 조회자에게 파일 내보내기 권한을 새로 부여하나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 4.592,
+      "response": {
+        "request_id": "18fc78cd-babb-4112-ab63-5e5f032236e2",
+        "status": "answered",
+        "answer": "CV-20 펌웨어 2.1의 화면 자동 소등 기본값은 마지막 화면 입력 후 15분입니다(10월 20일 정정 기준). 이번 소등 정정은 파일 내보내기 권한을 새로 부여하지 않습니다. 조회자는 자료와 메모를 읽을 수 있지만 내보내기 권한은 없습니다.",
+        "reason": "정정은 CV-20 펌웨어 2.1 이상의 소등 안내를 바로잡는 내용이며, 권한 변경은 포함하지 않습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB15",
+            "file_name": "MB15.pdf",
+            "page_start": 16,
+            "page_end": 16
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB11",
+            "file_name": "MB11.pdf",
+            "page_start": 13,
+            "page_end": 13
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB09",
+            "file_name": "MB09.pdf",
+            "page_start": 15,
+            "page_end": 15
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 4.589,
+          "retrieval_seconds": 1.619,
+          "generation_seconds": 2.969,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2750,
+            "output_tokens": 241
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-28",
+      "question": "현장조회 맨 위에 늦게 등록된 과거 자료가 있고, 그 자료를 내보낸 화면에는 파일 생성 완료가 있습니다. 인계자가 최신 현장 자료 전달 완료라고 적었습니다. 최신성과 전달 상태에서 각각 무엇을 고쳐야 하나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 7.615,
+      "response": {
+        "request_id": "d563bed4-975f-4f8d-a6fb-ca09ad4ec975",
+        "status": "answered",
+        "answer": "최신성은 ‘현장조회 맨 위’나 늦게 등록된 시각만으로 최신 현장 자료라고 하지 말고, 원자료 기록시각에 따라 바로잡으세요. 과거 시점 자료라면 ‘늦게 등록된 과거 자료’로 표시하고, 최신 현장 상태인지는 원자료 기록시각을 비교해 확인해야 합니다. 전달 상태는 ‘최신 현장 자료 전달 완료’ 대신 ‘파일 생성 완료, 수신 확인 대기’로 고치세요. 파일 생성만으로 상대방의 수신이나 전달 완료가 확인되지는 않습니다.",
+        "reason": "자료는 늦게 수신·등록된 항목이 오래된 상황을 담을 수 있다고 구분하며, 현장조회 화면의 정렬 기준은 이 자료에서 확정하지 않습니다. 또한 내보내기 파일 생성 기록만 있고 수신 확인이 없으면 전달 완료로 기록하지 않도록 안내합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB05",
+            "file_name": "MB05.pdf",
+            "page_start": 2,
+            "page_end": 2
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB10",
+            "file_name": "MB10.pdf",
+            "page_start": 24,
+            "page_end": 24
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 7.612,
+          "retrieval_seconds": 0.037,
+          "generation_seconds": 7.574,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 1832,
+            "output_tokens": 726
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-28",
+      "question": "현장조회 맨 위에 늦게 등록된 과거 자료가 있고, 그 자료를 내보낸 화면에는 파일 생성 완료가 있습니다. 인계자가 최신 현장 자료 전달 완료라고 적었습니다. 최신성과 전달 상태에서 각각 무엇을 고쳐야 하나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 8.039,
+      "response": {
+        "request_id": "bd784efb-a4ec-48e7-94be-e925523dfd66",
+        "status": "answered",
+        "answer": "최신성은 ‘최신 현장 자료’라고 쓰지 말고, ‘현장조회 목록 맨 위에 표시된 늦게 등록된 과거 자료’라고 고치세요. 목록은 등록 순서 역순일 수 있으므로 원자료 기록시각을 기준으로 최신 여부를 판단해야 합니다. 전달 상태는 ‘전달 완료’가 아니라 ‘파일 생성 완료(내보내기)’로 고치고, 실제 전달 여부는 확인되지 않았다고 적으세요.",
+        "reason": "목록 위치나 등록 시각은 원자료의 기록 시각을 대신하지 않으며, 파일이 생성되었다는 사실만으로 실제 전달이 완료되었다고 확인할 수 없습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB09",
+            "file_name": "MB09.pdf",
+            "page_start": 8,
+            "page_end": 8
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB01",
+            "file_name": "MB01.pdf",
+            "page_start": 8,
+            "page_end": 8
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB05",
+            "file_name": "MB05.pdf",
+            "page_start": 2,
+            "page_end": 2
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 8.035,
+          "retrieval_seconds": 0.086,
+          "generation_seconds": 7.948,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2218,
+            "output_tokens": 786
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-28",
+      "question": "현장조회 맨 위에 늦게 등록된 과거 자료가 있고, 그 자료를 내보낸 화면에는 파일 생성 완료가 있습니다. 인계자가 최신 현장 자료 전달 완료라고 적었습니다. 최신성과 전달 상태에서 각각 무엇을 고쳐야 하나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 8.997,
+      "response": {
+        "request_id": "0db652f3-1caa-45e0-be62-f0f064247a08",
+        "status": "answered",
+        "answer": "최신성은 ‘현장조회 맨 위’나 늦은 등록 시각만으로 판단하지 말고, 원자료 기록시각을 기준으로 고치세요. 과거 기록임이 확인됐다면 ‘최신 현장 자료’가 아니라 ‘늦게 등록된 과거 자료’라고 적고, 다른 자료와 원자료 기록시각을 비교하지 않았다면 최신 발생 여부는 미확인으로 남기세요. 전달 상태는 ‘전달 완료’가 아니라 확인된 범위인 ‘파일 생성 완료’로 고치세요. 실제 전달은 별도 전달 이력으로 확인되어야 합니다. 자료가 미확인이라면 전달을 보류하고, 확인 필요 자료라면 검토 이력과 전달 범위를 확인하세요.",
+        "reason": "목록 위치와 등록·수신 시각은 원자료의 발생 시각과 다르며, 파일 생성 완료만으로 실제 전달 완료를 확인할 수 없습니다. 자료는 원자료 시각을 구분하고 전달 범위를 확인하도록 안내합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB09",
+            "file_name": "MB09.pdf",
+            "page_start": 8,
+            "page_end": 8
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB13",
+            "file_name": "MB13.pdf",
+            "page_start": 11,
+            "page_end": 11
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB15",
+            "file_name": "MB15.pdf",
+            "page_start": 10,
+            "page_end": 10
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 8.994,
+          "retrieval_seconds": 1.514,
+          "generation_seconds": 7.48,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2472,
+            "output_tokens": 654
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-29",
+      "question": "한 자료에 대한 제한된 화면 조회 예외에 검토자와 대상 자료가 명확히 적혀 있습니다. 같은 모델의 다른 자료에도 이 예외를 자동으로 적용해도 되나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 2.523,
+      "response": {
+        "request_id": "0e5784fa-23e8-4d8b-9a3a-5c98c12230f6",
+        "status": "answered",
+        "answer": "아니요. 예외는 검토자와 대상 자료가 명시된 그 자료의 화면 조회에만 적용되며, 같은 모델의 다른 자료에 자동으로 재사용할 수 없습니다. 다른 자료는 대상과 목적을 확인해 별도로 검토하고 허용해야 합니다. [S1][S2][S3]",
+        "reason": "자료는 예외의 범위를 지정된 자료 한 건으로 제한하고, 다른 자료에는 자동 적용되지 않는다고 명시합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB06",
+            "file_name": "MB06.pdf",
+            "page_start": 3,
+            "page_end": 3
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB06",
+            "file_name": "MB06.pdf",
+            "page_start": 17,
+            "page_end": 17
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB06",
+            "file_name": "MB06.pdf",
+            "page_start": 18,
+            "page_end": 18
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 2.519,
+          "retrieval_seconds": 0.094,
+          "generation_seconds": 2.425,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2113,
+            "output_tokens": 141
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-29",
+      "question": "한 자료에 대한 제한된 화면 조회 예외에 검토자와 대상 자료가 명확히 적혀 있습니다. 같은 모델의 다른 자료에도 이 예외를 자동으로 적용해도 되나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 3.375,
+      "response": {
+        "request_id": "9db9a7f1-0acc-4677-8775-d75816187db9",
+        "status": "answered",
+        "answer": "아니요. 예외는 검토자와 대상 자료가 명확히 지정된 그 자료의 화면 조회에만 적용되며, 같은 모델의 다른 자료에 자동으로 확대되지 않습니다. 다른 자료를 조회하려면 대상과 목적을 확인해 별도 요청으로 검토해야 합니다. [S1][S2][S3]",
+        "reason": "자료들은 제한 조회 예외를 지정된 한 자료에 한정하고, 다른 자료에는 기존 허용만으로 적용할 수 없다고 명시합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB06",
+            "file_name": "MB06.pdf",
+            "page_start": 3,
+            "page_end": 3
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB06",
+            "file_name": "MB06.pdf",
+            "page_start": 18,
+            "page_end": 18
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB06",
+            "file_name": "MB06.pdf",
+            "page_start": 17,
+            "page_end": 17
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 3.371,
+          "retrieval_seconds": 0.083,
+          "generation_seconds": 3.287,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2113,
+            "output_tokens": 148
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-29",
+      "question": "한 자료에 대한 제한된 화면 조회 예외에 검토자와 대상 자료가 명확히 적혀 있습니다. 같은 모델의 다른 자료에도 이 예외를 자동으로 적용해도 되나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 3.918,
+      "response": {
+        "request_id": "e59181f4-e60b-450b-a89f-0b882397f0a8",
+        "status": "answered",
+        "answer": "아니요. 예외는 검토자와 대상 자료가 명확히 지정된 그 자료의 화면 조회에만 적용되며, 같은 모델의 다른 자료에 자동으로 적용되지 않습니다. 다른 자료를 조회하려면 대상과 목적을 확인해 별도 요청으로 검토해야 합니다. 기존 허용은 파일 내보내기나 네트워크 전달 권한도 부여하지 않습니다. [S1][S2][S3]",
+        "reason": "자료는 제한 조회 예외를 지정된 자료 한 건에 한정하고, 다른 자료에는 별도 검토가 필요하다고 명시합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB06",
+            "file_name": "MB06.pdf",
+            "page_start": 18,
+            "page_end": 18
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB06",
+            "file_name": "MB06.pdf",
+            "page_start": 3,
+            "page_end": 3
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB06",
+            "file_name": "MB06.pdf",
+            "page_start": 17,
+            "page_end": 17
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 3.915,
+          "retrieval_seconds": 1.492,
+          "generation_seconds": 2.422,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2113,
+            "output_tokens": 169
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-30",
+      "question": "CV-10은 건조한 실내, 결로 없는 섭씨 12도 장소의 환경 검토를 통과했습니다. 이 단말에서 출처 이름이 미확인인 기록을 정상 자료 묶음으로 외부 전달하려고 합니다. 환경 검토 통과가 전달 보류 사유까지 해소하나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 2.288,
+      "response": {
+        "request_id": "6fd2d099-b4d1-4773-9a1a-efe9a8c97be7",
+        "status": "answered",
+        "answer": "아니요. 환경 검토 통과는 해당 장소의 환경 조건에 관한 판단일 뿐, 출처 미확인 기록의 외부 전달 보류를 해소하지 않습니다. 출처가 확인될 때까지 자료 확인 상태는 미확인이고 외부 전달은 보류해야 합니다.",
+        "reason": "환경 적합성과 자료의 출처 확인·전달 가능 여부는 별개의 판단입니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB07",
+            "file_name": "MB07.pdf",
+            "page_start": 6,
+            "page_end": 6
+          },
+          {
+            "source_id": "S2",
+            "book_id": "MB09",
+            "file_name": "MB09.pdf",
+            "page_start": 9,
+            "page_end": 9
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 2.284,
+          "retrieval_seconds": 0.039,
+          "generation_seconds": 2.244,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2538,
+            "output_tokens": 121
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-30",
+      "question": "CV-10은 건조한 실내, 결로 없는 섭씨 12도 장소의 환경 검토를 통과했습니다. 이 단말에서 출처 이름이 미확인인 기록을 정상 자료 묶음으로 외부 전달하려고 합니다. 환경 검토 통과가 전달 보류 사유까지 해소하나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 6.36,
+      "response": {
+        "request_id": "3cceba40-d752-46cd-bf91-48b5a8032ac3",
+        "status": "abstained",
+        "answer": "환경 검토 통과만으로 출처 이름 미확인 기록의 외부 전달 보류가 해소된다고 판단할 수 없습니다. 자료는 환경 검토의 범위와 출처 기록 필요성은 설명하지만, 해당 기록을 정상 자료 묶음으로 전달할 수 있는 기준이나 보류 해제 조건은 제시하지 않습니다. 적용할 자료 전달·기록 관리 기준을 확인해야 합니다.",
+        "reason": "자료는 CV-10의 12°C가 온도 범위 안임을 설명하고 환경 판단을 다른 승인으로 확대하지 말라고 하지만, 외부 전달 보류의 해제 기준은 다루지 않습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "MB07",
+            "file_name": "MB07.pdf",
+            "page_start": 5,
+            "page_end": 5
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB07",
+            "file_name": "MB07.pdf",
+            "page_start": 2,
+            "page_end": 2
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 6.356,
+          "retrieval_seconds": 0.033,
+          "generation_seconds": 6.322,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2158,
+            "output_tokens": 553
+          }
+        }
+      }
+    },
+    {
+      "question_id": "M-DEV-30",
+      "question": "CV-10은 건조한 실내, 결로 없는 섭씨 12도 장소의 환경 검토를 통과했습니다. 이 단말에서 출처 이름이 미확인인 기록을 정상 자료 묶음으로 외부 전달하려고 합니다. 환경 검토 통과가 전달 보류 사유까지 해소하나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 5.01,
+      "response": {
+        "request_id": "88b25398-de5d-42f3-9a01-59d9a1788bc4",
+        "status": "answered",
+        "answer": "아니요. 환경 검토 통과는 해당 장소의 환경 조건 판단에 한정되며, 출처 이름이 미확인인 기록의 전달 보류 사유를 해소하지 않습니다. 출처 등 필요한 항목을 확인하고 조회 확인을 마칠 때까지 정상 자료 묶음으로 외부 전달하지 마세요.",
+        "reason": "자료 상태와 환경 적합성은 별도로 판단합니다. 출처가 미확인인 자료는 필요한 항목이 누락된 상태이므로 외부 전달 대상에서 보류해야 합니다.",
+        "citations": [
+          {
+            "source_id": "S2",
+            "book_id": "MB07",
+            "file_name": "MB07.pdf",
+            "page_start": 22,
+            "page_end": 22
+          },
+          {
+            "source_id": "S3",
+            "book_id": "MB07",
+            "file_name": "MB07.pdf",
+            "page_start": 24,
+            "page_end": 24
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 5.007,
+          "retrieval_seconds": 1.55,
+          "generation_seconds": 3.456,
+          "attempts": 1,
+          "usage": {
+            "input_tokens": 2584,
+            "output_tokens": 253
+          }
+        }
+      }
+    }
+  ]
+}

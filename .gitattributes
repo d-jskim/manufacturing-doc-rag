@@ -1,4 +1,5 @@
 .gitattributes text eol=lf
+.editorconfig text eol=lf
 * text=auto
 
 *.py text eol=lf
