@@ -1,0 +1,5634 @@
+{
+  "run_id": "e04_c1_m1_p1_k235_20261111_1415",
+  "dataset": "manufacturing_basic",
+  "question_source": "data\\raw\\manufacturing_basic\\evaluation\\development.json",
+  "question_count": 30,
+  "retrieval_modes": {
+    "naive": {
+      "retrieval_version": "r1",
+      "method": "dense",
+      "candidate_count": 20,
+      "exact": true,
+      "compare_ann": true
+    },
+    "hybrid": {
+      "retrieval_version": "r2",
+      "method": "hybrid",
+      "candidate_count": 20,
+      "exact": true,
+      "compare_ann": true,
+      "dense_candidate_count": 20,
+      "keyword_candidate_count": 20,
+      "keyword_tokenizer": "whitespace",
+      "fusion": "rrf",
+      "rrf_k": 60
+    },
+    "rerank": {
+      "retrieval_version": "r3",
+      "method": "hybrid_rerank",
+      "candidate_count": 20,
+      "exact": true,
+      "compare_ann": true,
+      "dense_candidate_count": 20,
+      "keyword_candidate_count": 20,
+      "keyword_tokenizer": "whitespace",
+      "fusion": "rrf",
+      "rrf_k": 60,
+      "reranker_model": "BAAI/bge-reranker-v2-m3",
+      "reranker_device": "cuda",
+      "reranker_max_length": 1024,
+      "reranker_batch_size": 4
+    }
+  },
+  "k_values": [
+    2,
+    3,
+    5
+  ],
+  "summary": {
+    "naive": {
+      "k2": {
+        "evaluated_count": 29,
+        "not_applicable_count": 1,
+        "hit_at_k": 0.6897,
+        "recall_at_k": 0.5,
+        "quote_recall_at_k": 0.3678,
+        "mean_k": 2.0
+      },
+      "k3": {
+        "evaluated_count": 29,
+        "not_applicable_count": 1,
+        "hit_at_k": 0.8276,
+        "recall_at_k": 0.6724,
+        "quote_recall_at_k": 0.523,
+        "mean_k": 3.0
+      },
+      "k5": {
+        "evaluated_count": 29,
+        "not_applicable_count": 1,
+        "hit_at_k": 0.8621,
+        "recall_at_k": 0.7414,
+        "quote_recall_at_k": 0.5747,
+        "mean_k": 5.0
+      },
+      "retrieval_seconds": {
+        "mean": 0.0399,
+        "count": 30
+      }
+    },
+    "hybrid": {
+      "k2": {
+        "evaluated_count": 29,
+        "not_applicable_count": 1,
+        "hit_at_k": 0.7586,
+        "recall_at_k": 0.5517,
+        "quote_recall_at_k": 0.3448,
+        "mean_k": 2.0
+      },
+      "k3": {
+        "evaluated_count": 29,
+        "not_applicable_count": 1,
+        "hit_at_k": 0.8621,
+        "recall_at_k": 0.6897,
+        "quote_recall_at_k": 0.5057,
+        "mean_k": 3.0
+      },
+      "k5": {
+        "evaluated_count": 29,
+        "not_applicable_count": 1,
+        "hit_at_k": 0.931,
+        "recall_at_k": 0.7586,
+        "quote_recall_at_k": 0.5575,
+        "mean_k": 5.0
+      },
+      "retrieval_seconds": {
+        "mean": 0.0265,
+        "count": 30
+      }
+    },
+    "rerank": {
+      "k2": {
+        "evaluated_count": 29,
+        "not_applicable_count": 1,
+        "hit_at_k": 0.5862,
+        "recall_at_k": 0.431,
+        "quote_recall_at_k": 0.2241,
+        "mean_k": 2.0
+      },
+      "k3": {
+        "evaluated_count": 29,
+        "not_applicable_count": 1,
+        "hit_at_k": 0.7241,
+        "recall_at_k": 0.569,
+        "quote_recall_at_k": 0.2931,
+        "mean_k": 3.0
+      },
+      "k5": {
+        "evaluated_count": 29,
+        "not_applicable_count": 1,
+        "hit_at_k": 0.8621,
+        "recall_at_k": 0.7069,
+        "quote_recall_at_k": 0.3448,
+        "mean_k": 5.0
+      },
+      "retrieval_seconds": {
+        "mean": 1.4018,
+        "count": 30
+      }
+    }
+  },
+  "rows": {
+    "naive": {
+      "k2": [
+        {
+          "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+          "id": "M-DEV-01",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB01_c1_0001",
+            "MB10_c1_0003"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+          "id": "M-DEV-02",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB01_c1_0002",
+            "MB08_c1_0024"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB04"
+          ],
+          "found_book_ids": [
+            "MB01"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20 자료에 기록시각, 수신시각, 확인시각이 서로 다르게 적혀 있습니다. 세 시각은 각각 무엇을 뜻하나요?",
+          "id": "M-DEV-03",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB02_c1_0003",
+            "MB03_c1_0012"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [
+            "MB02"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "체크뷰 현장조회 안내의 최근 30일은 어떤 시각을 기준으로 한 범위인가요? 이 값을 외부 보관소의 파일 삭제 기한으로 사용해도 되나요?",
+          "id": "M-DEV-04",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB13_c1_0019",
+            "MB13_c1_0012"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-10 담당자에게 기록담당 역할과 CV-10 대상 권한이 있습니다. 자료 확인과 전달 범위 검토도 끝났습니다. 이 담당자가 기록 파일을 내보내는 일과 CV-10에서 네트워크 자료를 수신하는 일을 각각 할 수 있는지, 기능과 역할 범위로 설명해 주세요.",
+          "id": "M-DEV-05",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB13_c1_0013",
+            "MB06_c1_0021"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20에서 오늘 받은 자료에 최신 수신 표시가 있습니다. 출처와 모델은 확인되었지만 원자료 기록시각은 비어 있습니다. 이 자료를 현재 현장 상태라고 설명하면서 정상 확인된 자료 묶음으로 외부 전달해도 되나요?",
+          "id": "M-DEV-06",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB08_c1_0003",
+            "MB05_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB05"
+          ],
+          "found_book_ids": [
+            "MB05"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "건조한 실내이고 결로가 없는 섭씨 12도 장소에서 CV-10을 검토하고 있습니다. 네트워크 수신조회를 쓰려고 CV-20으로 바꾸면 환경 조건과 수신 기능은 각각 어떻게 달라지나요?",
+          "id": "M-DEV-07",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB01_c1_0016",
+            "MB01_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB01"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20 고객이 안내서 표지의 개정 1.1만 알려 주었습니다. 이 정보로 현재 자동 소등 기본값을 알려 주세요.",
+          "id": "M-DEV-08",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB15_c1_0016",
+            "MB08_c1_0021"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "출처가 미확인인 자료에 대해 검토자가 대상 자료와 목적을 적어 제한된 화면 조회를 허용했습니다. 이 허용으로 파일 내보내기와 네트워크 전달도 할 수 있나요?",
+          "id": "M-DEV-09",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB13_c1_0016",
+            "MB04_c1_0004"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB06"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20 기록은 확인 상태가 정상이고 내보내기에는 파일 생성 완료가 보입니다. 이 두 표시만으로 현장 안전 확인과 상대방 수신 완료를 보고하려고 합니다. 각각 어떤 의미로 고쳐 써야 하나요?",
+          "id": "M-DEV-10",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB13_c1_0017",
+            "MB04_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02",
+            "MB04"
+          ],
+          "found_book_ids": [
+            "MB04"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-10 현장조회 양식에 네트워크 수신시각이 비어 있습니다. 다른 정보는 정상입니다. 빈 수신시각만으로 수신 오류라고 보고해도 되나요?",
+          "id": "M-DEV-11",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB12_c1_0008",
+            "MB08_c1_0003"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰의 최근 30일 조회 목록이 비어 있습니다. 이 화면만 근거로 그 기간에 해당 현장에 이상이 전혀 없었다고 확정해 주세요.",
+          "id": "M-DEV-12",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB03_c1_0001",
+            "MB09_c1_0021"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10을 건조한 실내, 결로 없는 섭씨 12도 장소에서 사용하려고 합니다. 사용자의 역할은 조회자뿐입니다. 제공된 환경 조건 충족 여부와 이 사용자의 파일 내보내기 가능 여부를 구분해 주세요.",
+          "id": "M-DEV-13",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB07_c1_0006",
+            "MB07_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.6667
+        },
+        {
+          "question": "CV-20의 현장조회 맨 위 자료 A는 원자료 기록시각이 10월 21일이고, 수신목록의 최신 수신 자료 B는 기록시각이 10월 19일입니다. 모델과 출처는 같습니다. A와 B 중 더 최근에 발생한 내용을 담은 자료는 무엇이며, 목록 위치나 최신 수신 표시로 판단하면 안 되는 이유는 무엇인가요?",
+          "id": "M-DEV-14",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB09_c1_0008",
+            "MB14_c1_0012"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03",
+            "MB05"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20 수신조회에서 E07이 해소되어 수신 사실을 확인했습니다. 현재 사용자는 CV-20 조회자 역할만 갖고 있습니다. 코드가 해소되었다는 이유로 이 사용자가 바로 파일 내보내기를 실행할 수 있나요?",
+          "id": "M-DEV-15",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB13_c1_0008",
+            "MB06_c1_0011"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB12"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.1의 자동 소등 기본값과 설치 환경 조건을 검토합니다. 장소는 건조한 실내이며 결로가 없고 섭씨 14도입니다. 적용 기본값과 환경 조건 충족 여부를 알려 주세요.",
+          "id": "M-DEV-16",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB07_c1_0018",
+            "MB15_c1_0007"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB07",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "2026년 10월 25일에 CV-10 펌웨어 2.1 단말의 화면 자동 소등 기본값을 안내하려고 합니다. 새 정정 공지에 15분이 보이는데 이 단말에도 15분을 적용하나요?",
+          "id": "M-DEV-17",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB11_c1_0001",
+            "MB11_c1_0006"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.0의 화면 자동 소등 기본값을 안내해 주세요. 2.1 이상을 대상으로 한 정정과 어떻게 구별하나요?",
+          "id": "M-DEV-18",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB02_c1_0002",
+            "MB02_c1_0023"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "10월 20일 정정 대상인 CV-20 펌웨어 2.1 단말입니다. 현재 표시 설정은 확인하지 않았습니다. 정정 공지만으로 이 단말이 실제로 반드시 15분 뒤 소등한다고 확정해 주세요.",
+          "id": "M-DEV-19",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB11_c1_0001",
+            "MB11_c1_0006"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "2026년 10월 25일에 CV-20 펌웨어 2.0을 사용합니다. 정정 공지의 15분 기본값과 최신 수신이라는 표시 의미가 모두 2.1 이상에만 적용되는지 항목별로 설명해 주세요.",
+          "id": "M-DEV-20",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB02_c1_0023",
+            "MB11_c1_0005"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20으로 보낸 파일에는 상대 경로의 수신 확인이 있습니다. 관련 확인 메모는 초안 저장 상태이고 검토자가 아직 읽지 않았습니다. 파일 전달과 메모 검토를 각각 어떤 상태로 인계해야 하나요?",
+          "id": "M-DEV-21",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB04_c1_0017",
+            "MB04_c1_0003"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB04"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-10만 허용된 기록담당 계정으로 CV-20 자료를 내보내려 합니다. 그 자료는 출처 이름도 미확인입니다. 허용 대상을 CV-20으로 바꾸기만 하면 곧바로 정상 확인된 묶음으로 외부 전달할 수 있나요?",
+          "id": "M-DEV-22",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB04_c1_0001",
+            "MB06_c1_0011"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 개별 기록에 대한 정정 자료가 원자료를 정확히 지정하고 출처 이름만 바로잡는다고 명시했습니다. 원자료 기록시각도 정정 자료의 발행 시각으로 바꾸어 읽어야 하나요?",
+          "id": "M-DEV-23",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB03_c1_0020",
+            "MB03_c1_0018"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰를 사용 중인데 모델명은 아직 확인하지 않았습니다. 네트워크 수신조회가 지원되나요?",
+          "id": "M-DEV-24",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB01_c1_0002",
+            "MB05_c1_0001"
+          ],
+          "applicable": false,
+          "reason": "참고 근거 문서 없음"
+        },
+        {
+          "question": "체크뷰 CV-10의 방수 등급을 IP 숫자로 알려 주세요. 제공된 문서에 등급이 없다면 일반적인 표시 단말과 같다고 가정해 주세요.",
+          "id": "M-DEV-25",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB07_c1_0001",
+            "MB01_c1_0021"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10 내보내기 미리보기에서 E04가 보입니다. 담당자는 이를 네트워크 전송 실패라고 기록했습니다. 코드가 뜻하는 문제와 먼저 비교할 항목을 바로잡아 주세요.",
+          "id": "M-DEV-26",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB12_c1_0002",
+            "MB15_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB12"
+          ],
+          "found_book_ids": [
+            "MB12"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "10월 25일 CV-20 펌웨어 2.1을 조회자 역할로 사용합니다. 자동 소등 기본값 안내는 무엇이며, 이번 소등 정정 자체가 조회자에게 파일 내보내기 권한을 새로 부여하나요?",
+          "id": "M-DEV-27",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB11_c1_0001",
+            "MB11_c1_0020"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "현장조회 맨 위에 늦게 등록된 과거 자료가 있고, 그 자료를 내보낸 화면에는 파일 생성 완료가 있습니다. 인계자가 최신 현장 자료 전달 완료라고 적었습니다. 최신성과 전달 상태에서 각각 무엇을 고쳐야 하나요?",
+          "id": "M-DEV-28",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB05_c1_0002",
+            "MB05_c1_0003"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03",
+            "MB04"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "한 자료에 대한 제한된 화면 조회 예외에 검토자와 대상 자료가 명확히 적혀 있습니다. 같은 모델의 다른 자료에도 이 예외를 자동으로 적용해도 되나요?",
+          "id": "M-DEV-29",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB06_c1_0003",
+            "MB06_c1_0017"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10은 건조한 실내, 결로 없는 섭씨 12도 장소의 환경 검토를 통과했습니다. 이 단말에서 출처 이름이 미확인인 기록을 정상 자료 묶음으로 외부 전달하려고 합니다. 환경 검토 통과가 전달 보류 사유까지 해소하나요?",
+          "id": "M-DEV-30",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB07_c1_0006",
+            "MB09_c1_0009"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        }
+      ],
+      "k3": [
+        {
+          "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+          "id": "M-DEV-01",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB01_c1_0001",
+            "MB10_c1_0003",
+            "MB02_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [
+            "MB02"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+          "id": "M-DEV-02",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB01_c1_0002",
+            "MB08_c1_0024",
+            "MB03_c1_0005"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB04"
+          ],
+          "found_book_ids": [
+            "MB01"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20 자료에 기록시각, 수신시각, 확인시각이 서로 다르게 적혀 있습니다. 세 시각은 각각 무엇을 뜻하나요?",
+          "id": "M-DEV-03",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB02_c1_0003",
+            "MB03_c1_0012",
+            "MB02_c1_0021"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [
+            "MB02"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "체크뷰 현장조회 안내의 최근 30일은 어떤 시각을 기준으로 한 범위인가요? 이 값을 외부 보관소의 파일 삭제 기한으로 사용해도 되나요?",
+          "id": "M-DEV-04",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB13_c1_0019",
+            "MB13_c1_0012",
+            "MB03_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10 담당자에게 기록담당 역할과 CV-10 대상 권한이 있습니다. 자료 확인과 전달 범위 검토도 끝났습니다. 이 담당자가 기록 파일을 내보내는 일과 CV-10에서 네트워크 자료를 수신하는 일을 각각 할 수 있는지, 기능과 역할 범위로 설명해 주세요.",
+          "id": "M-DEV-05",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB13_c1_0013",
+            "MB06_c1_0021",
+            "MB13_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20에서 오늘 받은 자료에 최신 수신 표시가 있습니다. 출처와 모델은 확인되었지만 원자료 기록시각은 비어 있습니다. 이 자료를 현재 현장 상태라고 설명하면서 정상 확인된 자료 묶음으로 외부 전달해도 되나요?",
+          "id": "M-DEV-06",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB08_c1_0003",
+            "MB05_c1_0002",
+            "MB15_c1_0009"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB05"
+          ],
+          "found_book_ids": [
+            "MB05"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "건조한 실내이고 결로가 없는 섭씨 12도 장소에서 CV-10을 검토하고 있습니다. 네트워크 수신조회를 쓰려고 CV-20으로 바꾸면 환경 조건과 수신 기능은 각각 어떻게 달라지나요?",
+          "id": "M-DEV-07",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB01_c1_0016",
+            "MB01_c1_0002",
+            "MB15_c1_0007"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB01"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20 고객이 안내서 표지의 개정 1.1만 알려 주었습니다. 이 정보로 현재 자동 소등 기본값을 알려 주세요.",
+          "id": "M-DEV-08",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB15_c1_0016",
+            "MB08_c1_0021",
+            "MB11_c1_0005"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "출처가 미확인인 자료에 대해 검토자가 대상 자료와 목적을 적어 제한된 화면 조회를 허용했습니다. 이 허용으로 파일 내보내기와 네트워크 전달도 할 수 있나요?",
+          "id": "M-DEV-09",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB13_c1_0016",
+            "MB04_c1_0004",
+            "MB06_c1_0003"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-20 기록은 확인 상태가 정상이고 내보내기에는 파일 생성 완료가 보입니다. 이 두 표시만으로 현장 안전 확인과 상대방 수신 완료를 보고하려고 합니다. 각각 어떤 의미로 고쳐 써야 하나요?",
+          "id": "M-DEV-10",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB13_c1_0017",
+            "MB04_c1_0002",
+            "MB04_c1_0017"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02",
+            "MB04"
+          ],
+          "found_book_ids": [
+            "MB04"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-10 현장조회 양식에 네트워크 수신시각이 비어 있습니다. 다른 정보는 정상입니다. 빈 수신시각만으로 수신 오류라고 보고해도 되나요?",
+          "id": "M-DEV-11",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB12_c1_0008",
+            "MB08_c1_0003",
+            "MB05_c1_0003"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰의 최근 30일 조회 목록이 비어 있습니다. 이 화면만 근거로 그 기간에 해당 현장에 이상이 전혀 없었다고 확정해 주세요.",
+          "id": "M-DEV-12",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB03_c1_0001",
+            "MB09_c1_0021",
+            "MB01_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10을 건조한 실내, 결로 없는 섭씨 12도 장소에서 사용하려고 합니다. 사용자의 역할은 조회자뿐입니다. 제공된 환경 조건 충족 여부와 이 사용자의 파일 내보내기 가능 여부를 구분해 주세요.",
+          "id": "M-DEV-13",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB07_c1_0006",
+            "MB07_c1_0001",
+            "MB15_c1_0007"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.6667
+        },
+        {
+          "question": "CV-20의 현장조회 맨 위 자료 A는 원자료 기록시각이 10월 21일이고, 수신목록의 최신 수신 자료 B는 기록시각이 10월 19일입니다. 모델과 출처는 같습니다. A와 B 중 더 최근에 발생한 내용을 담은 자료는 무엇이며, 목록 위치나 최신 수신 표시로 판단하면 안 되는 이유는 무엇인가요?",
+          "id": "M-DEV-14",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB09_c1_0008",
+            "MB14_c1_0012",
+            "MB15_c1_0009"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03",
+            "MB05"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20 수신조회에서 E07이 해소되어 수신 사실을 확인했습니다. 현재 사용자는 CV-20 조회자 역할만 갖고 있습니다. 코드가 해소되었다는 이유로 이 사용자가 바로 파일 내보내기를 실행할 수 있나요?",
+          "id": "M-DEV-15",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB13_c1_0008",
+            "MB06_c1_0011",
+            "MB15_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB12"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.1의 자동 소등 기본값과 설치 환경 조건을 검토합니다. 장소는 건조한 실내이며 결로가 없고 섭씨 14도입니다. 적용 기본값과 환경 조건 충족 여부를 알려 주세요.",
+          "id": "M-DEV-16",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB07_c1_0018",
+            "MB15_c1_0007",
+            "MB11_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB07",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB07",
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "2026년 10월 25일에 CV-10 펌웨어 2.1 단말의 화면 자동 소등 기본값을 안내하려고 합니다. 새 정정 공지에 15분이 보이는데 이 단말에도 15분을 적용하나요?",
+          "id": "M-DEV-17",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB11_c1_0001",
+            "MB11_c1_0006",
+            "MB02_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.0의 화면 자동 소등 기본값을 안내해 주세요. 2.1 이상을 대상으로 한 정정과 어떻게 구별하나요?",
+          "id": "M-DEV-18",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB02_c1_0002",
+            "MB02_c1_0023",
+            "MB11_c1_0005"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "10월 20일 정정 대상인 CV-20 펌웨어 2.1 단말입니다. 현재 표시 설정은 확인하지 않았습니다. 정정 공지만으로 이 단말이 실제로 반드시 15분 뒤 소등한다고 확정해 주세요.",
+          "id": "M-DEV-19",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB11_c1_0001",
+            "MB11_c1_0006",
+            "MB02_c1_0023"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB02",
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "2026년 10월 25일에 CV-20 펌웨어 2.0을 사용합니다. 정정 공지의 15분 기본값과 최신 수신이라는 표시 의미가 모두 2.1 이상에만 적용되는지 항목별로 설명해 주세요.",
+          "id": "M-DEV-20",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB02_c1_0023",
+            "MB11_c1_0005",
+            "MB15_c1_0016"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20으로 보낸 파일에는 상대 경로의 수신 확인이 있습니다. 관련 확인 메모는 초안 저장 상태이고 검토자가 아직 읽지 않았습니다. 파일 전달과 메모 검토를 각각 어떤 상태로 인계해야 하나요?",
+          "id": "M-DEV-21",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB04_c1_0017",
+            "MB04_c1_0003",
+            "MB15_c1_0018"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB04"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-10만 허용된 기록담당 계정으로 CV-20 자료를 내보내려 합니다. 그 자료는 출처 이름도 미확인입니다. 허용 대상을 CV-20으로 바꾸기만 하면 곧바로 정상 확인된 묶음으로 외부 전달할 수 있나요?",
+          "id": "M-DEV-22",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB04_c1_0001",
+            "MB06_c1_0011",
+            "MB08_c1_0024"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 개별 기록에 대한 정정 자료가 원자료를 정확히 지정하고 출처 이름만 바로잡는다고 명시했습니다. 원자료 기록시각도 정정 자료의 발행 시각으로 바꾸어 읽어야 하나요?",
+          "id": "M-DEV-23",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB03_c1_0020",
+            "MB03_c1_0018",
+            "MB03_c1_0004"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "체크뷰를 사용 중인데 모델명은 아직 확인하지 않았습니다. 네트워크 수신조회가 지원되나요?",
+          "id": "M-DEV-24",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB01_c1_0002",
+            "MB05_c1_0001",
+            "MB13_c1_0007"
+          ],
+          "applicable": false,
+          "reason": "참고 근거 문서 없음"
+        },
+        {
+          "question": "체크뷰 CV-10의 방수 등급을 IP 숫자로 알려 주세요. 제공된 문서에 등급이 없다면 일반적인 표시 단말과 같다고 가정해 주세요.",
+          "id": "M-DEV-25",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB07_c1_0001",
+            "MB01_c1_0021",
+            "MB01_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10 내보내기 미리보기에서 E04가 보입니다. 담당자는 이를 네트워크 전송 실패라고 기록했습니다. 코드가 뜻하는 문제와 먼저 비교할 항목을 바로잡아 주세요.",
+          "id": "M-DEV-26",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB12_c1_0002",
+            "MB15_c1_0002",
+            "MB12_c1_0020"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB12"
+          ],
+          "found_book_ids": [
+            "MB12"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "10월 25일 CV-20 펌웨어 2.1을 조회자 역할로 사용합니다. 자동 소등 기본값 안내는 무엇이며, 이번 소등 정정 자체가 조회자에게 파일 내보내기 권한을 새로 부여하나요?",
+          "id": "M-DEV-27",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB11_c1_0001",
+            "MB11_c1_0020",
+            "MB11_c1_0005"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "현장조회 맨 위에 늦게 등록된 과거 자료가 있고, 그 자료를 내보낸 화면에는 파일 생성 완료가 있습니다. 인계자가 최신 현장 자료 전달 완료라고 적었습니다. 최신성과 전달 상태에서 각각 무엇을 고쳐야 하나요?",
+          "id": "M-DEV-28",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB05_c1_0002",
+            "MB05_c1_0003",
+            "MB10_c1_0024"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03",
+            "MB04"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "한 자료에 대한 제한된 화면 조회 예외에 검토자와 대상 자료가 명확히 적혀 있습니다. 같은 모델의 다른 자료에도 이 예외를 자동으로 적용해도 되나요?",
+          "id": "M-DEV-29",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB06_c1_0003",
+            "MB06_c1_0017",
+            "MB06_c1_0018"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10은 건조한 실내, 결로 없는 섭씨 12도 장소의 환경 검토를 통과했습니다. 이 단말에서 출처 이름이 미확인인 기록을 정상 자료 묶음으로 외부 전달하려고 합니다. 환경 검토 통과가 전달 보류 사유까지 해소하나요?",
+          "id": "M-DEV-30",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB07_c1_0006",
+            "MB09_c1_0009",
+            "MB07_c1_0005"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        }
+      ],
+      "k5": [
+        {
+          "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+          "id": "M-DEV-01",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB01_c1_0001",
+            "MB10_c1_0003",
+            "MB02_c1_0001",
+            "MB15_c1_0003",
+            "MB09_c1_0021"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [
+            "MB02"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+          "id": "M-DEV-02",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB01_c1_0002",
+            "MB08_c1_0024",
+            "MB03_c1_0005",
+            "MB04_c1_0006",
+            "MB13_c1_0008"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB04"
+          ],
+          "found_book_ids": [
+            "MB01",
+            "MB04"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20 자료에 기록시각, 수신시각, 확인시각이 서로 다르게 적혀 있습니다. 세 시각은 각각 무엇을 뜻하나요?",
+          "id": "M-DEV-03",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB02_c1_0003",
+            "MB03_c1_0012",
+            "MB02_c1_0021",
+            "MB13_c1_0010",
+            "MB10_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [
+            "MB02"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "체크뷰 현장조회 안내의 최근 30일은 어떤 시각을 기준으로 한 범위인가요? 이 값을 외부 보관소의 파일 삭제 기한으로 사용해도 되나요?",
+          "id": "M-DEV-04",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB13_c1_0019",
+            "MB13_c1_0012",
+            "MB03_c1_0001",
+            "MB13_c1_0002",
+            "MB03_c1_0006"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10 담당자에게 기록담당 역할과 CV-10 대상 권한이 있습니다. 자료 확인과 전달 범위 검토도 끝났습니다. 이 담당자가 기록 파일을 내보내는 일과 CV-10에서 네트워크 자료를 수신하는 일을 각각 할 수 있는지, 기능과 역할 범위로 설명해 주세요.",
+          "id": "M-DEV-05",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB13_c1_0013",
+            "MB06_c1_0021",
+            "MB13_c1_0001",
+            "MB01_c1_0002",
+            "MB04_c1_0014"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB01",
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20에서 오늘 받은 자료에 최신 수신 표시가 있습니다. 출처와 모델은 확인되었지만 원자료 기록시각은 비어 있습니다. 이 자료를 현재 현장 상태라고 설명하면서 정상 확인된 자료 묶음으로 외부 전달해도 되나요?",
+          "id": "M-DEV-06",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB08_c1_0003",
+            "MB05_c1_0002",
+            "MB15_c1_0009",
+            "MB08_c1_0024",
+            "MB08_c1_0019"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB05"
+          ],
+          "found_book_ids": [
+            "MB05"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "건조한 실내이고 결로가 없는 섭씨 12도 장소에서 CV-10을 검토하고 있습니다. 네트워크 수신조회를 쓰려고 CV-20으로 바꾸면 환경 조건과 수신 기능은 각각 어떻게 달라지나요?",
+          "id": "M-DEV-07",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB01_c1_0016",
+            "MB01_c1_0002",
+            "MB15_c1_0007",
+            "MB11_c1_0014",
+            "MB15_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB01"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20 고객이 안내서 표지의 개정 1.1만 알려 주었습니다. 이 정보로 현재 자동 소등 기본값을 알려 주세요.",
+          "id": "M-DEV-08",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB15_c1_0016",
+            "MB08_c1_0021",
+            "MB11_c1_0005",
+            "MB11_c1_0001",
+            "MB02_c1_0023"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "출처가 미확인인 자료에 대해 검토자가 대상 자료와 목적을 적어 제한된 화면 조회를 허용했습니다. 이 허용으로 파일 내보내기와 네트워크 전달도 할 수 있나요?",
+          "id": "M-DEV-09",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB13_c1_0016",
+            "MB04_c1_0004",
+            "MB06_c1_0003",
+            "MB04_c1_0009",
+            "MB15_c1_0023"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-20 기록은 확인 상태가 정상이고 내보내기에는 파일 생성 완료가 보입니다. 이 두 표시만으로 현장 안전 확인과 상대방 수신 완료를 보고하려고 합니다. 각각 어떤 의미로 고쳐 써야 하나요?",
+          "id": "M-DEV-10",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB13_c1_0017",
+            "MB04_c1_0002",
+            "MB04_c1_0017",
+            "MB03_c1_0024",
+            "MB08_c1_0016"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02",
+            "MB04"
+          ],
+          "found_book_ids": [
+            "MB04"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-10 현장조회 양식에 네트워크 수신시각이 비어 있습니다. 다른 정보는 정상입니다. 빈 수신시각만으로 수신 오류라고 보고해도 되나요?",
+          "id": "M-DEV-11",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB12_c1_0008",
+            "MB08_c1_0003",
+            "MB05_c1_0003",
+            "MB10_c1_0002",
+            "MB01_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰의 최근 30일 조회 목록이 비어 있습니다. 이 화면만 근거로 그 기간에 해당 현장에 이상이 전혀 없었다고 확정해 주세요.",
+          "id": "M-DEV-12",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB03_c1_0001",
+            "MB09_c1_0021",
+            "MB01_c1_0001",
+            "MB08_c1_0002",
+            "MB13_c1_0012"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10을 건조한 실내, 결로 없는 섭씨 12도 장소에서 사용하려고 합니다. 사용자의 역할은 조회자뿐입니다. 제공된 환경 조건 충족 여부와 이 사용자의 파일 내보내기 가능 여부를 구분해 주세요.",
+          "id": "M-DEV-13",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB07_c1_0006",
+            "MB07_c1_0001",
+            "MB15_c1_0007",
+            "MB07_c1_0005",
+            "MB07_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.6667
+        },
+        {
+          "question": "CV-20의 현장조회 맨 위 자료 A는 원자료 기록시각이 10월 21일이고, 수신목록의 최신 수신 자료 B는 기록시각이 10월 19일입니다. 모델과 출처는 같습니다. A와 B 중 더 최근에 발생한 내용을 담은 자료는 무엇이며, 목록 위치나 최신 수신 표시로 판단하면 안 되는 이유는 무엇인가요?",
+          "id": "M-DEV-14",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB09_c1_0008",
+            "MB14_c1_0012",
+            "MB15_c1_0009",
+            "MB05_c1_0002",
+            "MB13_c1_0011"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03",
+            "MB05"
+          ],
+          "found_book_ids": [
+            "MB05"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20 수신조회에서 E07이 해소되어 수신 사실을 확인했습니다. 현재 사용자는 CV-20 조회자 역할만 갖고 있습니다. 코드가 해소되었다는 이유로 이 사용자가 바로 파일 내보내기를 실행할 수 있나요?",
+          "id": "M-DEV-15",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB13_c1_0008",
+            "MB06_c1_0011",
+            "MB15_c1_0002",
+            "MB02_c1_0013",
+            "MB08_c1_0016"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB12"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.1의 자동 소등 기본값과 설치 환경 조건을 검토합니다. 장소는 건조한 실내이며 결로가 없고 섭씨 14도입니다. 적용 기본값과 환경 조건 충족 여부를 알려 주세요.",
+          "id": "M-DEV-16",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB07_c1_0018",
+            "MB15_c1_0007",
+            "MB11_c1_0001",
+            "MB11_c1_0005",
+            "MB07_c1_0023"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB07",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB07",
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "2026년 10월 25일에 CV-10 펌웨어 2.1 단말의 화면 자동 소등 기본값을 안내하려고 합니다. 새 정정 공지에 15분이 보이는데 이 단말에도 15분을 적용하나요?",
+          "id": "M-DEV-17",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB11_c1_0001",
+            "MB11_c1_0006",
+            "MB02_c1_0002",
+            "MB11_c1_0010",
+            "MB08_c1_0021"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.0의 화면 자동 소등 기본값을 안내해 주세요. 2.1 이상을 대상으로 한 정정과 어떻게 구별하나요?",
+          "id": "M-DEV-18",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB02_c1_0002",
+            "MB02_c1_0023",
+            "MB11_c1_0005",
+            "MB11_c1_0006",
+            "MB11_c1_0007"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "10월 20일 정정 대상인 CV-20 펌웨어 2.1 단말입니다. 현재 표시 설정은 확인하지 않았습니다. 정정 공지만으로 이 단말이 실제로 반드시 15분 뒤 소등한다고 확정해 주세요.",
+          "id": "M-DEV-19",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB11_c1_0001",
+            "MB11_c1_0006",
+            "MB02_c1_0023",
+            "MB08_c1_0021",
+            "MB11_c1_0010"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB02",
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "2026년 10월 25일에 CV-20 펌웨어 2.0을 사용합니다. 정정 공지의 15분 기본값과 최신 수신이라는 표시 의미가 모두 2.1 이상에만 적용되는지 항목별로 설명해 주세요.",
+          "id": "M-DEV-20",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB02_c1_0023",
+            "MB11_c1_0005",
+            "MB15_c1_0016",
+            "MB11_c1_0006",
+            "MB11_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20으로 보낸 파일에는 상대 경로의 수신 확인이 있습니다. 관련 확인 메모는 초안 저장 상태이고 검토자가 아직 읽지 않았습니다. 파일 전달과 메모 검토를 각각 어떤 상태로 인계해야 하나요?",
+          "id": "M-DEV-21",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB04_c1_0017",
+            "MB04_c1_0003",
+            "MB15_c1_0018",
+            "MB06_c1_0015",
+            "MB13_c1_0017"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-10만 허용된 기록담당 계정으로 CV-20 자료를 내보내려 합니다. 그 자료는 출처 이름도 미확인입니다. 허용 대상을 CV-20으로 바꾸기만 하면 곧바로 정상 확인된 묶음으로 외부 전달할 수 있나요?",
+          "id": "M-DEV-22",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB04_c1_0001",
+            "MB06_c1_0011",
+            "MB08_c1_0024",
+            "MB12_c1_0006",
+            "MB13_c1_0008"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 개별 기록에 대한 정정 자료가 원자료를 정확히 지정하고 출처 이름만 바로잡는다고 명시했습니다. 원자료 기록시각도 정정 자료의 발행 시각으로 바꾸어 읽어야 하나요?",
+          "id": "M-DEV-23",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB03_c1_0020",
+            "MB03_c1_0018",
+            "MB03_c1_0004",
+            "MB14_c1_0014",
+            "MB09_c1_0006"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "체크뷰를 사용 중인데 모델명은 아직 확인하지 않았습니다. 네트워크 수신조회가 지원되나요?",
+          "id": "M-DEV-24",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB01_c1_0002",
+            "MB05_c1_0001",
+            "MB13_c1_0007",
+            "MB13_c1_0001",
+            "MB12_c1_0003"
+          ],
+          "applicable": false,
+          "reason": "참고 근거 문서 없음"
+        },
+        {
+          "question": "체크뷰 CV-10의 방수 등급을 IP 숫자로 알려 주세요. 제공된 문서에 등급이 없다면 일반적인 표시 단말과 같다고 가정해 주세요.",
+          "id": "M-DEV-25",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB07_c1_0001",
+            "MB01_c1_0021",
+            "MB01_c1_0001",
+            "MB09_c1_0015",
+            "MB01_c1_0010"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10 내보내기 미리보기에서 E04가 보입니다. 담당자는 이를 네트워크 전송 실패라고 기록했습니다. 코드가 뜻하는 문제와 먼저 비교할 항목을 바로잡아 주세요.",
+          "id": "M-DEV-26",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB12_c1_0002",
+            "MB15_c1_0002",
+            "MB12_c1_0020",
+            "MB02_c1_0013",
+            "MB04_c1_0006"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB12"
+          ],
+          "found_book_ids": [
+            "MB12"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "10월 25일 CV-20 펌웨어 2.1을 조회자 역할로 사용합니다. 자동 소등 기본값 안내는 무엇이며, 이번 소등 정정 자체가 조회자에게 파일 내보내기 권한을 새로 부여하나요?",
+          "id": "M-DEV-27",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB11_c1_0001",
+            "MB11_c1_0020",
+            "MB11_c1_0005",
+            "MB08_c1_0021",
+            "MB15_c1_0016"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "현장조회 맨 위에 늦게 등록된 과거 자료가 있고, 그 자료를 내보낸 화면에는 파일 생성 완료가 있습니다. 인계자가 최신 현장 자료 전달 완료라고 적었습니다. 최신성과 전달 상태에서 각각 무엇을 고쳐야 하나요?",
+          "id": "M-DEV-28",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB05_c1_0002",
+            "MB05_c1_0003",
+            "MB10_c1_0024",
+            "MB10_c1_0012",
+            "MB09_c1_0008"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03",
+            "MB04"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "한 자료에 대한 제한된 화면 조회 예외에 검토자와 대상 자료가 명확히 적혀 있습니다. 같은 모델의 다른 자료에도 이 예외를 자동으로 적용해도 되나요?",
+          "id": "M-DEV-29",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB06_c1_0003",
+            "MB06_c1_0017",
+            "MB06_c1_0018",
+            "MB13_c1_0015",
+            "MB12_c1_0014"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10은 건조한 실내, 결로 없는 섭씨 12도 장소의 환경 검토를 통과했습니다. 이 단말에서 출처 이름이 미확인인 기록을 정상 자료 묶음으로 외부 전달하려고 합니다. 환경 검토 통과가 전달 보류 사유까지 해소하나요?",
+          "id": "M-DEV-30",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB07_c1_0006",
+            "MB09_c1_0009",
+            "MB07_c1_0005",
+            "MB07_c1_0004",
+            "MB13_c1_0015"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        }
+      ]
+    },
+    "hybrid": {
+      "k2": [
+        {
+          "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+          "id": "M-DEV-01",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB15_c1_0003",
+            "MB14_c1_0004"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+          "id": "M-DEV-02",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB08_c1_0024",
+            "MB04_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB04"
+          ],
+          "found_book_ids": [
+            "MB04"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20 자료에 기록시각, 수신시각, 확인시각이 서로 다르게 적혀 있습니다. 세 시각은 각각 무엇을 뜻하나요?",
+          "id": "M-DEV-03",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB02_c1_0021",
+            "MB05_c1_0009"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [
+            "MB02"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 현장조회 안내의 최근 30일은 어떤 시각을 기준으로 한 범위인가요? 이 값을 외부 보관소의 파일 삭제 기한으로 사용해도 되나요?",
+          "id": "M-DEV-04",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB03_c1_0001",
+            "MB13_c1_0019"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10 담당자에게 기록담당 역할과 CV-10 대상 권한이 있습니다. 자료 확인과 전달 범위 검토도 끝났습니다. 이 담당자가 기록 파일을 내보내는 일과 CV-10에서 네트워크 자료를 수신하는 일을 각각 할 수 있는지, 기능과 역할 범위로 설명해 주세요.",
+          "id": "M-DEV-05",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB06_c1_0021",
+            "MB13_c1_0013"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20에서 오늘 받은 자료에 최신 수신 표시가 있습니다. 출처와 모델은 확인되었지만 원자료 기록시각은 비어 있습니다. 이 자료를 현재 현장 상태라고 설명하면서 정상 확인된 자료 묶음으로 외부 전달해도 되나요?",
+          "id": "M-DEV-06",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB05_c1_0002",
+            "MB15_c1_0010"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB05"
+          ],
+          "found_book_ids": [
+            "MB05"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "건조한 실내이고 결로가 없는 섭씨 12도 장소에서 CV-10을 검토하고 있습니다. 네트워크 수신조회를 쓰려고 CV-20으로 바꾸면 환경 조건과 수신 기능은 각각 어떻게 달라지나요?",
+          "id": "M-DEV-07",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB15_c1_0007",
+            "MB01_c1_0016"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB01"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20 고객이 안내서 표지의 개정 1.1만 알려 주었습니다. 이 정보로 현재 자동 소등 기본값을 알려 주세요.",
+          "id": "M-DEV-08",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB11_c1_0001",
+            "MB08_c1_0021"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "출처가 미확인인 자료에 대해 검토자가 대상 자료와 목적을 적어 제한된 화면 조회를 허용했습니다. 이 허용으로 파일 내보내기와 네트워크 전달도 할 수 있나요?",
+          "id": "M-DEV-09",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB13_c1_0016",
+            "MB04_c1_0004"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB06"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20 기록은 확인 상태가 정상이고 내보내기에는 파일 생성 완료가 보입니다. 이 두 표시만으로 현장 안전 확인과 상대방 수신 완료를 보고하려고 합니다. 각각 어떤 의미로 고쳐 써야 하나요?",
+          "id": "M-DEV-10",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB13_c1_0017",
+            "MB01_c1_0018"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02",
+            "MB04"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-10 현장조회 양식에 네트워크 수신시각이 비어 있습니다. 다른 정보는 정상입니다. 빈 수신시각만으로 수신 오류라고 보고해도 되나요?",
+          "id": "M-DEV-11",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB12_c1_0008",
+            "MB10_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰의 최근 30일 조회 목록이 비어 있습니다. 이 화면만 근거로 그 기간에 해당 현장에 이상이 전혀 없었다고 확정해 주세요.",
+          "id": "M-DEV-12",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB03_c1_0001",
+            "MB08_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10을 건조한 실내, 결로 없는 섭씨 12도 장소에서 사용하려고 합니다. 사용자의 역할은 조회자뿐입니다. 제공된 환경 조건 충족 여부와 이 사용자의 파일 내보내기 가능 여부를 구분해 주세요.",
+          "id": "M-DEV-13",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB15_c1_0007",
+            "MB07_c1_0006"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20의 현장조회 맨 위 자료 A는 원자료 기록시각이 10월 21일이고, 수신목록의 최신 수신 자료 B는 기록시각이 10월 19일입니다. 모델과 출처는 같습니다. A와 B 중 더 최근에 발생한 내용을 담은 자료는 무엇이며, 목록 위치나 최신 수신 표시로 판단하면 안 되는 이유는 무엇인가요?",
+          "id": "M-DEV-14",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB09_c1_0008",
+            "MB14_c1_0012"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03",
+            "MB05"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20 수신조회에서 E07이 해소되어 수신 사실을 확인했습니다. 현재 사용자는 CV-20 조회자 역할만 갖고 있습니다. 코드가 해소되었다는 이유로 이 사용자가 바로 파일 내보내기를 실행할 수 있나요?",
+          "id": "M-DEV-15",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB12_c1_0020",
+            "MB12_c1_0003"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB12"
+          ],
+          "found_book_ids": [
+            "MB12"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.1의 자동 소등 기본값과 설치 환경 조건을 검토합니다. 장소는 건조한 실내이며 결로가 없고 섭씨 14도입니다. 적용 기본값과 환경 조건 충족 여부를 알려 주세요.",
+          "id": "M-DEV-16",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB07_c1_0018",
+            "MB07_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB07",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "2026년 10월 25일에 CV-10 펌웨어 2.1 단말의 화면 자동 소등 기본값을 안내하려고 합니다. 새 정정 공지에 15분이 보이는데 이 단말에도 15분을 적용하나요?",
+          "id": "M-DEV-17",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB11_c1_0001",
+            "MB02_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.0의 화면 자동 소등 기본값을 안내해 주세요. 2.1 이상을 대상으로 한 정정과 어떻게 구별하나요?",
+          "id": "M-DEV-18",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB02_c1_0002",
+            "MB11_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "10월 20일 정정 대상인 CV-20 펌웨어 2.1 단말입니다. 현재 표시 설정은 확인하지 않았습니다. 정정 공지만으로 이 단말이 실제로 반드시 15분 뒤 소등한다고 확정해 주세요.",
+          "id": "M-DEV-19",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB14_c1_0021",
+            "MB11_c1_0006"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "2026년 10월 25일에 CV-20 펌웨어 2.0을 사용합니다. 정정 공지의 15분 기본값과 최신 수신이라는 표시 의미가 모두 2.1 이상에만 적용되는지 항목별로 설명해 주세요.",
+          "id": "M-DEV-20",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB02_c1_0023",
+            "MB11_c1_0005"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20으로 보낸 파일에는 상대 경로의 수신 확인이 있습니다. 관련 확인 메모는 초안 저장 상태이고 검토자가 아직 읽지 않았습니다. 파일 전달과 메모 검토를 각각 어떤 상태로 인계해야 하나요?",
+          "id": "M-DEV-21",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB04_c1_0017",
+            "MB04_c1_0003"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB04"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-10만 허용된 기록담당 계정으로 CV-20 자료를 내보내려 합니다. 그 자료는 출처 이름도 미확인입니다. 허용 대상을 CV-20으로 바꾸기만 하면 곧바로 정상 확인된 묶음으로 외부 전달할 수 있나요?",
+          "id": "M-DEV-22",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB06_c1_0011",
+            "MB06_c1_0012"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 개별 기록에 대한 정정 자료가 원자료를 정확히 지정하고 출처 이름만 바로잡는다고 명시했습니다. 원자료 기록시각도 정정 자료의 발행 시각으로 바꾸어 읽어야 하나요?",
+          "id": "M-DEV-23",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB03_c1_0020",
+            "MB03_c1_0017"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰를 사용 중인데 모델명은 아직 확인하지 않았습니다. 네트워크 수신조회가 지원되나요?",
+          "id": "M-DEV-24",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB05_c1_0001",
+            "MB01_c1_0015"
+          ],
+          "applicable": false,
+          "reason": "참고 근거 문서 없음"
+        },
+        {
+          "question": "체크뷰 CV-10의 방수 등급을 IP 숫자로 알려 주세요. 제공된 문서에 등급이 없다면 일반적인 표시 단말과 같다고 가정해 주세요.",
+          "id": "M-DEV-25",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB07_c1_0001",
+            "MB01_c1_0006"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10 내보내기 미리보기에서 E04가 보입니다. 담당자는 이를 네트워크 전송 실패라고 기록했습니다. 코드가 뜻하는 문제와 먼저 비교할 항목을 바로잡아 주세요.",
+          "id": "M-DEV-26",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB12_c1_0002",
+            "MB15_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB12"
+          ],
+          "found_book_ids": [
+            "MB12"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "10월 25일 CV-20 펌웨어 2.1을 조회자 역할로 사용합니다. 자동 소등 기본값 안내는 무엇이며, 이번 소등 정정 자체가 조회자에게 파일 내보내기 권한을 새로 부여하나요?",
+          "id": "M-DEV-27",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB11_c1_0001",
+            "MB15_c1_0016"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "현장조회 맨 위에 늦게 등록된 과거 자료가 있고, 그 자료를 내보낸 화면에는 파일 생성 완료가 있습니다. 인계자가 최신 현장 자료 전달 완료라고 적었습니다. 최신성과 전달 상태에서 각각 무엇을 고쳐야 하나요?",
+          "id": "M-DEV-28",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB09_c1_0008",
+            "MB01_c1_0008"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03",
+            "MB04"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "한 자료에 대한 제한된 화면 조회 예외에 검토자와 대상 자료가 명확히 적혀 있습니다. 같은 모델의 다른 자료에도 이 예외를 자동으로 적용해도 되나요?",
+          "id": "M-DEV-29",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB06_c1_0003",
+            "MB06_c1_0018"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10은 건조한 실내, 결로 없는 섭씨 12도 장소의 환경 검토를 통과했습니다. 이 단말에서 출처 이름이 미확인인 기록을 정상 자료 묶음으로 외부 전달하려고 합니다. 환경 검토 통과가 전달 보류 사유까지 해소하나요?",
+          "id": "M-DEV-30",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB07_c1_0005",
+            "MB07_c1_0006"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        }
+      ],
+      "k3": [
+        {
+          "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+          "id": "M-DEV-01",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB15_c1_0003",
+            "MB14_c1_0004",
+            "MB02_c1_0005"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [
+            "MB02"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+          "id": "M-DEV-02",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB08_c1_0024",
+            "MB04_c1_0001",
+            "MB01_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB04"
+          ],
+          "found_book_ids": [
+            "MB01",
+            "MB04"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-20 자료에 기록시각, 수신시각, 확인시각이 서로 다르게 적혀 있습니다. 세 시각은 각각 무엇을 뜻하나요?",
+          "id": "M-DEV-03",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB02_c1_0021",
+            "MB05_c1_0009",
+            "MB09_c1_0006"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [
+            "MB02"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 현장조회 안내의 최근 30일은 어떤 시각을 기준으로 한 범위인가요? 이 값을 외부 보관소의 파일 삭제 기한으로 사용해도 되나요?",
+          "id": "M-DEV-04",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB03_c1_0001",
+            "MB13_c1_0019",
+            "MB11_c1_0019"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10 담당자에게 기록담당 역할과 CV-10 대상 권한이 있습니다. 자료 확인과 전달 범위 검토도 끝났습니다. 이 담당자가 기록 파일을 내보내는 일과 CV-10에서 네트워크 자료를 수신하는 일을 각각 할 수 있는지, 기능과 역할 범위로 설명해 주세요.",
+          "id": "M-DEV-05",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB06_c1_0021",
+            "MB13_c1_0013",
+            "MB15_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20에서 오늘 받은 자료에 최신 수신 표시가 있습니다. 출처와 모델은 확인되었지만 원자료 기록시각은 비어 있습니다. 이 자료를 현재 현장 상태라고 설명하면서 정상 확인된 자료 묶음으로 외부 전달해도 되나요?",
+          "id": "M-DEV-06",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB05_c1_0002",
+            "MB15_c1_0010",
+            "MB09_c1_0008"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB05"
+          ],
+          "found_book_ids": [
+            "MB05"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "건조한 실내이고 결로가 없는 섭씨 12도 장소에서 CV-10을 검토하고 있습니다. 네트워크 수신조회를 쓰려고 CV-20으로 바꾸면 환경 조건과 수신 기능은 각각 어떻게 달라지나요?",
+          "id": "M-DEV-07",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB15_c1_0007",
+            "MB01_c1_0016",
+            "MB07_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB01",
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20 고객이 안내서 표지의 개정 1.1만 알려 주었습니다. 이 정보로 현재 자동 소등 기본값을 알려 주세요.",
+          "id": "M-DEV-08",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB11_c1_0001",
+            "MB08_c1_0021",
+            "MB15_c1_0016"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "출처가 미확인인 자료에 대해 검토자가 대상 자료와 목적을 적어 제한된 화면 조회를 허용했습니다. 이 허용으로 파일 내보내기와 네트워크 전달도 할 수 있나요?",
+          "id": "M-DEV-09",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB13_c1_0016",
+            "MB04_c1_0004",
+            "MB06_c1_0003"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-20 기록은 확인 상태가 정상이고 내보내기에는 파일 생성 완료가 보입니다. 이 두 표시만으로 현장 안전 확인과 상대방 수신 완료를 보고하려고 합니다. 각각 어떤 의미로 고쳐 써야 하나요?",
+          "id": "M-DEV-10",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB13_c1_0017",
+            "MB01_c1_0018",
+            "MB13_c1_0024"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02",
+            "MB04"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-10 현장조회 양식에 네트워크 수신시각이 비어 있습니다. 다른 정보는 정상입니다. 빈 수신시각만으로 수신 오류라고 보고해도 되나요?",
+          "id": "M-DEV-11",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB12_c1_0008",
+            "MB10_c1_0002",
+            "MB01_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰의 최근 30일 조회 목록이 비어 있습니다. 이 화면만 근거로 그 기간에 해당 현장에 이상이 전혀 없었다고 확정해 주세요.",
+          "id": "M-DEV-12",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB03_c1_0001",
+            "MB08_c1_0002",
+            "MB08_c1_0013"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10을 건조한 실내, 결로 없는 섭씨 12도 장소에서 사용하려고 합니다. 사용자의 역할은 조회자뿐입니다. 제공된 환경 조건 충족 여부와 이 사용자의 파일 내보내기 가능 여부를 구분해 주세요.",
+          "id": "M-DEV-13",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB15_c1_0007",
+            "MB07_c1_0006",
+            "MB07_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.6667
+        },
+        {
+          "question": "CV-20의 현장조회 맨 위 자료 A는 원자료 기록시각이 10월 21일이고, 수신목록의 최신 수신 자료 B는 기록시각이 10월 19일입니다. 모델과 출처는 같습니다. A와 B 중 더 최근에 발생한 내용을 담은 자료는 무엇이며, 목록 위치나 최신 수신 표시로 판단하면 안 되는 이유는 무엇인가요?",
+          "id": "M-DEV-14",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB09_c1_0008",
+            "MB14_c1_0012",
+            "MB05_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03",
+            "MB05"
+          ],
+          "found_book_ids": [
+            "MB05"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20 수신조회에서 E07이 해소되어 수신 사실을 확인했습니다. 현재 사용자는 CV-20 조회자 역할만 갖고 있습니다. 코드가 해소되었다는 이유로 이 사용자가 바로 파일 내보내기를 실행할 수 있나요?",
+          "id": "M-DEV-15",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB12_c1_0020",
+            "MB12_c1_0003",
+            "MB13_c1_0008"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB12"
+          ],
+          "found_book_ids": [
+            "MB12"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.1의 자동 소등 기본값과 설치 환경 조건을 검토합니다. 장소는 건조한 실내이며 결로가 없고 섭씨 14도입니다. 적용 기본값과 환경 조건 충족 여부를 알려 주세요.",
+          "id": "M-DEV-16",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB07_c1_0018",
+            "MB07_c1_0001",
+            "MB15_c1_0007"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB07",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "2026년 10월 25일에 CV-10 펌웨어 2.1 단말의 화면 자동 소등 기본값을 안내하려고 합니다. 새 정정 공지에 15분이 보이는데 이 단말에도 15분을 적용하나요?",
+          "id": "M-DEV-17",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB11_c1_0001",
+            "MB02_c1_0002",
+            "MB11_c1_0006"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.0의 화면 자동 소등 기본값을 안내해 주세요. 2.1 이상을 대상으로 한 정정과 어떻게 구별하나요?",
+          "id": "M-DEV-18",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB02_c1_0002",
+            "MB11_c1_0001",
+            "MB02_c1_0023"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "10월 20일 정정 대상인 CV-20 펌웨어 2.1 단말입니다. 현재 표시 설정은 확인하지 않았습니다. 정정 공지만으로 이 단말이 실제로 반드시 15분 뒤 소등한다고 확정해 주세요.",
+          "id": "M-DEV-19",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB14_c1_0021",
+            "MB11_c1_0006",
+            "MB02_c1_0023"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB02",
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "2026년 10월 25일에 CV-20 펌웨어 2.0을 사용합니다. 정정 공지의 15분 기본값과 최신 수신이라는 표시 의미가 모두 2.1 이상에만 적용되는지 항목별로 설명해 주세요.",
+          "id": "M-DEV-20",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB02_c1_0023",
+            "MB11_c1_0005",
+            "MB11_c1_0012"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20으로 보낸 파일에는 상대 경로의 수신 확인이 있습니다. 관련 확인 메모는 초안 저장 상태이고 검토자가 아직 읽지 않았습니다. 파일 전달과 메모 검토를 각각 어떤 상태로 인계해야 하나요?",
+          "id": "M-DEV-21",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB04_c1_0017",
+            "MB04_c1_0003",
+            "MB15_c1_0018"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB04"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-10만 허용된 기록담당 계정으로 CV-20 자료를 내보내려 합니다. 그 자료는 출처 이름도 미확인입니다. 허용 대상을 CV-20으로 바꾸기만 하면 곧바로 정상 확인된 묶음으로 외부 전달할 수 있나요?",
+          "id": "M-DEV-22",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB06_c1_0011",
+            "MB06_c1_0012",
+            "MB08_c1_0024"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 개별 기록에 대한 정정 자료가 원자료를 정확히 지정하고 출처 이름만 바로잡는다고 명시했습니다. 원자료 기록시각도 정정 자료의 발행 시각으로 바꾸어 읽어야 하나요?",
+          "id": "M-DEV-23",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB03_c1_0020",
+            "MB03_c1_0017",
+            "MB03_c1_0004"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "체크뷰를 사용 중인데 모델명은 아직 확인하지 않았습니다. 네트워크 수신조회가 지원되나요?",
+          "id": "M-DEV-24",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB05_c1_0001",
+            "MB01_c1_0015",
+            "MB11_c1_0014"
+          ],
+          "applicable": false,
+          "reason": "참고 근거 문서 없음"
+        },
+        {
+          "question": "체크뷰 CV-10의 방수 등급을 IP 숫자로 알려 주세요. 제공된 문서에 등급이 없다면 일반적인 표시 단말과 같다고 가정해 주세요.",
+          "id": "M-DEV-25",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB07_c1_0001",
+            "MB01_c1_0006",
+            "MB07_c1_0005"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10 내보내기 미리보기에서 E04가 보입니다. 담당자는 이를 네트워크 전송 실패라고 기록했습니다. 코드가 뜻하는 문제와 먼저 비교할 항목을 바로잡아 주세요.",
+          "id": "M-DEV-26",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB12_c1_0002",
+            "MB15_c1_0002",
+            "MB04_c1_0008"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB12"
+          ],
+          "found_book_ids": [
+            "MB12"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "10월 25일 CV-20 펌웨어 2.1을 조회자 역할로 사용합니다. 자동 소등 기본값 안내는 무엇이며, 이번 소등 정정 자체가 조회자에게 파일 내보내기 권한을 새로 부여하나요?",
+          "id": "M-DEV-27",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB11_c1_0001",
+            "MB15_c1_0016",
+            "MB02_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "현장조회 맨 위에 늦게 등록된 과거 자료가 있고, 그 자료를 내보낸 화면에는 파일 생성 완료가 있습니다. 인계자가 최신 현장 자료 전달 완료라고 적었습니다. 최신성과 전달 상태에서 각각 무엇을 고쳐야 하나요?",
+          "id": "M-DEV-28",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB09_c1_0008",
+            "MB01_c1_0008",
+            "MB05_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03",
+            "MB04"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "한 자료에 대한 제한된 화면 조회 예외에 검토자와 대상 자료가 명확히 적혀 있습니다. 같은 모델의 다른 자료에도 이 예외를 자동으로 적용해도 되나요?",
+          "id": "M-DEV-29",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB06_c1_0003",
+            "MB06_c1_0018",
+            "MB06_c1_0017"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10은 건조한 실내, 결로 없는 섭씨 12도 장소의 환경 검토를 통과했습니다. 이 단말에서 출처 이름이 미확인인 기록을 정상 자료 묶음으로 외부 전달하려고 합니다. 환경 검토 통과가 전달 보류 사유까지 해소하나요?",
+          "id": "M-DEV-30",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB07_c1_0005",
+            "MB07_c1_0006",
+            "MB07_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        }
+      ],
+      "k5": [
+        {
+          "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+          "id": "M-DEV-01",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB15_c1_0003",
+            "MB14_c1_0004",
+            "MB02_c1_0005",
+            "MB09_c1_0001",
+            "MB01_c1_0004"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [
+            "MB02"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+          "id": "M-DEV-02",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB08_c1_0024",
+            "MB04_c1_0001",
+            "MB01_c1_0002",
+            "MB03_c1_0005",
+            "MB01_c1_0019"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB04"
+          ],
+          "found_book_ids": [
+            "MB01",
+            "MB04"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-20 자료에 기록시각, 수신시각, 확인시각이 서로 다르게 적혀 있습니다. 세 시각은 각각 무엇을 뜻하나요?",
+          "id": "M-DEV-03",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB02_c1_0021",
+            "MB05_c1_0009",
+            "MB09_c1_0006",
+            "MB13_c1_0010",
+            "MB02_c1_0015"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [
+            "MB02"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 현장조회 안내의 최근 30일은 어떤 시각을 기준으로 한 범위인가요? 이 값을 외부 보관소의 파일 삭제 기한으로 사용해도 되나요?",
+          "id": "M-DEV-04",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB03_c1_0001",
+            "MB13_c1_0019",
+            "MB11_c1_0019",
+            "MB10_c1_0013",
+            "MB03_c1_0006"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10 담당자에게 기록담당 역할과 CV-10 대상 권한이 있습니다. 자료 확인과 전달 범위 검토도 끝났습니다. 이 담당자가 기록 파일을 내보내는 일과 CV-10에서 네트워크 자료를 수신하는 일을 각각 할 수 있는지, 기능과 역할 범위로 설명해 주세요.",
+          "id": "M-DEV-05",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB06_c1_0021",
+            "MB13_c1_0013",
+            "MB15_c1_0002",
+            "MB13_c1_0001",
+            "MB05_c1_0021"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20에서 오늘 받은 자료에 최신 수신 표시가 있습니다. 출처와 모델은 확인되었지만 원자료 기록시각은 비어 있습니다. 이 자료를 현재 현장 상태라고 설명하면서 정상 확인된 자료 묶음으로 외부 전달해도 되나요?",
+          "id": "M-DEV-06",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB05_c1_0002",
+            "MB15_c1_0010",
+            "MB09_c1_0008",
+            "MB05_c1_0023",
+            "MB04_c1_0010"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB05"
+          ],
+          "found_book_ids": [
+            "MB04",
+            "MB05"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "건조한 실내이고 결로가 없는 섭씨 12도 장소에서 CV-10을 검토하고 있습니다. 네트워크 수신조회를 쓰려고 CV-20으로 바꾸면 환경 조건과 수신 기능은 각각 어떻게 달라지나요?",
+          "id": "M-DEV-07",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB15_c1_0007",
+            "MB01_c1_0016",
+            "MB07_c1_0001",
+            "MB07_c1_0005",
+            "MB07_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB01",
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20 고객이 안내서 표지의 개정 1.1만 알려 주었습니다. 이 정보로 현재 자동 소등 기본값을 알려 주세요.",
+          "id": "M-DEV-08",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB11_c1_0001",
+            "MB08_c1_0021",
+            "MB15_c1_0016",
+            "MB11_c1_0023",
+            "MB02_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "출처가 미확인인 자료에 대해 검토자가 대상 자료와 목적을 적어 제한된 화면 조회를 허용했습니다. 이 허용으로 파일 내보내기와 네트워크 전달도 할 수 있나요?",
+          "id": "M-DEV-09",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB13_c1_0016",
+            "MB04_c1_0004",
+            "MB06_c1_0003",
+            "MB13_c1_0003",
+            "MB15_c1_0003"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-20 기록은 확인 상태가 정상이고 내보내기에는 파일 생성 완료가 보입니다. 이 두 표시만으로 현장 안전 확인과 상대방 수신 완료를 보고하려고 합니다. 각각 어떤 의미로 고쳐 써야 하나요?",
+          "id": "M-DEV-10",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB13_c1_0017",
+            "MB01_c1_0018",
+            "MB13_c1_0024",
+            "MB04_c1_0002",
+            "MB08_c1_0016"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02",
+            "MB04"
+          ],
+          "found_book_ids": [
+            "MB04"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-10 현장조회 양식에 네트워크 수신시각이 비어 있습니다. 다른 정보는 정상입니다. 빈 수신시각만으로 수신 오류라고 보고해도 되나요?",
+          "id": "M-DEV-11",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB12_c1_0008",
+            "MB10_c1_0002",
+            "MB01_c1_0002",
+            "MB02_c1_0003",
+            "MB12_c1_0016"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [
+            "MB02"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "체크뷰의 최근 30일 조회 목록이 비어 있습니다. 이 화면만 근거로 그 기간에 해당 현장에 이상이 전혀 없었다고 확정해 주세요.",
+          "id": "M-DEV-12",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB03_c1_0001",
+            "MB08_c1_0002",
+            "MB08_c1_0013",
+            "MB09_c1_0002",
+            "MB01_c1_0004"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10을 건조한 실내, 결로 없는 섭씨 12도 장소에서 사용하려고 합니다. 사용자의 역할은 조회자뿐입니다. 제공된 환경 조건 충족 여부와 이 사용자의 파일 내보내기 가능 여부를 구분해 주세요.",
+          "id": "M-DEV-13",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB15_c1_0007",
+            "MB07_c1_0006",
+            "MB07_c1_0001",
+            "MB07_c1_0019",
+            "MB07_c1_0005"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.6667
+        },
+        {
+          "question": "CV-20의 현장조회 맨 위 자료 A는 원자료 기록시각이 10월 21일이고, 수신목록의 최신 수신 자료 B는 기록시각이 10월 19일입니다. 모델과 출처는 같습니다. A와 B 중 더 최근에 발생한 내용을 담은 자료는 무엇이며, 목록 위치나 최신 수신 표시로 판단하면 안 되는 이유는 무엇인가요?",
+          "id": "M-DEV-14",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB09_c1_0008",
+            "MB14_c1_0012",
+            "MB05_c1_0002",
+            "MB13_c1_0002",
+            "MB15_c1_0009"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03",
+            "MB05"
+          ],
+          "found_book_ids": [
+            "MB05"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20 수신조회에서 E07이 해소되어 수신 사실을 확인했습니다. 현재 사용자는 CV-20 조회자 역할만 갖고 있습니다. 코드가 해소되었다는 이유로 이 사용자가 바로 파일 내보내기를 실행할 수 있나요?",
+          "id": "M-DEV-15",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB12_c1_0020",
+            "MB12_c1_0003",
+            "MB13_c1_0008",
+            "MB06_c1_0021",
+            "MB14_c1_0018"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB12"
+          ],
+          "found_book_ids": [
+            "MB12"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.1의 자동 소등 기본값과 설치 환경 조건을 검토합니다. 장소는 건조한 실내이며 결로가 없고 섭씨 14도입니다. 적용 기본값과 환경 조건 충족 여부를 알려 주세요.",
+          "id": "M-DEV-16",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB07_c1_0018",
+            "MB07_c1_0001",
+            "MB15_c1_0007",
+            "MB07_c1_0006",
+            "MB07_c1_0007"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB07",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "2026년 10월 25일에 CV-10 펌웨어 2.1 단말의 화면 자동 소등 기본값을 안내하려고 합니다. 새 정정 공지에 15분이 보이는데 이 단말에도 15분을 적용하나요?",
+          "id": "M-DEV-17",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB11_c1_0001",
+            "MB02_c1_0002",
+            "MB11_c1_0006",
+            "MB08_c1_0021",
+            "MB11_c1_0013"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.0의 화면 자동 소등 기본값을 안내해 주세요. 2.1 이상을 대상으로 한 정정과 어떻게 구별하나요?",
+          "id": "M-DEV-18",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB02_c1_0002",
+            "MB11_c1_0001",
+            "MB02_c1_0023",
+            "MB15_c1_0016",
+            "MB01_c1_0014"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "10월 20일 정정 대상인 CV-20 펌웨어 2.1 단말입니다. 현재 표시 설정은 확인하지 않았습니다. 정정 공지만으로 이 단말이 실제로 반드시 15분 뒤 소등한다고 확정해 주세요.",
+          "id": "M-DEV-19",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB14_c1_0021",
+            "MB11_c1_0006",
+            "MB02_c1_0023",
+            "MB02_c1_0011",
+            "MB14_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB02",
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "2026년 10월 25일에 CV-20 펌웨어 2.0을 사용합니다. 정정 공지의 15분 기본값과 최신 수신이라는 표시 의미가 모두 2.1 이상에만 적용되는지 항목별로 설명해 주세요.",
+          "id": "M-DEV-20",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB02_c1_0023",
+            "MB11_c1_0005",
+            "MB11_c1_0012",
+            "MB11_c1_0010",
+            "MB08_c1_0008"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20으로 보낸 파일에는 상대 경로의 수신 확인이 있습니다. 관련 확인 메모는 초안 저장 상태이고 검토자가 아직 읽지 않았습니다. 파일 전달과 메모 검토를 각각 어떤 상태로 인계해야 하나요?",
+          "id": "M-DEV-21",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB04_c1_0017",
+            "MB04_c1_0003",
+            "MB15_c1_0018",
+            "MB13_c1_0017",
+            "MB10_c1_0019"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB04"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-10만 허용된 기록담당 계정으로 CV-20 자료를 내보내려 합니다. 그 자료는 출처 이름도 미확인입니다. 허용 대상을 CV-20으로 바꾸기만 하면 곧바로 정상 확인된 묶음으로 외부 전달할 수 있나요?",
+          "id": "M-DEV-22",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB06_c1_0011",
+            "MB06_c1_0012",
+            "MB08_c1_0024",
+            "MB11_c1_0021",
+            "MB13_c1_0013"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 개별 기록에 대한 정정 자료가 원자료를 정확히 지정하고 출처 이름만 바로잡는다고 명시했습니다. 원자료 기록시각도 정정 자료의 발행 시각으로 바꾸어 읽어야 하나요?",
+          "id": "M-DEV-23",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB03_c1_0020",
+            "MB03_c1_0017",
+            "MB03_c1_0004",
+            "MB13_c1_0002",
+            "MB09_c1_0019"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "체크뷰를 사용 중인데 모델명은 아직 확인하지 않았습니다. 네트워크 수신조회가 지원되나요?",
+          "id": "M-DEV-24",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB05_c1_0001",
+            "MB01_c1_0015",
+            "MB11_c1_0014",
+            "MB01_c1_0011",
+            "MB09_c1_0005"
+          ],
+          "applicable": false,
+          "reason": "참고 근거 문서 없음"
+        },
+        {
+          "question": "체크뷰 CV-10의 방수 등급을 IP 숫자로 알려 주세요. 제공된 문서에 등급이 없다면 일반적인 표시 단말과 같다고 가정해 주세요.",
+          "id": "M-DEV-25",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB07_c1_0001",
+            "MB01_c1_0006",
+            "MB07_c1_0005",
+            "MB15_c1_0002",
+            "MB01_c1_0021"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10 내보내기 미리보기에서 E04가 보입니다. 담당자는 이를 네트워크 전송 실패라고 기록했습니다. 코드가 뜻하는 문제와 먼저 비교할 항목을 바로잡아 주세요.",
+          "id": "M-DEV-26",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB12_c1_0002",
+            "MB15_c1_0002",
+            "MB04_c1_0008",
+            "MB12_c1_0020",
+            "MB14_c1_0018"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB12"
+          ],
+          "found_book_ids": [
+            "MB12"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "10월 25일 CV-20 펌웨어 2.1을 조회자 역할로 사용합니다. 자동 소등 기본값 안내는 무엇이며, 이번 소등 정정 자체가 조회자에게 파일 내보내기 권한을 새로 부여하나요?",
+          "id": "M-DEV-27",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB11_c1_0001",
+            "MB15_c1_0016",
+            "MB02_c1_0002",
+            "MB11_c1_0020",
+            "MB11_c1_0005"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "현장조회 맨 위에 늦게 등록된 과거 자료가 있고, 그 자료를 내보낸 화면에는 파일 생성 완료가 있습니다. 인계자가 최신 현장 자료 전달 완료라고 적었습니다. 최신성과 전달 상태에서 각각 무엇을 고쳐야 하나요?",
+          "id": "M-DEV-28",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB09_c1_0008",
+            "MB01_c1_0008",
+            "MB05_c1_0002",
+            "MB10_c1_0009",
+            "MB05_c1_0003"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03",
+            "MB04"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "한 자료에 대한 제한된 화면 조회 예외에 검토자와 대상 자료가 명확히 적혀 있습니다. 같은 모델의 다른 자료에도 이 예외를 자동으로 적용해도 되나요?",
+          "id": "M-DEV-29",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB06_c1_0003",
+            "MB06_c1_0018",
+            "MB06_c1_0017",
+            "MB13_c1_0003",
+            "MB13_c1_0015"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10은 건조한 실내, 결로 없는 섭씨 12도 장소의 환경 검토를 통과했습니다. 이 단말에서 출처 이름이 미확인인 기록을 정상 자료 묶음으로 외부 전달하려고 합니다. 환경 검토 통과가 전달 보류 사유까지 해소하나요?",
+          "id": "M-DEV-30",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB07_c1_0005",
+            "MB07_c1_0006",
+            "MB07_c1_0002",
+            "MB07_c1_0014",
+            "MB07_c1_0011"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        }
+      ]
+    },
+    "rerank": {
+      "k2": [
+        {
+          "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+          "id": "M-DEV-01",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB15_c1_0003",
+            "MB14_c1_0004"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+          "id": "M-DEV-02",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB01_c1_0002",
+            "MB04_c1_0006"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB04"
+          ],
+          "found_book_ids": [
+            "MB01",
+            "MB04"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20 자료에 기록시각, 수신시각, 확인시각이 서로 다르게 적혀 있습니다. 세 시각은 각각 무엇을 뜻하나요?",
+          "id": "M-DEV-03",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB10_c1_0002",
+            "MB05_c1_0009"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 현장조회 안내의 최근 30일은 어떤 시각을 기준으로 한 범위인가요? 이 값을 외부 보관소의 파일 삭제 기한으로 사용해도 되나요?",
+          "id": "M-DEV-04",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB10_c1_0002",
+            "MB11_c1_0019"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-10 담당자에게 기록담당 역할과 CV-10 대상 권한이 있습니다. 자료 확인과 전달 범위 검토도 끝났습니다. 이 담당자가 기록 파일을 내보내는 일과 CV-10에서 네트워크 자료를 수신하는 일을 각각 할 수 있는지, 기능과 역할 범위로 설명해 주세요.",
+          "id": "M-DEV-05",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB13_c1_0013",
+            "MB06_c1_0011"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20에서 오늘 받은 자료에 최신 수신 표시가 있습니다. 출처와 모델은 확인되었지만 원자료 기록시각은 비어 있습니다. 이 자료를 현재 현장 상태라고 설명하면서 정상 확인된 자료 묶음으로 외부 전달해도 되나요?",
+          "id": "M-DEV-06",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB15_c1_0002",
+            "MB05_c1_0023"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB05"
+          ],
+          "found_book_ids": [
+            "MB05"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "건조한 실내이고 결로가 없는 섭씨 12도 장소에서 CV-10을 검토하고 있습니다. 네트워크 수신조회를 쓰려고 CV-20으로 바꾸면 환경 조건과 수신 기능은 각각 어떻게 달라지나요?",
+          "id": "M-DEV-07",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB01_c1_0016",
+            "MB15_c1_0007"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB01"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20 고객이 안내서 표지의 개정 1.1만 알려 주었습니다. 이 정보로 현재 자동 소등 기본값을 알려 주세요.",
+          "id": "M-DEV-08",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB15_c1_0016",
+            "MB02_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "출처가 미확인인 자료에 대해 검토자가 대상 자료와 목적을 적어 제한된 화면 조회를 허용했습니다. 이 허용으로 파일 내보내기와 네트워크 전달도 할 수 있나요?",
+          "id": "M-DEV-09",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB06_c1_0003",
+            "MB04_c1_0004"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-20 기록은 확인 상태가 정상이고 내보내기에는 파일 생성 완료가 보입니다. 이 두 표시만으로 현장 안전 확인과 상대방 수신 완료를 보고하려고 합니다. 각각 어떤 의미로 고쳐 써야 하나요?",
+          "id": "M-DEV-10",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB01_c1_0018",
+            "MB08_c1_0016"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02",
+            "MB04"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-10 현장조회 양식에 네트워크 수신시각이 비어 있습니다. 다른 정보는 정상입니다. 빈 수신시각만으로 수신 오류라고 보고해도 되나요?",
+          "id": "M-DEV-11",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB10_c1_0002",
+            "MB12_c1_0008"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰의 최근 30일 조회 목록이 비어 있습니다. 이 화면만 근거로 그 기간에 해당 현장에 이상이 전혀 없었다고 확정해 주세요.",
+          "id": "M-DEV-12",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB03_c1_0001",
+            "MB09_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10을 건조한 실내, 결로 없는 섭씨 12도 장소에서 사용하려고 합니다. 사용자의 역할은 조회자뿐입니다. 제공된 환경 조건 충족 여부와 이 사용자의 파일 내보내기 가능 여부를 구분해 주세요.",
+          "id": "M-DEV-13",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB01_c1_0021",
+            "MB15_c1_0007"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB07"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20의 현장조회 맨 위 자료 A는 원자료 기록시각이 10월 21일이고, 수신목록의 최신 수신 자료 B는 기록시각이 10월 19일입니다. 모델과 출처는 같습니다. A와 B 중 더 최근에 발생한 내용을 담은 자료는 무엇이며, 목록 위치나 최신 수신 표시로 판단하면 안 되는 이유는 무엇인가요?",
+          "id": "M-DEV-14",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB13_c1_0011",
+            "MB09_c1_0008"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03",
+            "MB05"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20 수신조회에서 E07이 해소되어 수신 사실을 확인했습니다. 현재 사용자는 CV-20 조회자 역할만 갖고 있습니다. 코드가 해소되었다는 이유로 이 사용자가 바로 파일 내보내기를 실행할 수 있나요?",
+          "id": "M-DEV-15",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB13_c1_0008",
+            "MB06_c1_0021"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB12"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.1의 자동 소등 기본값과 설치 환경 조건을 검토합니다. 장소는 건조한 실내이며 결로가 없고 섭씨 14도입니다. 적용 기본값과 환경 조건 충족 여부를 알려 주세요.",
+          "id": "M-DEV-16",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB07_c1_0023",
+            "MB07_c1_0017"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB07",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "2026년 10월 25일에 CV-10 펌웨어 2.1 단말의 화면 자동 소등 기본값을 안내하려고 합니다. 새 정정 공지에 15분이 보이는데 이 단말에도 15분을 적용하나요?",
+          "id": "M-DEV-17",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB11_c1_0001",
+            "MB11_c1_0023"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.0의 화면 자동 소등 기본값을 안내해 주세요. 2.1 이상을 대상으로 한 정정과 어떻게 구별하나요?",
+          "id": "M-DEV-18",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB11_c1_0023",
+            "MB11_c1_0013"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "10월 20일 정정 대상인 CV-20 펌웨어 2.1 단말입니다. 현재 표시 설정은 확인하지 않았습니다. 정정 공지만으로 이 단말이 실제로 반드시 15분 뒤 소등한다고 확정해 주세요.",
+          "id": "M-DEV-19",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB14_c1_0021",
+            "MB11_c1_0023"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "2026년 10월 25일에 CV-20 펌웨어 2.0을 사용합니다. 정정 공지의 15분 기본값과 최신 수신이라는 표시 의미가 모두 2.1 이상에만 적용되는지 항목별로 설명해 주세요.",
+          "id": "M-DEV-20",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB02_c1_0023",
+            "MB08_c1_0008"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20으로 보낸 파일에는 상대 경로의 수신 확인이 있습니다. 관련 확인 메모는 초안 저장 상태이고 검토자가 아직 읽지 않았습니다. 파일 전달과 메모 검토를 각각 어떤 상태로 인계해야 하나요?",
+          "id": "M-DEV-21",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB04_c1_0017",
+            "MB15_c1_0018"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB04"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-10만 허용된 기록담당 계정으로 CV-20 자료를 내보내려 합니다. 그 자료는 출처 이름도 미확인입니다. 허용 대상을 CV-20으로 바꾸기만 하면 곧바로 정상 확인된 묶음으로 외부 전달할 수 있나요?",
+          "id": "M-DEV-22",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB06_c1_0011",
+            "MB06_c1_0020"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 개별 기록에 대한 정정 자료가 원자료를 정확히 지정하고 출처 이름만 바로잡는다고 명시했습니다. 원자료 기록시각도 정정 자료의 발행 시각으로 바꾸어 읽어야 하나요?",
+          "id": "M-DEV-23",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB03_c1_0004",
+            "MB03_c1_0017"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "체크뷰를 사용 중인데 모델명은 아직 확인하지 않았습니다. 네트워크 수신조회가 지원되나요?",
+          "id": "M-DEV-24",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB15_c1_0002",
+            "MB13_c1_0007"
+          ],
+          "applicable": false,
+          "reason": "참고 근거 문서 없음"
+        },
+        {
+          "question": "체크뷰 CV-10의 방수 등급을 IP 숫자로 알려 주세요. 제공된 문서에 등급이 없다면 일반적인 표시 단말과 같다고 가정해 주세요.",
+          "id": "M-DEV-25",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB11_c1_0008",
+            "MB01_c1_0021"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB07"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-10 내보내기 미리보기에서 E04가 보입니다. 담당자는 이를 네트워크 전송 실패라고 기록했습니다. 코드가 뜻하는 문제와 먼저 비교할 항목을 바로잡아 주세요.",
+          "id": "M-DEV-26",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB12_c1_0002",
+            "MB01_c1_0009"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB12"
+          ],
+          "found_book_ids": [
+            "MB12"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "10월 25일 CV-20 펌웨어 2.1을 조회자 역할로 사용합니다. 자동 소등 기본값 안내는 무엇이며, 이번 소등 정정 자체가 조회자에게 파일 내보내기 권한을 새로 부여하나요?",
+          "id": "M-DEV-27",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB15_c1_0016",
+            "MB11_c1_0013"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "현장조회 맨 위에 늦게 등록된 과거 자료가 있고, 그 자료를 내보낸 화면에는 파일 생성 완료가 있습니다. 인계자가 최신 현장 자료 전달 완료라고 적었습니다. 최신성과 전달 상태에서 각각 무엇을 고쳐야 하나요?",
+          "id": "M-DEV-28",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB09_c1_0008",
+            "MB13_c1_0011"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03",
+            "MB04"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "한 자료에 대한 제한된 화면 조회 예외에 검토자와 대상 자료가 명확히 적혀 있습니다. 같은 모델의 다른 자료에도 이 예외를 자동으로 적용해도 되나요?",
+          "id": "M-DEV-29",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB06_c1_0018",
+            "MB06_c1_0003"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10은 건조한 실내, 결로 없는 섭씨 12도 장소의 환경 검토를 통과했습니다. 이 단말에서 출처 이름이 미확인인 기록을 정상 자료 묶음으로 외부 전달하려고 합니다. 환경 검토 통과가 전달 보류 사유까지 해소하나요?",
+          "id": "M-DEV-30",
+          "k": 2,
+          "context_chunk_ids": [
+            "MB07_c1_0006",
+            "MB07_c1_0022"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        }
+      ],
+      "k3": [
+        {
+          "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+          "id": "M-DEV-01",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB15_c1_0003",
+            "MB14_c1_0004",
+            "MB10_c1_0003"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+          "id": "M-DEV-02",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB01_c1_0002",
+            "MB04_c1_0006",
+            "MB03_c1_0005"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB04"
+          ],
+          "found_book_ids": [
+            "MB01",
+            "MB04"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20 자료에 기록시각, 수신시각, 확인시각이 서로 다르게 적혀 있습니다. 세 시각은 각각 무엇을 뜻하나요?",
+          "id": "M-DEV-03",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB10_c1_0002",
+            "MB05_c1_0009",
+            "MB02_c1_0003"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [
+            "MB02"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "체크뷰 현장조회 안내의 최근 30일은 어떤 시각을 기준으로 한 범위인가요? 이 값을 외부 보관소의 파일 삭제 기한으로 사용해도 되나요?",
+          "id": "M-DEV-04",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB10_c1_0002",
+            "MB11_c1_0019",
+            "MB13_c1_0012"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-10 담당자에게 기록담당 역할과 CV-10 대상 권한이 있습니다. 자료 확인과 전달 범위 검토도 끝났습니다. 이 담당자가 기록 파일을 내보내는 일과 CV-10에서 네트워크 자료를 수신하는 일을 각각 할 수 있는지, 기능과 역할 범위로 설명해 주세요.",
+          "id": "M-DEV-05",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB13_c1_0013",
+            "MB06_c1_0011",
+            "MB13_c1_0007"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20에서 오늘 받은 자료에 최신 수신 표시가 있습니다. 출처와 모델은 확인되었지만 원자료 기록시각은 비어 있습니다. 이 자료를 현재 현장 상태라고 설명하면서 정상 확인된 자료 묶음으로 외부 전달해도 되나요?",
+          "id": "M-DEV-06",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB15_c1_0002",
+            "MB05_c1_0023",
+            "MB08_c1_0003"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB05"
+          ],
+          "found_book_ids": [
+            "MB05"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "건조한 실내이고 결로가 없는 섭씨 12도 장소에서 CV-10을 검토하고 있습니다. 네트워크 수신조회를 쓰려고 CV-20으로 바꾸면 환경 조건과 수신 기능은 각각 어떻게 달라지나요?",
+          "id": "M-DEV-07",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB01_c1_0016",
+            "MB15_c1_0007",
+            "MB07_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB01",
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20 고객이 안내서 표지의 개정 1.1만 알려 주었습니다. 이 정보로 현재 자동 소등 기본값을 알려 주세요.",
+          "id": "M-DEV-08",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB15_c1_0016",
+            "MB02_c1_0002",
+            "MB08_c1_0021"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "출처가 미확인인 자료에 대해 검토자가 대상 자료와 목적을 적어 제한된 화면 조회를 허용했습니다. 이 허용으로 파일 내보내기와 네트워크 전달도 할 수 있나요?",
+          "id": "M-DEV-09",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB06_c1_0003",
+            "MB04_c1_0004",
+            "MB06_c1_0017"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-20 기록은 확인 상태가 정상이고 내보내기에는 파일 생성 완료가 보입니다. 이 두 표시만으로 현장 안전 확인과 상대방 수신 완료를 보고하려고 합니다. 각각 어떤 의미로 고쳐 써야 하나요?",
+          "id": "M-DEV-10",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB01_c1_0018",
+            "MB08_c1_0016",
+            "MB04_c1_0024"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02",
+            "MB04"
+          ],
+          "found_book_ids": [
+            "MB04"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-10 현장조회 양식에 네트워크 수신시각이 비어 있습니다. 다른 정보는 정상입니다. 빈 수신시각만으로 수신 오류라고 보고해도 되나요?",
+          "id": "M-DEV-11",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB10_c1_0002",
+            "MB12_c1_0008",
+            "MB12_c1_0022"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰의 최근 30일 조회 목록이 비어 있습니다. 이 화면만 근거로 그 기간에 해당 현장에 이상이 전혀 없었다고 확정해 주세요.",
+          "id": "M-DEV-12",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB03_c1_0001",
+            "MB09_c1_0002",
+            "MB08_c1_0013"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10을 건조한 실내, 결로 없는 섭씨 12도 장소에서 사용하려고 합니다. 사용자의 역할은 조회자뿐입니다. 제공된 환경 조건 충족 여부와 이 사용자의 파일 내보내기 가능 여부를 구분해 주세요.",
+          "id": "M-DEV-13",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB01_c1_0021",
+            "MB15_c1_0007",
+            "MB13_c1_0022"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB07"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20의 현장조회 맨 위 자료 A는 원자료 기록시각이 10월 21일이고, 수신목록의 최신 수신 자료 B는 기록시각이 10월 19일입니다. 모델과 출처는 같습니다. A와 B 중 더 최근에 발생한 내용을 담은 자료는 무엇이며, 목록 위치나 최신 수신 표시로 판단하면 안 되는 이유는 무엇인가요?",
+          "id": "M-DEV-14",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB13_c1_0011",
+            "MB09_c1_0008",
+            "MB14_c1_0012"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03",
+            "MB05"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20 수신조회에서 E07이 해소되어 수신 사실을 확인했습니다. 현재 사용자는 CV-20 조회자 역할만 갖고 있습니다. 코드가 해소되었다는 이유로 이 사용자가 바로 파일 내보내기를 실행할 수 있나요?",
+          "id": "M-DEV-15",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB13_c1_0008",
+            "MB06_c1_0021",
+            "MB06_c1_0011"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB12"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.1의 자동 소등 기본값과 설치 환경 조건을 검토합니다. 장소는 건조한 실내이며 결로가 없고 섭씨 14도입니다. 적용 기본값과 환경 조건 충족 여부를 알려 주세요.",
+          "id": "M-DEV-16",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB07_c1_0023",
+            "MB07_c1_0017",
+            "MB07_c1_0018"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB07",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "2026년 10월 25일에 CV-10 펌웨어 2.1 단말의 화면 자동 소등 기본값을 안내하려고 합니다. 새 정정 공지에 15분이 보이는데 이 단말에도 15분을 적용하나요?",
+          "id": "M-DEV-17",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB11_c1_0001",
+            "MB11_c1_0023",
+            "MB11_c1_0013"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.0의 화면 자동 소등 기본값을 안내해 주세요. 2.1 이상을 대상으로 한 정정과 어떻게 구별하나요?",
+          "id": "M-DEV-18",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB11_c1_0023",
+            "MB11_c1_0013",
+            "MB02_c1_0023"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "10월 20일 정정 대상인 CV-20 펌웨어 2.1 단말입니다. 현재 표시 설정은 확인하지 않았습니다. 정정 공지만으로 이 단말이 실제로 반드시 15분 뒤 소등한다고 확정해 주세요.",
+          "id": "M-DEV-19",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB14_c1_0021",
+            "MB11_c1_0023",
+            "MB14_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "2026년 10월 25일에 CV-20 펌웨어 2.0을 사용합니다. 정정 공지의 15분 기본값과 최신 수신이라는 표시 의미가 모두 2.1 이상에만 적용되는지 항목별로 설명해 주세요.",
+          "id": "M-DEV-20",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB02_c1_0023",
+            "MB08_c1_0008",
+            "MB11_c1_0023"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20으로 보낸 파일에는 상대 경로의 수신 확인이 있습니다. 관련 확인 메모는 초안 저장 상태이고 검토자가 아직 읽지 않았습니다. 파일 전달과 메모 검토를 각각 어떤 상태로 인계해야 하나요?",
+          "id": "M-DEV-21",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB04_c1_0017",
+            "MB15_c1_0018",
+            "MB04_c1_0015"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB04"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-10만 허용된 기록담당 계정으로 CV-20 자료를 내보내려 합니다. 그 자료는 출처 이름도 미확인입니다. 허용 대상을 CV-20으로 바꾸기만 하면 곧바로 정상 확인된 묶음으로 외부 전달할 수 있나요?",
+          "id": "M-DEV-22",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB06_c1_0011",
+            "MB06_c1_0020",
+            "MB13_c1_0013"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 개별 기록에 대한 정정 자료가 원자료를 정확히 지정하고 출처 이름만 바로잡는다고 명시했습니다. 원자료 기록시각도 정정 자료의 발행 시각으로 바꾸어 읽어야 하나요?",
+          "id": "M-DEV-23",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB03_c1_0004",
+            "MB03_c1_0017",
+            "MB03_c1_0020"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "체크뷰를 사용 중인데 모델명은 아직 확인하지 않았습니다. 네트워크 수신조회가 지원되나요?",
+          "id": "M-DEV-24",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB15_c1_0002",
+            "MB13_c1_0007",
+            "MB01_c1_0005"
+          ],
+          "applicable": false,
+          "reason": "참고 근거 문서 없음"
+        },
+        {
+          "question": "체크뷰 CV-10의 방수 등급을 IP 숫자로 알려 주세요. 제공된 문서에 등급이 없다면 일반적인 표시 단말과 같다고 가정해 주세요.",
+          "id": "M-DEV-25",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB11_c1_0008",
+            "MB01_c1_0021",
+            "MB07_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10 내보내기 미리보기에서 E04가 보입니다. 담당자는 이를 네트워크 전송 실패라고 기록했습니다. 코드가 뜻하는 문제와 먼저 비교할 항목을 바로잡아 주세요.",
+          "id": "M-DEV-26",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB12_c1_0002",
+            "MB01_c1_0009",
+            "MB12_c1_0020"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB12"
+          ],
+          "found_book_ids": [
+            "MB12"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "10월 25일 CV-20 펌웨어 2.1을 조회자 역할로 사용합니다. 자동 소등 기본값 안내는 무엇이며, 이번 소등 정정 자체가 조회자에게 파일 내보내기 권한을 새로 부여하나요?",
+          "id": "M-DEV-27",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB15_c1_0016",
+            "MB11_c1_0013",
+            "MB09_c1_0015"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "현장조회 맨 위에 늦게 등록된 과거 자료가 있고, 그 자료를 내보낸 화면에는 파일 생성 완료가 있습니다. 인계자가 최신 현장 자료 전달 완료라고 적었습니다. 최신성과 전달 상태에서 각각 무엇을 고쳐야 하나요?",
+          "id": "M-DEV-28",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB09_c1_0008",
+            "MB13_c1_0011",
+            "MB15_c1_0010"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03",
+            "MB04"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "한 자료에 대한 제한된 화면 조회 예외에 검토자와 대상 자료가 명확히 적혀 있습니다. 같은 모델의 다른 자료에도 이 예외를 자동으로 적용해도 되나요?",
+          "id": "M-DEV-29",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB06_c1_0018",
+            "MB06_c1_0003",
+            "MB06_c1_0017"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10은 건조한 실내, 결로 없는 섭씨 12도 장소의 환경 검토를 통과했습니다. 이 단말에서 출처 이름이 미확인인 기록을 정상 자료 묶음으로 외부 전달하려고 합니다. 환경 검토 통과가 전달 보류 사유까지 해소하나요?",
+          "id": "M-DEV-30",
+          "k": 3,
+          "context_chunk_ids": [
+            "MB07_c1_0006",
+            "MB07_c1_0022",
+            "MB07_c1_0024"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        }
+      ],
+      "k5": [
+        {
+          "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+          "id": "M-DEV-01",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB15_c1_0003",
+            "MB14_c1_0004",
+            "MB10_c1_0003",
+            "MB02_c1_0005",
+            "MB01_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [
+            "MB02"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+          "id": "M-DEV-02",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB01_c1_0002",
+            "MB04_c1_0006",
+            "MB03_c1_0005",
+            "MB04_c1_0001",
+            "MB13_c1_0006"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB04"
+          ],
+          "found_book_ids": [
+            "MB01",
+            "MB04"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-20 자료에 기록시각, 수신시각, 확인시각이 서로 다르게 적혀 있습니다. 세 시각은 각각 무엇을 뜻하나요?",
+          "id": "M-DEV-03",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB10_c1_0002",
+            "MB05_c1_0009",
+            "MB02_c1_0003",
+            "MB09_c1_0006",
+            "MB13_c1_0010"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [
+            "MB02"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "체크뷰 현장조회 안내의 최근 30일은 어떤 시각을 기준으로 한 범위인가요? 이 값을 외부 보관소의 파일 삭제 기한으로 사용해도 되나요?",
+          "id": "M-DEV-04",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB10_c1_0002",
+            "MB11_c1_0019",
+            "MB13_c1_0012",
+            "MB13_c1_0019",
+            "MB01_c1_0008"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-10 담당자에게 기록담당 역할과 CV-10 대상 권한이 있습니다. 자료 확인과 전달 범위 검토도 끝났습니다. 이 담당자가 기록 파일을 내보내는 일과 CV-10에서 네트워크 자료를 수신하는 일을 각각 할 수 있는지, 기능과 역할 범위로 설명해 주세요.",
+          "id": "M-DEV-05",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB13_c1_0013",
+            "MB06_c1_0011",
+            "MB13_c1_0007",
+            "MB06_c1_0009",
+            "MB06_c1_0021"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20에서 오늘 받은 자료에 최신 수신 표시가 있습니다. 출처와 모델은 확인되었지만 원자료 기록시각은 비어 있습니다. 이 자료를 현재 현장 상태라고 설명하면서 정상 확인된 자료 묶음으로 외부 전달해도 되나요?",
+          "id": "M-DEV-06",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB15_c1_0002",
+            "MB05_c1_0023",
+            "MB08_c1_0003",
+            "MB15_c1_0010",
+            "MB15_c1_0015"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB05"
+          ],
+          "found_book_ids": [
+            "MB05"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "건조한 실내이고 결로가 없는 섭씨 12도 장소에서 CV-10을 검토하고 있습니다. 네트워크 수신조회를 쓰려고 CV-20으로 바꾸면 환경 조건과 수신 기능은 각각 어떻게 달라지나요?",
+          "id": "M-DEV-07",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB01_c1_0016",
+            "MB15_c1_0007",
+            "MB07_c1_0002",
+            "MB07_c1_0009",
+            "MB07_c1_0012"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB01",
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20 고객이 안내서 표지의 개정 1.1만 알려 주었습니다. 이 정보로 현재 자동 소등 기본값을 알려 주세요.",
+          "id": "M-DEV-08",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB15_c1_0016",
+            "MB02_c1_0002",
+            "MB08_c1_0021",
+            "MB14_c1_0001",
+            "MB11_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB01"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "출처가 미확인인 자료에 대해 검토자가 대상 자료와 목적을 적어 제한된 화면 조회를 허용했습니다. 이 허용으로 파일 내보내기와 네트워크 전달도 할 수 있나요?",
+          "id": "M-DEV-09",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB06_c1_0003",
+            "MB04_c1_0004",
+            "MB06_c1_0017",
+            "MB13_c1_0003",
+            "MB15_c1_0023"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-20 기록은 확인 상태가 정상이고 내보내기에는 파일 생성 완료가 보입니다. 이 두 표시만으로 현장 안전 확인과 상대방 수신 완료를 보고하려고 합니다. 각각 어떤 의미로 고쳐 써야 하나요?",
+          "id": "M-DEV-10",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB01_c1_0018",
+            "MB08_c1_0016",
+            "MB04_c1_0024",
+            "MB10_c1_0019",
+            "MB10_c1_0024"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02",
+            "MB04"
+          ],
+          "found_book_ids": [
+            "MB04"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-10 현장조회 양식에 네트워크 수신시각이 비어 있습니다. 다른 정보는 정상입니다. 빈 수신시각만으로 수신 오류라고 보고해도 되나요?",
+          "id": "M-DEV-11",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB10_c1_0002",
+            "MB12_c1_0008",
+            "MB12_c1_0022",
+            "MB08_c1_0013",
+            "MB01_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰의 최근 30일 조회 목록이 비어 있습니다. 이 화면만 근거로 그 기간에 해당 현장에 이상이 전혀 없었다고 확정해 주세요.",
+          "id": "M-DEV-12",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB03_c1_0001",
+            "MB09_c1_0002",
+            "MB08_c1_0013",
+            "MB09_c1_0012",
+            "MB03_c1_0022"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10을 건조한 실내, 결로 없는 섭씨 12도 장소에서 사용하려고 합니다. 사용자의 역할은 조회자뿐입니다. 제공된 환경 조건 충족 여부와 이 사용자의 파일 내보내기 가능 여부를 구분해 주세요.",
+          "id": "M-DEV-13",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB01_c1_0021",
+            "MB15_c1_0007",
+            "MB13_c1_0022",
+            "MB07_c1_0009",
+            "MB07_c1_0019"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20의 현장조회 맨 위 자료 A는 원자료 기록시각이 10월 21일이고, 수신목록의 최신 수신 자료 B는 기록시각이 10월 19일입니다. 모델과 출처는 같습니다. A와 B 중 더 최근에 발생한 내용을 담은 자료는 무엇이며, 목록 위치나 최신 수신 표시로 판단하면 안 되는 이유는 무엇인가요?",
+          "id": "M-DEV-14",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB13_c1_0011",
+            "MB09_c1_0008",
+            "MB14_c1_0012",
+            "MB15_c1_0009",
+            "MB05_c1_0009"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03",
+            "MB05"
+          ],
+          "found_book_ids": [
+            "MB05"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20 수신조회에서 E07이 해소되어 수신 사실을 확인했습니다. 현재 사용자는 CV-20 조회자 역할만 갖고 있습니다. 코드가 해소되었다는 이유로 이 사용자가 바로 파일 내보내기를 실행할 수 있나요?",
+          "id": "M-DEV-15",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB13_c1_0008",
+            "MB06_c1_0021",
+            "MB06_c1_0011",
+            "MB04_c1_0006",
+            "MB01_c1_0011"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB12"
+          ],
+          "found_book_ids": [
+            "MB04"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.1의 자동 소등 기본값과 설치 환경 조건을 검토합니다. 장소는 건조한 실내이며 결로가 없고 섭씨 14도입니다. 적용 기본값과 환경 조건 충족 여부를 알려 주세요.",
+          "id": "M-DEV-16",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB07_c1_0023",
+            "MB07_c1_0017",
+            "MB07_c1_0018",
+            "MB15_c1_0016",
+            "MB07_c1_0007"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB07",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "2026년 10월 25일에 CV-10 펌웨어 2.1 단말의 화면 자동 소등 기본값을 안내하려고 합니다. 새 정정 공지에 15분이 보이는데 이 단말에도 15분을 적용하나요?",
+          "id": "M-DEV-17",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB11_c1_0001",
+            "MB11_c1_0023",
+            "MB11_c1_0013",
+            "MB15_c1_0016",
+            "MB11_c1_0010"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "2026년 10월 25일 기준 CV-20 펌웨어 2.0의 화면 자동 소등 기본값을 안내해 주세요. 2.1 이상을 대상으로 한 정정과 어떻게 구별하나요?",
+          "id": "M-DEV-18",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB11_c1_0023",
+            "MB11_c1_0013",
+            "MB02_c1_0023",
+            "MB09_c1_0015",
+            "MB14_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "10월 20일 정정 대상인 CV-20 펌웨어 2.1 단말입니다. 현재 표시 설정은 확인하지 않았습니다. 정정 공지만으로 이 단말이 실제로 반드시 15분 뒤 소등한다고 확정해 주세요.",
+          "id": "M-DEV-19",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB14_c1_0021",
+            "MB11_c1_0023",
+            "MB14_c1_0001",
+            "MB02_c1_0023",
+            "MB15_c1_0017"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB02",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB02",
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "2026년 10월 25일에 CV-20 펌웨어 2.0을 사용합니다. 정정 공지의 15분 기본값과 최신 수신이라는 표시 의미가 모두 2.1 이상에만 적용되는지 항목별로 설명해 주세요.",
+          "id": "M-DEV-20",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB02_c1_0023",
+            "MB08_c1_0008",
+            "MB11_c1_0023",
+            "MB11_c1_0002",
+            "MB14_c1_0015"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20으로 보낸 파일에는 상대 경로의 수신 확인이 있습니다. 관련 확인 메모는 초안 저장 상태이고 검토자가 아직 읽지 않았습니다. 파일 전달과 메모 검토를 각각 어떤 상태로 인계해야 하나요?",
+          "id": "M-DEV-21",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB04_c1_0017",
+            "MB15_c1_0018",
+            "MB04_c1_0015",
+            "MB05_c1_0012",
+            "MB06_c1_0015"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-10만 허용된 기록담당 계정으로 CV-20 자료를 내보내려 합니다. 그 자료는 출처 이름도 미확인입니다. 허용 대상을 CV-20으로 바꾸기만 하면 곧바로 정상 확인된 묶음으로 외부 전달할 수 있나요?",
+          "id": "M-DEV-22",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB06_c1_0011",
+            "MB06_c1_0020",
+            "MB13_c1_0013",
+            "MB04_c1_0001",
+            "MB04_c1_0010"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB04",
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 개별 기록에 대한 정정 자료가 원자료를 정확히 지정하고 출처 이름만 바로잡는다고 명시했습니다. 원자료 기록시각도 정정 자료의 발행 시각으로 바꾸어 읽어야 하나요?",
+          "id": "M-DEV-23",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB03_c1_0004",
+            "MB03_c1_0017",
+            "MB03_c1_0020",
+            "MB09_c1_0019",
+            "MB14_c1_0006"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03"
+          ],
+          "found_book_ids": [
+            "MB03"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "체크뷰를 사용 중인데 모델명은 아직 확인하지 않았습니다. 네트워크 수신조회가 지원되나요?",
+          "id": "M-DEV-24",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB15_c1_0002",
+            "MB13_c1_0007",
+            "MB01_c1_0005",
+            "MB13_c1_0001",
+            "MB01_c1_0002"
+          ],
+          "applicable": false,
+          "reason": "참고 근거 문서 없음"
+        },
+        {
+          "question": "체크뷰 CV-10의 방수 등급을 IP 숫자로 알려 주세요. 제공된 문서에 등급이 없다면 일반적인 표시 단말과 같다고 가정해 주세요.",
+          "id": "M-DEV-25",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB11_c1_0008",
+            "MB01_c1_0021",
+            "MB07_c1_0001",
+            "MB01_c1_0010",
+            "MB01_c1_0006"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10 내보내기 미리보기에서 E04가 보입니다. 담당자는 이를 네트워크 전송 실패라고 기록했습니다. 코드가 뜻하는 문제와 먼저 비교할 항목을 바로잡아 주세요.",
+          "id": "M-DEV-26",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB12_c1_0002",
+            "MB01_c1_0009",
+            "MB12_c1_0020",
+            "MB04_c1_0023",
+            "MB04_c1_0006"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB12"
+          ],
+          "found_book_ids": [
+            "MB12"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "10월 25일 CV-20 펌웨어 2.1을 조회자 역할로 사용합니다. 자동 소등 기본값 안내는 무엇이며, 이번 소등 정정 자체가 조회자에게 파일 내보내기 권한을 새로 부여하나요?",
+          "id": "M-DEV-27",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB15_c1_0016",
+            "MB11_c1_0013",
+            "MB09_c1_0015",
+            "MB11_c1_0020",
+            "MB11_c1_0003"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB11"
+          ],
+          "found_book_ids": [
+            "MB11"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "현장조회 맨 위에 늦게 등록된 과거 자료가 있고, 그 자료를 내보낸 화면에는 파일 생성 완료가 있습니다. 인계자가 최신 현장 자료 전달 완료라고 적었습니다. 최신성과 전달 상태에서 각각 무엇을 고쳐야 하나요?",
+          "id": "M-DEV-28",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB09_c1_0008",
+            "MB13_c1_0011",
+            "MB15_c1_0010",
+            "MB01_c1_0008",
+            "MB10_c1_0024"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB03",
+            "MB04"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "한 자료에 대한 제한된 화면 조회 예외에 검토자와 대상 자료가 명확히 적혀 있습니다. 같은 모델의 다른 자료에도 이 예외를 자동으로 적용해도 되나요?",
+          "id": "M-DEV-29",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB06_c1_0018",
+            "MB06_c1_0003",
+            "MB06_c1_0017",
+            "MB15_c1_0023",
+            "MB09_c1_0004"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB06"
+          ],
+          "found_book_ids": [
+            "MB06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10은 건조한 실내, 결로 없는 섭씨 12도 장소의 환경 검토를 통과했습니다. 이 단말에서 출처 이름이 미확인인 기록을 정상 자료 묶음으로 외부 전달하려고 합니다. 환경 검토 통과가 전달 보류 사유까지 해소하나요?",
+          "id": "M-DEV-30",
+          "k": 5,
+          "context_chunk_ids": [
+            "MB07_c1_0006",
+            "MB07_c1_0022",
+            "MB07_c1_0024",
+            "MB07_c1_0019",
+            "MB07_c1_0009"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "MB04",
+            "MB07"
+          ],
+          "found_book_ids": [
+            "MB07"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        }
+      ]
+    }
+  }
+}

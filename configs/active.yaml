@@ -8,5 +8,6 @@ retrieval_modes:                 # 요청의 retrieval_mode → 검색 설정 �
   hybrid: r2
   rerank: r3
 default_retrieval_mode: naive
-context_token_budget: 1582       # 01 토큰 한도 실험 결과
+final_k: 3
+context_token_budget: 2373       # 청크 토큰 90백분위 791 × 공통 k 3
 qdrant_url: http://127.0.0.1:6333

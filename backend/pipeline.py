@@ -153,14 +153,17 @@ class RAGPipeline:
                     candidates,
                 )
 
+        final_k = self.config["final_k"]
+        selected_candidates = candidates[:final_k]
         context, used = fill_context(
-            candidates,
+            selected_candidates,
             self.counter,
             self.config["context_token_budget"],
         )
         return {
             "retrieval_version": retrieval_config["retrieval_version"],
             "score_type": SCORE_TYPES[method],
+            "final_k": final_k,
             "candidates": candidates,
             "context": context,
             "context_token_count": used,
@@ -225,6 +228,7 @@ class RAGPipeline:
                         "version": retrieval["retrieval_version"],
                         "collection": self.collection,
                         "score_type": retrieval["score_type"],
+                        "final_k": retrieval["final_k"],
                         "candidates": [
                             {
                                 "chunk_id": candidate["chunk_id"],
