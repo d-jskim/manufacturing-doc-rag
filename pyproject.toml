@@ -32,5 +32,7 @@ torch = [{ index = "pytorch-cu128" }]
 
 [dependency-groups]
 dev = [
+    "langchain-community==0.3.31",
     "pytest>=9.2.0",
+    "ragas>=0.4.3",
 ]
