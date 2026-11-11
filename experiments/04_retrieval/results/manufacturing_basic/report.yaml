@@ -1,0 +1,17 @@
+# 비교 화면에서 사용할 확정 실행 결과
+title: 제조 문서 RAG 성능 평가
+dataset_label: Manufacturing Basic
+comparison_label: Naive / Hybrid / Hybrid + Reranking
+purpose: 동일한 30개 질문 기준 RAG 구성별 품질 및 운영 지표 비교
+
+result_files:
+  retrieval: e04_c1_m1_p1_k235_20261111_1415.json
+  answers: e04_c1_m1_p1_all_20261111_1553.json
+  faithfulness: e04_c1_m1_p1_faithfulness_20261111_1553.json
+  judge: e04_c1_m1_p1_judge_20261111_1553.json
+
+settings:
+  final_k: 3
+  context_token_budget: 2373
+  generation_model: gpt-6-luna
+  evaluation_questions: 30

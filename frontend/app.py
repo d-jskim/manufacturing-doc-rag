@@ -12,9 +12,23 @@ pages = {
         st.Page("views/admin_active_config.py", title="운영 설정"),
     ],
     "실험": [
-        st.Page("views/experiments_token_budget.py", title="토큰 한도"),
-        st.Page("views/experiments_chunking.py", title="청킹"),
-    ],
+    st.Page(
+        "views/experiments_token_budget.py",
+        title="01 토큰 한도",
+    ),
+    st.Page(
+        "views/experiments_chunking.py",
+        title="02 청킹",
+    ),
+    st.Page(
+        "views/experiments_prompt.py",
+        title="03 프롬프트",
+    ),
+    st.Page(
+        "views/experiments_rag_comparison.py",
+        title="04 RAG 방식 비교",
+    ),
+],
 }
 
 st.navigation(pages).run()
