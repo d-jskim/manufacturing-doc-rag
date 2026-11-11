@@ -1,6 +1,7 @@
 """운영 설정(configs/active.yaml)에 따라 검색과 답변 생성을 한 번에 실행하고, 요청마다 Langfuse에 기록한다.
 API와 평가 실험이 함께 쓴다."""
 
+import json
 import time
 import uuid
 from pathlib import Path
@@ -14,10 +15,14 @@ from backend.core.token_counter import TiktokenCounter
 from backend.generation.generator import Generator
 from backend.retrieval.context import fill_context
 from backend.retrieval.embedder import Embedder
+from backend.retrieval.keyword import BM25Index, make_tokenizer
+from backend.retrieval.rrf import rrf_fuse
 from backend.retrieval.vector_store import search
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIGS_DIR = ROOT / "configs"
+PROCESSED_DIR = ROOT / "data" / "processed"
+SCORE_TYPES = {"dense": "cosine", "hybrid": "rrf"}  # 검색 방식(method)별 후보 점수의 종류
 
 
 def load_yaml(path: Path) -> dict:
@@ -26,7 +31,7 @@ def load_yaml(path: Path) -> dict:
 
 class RAGPipeline:
     def __init__(self, active_config_path: Path = CONFIGS_DIR / "active.yaml"):
-        """서버가 켜질 때 한 번만 만든다. 임베딩 모델과 Qdrant 연결을 미리 준비한다."""
+        """서버가 켜질 때 한 번만 만든다. 임베딩 모델과 Qdrant 연결, 키워드 검색 색인을 미리 준비한다."""
         self.config = load_yaml(active_config_path)
         embedding_config = load_yaml(CONFIGS_DIR / "embedding" / f"{self.config['embedding']}.yaml")
         prompt_config = load_yaml(CONFIGS_DIR / "prompts" / f"{self.config['prompt']}.yaml")
@@ -34,25 +39,51 @@ class RAGPipeline:
             mode: load_yaml(CONFIGS_DIR / "retrieval" / f"{version}.yaml")
             for mode, version in self.config["retrieval_modes"].items()
         }
+        for mode, retrieval_config in self.retrieval_configs.items():  # 잘못된 설정은 서버 시작 단계에서 막음
+            method = retrieval_config["method"]
+            if method not in SCORE_TYPES or (method == "hybrid" and retrieval_config["fusion"] != "rrf"):
+                raise ValueError(f"지원하지 않는 검색 설정: {mode} → {retrieval_config['retrieval_version']}")
         self.embedder = Embedder(embedding_config)
         self.client = QdrantClient(url=self.config["qdrant_url"])
         self.generator = Generator(prompt_config)
         self.counter = TiktokenCounter(prompt_config["generation"]["model"], "o200k_base")
         self.collection = f"{self.config['dataset']}_{self.config['chunk_version']}_{self.embedder.model_code}"
         self.langfuse = get_client()  # .env의 LANGFUSE_PUBLIC_KEY·SECRET_KEY·BASE_URL 사용
+        self.keyword_indexes = self._build_keyword_indexes()
+
+    def _build_keyword_indexes(self) -> dict:
+        """hybrid 검색 설정이 있을 때만 BM25 색인을 메모리에 만든다(단어 분리 방식별로 하나).
+        요청 중에 만들면 그 요청의 응답 시간에 색인 시간이 섞이므로 서버 시작 시 한 번만 만든다."""
+        tokenizer_names = {config["keyword_tokenizer"] for config in self.retrieval_configs.values()
+                           if config["method"] == "hybrid"}
+        if not tokenizer_names:
+            return {}
+        chunks_path = PROCESSED_DIR / self.config["dataset"] / self.config["chunk_version"] / "chunks.jsonl"
+        chunks = [json.loads(line) for line in chunks_path.read_text(encoding="utf-8").splitlines() if line.strip()]
+        return {name: BM25Index(chunks, make_tokenizer(name)) for name in tokenizer_names}
 
     @property
     def retrieval_modes(self) -> list[str]:
         return list(self.retrieval_configs)
 
     def retrieve(self, question: str, retrieval_mode: str) -> dict:
-        """질문 임베딩 → 후보 검색 → 문맥 한도까지 담기."""
+        """질문 임베딩 → 후보 검색(dense 또는 hybrid) → 문맥 한도까지 담기."""
         retrieval_config = self.retrieval_configs[retrieval_mode]
-        candidates = search(self.client, self.collection, self.embedder.embed_query(question),
-                            retrieval_config["candidate_count"], exact=retrieval_config["exact"])
+        method = retrieval_config["method"]
+        query_vector = self.embedder.embed_query(question)
+        if method == "dense":
+            candidates = search(self.client, self.collection, query_vector,
+                                retrieval_config["candidate_count"], exact=retrieval_config["exact"])
+        else:  # hybrid: 의미 검색과 키워드 검색을 따로 실행한 뒤 순위로 결합
+            dense = search(self.client, self.collection, query_vector,
+                           retrieval_config["dense_candidate_count"], exact=retrieval_config["exact"])
+            keyword = self.keyword_indexes[retrieval_config["keyword_tokenizer"]].search(
+                question, retrieval_config["keyword_candidate_count"])
+            candidates = rrf_fuse(dense, keyword, k=retrieval_config["rrf_k"],
+                                  limit=retrieval_config["candidate_count"])
         context, used = fill_context(candidates, self.counter, self.config["context_token_budget"])
-        return {"retrieval_version": retrieval_config["retrieval_version"], "candidates": candidates,
-                "context": context, "context_token_count": used}
+        return {"retrieval_version": retrieval_config["retrieval_version"], "score_type": SCORE_TYPES[method],
+                "candidates": candidates, "context": context, "context_token_count": used}
 
     def query(self, question: str, retrieval_mode: str | None = None, request_id: str | None = None,
               source: str = "service", extra_metadata: dict | None = None) -> dict:
@@ -88,7 +119,9 @@ class RAGPipeline:
                     retrieval_record = {
                         "version": retrieval["retrieval_version"],
                         "collection": self.collection,
-                        "candidates": [{"chunk_id": c["chunk_id"], "score": round(c["score"], 4)}
+                        "score_type": retrieval["score_type"],  # cosine(의미 검색) 또는 rrf(순위 결합)
+                        "candidates": [{"chunk_id": c["chunk_id"], "score": round(c["score"], 4),
+                                        **{key: c[key] for key in ("dense_rank", "keyword_rank") if key in c}}
                                        for c in retrieval["candidates"]],
                         "context_chunk_ids": [c["chunk_id"] for c in retrieval["context"]],
                         "context_token_count": retrieval["context_token_count"],
