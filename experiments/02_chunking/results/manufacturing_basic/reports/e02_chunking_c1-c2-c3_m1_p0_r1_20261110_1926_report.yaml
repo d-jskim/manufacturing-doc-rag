@@ -22,16 +22,31 @@ settings:
   retrieval: r1
   selected_chunk_version: c1
 
-chunk_versions:
+id_definitions:
   c1:
+    type: chunk
     label: 페이지 단위
     description: 1페이지를 1청크로 사용
   c2:
+    type: chunk
     label: 페이지 내 분할
     description: 페이지 안에서 508토큰 이하로 재귀 분할, overlap 50토큰
   c3:
+    type: chunk
     label: 페이지 간 분할
     description: 페이지 경계를 넘어 508토큰 이하로 재귀 분할, overlap 50토큰
+  m1:
+    type: embedding
+    label: Multilingual E5 Base
+    description: intfloat/multilingual-e5-base, 입력 한도 512토큰
+  p0:
+    type: prompt
+    label: 프롬프트 미적용
+    description: 답변 생성 없이 검색 품질만 평가
+  r1:
+    type: retrieval
+    label: Naive
+    description: 임베딩 벡터 유사도 기반 검색
 
 result_analysis:
   title: Result Analysis

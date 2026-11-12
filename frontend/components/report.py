@@ -37,6 +37,29 @@ def show_header(title: str, purpose: str) -> None:
     st.caption(f"목적: {purpose}")
 
 
+def format_experiment_id(report: dict, identifier: str) -> str:
+    definition = report.get("id_definitions", {}).get(identifier, {})
+    label = definition.get("label")
+    return f"{identifier.upper()} · {label}" if label else identifier.upper()
+
+
+def show_experiment_id_definitions(report: dict, identifiers: list[str]) -> None:
+    definitions = report.get("id_definitions", {})
+    lines = []
+
+    for identifier in dict.fromkeys(identifiers):
+        definition = definitions.get(identifier)
+        if not definition:
+            continue
+        lines.append(
+            f"**{identifier.upper()} · {definition['label']}**: "
+            f"{definition['description']}"
+        )
+
+    if lines:
+        st.caption("  \n".join(lines))
+
+
 def show_metrics(metrics: list[dict]) -> None:
     """metrics: [{"label": ..., "value": ...}] 형태. 카드를 한 줄로 배치함."""
     columns = st.columns(len(metrics))
@@ -45,7 +68,7 @@ def show_metrics(metrics: list[dict]) -> None:
 
 
 def threshold_layer(x: float, label: str) -> alt.Chart:
-    """세로 기준선과 이름표."""
+    """세로 Baseline과 이름표."""
     data = pd.DataFrame({"x": [x], "label": [label]})
     rule = alt.Chart(data).mark_rule(color=THRESHOLD_COLOR, strokeWidth=2).encode(x="x:Q")
     text = alt.Chart(data).mark_text(
@@ -56,7 +79,7 @@ def threshold_layer(x: float, label: str) -> alt.Chart:
 
 def show_histogram(values: list[int], threshold: float, threshold_label: str,
                    x_title: str, y_title: str) -> None:
-    """값 분포 히스토그램과 기준선."""
+    """값 분포 히스토그램과 Baseline."""
     data = pd.DataFrame({"value": values})
     bars = alt.Chart(data).mark_bar(color="#9CA3AF").encode(
         x=alt.X("value:Q", bin=alt.Bin(maxbins=20), title=x_title),
@@ -67,7 +90,7 @@ def show_histogram(values: list[int], threshold: float, threshold_label: str,
 
 def show_count_bars(counts: dict[int, int], threshold: int, threshold_label: str,
                     x_title: str, y_title: str) -> None:
-    """구간별 개수 막대와 기준선. 기준선은 threshold 막대 오른쪽 끝에 그림."""
+    """구간별 개수 막대와 Baseline. Baseline은 threshold 막대 오른쪽 끝에 그림."""
     data = pd.DataFrame({"value": list(counts), "count": list(counts.values())})
     bars = alt.Chart(data).mark_bar(color="#9CA3AF", size=40).encode(
         x=alt.X("value:Q", title=x_title, axis=alt.Axis(tickMinStep=1)),

@@ -1,0 +1,63 @@
+report_id: e03_prompt_p1_naive-hybrid-rerank_c1_m1_20261111_1553
+report_label: p1 Baseline · Naive·Hybrid·Rerank · 2026-11-11 15:53
+experiment: 03_prompt
+dataset: manufacturing_basic
+created_at: 2026-11-11 15:53
+status: approved
+
+title: 제조 문서 p1 프롬프트 Baseline
+dataset_label: Manufacturing Basic
+purpose: p1 프롬프트가 세 검색 방식에서 보인 답변 품질과 운영 지표를 Baseline으로 기록
+
+baseline_prompt: p1
+
+settings:
+  evaluation_questions: 30
+  chunk_version: c1
+  embedding: m1
+  final_k: 3
+  context_token_budget: 2373
+  generation_model: gpt-6-luna
+  retrieval_modes:
+    naive: r1
+    hybrid: r2
+    rerank: r3
+
+id_definitions:
+  c1:
+    type: chunk
+    label: 페이지 단위
+    description: 1페이지를 1청크로 사용
+  m1:
+    type: embedding
+    label: Multilingual E5 Base
+    description: intfloat/multilingual-e5-base, 입력 한도 512토큰
+  p1:
+    type: prompt
+    label: 기준 프롬프트
+    description: 제조 문서의 적용 조건과 근거를 확인하고 답변·추가 확인·보류를 JSON으로 반환
+  r1:
+    type: retrieval
+    label: Naive
+    description: 임베딩 벡터 유사도 기반 검색
+  r2:
+    type: retrieval
+    label: Hybrid
+    description: 벡터 검색과 키워드 검색 결과를 결합
+  r3:
+    type: retrieval
+    label: Hybrid + Reranking
+    description: 하이브리드 검색 후보를 Cross-encoder로 재순위화
+
+prompt_results:
+  p1:
+    source_experiment: 04_retrieval
+    source_dataset: manufacturing_basic
+    files:
+      answers: e04_c1_m1_p1_all_20261111_1553.json
+      faithfulness: e04_c1_m1_p1_faithfulness_20261111_1553.json
+      judge: e04_c1_m1_p1_judge_20261111_1553.json
+
+security_evaluation:
+  status: not_evaluated
+  description: 보안 강화 프롬프트 비교는 후속 실험에서 진행

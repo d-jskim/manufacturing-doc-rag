@@ -1,4 +1,6 @@
 retrieval_version: r2
+label: Hybrid
+description: 벡터 검색과 키워드 검색 결과를 결합
 method: hybrid                 # 의미 검색(임베딩)과 키워드 검색(BM25) 결과를 순위로 결합
 candidate_count: 20            # 결합 후 문맥을 채우기 전에 넘길 후보 청크 수(r1과 같게 맞춤)
 exact: true                    # 의미 검색은 r1과 같이 전체 비교(exact)

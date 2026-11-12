@@ -18,7 +18,40 @@ result_files:
   judge: e04_c1_m1_p1_judge_20261111_1553.json
 
 settings:
+  chunk_version: c1
+  embedding: m1
+  prompt_version: p1
+  retrieval_modes:
+    naive: r1
+    hybrid: r2
+    rerank: r3
   final_k: 3
   context_token_budget: 2373
   generation_model: gpt-6-luna
   evaluation_questions: 30
+
+id_definitions:
+  c1:
+    type: chunk
+    label: 페이지 단위
+    description: 1페이지를 1청크로 사용
+  m1:
+    type: embedding
+    label: Multilingual E5 Base
+    description: intfloat/multilingual-e5-base, 입력 한도 512토큰
+  p1:
+    type: prompt
+    label: 기준 프롬프트
+    description: 제조 문서의 적용 조건과 근거를 확인하고 답변·추가 확인·보류를 JSON으로 반환
+  r1:
+    type: retrieval
+    label: Naive
+    description: 임베딩 벡터 유사도 기반 검색
+  r2:
+    type: retrieval
+    label: Hybrid
+    description: 벡터 검색과 키워드 검색 결과를 결합
+  r3:
+    type: retrieval
+    label: Hybrid + Reranking
+    description: 하이브리드 검색 후보를 Cross-encoder로 재순위화

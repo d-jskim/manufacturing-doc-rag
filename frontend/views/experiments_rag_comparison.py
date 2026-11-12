@@ -4,6 +4,10 @@ import altair as alt
 import pandas as pd
 import streamlit as st
 
+from components.report import (
+    format_experiment_id,
+    show_experiment_id_definitions,
+)
 from results_loader import (
     list_datasets,
     list_report_files,
@@ -14,12 +18,6 @@ from results_loader import (
 
 EXPERIMENT = "04_retrieval"
 MODES = ("naive", "hybrid", "rerank")
-MODE_LABELS = {
-    "naive": "Naive",
-    "hybrid": "Hybrid",
-    "rerank": "Hybrid + Reranking",
-}
-MODE_ORDER = list(MODE_LABELS.values())
 MODE_COLORS = ["#94A3B8", "#60A5FA", "#2563EB"]
 JUDGE_CRITERIA = ("facts", "conditions", "evidence", "decision")
 
@@ -47,6 +45,11 @@ answers = load_result(base / report["result_files"]["answers"])
 faithfulness = load_result(base / report["result_files"]["faithfulness"])
 judge = load_result(base / report["result_files"]["judge"])
 settings = report["settings"]
+mode_labels = {
+    mode: format_experiment_id(report, retrieval_id)
+    for mode, retrieval_id in settings["retrieval_modes"].items()
+}
+mode_order = list(mode_labels.values())
 
 st.header(report["title"])
 st.markdown(
@@ -72,13 +75,22 @@ columns[3].metric(
     "생성 모델",
     settings["generation_model"],
 )
+show_experiment_id_definitions(
+    report,
+    [
+        settings["chunk_version"],
+        settings["embedding"],
+        settings["prompt_version"],
+        *settings["retrieval_modes"].values(),
+    ],
+)
 
 quality_rows = []
 coverage_rows = []
 operation_rows = []
 
 for mode in MODES:
-    label = MODE_LABELS[mode]
+    label = mode_labels[mode]
     retrieval_summary = retrieval["summary"][mode]
     search = retrieval_summary["k3"]
     service = answers["summary"][mode]
@@ -227,15 +239,15 @@ def make_metric_chart(
         y=alt.Y(
             "방식:N",
             title=None,
-            sort=MODE_ORDER,
+            sort=mode_order,
             axis=None,
         ),
         color=alt.Color(
             "방식:N",
             legend=None,
-            sort=MODE_ORDER,
+            sort=mode_order,
             scale=alt.Scale(
-                domain=MODE_ORDER,
+                domain=mode_order,
                 range=MODE_COLORS,
             ),
         ),
@@ -285,7 +297,7 @@ def make_metric_chart(
             y=alt.Y(
                 "방식:N",
                 title=None,
-                sort=MODE_ORDER,
+                sort=mode_order,
                 axis=None,
             ),
             text=alt.Text("표시값:N"),
@@ -300,7 +312,7 @@ def make_metric_chart(
 
 
 # 표의 첫 번째 열처럼 검색 방식 이름만 배치한다.
-method_data = pd.DataFrame({"방식": MODE_ORDER})
+method_data = pd.DataFrame({"방식": mode_order})
 method_labels = (
     alt.Chart(method_data)
     .mark_text(
@@ -314,7 +326,7 @@ method_labels = (
         y=alt.Y(
             "방식:N",
             title=None,
-            sort=MODE_ORDER,
+            sort=mode_order,
             axis=None,
         ),
         text=alt.Text("방식:N"),

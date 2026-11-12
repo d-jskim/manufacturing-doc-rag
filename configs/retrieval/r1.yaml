@@ -1,4 +1,6 @@
 retrieval_version: r1
+label: Naive
+description: 임베딩 벡터 유사도 기반 검색
 method: dense            # 임베딩 유사도만 사용(Naive RAG)
 candidate_count: 20      # 문맥을 채우기 전에 가져올 후보 청크 수
 exact: true              # 평가 지표는 전체 비교(exact) 결과로 계산

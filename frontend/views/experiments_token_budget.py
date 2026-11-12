@@ -2,8 +2,14 @@
 import streamlit as st
 
 from components.report import (
-    format_value, show_conclusion, show_count_bars, show_header,
-    show_histogram, show_metrics, show_predictions,
+    format_value,
+    show_conclusion,
+    show_count_bars,
+    show_experiment_id_definitions,
+    show_header,
+    show_histogram,
+    show_metrics,
+    show_predictions,
 )
 from results_loader import (
     list_datasets,
@@ -33,6 +39,7 @@ report = reports[selected_report_path]
 selected = results_dir(EXPERIMENT, dataset) / report["result_file"]
 
 show_header(report["title"], report["purpose"])
+show_experiment_id_definitions(report, ["c0", "p0", "r0"])
 
 result = load_result(selected)
 summary = result["summary"]
@@ -59,7 +66,7 @@ with left:
     with e5_tab:
         show_histogram(
             [page["embedding_input_token_count"] for page in pages],
-            max_tokens, f"{max_tokens} 기준선", "페이지 토큰 수", "페이지 수",
+            max_tokens, f"{max_tokens} Baseline", "페이지 토큰 수", "페이지 수",
         )
     with generation_tab:
         p90 = summary["generation_input_token_count"]["p90"]

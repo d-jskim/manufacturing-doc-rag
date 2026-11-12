@@ -2,6 +2,20 @@ title: 문맥 토큰 한도 결정
 purpose: c1·c2·c3 비교에 공통으로 적용할 문맥 토큰 한도를 데이터로 결정함
 result_file: e01_c0_p0_r0_20261110_1501_token_budget.json
 
+id_definitions:
+  c0:
+    type: chunk
+    label: 청킹 미적용
+    description: 청킹 선택 전 페이지 단위 토큰 분포를 측정
+  p0:
+    type: prompt
+    label: 프롬프트 미적용
+    description: 답변 생성 없이 토큰 한도만 분석
+  r0:
+    type: retrieval
+    label: 검색 미적용
+    description: 검색 실행 없이 평가 질문의 근거 페이지 분포를 분석
+
 predictions:
   - item: 페이지 토큰 중앙값(생성 모델 기준)
     predicted: 700~900

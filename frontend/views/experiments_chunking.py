@@ -5,7 +5,9 @@ import pandas as pd
 import streamlit as st
 
 from components.report import (
+    format_experiment_id,
     show_failure_analysis,
+    show_experiment_id_definitions,
     show_result_analysis,
 )
 from results_loader import (
@@ -51,12 +53,19 @@ st.markdown(
     f"- **데이터셋:** {report['dataset_label']}\n"
     f"- **평가 목적:** {report['purpose']}"
 )
+show_experiment_id_definitions(
+    report,
+    [*CHUNK_VERSIONS, settings["embedding"], "p0", settings["retrieval"]],
+)
 
 columns = st.columns(4)
 columns[0].metric("평가 질문 수", settings["evaluation_questions"])
 columns[1].metric("지표 산출 질문 수", settings["evaluated_questions"])
 columns[2].metric("문맥 토큰 한도", f"{settings['context_token_budget']:,}")
-columns[3].metric("선택 청킹 버전", settings["selected_chunk_version"].upper())
+columns[3].metric(
+    "선택 청킹 버전",
+    format_experiment_id(report, settings["selected_chunk_version"]),
+)
 
 rows = []
 
@@ -104,10 +113,8 @@ quality_data = comparison.melt(
     value_name="값",
 )
 
-chunk_versions = report["chunk_versions"]
-
 chunk_labels = {
-    version.upper(): f"{version.upper()} · {chunk_versions[version]['label']}"
+    version.upper(): format_experiment_id(report, version)
     for version in CHUNK_VERSIONS
 }
 
@@ -174,13 +181,6 @@ quality_chart = (
 
 st.altair_chart(quality_chart, width="stretch")
 
-st.caption(
-    " · ".join(
-        f"{version.upper()}: {chunk_versions[version]['description']}"
-        for version in CHUNK_VERSIONS
-    )
-)
-
 st.subheader("청크 및 처리 비용 비교")
 
 st.dataframe(
@@ -217,7 +217,7 @@ selected_metrics = selected_summary["retrieval_metrics"]
 selected_stats = selected_summary["chunk_stats"]
 
 st.subheader("선택 결과")
-st.success(f"선택된 청킹 버전: {selected.upper()}")
+st.success(f"선택된 청킹 버전: {format_experiment_id(report, selected)}")
 
 st.markdown(
     f"- **Hit@k:** {selected_metrics['hit_at_k']:.2%}\n"

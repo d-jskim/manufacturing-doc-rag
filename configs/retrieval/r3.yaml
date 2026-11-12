@@ -1,4 +1,6 @@
 retrieval_version: r3
+label: Hybrid + Reranking
+description: 하이브리드 검색 후보를 Cross-encoder로 재순위화
 method: hybrid_rerank          # 하이브리드 검색 결과에 Cross-encoder 재순위 적용
 candidate_count: 20            # RRF 결합 후 리랭커에 전달할 후보 청크 수
 exact: true                    # 의미 검색은 r1·r2와 같이 전체 비교(exact)

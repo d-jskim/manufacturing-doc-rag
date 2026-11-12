@@ -1,4 +1,6 @@
 prompt_version: p1
+label: 기준 프롬프트
+description: 제조 문서의 적용 조건과 근거를 확인하고 답변·추가 확인·보류를 JSON으로 반환
 
 generation:                   # 같은 비교 안에서는 바꾸지 않음
   model: gpt-6-luna

@@ -1,4 +1,6 @@
 model_code: m1
+label: Multilingual E5 Base
+description: intfloat/multilingual-e5-base, 입력 한도 512토큰
 model: intfloat/multilingual-e5-base
 passage_prefix: "passage: "
 query_prefix: "query: "
