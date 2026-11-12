@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import sys
 import time
 from collections import Counter
 from datetime import datetime
@@ -9,64 +10,50 @@ from pathlib import Path
 
 import httpx
 
-ROOT = Path(__file__).resolve().parents[1]
-DATASET = "manufacturing_basic"
-QUESTION_PATH = (
-    ROOT
-    / "data"
-    / "raw"
-    / DATASET
-    / "evaluation"
-    / "development.json"
+if __package__ in {None, ""}:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from evaluation.common import (
+    DATASETS,
+    DEFAULT_DATASET,
+    evaluation_path,
+    load_json,
+    relative_path,
+    results_dir,
+    write_json,
 )
-RESULTS_DIR = (
-    ROOT
-    / "experiments"
-    / "04_retrieval"
-    / "results"
-    / DATASET
-)
+
 DEFAULT_MODES = ("naive", "hybrid", "rerank")
+DEFAULT_BASE_URL = "http://127.0.0.1:8000"
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--base-url",
-        default="http://127.0.0.1:8000",
-    )
+    parser.add_argument("--dataset", choices=DATASETS, default=DEFAULT_DATASET)
+    parser.add_argument("--question-set", default="development")
+    parser.add_argument("--base-url", default=DEFAULT_BASE_URL)
     parser.add_argument(
         "--modes",
         nargs="+",
         choices=DEFAULT_MODES,
         default=list(DEFAULT_MODES),
     )
-    parser.add_argument(
-        "--limit",
-        type=int,
-        default=None,
-    )
-    parser.add_argument(
-        "--run-id",
-        default=None,
-    )
-    parser.add_argument(
-        "--timeout",
-        type=float,
-        default=180.0,
-    )
+    parser.add_argument("--limit", type=int, default=None)
+    parser.add_argument("--run-id", default=None)
+    parser.add_argument("--timeout", type=float, default=180.0)
     return parser.parse_args()
 
 
-def make_run_id() -> str:
+def make_run_id(active_config: dict, question_set: str) -> str:
     timestamp = datetime.now().strftime("%Y%m%d_%H%M")
-    return f"e04_c1_m1_p1_all_{timestamp}"
+    chunk = active_config["chunk_version"]
+    embedding = active_config["embedding"]
+    prompt = active_config["prompt"]
+    return f"e04_{chunk}_{embedding}_{prompt}_{question_set}_all_{timestamp}"
 
 
-def load_questions(limit: int | None) -> list[dict]:
-    questions = json.loads(
-        QUESTION_PATH.read_text(encoding="utf-8")
-    )
+def load_questions(question_path: Path, limit: int | None) -> list[dict]:
+    questions = json.loads(question_path.read_text(encoding="utf-8"))
     if limit is not None:
         return questions[:limit]
     return questions
@@ -78,10 +65,34 @@ def mean(values: list[float]) -> float | None:
     return round(sum(values) / len(values), 4)
 
 
-def summarize(records: list[dict]) -> dict:
+def load_active_config(
+    client: httpx.Client,
+    base_url: str,
+    expected_dataset: str,
+    modes: list[str],
+) -> dict:
+    response = client.get(f"{base_url.rstrip('/')}/health")
+    response.raise_for_status()
+    health = response.json()
+    active_dataset = health.get("dataset")
+
+    if active_dataset != expected_dataset:
+        raise RuntimeError(
+            f"데이터셋 불일치: 실행={expected_dataset}, API={active_dataset}"
+        )
+
+    active_modes = health.get("retrieval_modes", {})
+    unavailable = [mode for mode in modes if mode not in active_modes]
+    if unavailable:
+        raise RuntimeError(f"API에 없는 검색 방식: {', '.join(unavailable)}")
+
+    return {key: value for key, value in health.items() if key != "status"}
+
+
+def summarize(records: list[dict], modes: list[str]) -> dict:
     summary = {}
 
-    for mode in DEFAULT_MODES:
+    for mode in modes:
         mode_records = [
             record
             for record in records
@@ -156,73 +167,88 @@ def summarize(records: list[dict]) -> dict:
 def save_result(
     result_path: Path,
     run_id: str,
-    args: argparse.Namespace,
+    dataset: str,
+    question_set: str,
+    question_path: Path,
+    modes: list[str],
+    base_url: str,
+    timeout: float,
+    active_config: dict,
     question_count: int,
     records: list[dict],
 ) -> None:
-    result = {
-        "run_id": run_id,
-        "dataset": DATASET,
-        "question_source": str(
-            QUESTION_PATH.relative_to(ROOT)
-        ),
-        "question_count": question_count,
-        "requested_modes": args.modes,
-        "base_url": args.base_url,
-        "timeout_seconds": args.timeout,
-        "summary": summarize(records),
-        "records": records,
+    write_json(
+        result_path,
+        {
+            "run_id": run_id,
+            "dataset": dataset,
+            "active_config": active_config,
+            "question_set": question_set,
+            "question_source": relative_path(question_path),
+            "question_count": question_count,
+            "requested_modes": modes,
+            "base_url": base_url,
+            "timeout_seconds": timeout,
+            "summary": summarize(records, modes),
+            "records": records,
+        },
+    )
+
+
+def validate_resume(
+    previous: dict,
+    active_config: dict,
+    question_path: Path,
+    modes: list[str],
+) -> None:
+    checks = {
+        "active_config": active_config,
+        "question_source": relative_path(question_path),
+        "requested_modes": modes,
     }
-    result_path.write_text(
-        json.dumps(
-            result,
-            ensure_ascii=False,
-            indent=2,
-        ),
-        encoding="utf-8",
-    )
+    mismatches = [key for key, value in checks.items() if previous.get(key) != value]
+    if mismatches:
+        raise RuntimeError(f"기존 실행 조건 불일치: {', '.join(mismatches)}")
 
 
-def main() -> None:
-    args = parse_args()
-    run_id = args.run_id or make_run_id()
-    questions = load_questions(args.limit)
+def run_comparison(
+    dataset: str = DEFAULT_DATASET,
+    question_set: str = "development",
+    base_url: str = DEFAULT_BASE_URL,
+    modes: list[str] | None = None,
+    limit: int | None = None,
+    run_id: str | None = None,
+    timeout: float = 180.0,
+) -> Path:
+    modes = list(modes or DEFAULT_MODES)
+    question_path = evaluation_path(dataset, question_set)
+    questions = load_questions(question_path, limit)
+    result_dir = results_dir(dataset)
+    result_dir.mkdir(parents=True, exist_ok=True)
 
-    RESULTS_DIR.mkdir(
-        parents=True,
-        exist_ok=True,
-    )
-    result_path = RESULTS_DIR / f"{run_id}.json"
+    with httpx.Client(timeout=timeout) as client:
+        active_config = load_active_config(client, base_url, dataset, modes)
+        run_id = run_id or make_run_id(active_config, question_set)
+        result_path = result_dir / f"{run_id}.json"
 
-    if result_path.exists():
-        previous = json.loads(
-            result_path.read_text(encoding="utf-8")
-        )
-        records = previous["records"]
-    else:
-        records = []
+        if result_path.exists():
+            previous = load_json(result_path)
+            validate_resume(previous, active_config, question_path, modes)
+            records = previous["records"]
+        else:
+            records = []
 
-    completed = {
-        (
-            record["question_id"],
-            record["retrieval_mode"],
-        )
-        for record in records
-    }
+        completed = {
+            (record["question_id"], record["retrieval_mode"])
+            for record in records
+        }
 
-    print(f"run_id: {run_id}")
-    print(f"result_path: {result_path}")
-    print(
-        f"requests: "
-        f"{len(questions)} questions × "
-        f"{len(args.modes)} modes"
-    )
+        print(f"run_id: {run_id}")
+        print(f"result_path: {result_path}")
+        print(f"requests: {len(questions)} questions × {len(modes)} modes")
 
-    with httpx.Client(
-        timeout=args.timeout,
-    ) as client:
         for question in questions:
-            for mode in args.modes:
+            for mode in modes:
                 key = (question["id"], mode)
                 if key in completed:
                     print(
@@ -241,7 +267,7 @@ def main() -> None:
 
                 try:
                     response = client.post(
-                        f"{args.base_url}/query",
+                        f"{base_url.rstrip('/')}/query",
                         json=payload,
                     )
                     try:
@@ -279,7 +305,13 @@ def main() -> None:
                 save_result(
                     result_path,
                     run_id,
-                    args,
+                    dataset,
+                    question_set,
+                    question_path,
+                    modes,
+                    base_url,
+                    timeout,
+                    active_config,
                     len(questions),
                     records,
                 )
@@ -293,18 +325,32 @@ def main() -> None:
     save_result(
         result_path,
         run_id,
-        args,
+        dataset,
+        question_set,
+        question_path,
+        modes,
+        base_url,
+        timeout,
+        active_config,
         len(questions),
         records,
     )
-    print(
-        json.dumps(
-            summarize(records),
-            ensure_ascii=False,
-            indent=2,
-        )
-    )
+    print(json.dumps(summarize(records, modes), ensure_ascii=False, indent=2))
     print(f"완료: {result_path}")
+    return result_path
+
+
+def main() -> None:
+    args = parse_args()
+    run_comparison(
+        dataset=args.dataset,
+        question_set=args.question_set,
+        base_url=args.base_url,
+        modes=args.modes,
+        limit=args.limit,
+        run_id=args.run_id,
+        timeout=args.timeout,
+    )
 
 
 if __name__ == "__main__":

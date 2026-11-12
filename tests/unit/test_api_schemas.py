@@ -77,6 +77,8 @@ def test_query_response_accepts_operational_metrics():
             "retrieval_seconds": 0.2,
             "generation_seconds": 2.3,
             "attempts": 1,
+            "context_chunk_ids": ["MB01-p001-c001"],
+            "context_token_count": 640,
             "usage": {
                 "input_tokens": 1200,
                 "output_tokens": 100,
@@ -88,6 +90,8 @@ def test_query_response_accepts_operational_metrics():
     assert response.metrics.retrieval_seconds == 0.2
     assert response.metrics.generation_seconds == 2.3
     assert response.metrics.attempts == 1
+    assert response.metrics.context_chunk_ids == ["MB01-p001-c001"]
+    assert response.metrics.context_token_count == 640
     assert response.metrics.usage.input_tokens == 1200
     assert response.metrics.usage.output_tokens == 100
 

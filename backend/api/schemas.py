@@ -66,6 +66,8 @@ class QueryMetrics(BaseModel):
     retrieval_seconds: float
     generation_seconds: float
     attempts: int
+    context_chunk_ids: list[str]
+    context_token_count: int
     usage: TokenUsage | None
 
 

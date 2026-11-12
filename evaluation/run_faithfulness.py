@@ -1,57 +1,55 @@
-"""세 검색 방식의 답변에 RAGAS Faithfulness를 적용한다."""
+"""답변 생성에 실제 사용된 문맥으로 RAGAS Faithfulness를 평가한다."""
 
+import argparse
 import json
 import os
 import sys
 import time
 from pathlib import Path
 
-import yaml
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
 from ragas.llms import llm_factory
 from ragas.metrics.collections import Faithfulness
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+if __package__ in {None, ""}:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from evaluation.common import (
+    DATASETS,
+    DEFAULT_DATASET,
+    EVALUATION_MODEL,
+    ROOT,
+    load_answer_result,
+    load_chunks,
+    load_json,
+    metric_run_id,
+    relative_path,
+    results_dir,
+    select_records,
+    write_json,
+)
+
 load_dotenv(ROOT / ".env", override=True)
 
-from backend.core.token_counter import TiktokenCounter
-from backend.retrieval.context import fill_context
 
-RESULTS = (
-    ROOT
-    / "experiments"
-    / "04_retrieval"
-    / "results"
-    / "manufacturing_basic"
-)
-ANSWER_PATH = RESULTS / "e04_c1_m1_p1_all_20261111_1553.json"
-RETRIEVAL_PATH = RESULTS / "e04_c1_m1_p1_k235_20261111_1415.json"
-OUTPUT_PATH = RESULTS / "e04_c1_m1_p1_faithfulness_20261111_1553.json"
-CHUNKS_PATH = (
-    ROOT
-    / "data"
-    / "processed"
-    / "manufacturing_basic"
-    / "c1"
-    / "chunks.jsonl"
-)
-MODES = ("naive", "hybrid", "rerank")
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dataset", choices=DATASETS, default=DEFAULT_DATASET)
+    parser.add_argument("--run-id", required=True)
+    parser.add_argument("--limit", type=int, default=None)
+    return parser.parse_args()
 
 
-def load_json(path: Path):
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
-def summarize(rows: list[dict]) -> dict:
+def summarize(rows: list[dict], modes: list[str]) -> dict:
     summary = {}
-    for mode in MODES:
+
+    for mode in modes:
+        mode_rows = [row for row in rows if row["retrieval_mode"] == mode]
         scores = [
             row["faithfulness"]
-            for row in rows
-            if row["retrieval_mode"] == mode
-            and row["faithfulness"] is not None
+            for row in mode_rows
+            if row["faithfulness"] is not None
         ]
         summary[mode] = {
             "mean_faithfulness": (
@@ -61,82 +59,51 @@ def summarize(rows: list[dict]) -> dict:
             ),
             "evaluated_count": len(scores),
             "error_count": sum(
-                row["retrieval_mode"] == mode
-                and row["faithfulness"] is None
-                for row in rows
+                row["faithfulness"] is None for row in mode_rows
             ),
         }
+
     return summary
 
 
-def save(rows: list[dict]) -> None:
-    OUTPUT_PATH.write_text(
-        json.dumps(
-            {
-                "metric": "ragas_faithfulness",
-                "model": "gpt-6-luna",
-                "answer_result": str(ANSWER_PATH.relative_to(ROOT)),
-                "retrieval_result": str(RETRIEVAL_PATH.relative_to(ROOT)),
-                "summary": summarize(rows),
-                "rows": rows,
-            },
-            ensure_ascii=False,
-            indent=2,
-        ),
-        encoding="utf-8",
+def save_result(
+    output_path: Path,
+    answer_path: Path,
+    active_config: dict,
+    modes: list[str],
+    rows: list[dict],
+) -> None:
+    write_json(
+        output_path,
+        {
+            "run_id": output_path.stem,
+            "source_run_id": answer_path.stem,
+            "metric": "ragas_faithfulness",
+            "model": EVALUATION_MODEL,
+            "dataset": active_config["dataset"],
+            "active_config": active_config,
+            "answer_result": relative_path(answer_path),
+            "summary": summarize(rows, modes),
+            "rows": rows,
+        },
     )
 
 
-def main() -> None:
-    limit = int(sys.argv[1]) if len(sys.argv) > 1 else None
+def run_faithfulness(
+    dataset: str,
+    run_id: str,
+    limit: int | None = None,
+) -> Path:
+    answer_path, answer_result, active_config = load_answer_result(dataset, run_id)
+    chunks = load_chunks(dataset, active_config["chunk_version"])
+    modes = answer_result["requested_modes"]
+    answer_records = select_records(answer_result["records"], limit)
 
-    answer_records = load_json(ANSWER_PATH)["records"]
-    retrieval_result = load_json(RETRIEVAL_PATH)
-    chunks = {
-        chunk["chunk_id"]: chunk
-        for chunk in (
-            json.loads(line)
-            for line in CHUNKS_PATH.read_text(
-                encoding="utf-8"
-            ).splitlines()
-            if line.strip()
-        )
-    }
-    context_ids = {
-        (row["id"], mode): row["context_chunk_ids"]
-        for mode in MODES
-        for row in retrieval_result["rows"][mode]["k3"]
-    }
-
-    question_ids = list(
-        dict.fromkeys(
-            record["question_id"]
-            for record in answer_records
-        )
-    )
-    if limit is not None:
-        selected_ids = set(question_ids[:limit])
-        answer_records = [
-            record
-            for record in answer_records
-            if record["question_id"] in selected_ids
-        ]
-
-    active = yaml.safe_load(
-        (ROOT / "configs" / "active.yaml").read_text(
-            encoding="utf-8"
-        )
-    )
-    counter = TiktokenCounter("gpt-6-luna", "o200k_base")
-
-    rows = (
-        load_json(OUTPUT_PATH)["rows"]
-        if OUTPUT_PATH.exists()
-        else []
-    )
+    output_run_id = metric_run_id(run_id, "faithfulness")
+    output_path = results_dir(dataset) / f"{output_run_id}.json"
+    rows = load_json(output_path)["rows"] if output_path.exists() else []
     completed = {
-        (row["question_id"], row["retrieval_mode"])
-        for row in rows
+        (row["question_id"], row["retrieval_mode"]) for row in rows
     }
 
     client = AsyncOpenAI(
@@ -144,7 +111,7 @@ def main() -> None:
         timeout=180.0,
     )
     llm = llm_factory(
-        model="gpt-6-luna",
+        model=EVALUATION_MODEL,
         provider="openai",
         client=client,
         seed=42,
@@ -153,36 +120,32 @@ def main() -> None:
     metric = Faithfulness(llm=llm)
 
     for record in answer_records:
-        key = (
-            record["question_id"],
-            record["retrieval_mode"],
-        )
+        key = (record["question_id"], record["retrieval_mode"])
         if key in completed:
             continue
 
-        selected = [
-            chunks[chunk_id]
-            for chunk_id in context_ids[key]
-        ]
-        context, token_count = fill_context(
-            selected,
-            counter,
-            active["context_token_budget"],
-        )
         response = record["response"]
-        answer = response["answer"]
-        if response.get("reason"):
-            answer += f"\n사유: {response['reason']}"
-
+        metrics = response.get("metrics") or {}
+        context_chunk_ids = metrics.get("context_chunk_ids", [])
+        context_token_count = metrics.get("context_token_count")
         started = time.perf_counter()
+
         try:
+            if not context_chunk_ids:
+                raise ValueError("실제 사용 문맥 정보가 없습니다.")
+
+            contexts = [
+                chunks[chunk_id]["text"]
+                for chunk_id in context_chunk_ids
+            ]
+            answer = response["answer"]
+            if response.get("reason"):
+                answer += f"\n사유: {response['reason']}"
+
             result = metric.score(
                 user_input=record["question"],
                 response=answer,
-                retrieved_contexts=[
-                    chunk["text"]
-                    for chunk in context
-                ],
+                retrieved_contexts=contexts,
             )
             score = float(result.value)
             error = None
@@ -195,30 +158,24 @@ def main() -> None:
                 "question_id": record["question_id"],
                 "retrieval_mode": record["retrieval_mode"],
                 "status": response["status"],
-                "context_chunk_ids": [
-                    chunk["chunk_id"]
-                    for chunk in context
-                ],
-                "context_token_count": token_count,
+                "context_chunk_ids": context_chunk_ids,
+                "context_token_count": context_token_count,
                 "faithfulness": score,
-                "seconds": round(
-                    time.perf_counter() - started,
-                    3,
-                ),
+                "seconds": round(time.perf_counter() - started, 3),
                 "error": error,
             }
         )
-        save(rows)
+        save_result(output_path, answer_path, active_config, modes, rows)
         print(f"{key[0]} / {key[1]}: {score}")
 
-    print(
-        json.dumps(
-            summarize(rows),
-            ensure_ascii=False,
-            indent=2,
-        )
-    )
-    print(f"완료: {OUTPUT_PATH}")
+    print(json.dumps(summarize(rows, modes), ensure_ascii=False, indent=2))
+    print(f"완료: {output_path}")
+    return output_path
+
+
+def main() -> None:
+    args = parse_args()
+    run_faithfulness(args.dataset, args.run_id, args.limit)
 
 
 if __name__ == "__main__":

@@ -39,7 +39,20 @@ app = FastAPI(
 
 @app.get("/health")
 def health() -> dict:
-    return {"status": "ok"}
+    if pipeline is None:
+        return {"status": "starting", "dataset": None}
+
+    config = pipeline.config
+    return {
+        "status": "ok",
+        "dataset": config["dataset"],
+        "chunk_version": config["chunk_version"],
+        "embedding": config["embedding"],
+        "prompt": config["prompt"],
+        "retrieval_modes": config["retrieval_modes"],
+        "final_k": config["final_k"],
+        "context_token_budget": config["context_token_budget"],
+    }
 
 
 @app.post(
@@ -101,6 +114,8 @@ def query(request: QueryRequest) -> JSONResponse:
         retrieval_seconds=result["retrieval"]["seconds"],
         generation_seconds=result["generation_seconds"],
         attempts=result["attempts"],
+        context_chunk_ids=result["retrieval"]["context_chunk_ids"],
+        context_token_count=result["retrieval"]["context_token_count"],
         usage=result["usage"],
     )
     body = QueryResponse(
