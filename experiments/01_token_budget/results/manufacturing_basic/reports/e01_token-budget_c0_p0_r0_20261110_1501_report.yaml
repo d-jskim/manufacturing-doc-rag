@@ -1,0 +1,32 @@
+report_id: e01_token-budget_c0_p0_r0_20261110_1501
+report_label: 문맥 토큰 한도 결정 · 2026-11-10 15:01
+experiment: 01_token_budget
+dataset: manufacturing_basic
+created_at: 2026-11-10 15:01
+status: approved
+
+
+title: 문맥 토큰 한도 결정
+purpose: c1·c2·c3 비교에 공통으로 적용할 문맥 토큰 한도를 데이터로 결정함
+result_file: e01_c0_p0_r0_20261110_1501_token_budget.json
+
+predictions:
+  - item: 페이지 토큰 중앙값(생성 모델 기준)
+    predicted: 700~900
+    result_key: generation_input_token_count.median
+  - item: 임베딩 입력 한도 초과 페이지 비율
+    predicted: 상당수
+    result_key: embedding_input_limit.over_limit_page_ratio
+  - item: 문맥에 담을 페이지 수(N)
+    predicted: 2
+    result_key: context_page_count
+  - item: 문맥 토큰 한도
+    predicted: 1,600~2,000
+    result_key: context_token_budget
+
+conclusion:
+  decisions:
+    - 문맥 토큰 한도는 1,582토큰으로 c1·c2·c3에 동일하게 적용함
+    - 1페이지 청크의 83.6%가 임베딩 입력 한도를 초과하므로 c2·c3 비교를 진행함
+  limitations:
+    - 근거가 3페이지인 개발 질문 2개는 c1에서 근거를 모두 담을 수 없음

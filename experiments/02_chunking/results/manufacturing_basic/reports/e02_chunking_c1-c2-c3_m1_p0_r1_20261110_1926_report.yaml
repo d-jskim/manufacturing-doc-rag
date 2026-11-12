@@ -1,0 +1,34 @@
+report_id: e02_chunking_c1-c2-c3_m1_p0_r1_20261110_1926
+report_label: c1·c2·c3 청킹 비교 · m1 · 2026-11-10 19:26
+experiment: 02_chunking
+dataset: manufacturing_basic
+created_at: 2026-11-10 19:26
+status: approved
+
+title: 제조 문서 청킹 성능 평가
+dataset_label: Manufacturing Basic
+purpose: 동일한 검색 조건에서 세 청킹 방식의 검색 품질과 처리 비용 비교
+
+result_files:
+  c1: e02_c1_m1_p0_r1_20261110_1926_retrieval.json
+  c2: e02_c2_m1_p0_r1_20261110_1926_retrieval.json
+  c3: e02_c3_m1_p0_r1_20261110_1926_retrieval.json
+
+settings:
+  evaluation_questions: 30
+  evaluated_questions: 29
+  context_token_budget: 1582
+  embedding: m1
+  retrieval: r1
+  selected_chunk_version: c1
+
+chunk_versions:
+  c1:
+    label: 페이지 단위
+    description: 1페이지를 1청크로 사용
+  c2:
+    label: 페이지 내 분할
+    description: 페이지 안에서 508토큰 이하로 재귀 분할, overlap 50토큰
+  c3:
+    label: 페이지 간 분할
+    description: 페이지 경계를 넘어 508토큰 이하로 재귀 분할, overlap 50토큰

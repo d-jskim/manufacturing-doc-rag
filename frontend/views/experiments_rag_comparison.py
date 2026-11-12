@@ -6,7 +6,8 @@ import streamlit as st
 
 from results_loader import (
     list_datasets,
-    load_report,
+    list_report_files,
+    load_report_file,
     load_result,
     results_dir,
 )
@@ -24,15 +25,26 @@ JUDGE_CRITERIA = ("facts", "conditions", "evidence", "decision")
 
 datasets = list_datasets(EXPERIMENT)
 dataset = st.selectbox("데이터셋", datasets)
-report = load_report(EXPERIMENT, dataset)
+report_files = list_report_files(EXPERIMENT, dataset)
+
+if not report_files:
+    st.error("승인된 실행 보고서가 없습니다.")
+    st.stop()
+
+reports = {path: load_report_file(path) for path in report_files}
+selected_report_path = st.selectbox(
+    "보고서(실행 ID)",
+    report_files,
+    format_func=lambda path: reports[path].get("report_label", path.stem),
+)
+
+report = reports[selected_report_path]
 base = results_dir(EXPERIMENT, dataset)
 
-# 임시 결과가 섞이지 않도록 report.yaml에서 지정한 파일만 사용한다.
+# 선택한 실행별 보고서에 지정된 결과 파일만 사용한다.
 retrieval = load_result(base / report["result_files"]["retrieval"])
 answers = load_result(base / report["result_files"]["answers"])
-faithfulness = load_result(
-    base / report["result_files"]["faithfulness"]
-)
+faithfulness = load_result(base / report["result_files"]["faithfulness"])
 judge = load_result(base / report["result_files"]["judge"])
 settings = report["settings"]
 

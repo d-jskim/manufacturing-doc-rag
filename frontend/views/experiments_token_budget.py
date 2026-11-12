@@ -5,27 +5,34 @@ from components.report import (
     format_value, show_conclusion, show_count_bars, show_header,
     show_histogram, show_metrics, show_predictions,
 )
-from results_loader import list_datasets, list_result_files, load_report, load_result
+from results_loader import (
+    list_datasets,
+    list_report_files,
+    load_report_file,
+    load_result,
+    results_dir,
+)
 
 EXPERIMENT = "01_token_budget"
 
 dataset = st.selectbox("데이터셋", list_datasets(EXPERIMENT))
-report = load_report(EXPERIMENT, dataset)
-result_files = list_result_files(EXPERIMENT, dataset)
-result_names = [path.name for path in result_files]
+report_files = list_report_files(EXPERIMENT, dataset)
 
-header_col, select_col = st.columns([3, 1])
-with header_col:
-    show_header(report["title"], report["purpose"])
-with select_col:
-    default_index = result_names.index(report["result_file"]) if report["result_file"] in result_names else 0
-    selected = st.selectbox(
-        "결과 파일(실행 ID)", result_files, index=default_index,
-        format_func=lambda path: path.stem,
-    )
+if not report_files:
+    st.error("승인된 실행 보고서가 없습니다.")
+    st.stop()
 
-if selected.name != report["result_file"]:
-    st.warning(f"결론과 예측 설명(report.yaml)은 {report['result_file']} 기준입니다.")
+reports = {path: load_report_file(path) for path in report_files}
+selected_report_path = st.selectbox(
+    "보고서(실행 ID)",
+    report_files,
+    format_func=lambda path: reports[path].get("report_label", path.stem),
+)
+
+report = reports[selected_report_path]
+selected = results_dir(EXPERIMENT, dataset) / report["result_file"]
+
+show_header(report["title"], report["purpose"])
 
 result = load_result(selected)
 summary = result["summary"]
