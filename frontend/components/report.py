@@ -7,6 +7,19 @@ from results_loader import get_value
 
 THRESHOLD_COLOR = "#DC2626"
 
+FAILURE_TYPE_LABELS = {
+    "hypothesis_miss": "가설 미충족",
+    "execution_error": "실행 오류",
+    "data_issue": "데이터 문제",
+    "evaluation_issue": "평가 문제",
+}
+
+FAILURE_STATUS_LABELS = {
+    "hypothesis": "가설",
+    "confirmed": "확인됨",
+    "resolved": "해결됨",
+}
+
 
 def format_value(key: str, value) -> str:
     """개수 비율(_ratio)은 %, 정수 값(712.0 포함)은 천 단위 쉼표, 그 외는 그대로 표시함."""
@@ -82,3 +95,68 @@ def show_conclusion(conclusion: dict) -> None:
     st.markdown("\n".join(f"- {item}" for item in conclusion["decisions"]))
     st.markdown("**한계**")
     st.markdown("\n".join(f"- {item}" for item in conclusion["limitations"]))
+
+
+def show_result_analysis(
+    analysis: dict | None,
+    item_labels: dict[str, str] | None = None,
+) -> None:
+    if not analysis or not analysis.get("items"):
+        return
+
+    st.subheader(analysis.get("title", "Result Analysis"))
+
+    labels = item_labels or {}
+    rows = [
+        {
+            "항목": labels.get(key, key),
+            "결과 요약": item.get("summary", ""),
+            "한계": item.get("limitation", ""),
+        }
+        for key, item in analysis["items"].items()
+    ]
+
+    st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
+
+
+def show_failure_analysis(analysis: dict | None) -> None:
+    if not analysis or not analysis.get("items"):
+        return
+
+    st.subheader(analysis.get("title", "Failure Analysis"))
+
+    for index, item in enumerate(analysis["items"]):
+        st.markdown(f"**{item['title']}**")
+
+        failure_type = FAILURE_TYPE_LABELS.get(
+            item.get("type"),
+            item.get("type", "미분류"),
+        )
+        status = FAILURE_STATUS_LABELS.get(
+            item.get("status"),
+            item.get("status", "미분류"),
+        )
+        st.caption(f"유형: {failure_type} · 상태: {status}")
+
+        fields = (
+            ("expectation", "예상"),
+            ("observed", "실제 결과"),
+            ("possible_cause", "추정 원인"),
+            ("follow_up", "후속 실험"),
+        )
+
+        for key, label in fields:
+            if item.get(key):
+                st.markdown(f"**{label}**\n\n{item[key]}")
+
+        if item.get("evidence"):
+            st.markdown("**근거**")
+            st.markdown(
+                "\n".join(
+                    f"- {evidence}"
+                    for evidence in item["evidence"]
+                )
+            )
+
+        if index < len(analysis["items"]) - 1:
+            st.divider()

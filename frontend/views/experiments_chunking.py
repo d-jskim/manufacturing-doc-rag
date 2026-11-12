@@ -4,6 +4,10 @@ import altair as alt
 import pandas as pd
 import streamlit as st
 
+from components.report import (
+    show_failure_analysis,
+    show_result_analysis,
+)
 from results_loader import (
     list_datasets,
     list_report_files,
@@ -198,6 +202,14 @@ st.dataframe(
         "문서 임베딩 토큰": st.column_config.NumberColumn(format="%d"),
     },
 )
+
+analysis_labels = {
+    version: chunk_labels[version.upper()]
+    for version in CHUNK_VERSIONS
+}
+
+show_result_analysis(report.get("result_analysis"), analysis_labels)
+show_failure_analysis(report.get("failure_analysis"))
 
 selected = settings["selected_chunk_version"]
 selected_summary = results[selected]["summary"]

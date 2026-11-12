@@ -32,3 +32,37 @@ chunk_versions:
   c3:
     label: 페이지 간 분할
     description: 페이지 경계를 넘어 508토큰 이하로 재귀 분할, overlap 50토큰
+
+result_analysis:
+  title: Result Analysis
+  items:
+    c1:
+      summary: 세 검색 품질 지표가 모두 가장 높고 문서 임베딩 토큰 수도 가장 적음
+      limitation: 전체 360개 청크 중 301개가 현재 임베딩 모델의 512토큰 입력 한도를 초과함
+
+    c2:
+      summary: 모든 청크가 입력 한도 이내지만 c1보다 검색 품질이 낮음
+      limitation: 분할된 일부 청크에서 문서명과 주제 제목이 빠져 검색 문맥이 약해진 것으로 해석됨
+
+    c3:
+      summary: Hit@k와 Recall@k는 c2와 같고 인용 Recall@k는 c2보다 높음
+      limitation: 현재 데이터셋에서는 c2와 청크 경계가 거의 같아 결과 차이가 제한적임
+
+failure_analysis:
+  title: Failure Analysis
+  items:
+    - failure_id: e02_split_context_loss
+      type: hypothesis_miss
+      title: 세분화 청킹의 검색 품질 개선 실패
+      status: hypothesis
+      affected_versions:
+        - c2
+        - c3
+      expectation: 입력 한도를 초과하지 않는 c2와 c3이 c1보다 높은 검색 품질을 보일 것으로 예상함
+      observed: c2와 c3의 Hit@k와 Recall@k가 c1보다 낮았음
+      possible_cause: 분할된 청크에서 문서명과 주제 제목 등 상위 문맥이 빠지고, 청크 수 증가로 유사 표현을 포함한 경쟁 후보가 늘어난 것으로 추정함
+      evidence:
+        - c1은 페이지 전체의 제목과 본문 문맥을 함께 유지함
+        - c2와 c3은 청크 수가 360개에서 661개로 증가함
+        - c1의 Hit@k, Recall@k, 인용 Recall@k가 모두 가장 높았음
+      follow_up: c2와 c3의 각 청크에 문서명과 제목을 반복 삽입한 조건으로 재실험함
