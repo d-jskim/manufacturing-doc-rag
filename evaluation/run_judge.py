@@ -24,6 +24,7 @@ from evaluation.common import (
     load_chunks,
     load_json,
     metric_run_id,
+    normalize_evaluation_item,
     project_path,
     relative_path,
     results_dir,
@@ -142,7 +143,10 @@ def run_judge(
 ) -> Path:
     answer_path, answer_result, active_config = load_answer_result(dataset, run_id)
     ground_truth_path = project_path(answer_result["question_source"])
-    ground_truth = {item["id"]: item for item in load_json(ground_truth_path)}
+    ground_truth = {
+        item["id"]: normalize_evaluation_item(item)
+        for item in load_json(ground_truth_path)
+    }
     chunks = load_chunks(dataset, active_config["chunk_version"])
     modes = answer_result["requested_modes"]
     answer_records = select_records(answer_result["records"], limit)

@@ -1,4 +1,9 @@
-from evaluation.common import metric_run_id, project_path, select_records
+from evaluation.common import (
+    metric_run_id,
+    normalize_evaluation_item,
+    project_path,
+    select_records,
+)
 from evaluation.run_comparison import make_run_id
 
 
@@ -36,3 +41,12 @@ def test_run_id_contains_active_config_and_question_set():
     run_id = make_run_id(active_config, "additional")
 
     assert run_id.startswith("e04_c2_m1_p1_additional_all_")
+
+
+def test_normalize_evaluation_item_fills_optional_fields():
+    item = {"id": "q1", "evidence_groups": [[{"book_id": "B1"}]]}
+
+    normalized = normalize_evaluation_item(item)
+
+    assert normalized["forbidden_claims"] == []
+    assert normalized["evidence_required"] is True

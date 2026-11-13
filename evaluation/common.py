@@ -69,6 +69,17 @@ def select_records(records: list[dict], limit: int | None) -> list[dict]:
     ]
 
 
+def normalize_evaluation_item(item: dict) -> dict:
+    """데이터셋 버전별 선택 필드를 공통 평가 형식으로 정규화한다."""
+    normalized = {**item}
+    normalized.setdefault("forbidden_claims", [])
+    normalized.setdefault(
+        "evidence_required",
+        bool(normalized.get("evidence_groups")),
+    )
+    return normalized
+
+
 def metric_run_id(source_run_id: str, metric: str) -> str:
     if "_all_" in source_run_id:
         return source_run_id.replace("_all_", f"_{metric}_", 1)

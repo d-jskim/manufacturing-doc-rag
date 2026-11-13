@@ -1,0 +1,23 @@
+experiment: 04_retrieval
+baseline_source: manufacturing_basic
+datasets:
+  - manufacturing_intermediate
+  - manufacturing_advanced
+
+question_set: development
+api_host: 127.0.0.1
+api_port: 8001
+request_timeout_seconds: 600
+
+settings:
+  chunk_version: c1
+  embedding: m1
+  prompt: p1
+  retrieval_modes:
+    naive: r1
+    hybrid: r2
+    rerank: r3
+  default_retrieval_mode: naive
+  final_k: 3
+  context_token_budget: 2373
+  qdrant_url: http://127.0.0.1:6333

@@ -1,5 +1,6 @@
 """FastAPI 앱: /health, /query. 실행: uv run uvicorn backend.api.main:app"""
 
+import os
 import uuid
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -22,11 +23,21 @@ from backend.pipeline import RAGPipeline
 pipeline: RAGPipeline | None = None
 
 
+def active_config_path() -> Path:
+    """서비스 기본 설정 또는 실험 실행에서 지정한 설정 경로를 반환한다."""
+    configured = os.getenv("RAG_ACTIVE_CONFIG_PATH")
+    if not configured:
+        return ROOT / "configs" / "active.yaml"
+
+    path = Path(configured)
+    return path if path.is_absolute() else ROOT / path
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """서버 시작 시 검색 파이프라인을 준비하고 종료 시 기록을 전송한다."""
     global pipeline
-    pipeline = RAGPipeline()
+    pipeline = RAGPipeline(active_config_path())
     yield
     pipeline.flush()
 
