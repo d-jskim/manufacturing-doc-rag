@@ -1,0 +1,1994 @@
+{
+  "run_id": "e04_c1_m1_p1_development_judge_20261113_0626",
+  "source_run_id": "e04_c1_m1_p1_development_all_20261113_0626",
+  "evaluation": "llm_as_a_judge",
+  "model": "gpt-6-luna",
+  "criteria": [
+    "facts",
+    "conditions",
+    "evidence",
+    "decision"
+  ],
+  "dataset": "manufacturing_advanced",
+  "active_config": {
+    "dataset": "manufacturing_advanced",
+    "chunk_version": "c1",
+    "embedding": "m1",
+    "prompt": "p1",
+    "retrieval_modes": {
+      "naive": "r1",
+      "hybrid": "r2",
+      "rerank": "r3"
+    },
+    "final_k": 3,
+    "context_token_budget": 2373
+  },
+  "answer_result": "experiments/04_retrieval/results/manufacturing_advanced/e04_c1_m1_p1_development_all_20261113_0626.json",
+  "ground_truth": "data/raw/manufacturing_advanced/evaluation/development.json",
+  "summary": {
+    "naive": {
+      "request_count": 30,
+      "evaluation_error_count": 25,
+      "facts": {
+        "pass_rate": 1.0,
+        "evaluated_count": 5,
+        "not_applicable_count": 0
+      },
+      "conditions": {
+        "pass_rate": 1.0,
+        "evaluated_count": 5,
+        "not_applicable_count": 0
+      },
+      "evidence": {
+        "pass_rate": 1.0,
+        "evaluated_count": 5,
+        "not_applicable_count": 0
+      },
+      "decision": {
+        "pass_rate": 1.0,
+        "evaluated_count": 5,
+        "not_applicable_count": 0
+      }
+    },
+    "hybrid": {
+      "request_count": 30,
+      "evaluation_error_count": 25,
+      "facts": {
+        "pass_rate": 1.0,
+        "evaluated_count": 5,
+        "not_applicable_count": 0
+      },
+      "conditions": {
+        "pass_rate": 1.0,
+        "evaluated_count": 5,
+        "not_applicable_count": 0
+      },
+      "evidence": {
+        "pass_rate": 1.0,
+        "evaluated_count": 5,
+        "not_applicable_count": 0
+      },
+      "decision": {
+        "pass_rate": 1.0,
+        "evaluated_count": 5,
+        "not_applicable_count": 0
+      }
+    },
+    "rerank": {
+      "request_count": 30,
+      "evaluation_error_count": 25,
+      "facts": {
+        "pass_rate": 1.0,
+        "evaluated_count": 5,
+        "not_applicable_count": 0
+      },
+      "conditions": {
+        "pass_rate": 1.0,
+        "evaluated_count": 5,
+        "not_applicable_count": 0
+      },
+      "evidence": {
+        "pass_rate": 1.0,
+        "evaluated_count": 5,
+        "not_applicable_count": 0
+      },
+      "decision": {
+        "pass_rate": 1.0,
+        "evaluated_count": 5,
+        "not_applicable_count": 0
+      }
+    }
+  },
+  "rows": [
+    {
+      "question_id": "AM-DEV01",
+      "retrieval_mode": "naive",
+      "service_request_id": "63fe5f00-5bed-4e1b-9bb1-7126607e52ca",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM007_c1_0001",
+        "AM055_c1_0001",
+        "AM010_c1_0001"
+      ],
+      "context_token_count": 923,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "정상은 필수 항목을 갖추어 자료 조회 확인을 마친 상태이며, 현장 안전 보증이나 운전 허가가 아님을 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "표시의 범위를 해당 자료의 확인 상태로 한정하고 현장 설비의 안전 판단과 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료들이 정상 표시의 의미와 안전 등급·운전 허가 기능의 부재를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "검색 근거로 질문에 직접 답했으며, 정상 표시만으로 안전하다고 단정하지 않았습니다."
+        }
+      },
+      "seconds": 3.59,
+      "usage": {
+        "input_tokens": 2029,
+        "output_tokens": 310,
+        "total_tokens": 2339,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2026
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 102
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV01",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "a52c5277-78da-4e10-bf77-4ef15d13a663",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM008_c1_0060",
+        "AM007_c1_0020",
+        "AM007_c1_0001"
+      ],
+      "context_token_count": 1412,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "정상 표시가 해당 자료의 필수 항목을 갖추고 조회 확인을 마친 상태이며, 현장 안전이나 운전 허가를 뜻하지 않는다고 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "모델·출처·기준 시각의 범위를 해당 자료에 한정했고, 현장 안전 및 설비 운전과 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "S3는 정상 표시의 자료 확인 범위를, S2는 운전 허가·제어가 체크뷰 기능이 아님을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "검색 자료만으로 답할 수 있는 질문에 적절히 답했습니다."
+        }
+      },
+      "seconds": 3.804,
+      "usage": {
+        "input_tokens": 2433,
+        "output_tokens": 334,
+        "total_tokens": 2767,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2430
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 117
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV01",
+      "retrieval_mode": "rerank",
+      "service_request_id": "d76f4989-b8e5-466f-8725-303c8e06b304",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM055_c1_0001",
+        "AM007_c1_0001",
+        "AM007_c1_0013"
+      ],
+      "context_token_count": 1301,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "정상이 자료의 필수 정보와 조회 확인 완료를 뜻하고, 현장 안전이나 운전 허가를 보증하지 않는다고 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "모델·출처·기준 시각의 자료 확인 범위와 현장 상태·운전 허가의 적용 범위를 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 AM007 및 AM055 문맥이 자료 확인의 의미와 현장 안전·운전 허가의 비보증 범위를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "자료 표시의 의미와 한계를 묻는 질문에 근거를 들어 직접 답했습니다."
+        }
+      },
+      "seconds": 3.847,
+      "usage": {
+        "input_tokens": 2362,
+        "output_tokens": 364,
+        "total_tokens": 2726,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2359
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 193
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV02",
+      "retrieval_mode": "naive",
+      "service_request_id": "a354f0dd-f688-4250-bb1c-626aa8ac8b00",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM017_c1_0001",
+        "AM008_c1_0001",
+        "AM008_c1_0010"
+      ],
+      "context_token_count": 1195,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-10의 현장조회·네트워크 수신 미지원, CV-20의 네트워크 수신조회, 두 모델의 파일 내보내기를 모두 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "모델별 기능 범위를 혼동하지 않았으며 적용 조건을 잘못 덧붙이지 않았습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 AM008의 모델별 기능 설명과 AM017의 내보내기 설명이 주장을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "검색 자료만으로 답할 수 있는 질문에 적절히 답변했습니다."
+        }
+      },
+      "seconds": 3.074,
+      "usage": {
+        "input_tokens": 2275,
+        "output_tokens": 261,
+        "total_tokens": 2536,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2272
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 60
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV02",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "1357edfa-7dea-44e8-abc9-a56ec26f07d9",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM008_c1_0001",
+        "AM008_c1_0005",
+        "AM008_c1_0002"
+      ],
+      "context_token_count": 1281,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "정해진 세 사실을 모두 정확히 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-10과 CV-20의 기능 범위 및 승인된 자료의 수신 조건을 정확히 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료가 조회 경로, 내보내기 기능, 권한 미확인 내용을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "자료만으로 답할 수 있는 질문에 답했고, 확인되지 않은 사용자 권한은 미확인으로 밝혔습니다."
+        }
+      },
+      "seconds": 3.248,
+      "usage": {
+        "input_tokens": 2398,
+        "output_tokens": 245,
+        "total_tokens": 2643,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2395
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 102
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV02",
+      "retrieval_mode": "rerank",
+      "service_request_id": "b47198eb-0e0c-4b04-abe2-6f1c7d7f6b80",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM008_c1_0001",
+        "AM008_c1_0010",
+        "AM008_c1_0058"
+      ],
+      "context_token_count": 1480,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-10의 현장조회 및 네트워크 수신 미지원, CV-20의 수신조회 지원, 두 모델의 파일 내보내기를 정확히 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "모델별 기능 범위를 정확히 구분했으며 적용 범위를 잘못 확장하지 않았습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 1쪽과 10쪽 자료가 조회 경로와 두 모델의 파일 내보내기 주장을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "검색 자료만으로 답할 수 있는 질문에 적절히 답변했습니다."
+        }
+      },
+      "seconds": 4.484,
+      "usage": {
+        "input_tokens": 2522,
+        "output_tokens": 339,
+        "total_tokens": 2861,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2519
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 137
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV03",
+      "retrieval_mode": "naive",
+      "service_request_id": "8e0c09b8-b62f-45ca-b23d-36b3dc59a52e",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM012_c1_0001",
+        "AM012_c1_0010",
+        "AM012_c1_0033"
+      ],
+      "context_token_count": 1382,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "세 시각의 의미를 모두 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20 적용을 정확히 구분했고, 수신시각을 원자료 발생 시점으로 대체할 수 없다는 설명도 맞습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "[S1]의 문맥이 정의와 추가 설명을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 직접 답할 수 있어 답변한 판단이 적절합니다."
+        }
+      },
+      "seconds": 2.664,
+      "usage": {
+        "input_tokens": 2337,
+        "output_tokens": 194,
+        "total_tokens": 2531,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2334
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 62
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV03",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "6dba0deb-9067-484f-b0dc-c7f433572363",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM012_c1_0001",
+        "AM012_c1_0073",
+        "AM012_c1_0010"
+      ],
+      "context_token_count": 1411,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "세 시각의 정의를 모두 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20 맥락을 맞게 적용했고 수신시각을 원자료 발생 시각으로 대체하지 않는다고 했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 1쪽과 10쪽이 세 시각의 정의와 대체 금지를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "자료에서 직접 답할 수 있는 질문에 적절히 답했습니다."
+        }
+      },
+      "seconds": 2.911,
+      "usage": {
+        "input_tokens": 2405,
+        "output_tokens": 237,
+        "total_tokens": 2642,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2402
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 102
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV03",
+      "retrieval_mode": "rerank",
+      "service_request_id": "fcb239c7-8545-4c19-aeb6-1c1d39f4b70e",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM012_c1_0001",
+        "AM012_c1_0010",
+        "AM012_c1_0004"
+      ],
+      "context_token_count": 1427,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "세 시각의 정의를 모두 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "CV-20 적용 범위와 각 시각의 주체를 정확히 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 페이지 1과 10이 정의 및 기록시각을 수신시각으로 대체할 수 없다는 내용을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 직접 답하는 것이 적절합니다."
+        }
+      },
+      "seconds": 2.719,
+      "usage": {
+        "input_tokens": 2417,
+        "output_tokens": 226,
+        "total_tokens": 2643,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2414
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 98
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV04",
+      "retrieval_mode": "naive",
+      "service_request_id": "ebe11284-d983-4cca-9cbb-de100b844932",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM013_c1_0040",
+        "AM035_c1_0044",
+        "AM013_c1_0001"
+      ],
+      "context_token_count": 1165,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "최근 30일을 원자료 기록시각 기준의 현장조회 범위로 설명하고, 외부 파일 삭제 기한으로 쓸 수 없다고 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "기준 시각 T, KST, 시작·끝 포함 조건이 검색 자료와 일치하며, 외부 보관 정책은 별도 확인하도록 했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 S1은 시간 경계와 KST를, S2와 S3은 외부 보존·삭제 정책이 별도임을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "자료에 근거해 직접 답하고 외부 정책은 미확인으로 구분했으므로 답변한 판단이 적절합니다."
+        }
+      },
+      "seconds": 3.276,
+      "usage": {
+        "input_tokens": 2264,
+        "output_tokens": 316,
+        "total_tokens": 2580,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2261
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 85
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV04",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "97d0714a-9efa-481e-9878-3b870d2a4d17",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM035_c1_0044",
+        "AM035_c1_0011",
+        "AM035_c1_0062"
+      ],
+      "context_token_count": 1572,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "최근 30일이 원자료 기록시각 기준 현장조회 범위이며 외부 파일 삭제 기한이 아니라는 필수 사실을 모두 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "조회 범위와 외부 파일 보존·삭제 정책을 구분했고, 등록일이나 파일 생성시각을 기준으로 잘못 적용하지 않았습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용된 검색 문맥이 기록시각 기준과 외부 삭제 정책 근거의 부재를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 직접 답하면서 외부 파일 삭제 시점은 별도 정책 근거로 확인해야 한다고 적절히 안내했습니다."
+        }
+      },
+      "seconds": 3.686,
+      "usage": {
+        "input_tokens": 2626,
+        "output_tokens": 270,
+        "total_tokens": 2896,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2623
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 94
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV04",
+      "retrieval_mode": "rerank",
+      "service_request_id": "8ae8b326-286b-4b87-a1c4-26085aeca28f",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM035_c1_0011",
+        "AM035_c1_0023",
+        "AM035_c1_0062"
+      ],
+      "context_token_count": 1851,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "최근 30일이 원자료 기록시각 기준의 현장조회 범위이며 외부 파일 삭제 기한이 아님을 정확히 설명했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "2026-11-30 10:00 KST 기준 경계 시각의 포함·제외와 등록일 기준이 아님을 정확히 적용했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 자료가 기록시각 기준, 경계 사례, 외부 보관·삭제 기한과의 구분을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "질문에 직접 답하고, 외부 보관소의 별도 확인이 필요하다고 적절히 안내했습니다."
+        }
+      },
+      "seconds": 3.464,
+      "usage": {
+        "input_tokens": 2950,
+        "output_tokens": 299,
+        "total_tokens": 3249,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2947
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 80
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV05",
+      "retrieval_mode": "naive",
+      "service_request_id": "9a21b484-a285-47b0-ac7b-09880b8dc4fb",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM016_c1_0056",
+        "AM015_c1_0065",
+        "AM008_c1_0002"
+      ],
+      "context_token_count": 1520,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-10 파일 내보내기는 주어진 역할·대상 범위에서 가능하고, 네트워크 수신은 미지원이라고 모두 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "기록담당 역할, CV-10 대상 권한, 자료 확인 및 전달 범위 검토 완료 조건을 정확히 반영했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "인용한 S1·S2가 CV-10 내보내기 제공과 네트워크 수신 미지원, 역할·대상 범위를 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "근거가 충분해 두 작업의 가능 여부를 바로 답한 판단이 적절합니다."
+        }
+      },
+      "seconds": 3.292,
+      "usage": {
+        "input_tokens": 2629,
+        "output_tokens": 261,
+        "total_tokens": 2890,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2626
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 89
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV05",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "03e87026-22a3-4bc5-ad81-a48fe1f1fd77",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM016_c1_0022",
+        "AM015_c1_0074",
+        "AM016_c1_0010"
+      ],
+      "context_token_count": 1407,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-10 내보내기가 가능하고 네트워크 수신은 불가능하다는 필수 사실을 모두 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "기록담당 역할과 CV-10 대상 권한을 내보내기에 적용하고, 네트워크 수신은 모델 기능 미지원으로 구분했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "S1은 기록담당의 CV-10 내보내기 허용을, S3는 CV-10의 네트워크 수신 미지원을 뒷받침합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "주어진 조건과 검색 근거로 각각 가능 여부를 명확히 판단해 답했습니다."
+        }
+      },
+      "seconds": 6.488,
+      "usage": {
+        "input_tokens": 2495,
+        "output_tokens": 452,
+        "total_tokens": 2947,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2492
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 239
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV05",
+      "retrieval_mode": "rerank",
+      "service_request_id": "fcd92bbe-f61a-46df-b5b9-91ded9e38d78",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM015_c1_0054",
+        "AM049_c1_0052",
+        "AM015_c1_0065"
+      ],
+      "context_token_count": 1738,
+      "scores": {
+        "facts": {
+          "score": 1,
+          "reason": "CV-10 파일 내보내기는 제공 기능이며 주어진 역할·대상 권한에서 가능하고, 네트워크 수신은 미지원이라고 정확히 답했습니다."
+        },
+        "conditions": {
+          "score": 1,
+          "reason": "두 작업 모두 CV-10에 한정해 역할·대상 권한과 제품 기능을 구분했고, 내보내기와 상대방 수신 확인도 구별했습니다."
+        },
+        "evidence": {
+          "score": 1,
+          "reason": "S1은 내보내기 가능·수신 불가와 상대 수신 미확인을 뒷받침하고, S3도 CV-10의 해당 기능 범위를 확인합니다."
+        },
+        "decision": {
+          "score": 1,
+          "reason": "권한과 자료 확인이 끝난 조건에 맞춰 내보내기는 가능하고 네트워크 수신은 불가하다고 직접 답했습니다."
+        }
+      },
+      "seconds": 6.411,
+      "usage": {
+        "input_tokens": 2846,
+        "output_tokens": 353,
+        "total_tokens": 3199,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 2843
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 113
+        }
+      },
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV06",
+      "retrieval_mode": "naive",
+      "service_request_id": "a228423c-dfce-4e77-ba8e-8825dd60c90f",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM047_c1_0030",
+        "AM048_c1_0057",
+        "AM019_c1_0012"
+      ],
+      "context_token_count": 1179,
+      "scores": null,
+      "seconds": 180.488,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV06",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "cdcad7bc-053f-4837-b8b0-1fa324cfe464",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM019_c1_0012",
+        "AM047_c1_0030",
+        "AM013_c1_0011"
+      ],
+      "context_token_count": 956,
+      "scores": null,
+      "seconds": 0.479,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV06",
+      "retrieval_mode": "rerank",
+      "service_request_id": "9545165b-e606-4395-a863-4255f9032ecc",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM019_c1_0012",
+        "AM017_c1_0011",
+        "AM024_c1_0001"
+      ],
+      "context_token_count": 905,
+      "scores": null,
+      "seconds": 0.466,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV07",
+      "retrieval_mode": "naive",
+      "service_request_id": "99e6f8e4-e0dd-41ec-a46d-53368a320f6e",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM049_c1_0037",
+        "AM050_c1_0071",
+        "AM039_c1_0070"
+      ],
+      "context_token_count": 1868,
+      "scores": null,
+      "seconds": 0.477,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV07",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "b00b9dca-4ff8-4174-b8c1-0807d961f721",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM022_c1_0001",
+        "AM050_c1_0027",
+        "AM022_c1_0024"
+      ],
+      "context_token_count": 1318,
+      "scores": null,
+      "seconds": 0.442,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV07",
+      "retrieval_mode": "rerank",
+      "service_request_id": "e8fcf985-7254-48ca-8c75-ecc76bdb25d6",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM049_c1_0037",
+        "AM050_c1_0027",
+        "AM054_c1_0021"
+      ],
+      "context_token_count": 1824,
+      "scores": null,
+      "seconds": 0.486,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV08",
+      "retrieval_mode": "naive",
+      "service_request_id": "15408887-1a10-458f-9213-74a12dd937fc",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "AM011_c1_0026",
+        "AM037_c1_0001",
+        "AM007_c1_0038"
+      ],
+      "context_token_count": 1597,
+      "scores": null,
+      "seconds": 0.398,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV08",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "e9f5da72-330b-4db4-9f2f-ca4a471a223e",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "AM037_c1_0001",
+        "AM038_c1_0030",
+        "AM011_c1_0026"
+      ],
+      "context_token_count": 1550,
+      "scores": null,
+      "seconds": 0.47,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV08",
+      "retrieval_mode": "rerank",
+      "service_request_id": "11240c2e-b4f6-48f2-8b04-3f0f6871ef85",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "AM048_c1_0042",
+        "AM037_c1_0001",
+        "AM048_c1_0050"
+      ],
+      "context_token_count": 1550,
+      "scores": null,
+      "seconds": 0.473,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV09",
+      "retrieval_mode": "naive",
+      "service_request_id": "e8ea9124-f6cc-47c7-aecc-ff8c160bd29d",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM017_c1_0011",
+        "AM030_c1_0001",
+        "AM030_c1_0031"
+      ],
+      "context_token_count": 985,
+      "scores": null,
+      "seconds": 0.451,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV09",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "48d776a0-9c36-46d5-834f-878b4dd7b69f",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM017_c1_0011",
+        "AM030_c1_0001",
+        "AM030_c1_0031"
+      ],
+      "context_token_count": 985,
+      "scores": null,
+      "seconds": 0.389,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV09",
+      "retrieval_mode": "rerank",
+      "service_request_id": "45427fe2-87eb-462c-a040-64a2f738db3b",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM030_c1_0001",
+        "AM017_c1_0011",
+        "AM030_c1_0022"
+      ],
+      "context_token_count": 878,
+      "scores": null,
+      "seconds": 0.438,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV10",
+      "retrieval_mode": "naive",
+      "service_request_id": "00be2f14-4d43-41f0-836e-f90ee0388af8",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM018_c1_0001",
+        "AM047_c1_0028",
+        "AM035_c1_0011"
+      ],
+      "context_token_count": 1243,
+      "scores": null,
+      "seconds": 0.462,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV10",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "897017ab-5b5f-4a8a-a1d4-80c197a56794",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM047_c1_0028",
+        "AM019_c1_0038",
+        "AM025_c1_0023"
+      ],
+      "context_token_count": 1561,
+      "scores": null,
+      "seconds": 0.411,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV10",
+      "retrieval_mode": "rerank",
+      "service_request_id": "0ac69b73-1568-474a-a19a-f8898411844a",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM019_c1_0038",
+        "AM017_c1_0058",
+        "AM047_c1_0028"
+      ],
+      "context_token_count": 1530,
+      "scores": null,
+      "seconds": 0.46,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV11",
+      "retrieval_mode": "naive",
+      "service_request_id": "72960237-3c6d-40d5-88cd-b36438ebff4a",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM011_c1_0019",
+        "AM011_c1_0005",
+        "AM025_c1_0014"
+      ],
+      "context_token_count": 1537,
+      "scores": null,
+      "seconds": 0.409,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV11",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "c1334b3e-b888-487a-b405-c838e4ff9343",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM008_c1_0001",
+        "AM019_c1_0001",
+        "AM013_c1_0065"
+      ],
+      "context_token_count": 1696,
+      "scores": null,
+      "seconds": 0.421,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV11",
+      "retrieval_mode": "rerank",
+      "service_request_id": "1e5f9ca6-54d9-490c-b62f-0eb511a13080",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM019_c1_0005",
+        "AM013_c1_0065",
+        "AM008_c1_0001"
+      ],
+      "context_token_count": 1944,
+      "scores": null,
+      "seconds": 0.479,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV12",
+      "retrieval_mode": "naive",
+      "service_request_id": "e237e416-9c98-4aed-8960-fc1aa01a5849",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM007_c1_0057",
+        "AM011_c1_0065",
+        "AM007_c1_0009"
+      ],
+      "context_token_count": 1927,
+      "scores": null,
+      "seconds": 0.476,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV12",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "e75fce8c-2658-47e5-8010-942dc53b4889",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM035_c1_0023",
+        "AM055_c1_0018",
+        "AM007_c1_0057"
+      ],
+      "context_token_count": 2037,
+      "scores": null,
+      "seconds": 0.497,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV12",
+      "retrieval_mode": "rerank",
+      "service_request_id": "dd044aab-529d-4613-9616-f270d85c0719",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM013_c1_0057",
+        "AM055_c1_0018",
+        "AM013_c1_0001"
+      ],
+      "context_token_count": 1550,
+      "scores": null,
+      "seconds": 0.421,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV13",
+      "retrieval_mode": "naive",
+      "service_request_id": "fc9dfac2-2671-4c48-837e-08a68e921fd9",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "AM002_c1_0001",
+        "AM001_c1_0003",
+        "AM108_c1_0080"
+      ],
+      "context_token_count": 1379,
+      "scores": null,
+      "seconds": 0.454,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV13",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "d0fe8aea-6230-411c-9740-a7ca5e7ab5ba",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM002_c1_0001",
+        "AM001_c1_0001",
+        "AM001_c1_0003"
+      ],
+      "context_token_count": 1306,
+      "scores": null,
+      "seconds": 0.463,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV13",
+      "retrieval_mode": "rerank",
+      "service_request_id": "a1aeb468-1b57-4f0b-a8ef-dad0d85a9f00",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM001_c1_0001",
+        "AM001_c1_0002",
+        "AM002_c1_0001"
+      ],
+      "context_token_count": 1313,
+      "scores": null,
+      "seconds": 0.452,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV14",
+      "retrieval_mode": "naive",
+      "service_request_id": "0e7bc007-461e-49ed-89c1-9da57a8dfd34",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM003_c1_0003",
+        "AM005_c1_0004",
+        "AM006_c1_0100"
+      ],
+      "context_token_count": 1339,
+      "scores": null,
+      "seconds": 0.474,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV14",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "db4cbd67-c1ae-43df-ad65-00741b729ceb",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM003_c1_0003",
+        "AM005_c1_0004",
+        "AM003_c1_0004"
+      ],
+      "context_token_count": 1351,
+      "scores": null,
+      "seconds": 0.447,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV14",
+      "retrieval_mode": "rerank",
+      "service_request_id": "0fb544d7-1614-47ab-93a9-1e3ceb0a6e85",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM006_c1_0036",
+        "AM003_c1_0003",
+        "AM005_c1_0004"
+      ],
+      "context_token_count": 1334,
+      "scores": null,
+      "seconds": 0.501,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV15",
+      "retrieval_mode": "naive",
+      "service_request_id": "37b25c4d-7a90-4cca-86b7-37e8abead319",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "AM003_c1_0040",
+        "AM006_c1_0100",
+        "AM003_c1_0042"
+      ],
+      "context_token_count": 1461,
+      "scores": null,
+      "seconds": 0.44,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV15",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "fc68dc0c-451f-428a-aba2-1b6f76810df8",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "AM003_c1_0003",
+        "AM003_c1_0004",
+        "AM003_c1_0040"
+      ],
+      "context_token_count": 1403,
+      "scores": null,
+      "seconds": 0.455,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV15",
+      "retrieval_mode": "rerank",
+      "service_request_id": "396d6674-5f53-4a7a-a069-1da451cf7713",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "AM003_c1_0003",
+        "AM001_c1_0001",
+        "AM006_c1_0036"
+      ],
+      "context_token_count": 1391,
+      "scores": null,
+      "seconds": 0.4,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV16",
+      "retrieval_mode": "naive",
+      "service_request_id": "1c727c02-c90e-4dc0-bfcd-4067339bb670",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM038_c1_0082",
+        "AM066_c1_0038",
+        "AM054_c1_0103"
+      ],
+      "context_token_count": 1741,
+      "scores": null,
+      "seconds": 0.392,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV16",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "5d9ab6f3-770b-4dc9-9149-60e43a464f65",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM038_c1_0094",
+        "AM038_c1_0082",
+        "AM061_c1_0147"
+      ],
+      "context_token_count": 1696,
+      "scores": null,
+      "seconds": 0.416,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV16",
+      "retrieval_mode": "rerank",
+      "service_request_id": "50b76d2c-de3c-4604-990a-bbbb19bbafee",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM061_c1_0147",
+        "AM036_c1_0122",
+        "AM114_c1_0044"
+      ],
+      "context_token_count": 1721,
+      "scores": null,
+      "seconds": 0.463,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV17",
+      "retrieval_mode": "naive",
+      "service_request_id": "ccb56875-7edb-4f8b-8247-ee21fc7c1ad4",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM012_c1_0140",
+        "AM042_c1_0142",
+        "AM054_c1_0111"
+      ],
+      "context_token_count": 1614,
+      "scores": null,
+      "seconds": 0.468,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV17",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "5c67612f-5b63-4ae6-9306-87008e48eae4",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM012_c1_0140",
+        "AM003_c1_0004",
+        "AM042_c1_0142"
+      ],
+      "context_token_count": 1579,
+      "scores": null,
+      "seconds": 0.433,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV17",
+      "retrieval_mode": "rerank",
+      "service_request_id": "b851ed4c-8c5b-4c11-88e0-27910179fa5b",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM094_c1_0029",
+        "AM079_c1_0004",
+        "AM063_c1_0129"
+      ],
+      "context_token_count": 1882,
+      "scores": null,
+      "seconds": 0.435,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV18",
+      "retrieval_mode": "naive",
+      "service_request_id": "911df8fb-06bc-4773-9425-04f77ca0cc8f",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM005_c1_0004",
+        "AM006_c1_0052",
+        "AM006_c1_0058"
+      ],
+      "context_token_count": 1411,
+      "scores": null,
+      "seconds": 0.422,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV18",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "b716c94e-5dc5-42e6-80a8-d8796253753b",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM005_c1_0004",
+        "AM116_c1_0006",
+        "AM006_c1_0052"
+      ],
+      "context_token_count": 1554,
+      "scores": null,
+      "seconds": 0.404,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV18",
+      "retrieval_mode": "rerank",
+      "service_request_id": "13260143-c65f-4792-9c82-550e1c062beb",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM116_c1_0006",
+        "AM115_c1_0120",
+        "AM115_c1_0114"
+      ],
+      "context_token_count": 1919,
+      "scores": null,
+      "seconds": 0.476,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV19",
+      "retrieval_mode": "naive",
+      "service_request_id": "b4fb5bf5-11d2-46ff-b2a6-0f54f7898400",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "AM012_c1_0016",
+        "AM105_c1_0126",
+        "AM014_c1_0094"
+      ],
+      "context_token_count": 1778,
+      "scores": null,
+      "seconds": 0.416,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV19",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "0432ef85-bac6-444c-ab10-dc17de5aa24a",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM012_c1_0016",
+        "AM115_c1_0006",
+        "AM105_c1_0126"
+      ],
+      "context_token_count": 1796,
+      "scores": null,
+      "seconds": 0.468,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV19",
+      "retrieval_mode": "rerank",
+      "service_request_id": "738c5e89-24eb-42e4-b27b-82ed2ee82db7",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM115_c1_0006",
+        "AM114_c1_0150",
+        "AM114_c1_0138"
+      ],
+      "context_token_count": 1946,
+      "scores": null,
+      "seconds": 0.393,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV20",
+      "retrieval_mode": "naive",
+      "service_request_id": "40af8351-63cb-4308-8f61-66bee76d142d",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM004_c1_0002",
+        "AM004_c1_0003",
+        "AM005_c1_0003"
+      ],
+      "context_token_count": 1288,
+      "scores": null,
+      "seconds": 0.427,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV20",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "adfcb210-0c55-410b-b763-df529a53658e",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM004_c1_0002",
+        "AM001_c1_0107",
+        "AM004_c1_0003"
+      ],
+      "context_token_count": 1565,
+      "scores": null,
+      "seconds": 0.392,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV20",
+      "retrieval_mode": "rerank",
+      "service_request_id": "32254143-9f7b-4dda-a4ca-bd2756302eda",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM007_c1_0127",
+        "AM001_c1_0107",
+        "AM002_c1_0129"
+      ],
+      "context_token_count": 2135,
+      "scores": null,
+      "seconds": 0.489,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV21",
+      "retrieval_mode": "naive",
+      "service_request_id": "ef7668f8-4c5b-4596-8e28-dc6b195dc55b",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM014_c1_0001",
+        "AM051_c1_0013",
+        "AM030_c1_0046"
+      ],
+      "context_token_count": 1392,
+      "scores": null,
+      "seconds": 0.397,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV21",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "e023eabf-008a-44fa-aabd-2723186298e5",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM038_c1_0070",
+        "AM014_c1_0001",
+        "AM003_c1_0004"
+      ],
+      "context_token_count": 1454,
+      "scores": null,
+      "seconds": 0.493,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV21",
+      "retrieval_mode": "rerank",
+      "service_request_id": "a3699993-58c6-466a-aa39-d5d32d13c071",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM014_c1_0005",
+        "AM031_c1_0084",
+        "AM048_c1_0021"
+      ],
+      "context_token_count": 1587,
+      "scores": null,
+      "seconds": 0.492,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV22",
+      "retrieval_mode": "naive",
+      "service_request_id": "292266a2-6944-4401-844c-88bd37a72814",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM041_c1_0147",
+        "AM011_c1_0150",
+        "AM021_c1_0150"
+      ],
+      "context_token_count": 1632,
+      "scores": null,
+      "seconds": 0.444,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV22",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "8c5e70f8-1e6f-45be-a8f5-41bd45bc9e10",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM041_c1_0147",
+        "AM093_c1_0034",
+        "AM011_c1_0150"
+      ],
+      "context_token_count": 1615,
+      "scores": null,
+      "seconds": 0.475,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV22",
+      "retrieval_mode": "rerank",
+      "service_request_id": "0e0435e9-a9cf-401f-abf5-f9d95873f5fb",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM093_c1_0034",
+        "AM094_c1_0112",
+        "AM093_c1_0118"
+      ],
+      "context_token_count": 1589,
+      "scores": null,
+      "seconds": 0.435,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV23",
+      "retrieval_mode": "naive",
+      "service_request_id": "279bdcf1-cfba-4cbc-86c6-0fc228da7093",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM013_c1_0097",
+        "AM037_c1_0114",
+        "AM029_c1_0117"
+      ],
+      "context_token_count": 1902,
+      "scores": null,
+      "seconds": 0.409,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV23",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "dd627813-0d48-4b80-b69d-867755517643",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM031_c1_0141",
+        "AM013_c1_0097",
+        "AM032_c1_0078"
+      ],
+      "context_token_count": 1924,
+      "scores": null,
+      "seconds": 0.398,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV23",
+      "retrieval_mode": "rerank",
+      "service_request_id": "d1683351-8e60-4e9b-a8fa-53765ae1c587",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM032_c1_0078",
+        "AM032_c1_0084",
+        "AM031_c1_0123"
+      ],
+      "context_token_count": 1969,
+      "scores": null,
+      "seconds": 0.46,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV24",
+      "retrieval_mode": "naive",
+      "service_request_id": "a25b331f-d848-433d-aee9-e58b44b74175",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM053_c1_0086",
+        "AM006_c1_0035",
+        "AM011_c1_0091"
+      ],
+      "context_token_count": 1882,
+      "scores": null,
+      "seconds": 0.402,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV24",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "826c1894-6260-4694-a05d-51d5797dfbf1",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM053_c1_0086",
+        "AM114_c1_0011",
+        "AM006_c1_0035"
+      ],
+      "context_token_count": 1888,
+      "scores": null,
+      "seconds": 0.496,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV24",
+      "retrieval_mode": "rerank",
+      "service_request_id": "eb2720bb-2a7c-495e-ae7c-6a62e84fd91e",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "AM114_c1_0011",
+        "AM114_c1_0023",
+        "AM114_c1_0041"
+      ],
+      "context_token_count": 2136,
+      "scores": null,
+      "seconds": 0.441,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV25",
+      "retrieval_mode": "naive",
+      "service_request_id": "d53b3aba-cc14-42fc-bfbc-4d7fe19d8af1",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM006_c1_0002",
+        "AM006_c1_0004",
+        "AM062_c1_0081"
+      ],
+      "context_token_count": 1434,
+      "scores": null,
+      "seconds": 0.465,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV25",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "81043613-0068-48f1-8139-e612f1b21f1d",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM006_c1_0002",
+        "AM006_c1_0004",
+        "AM025_c1_0102"
+      ],
+      "context_token_count": 1520,
+      "scores": null,
+      "seconds": 0.422,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV25",
+      "retrieval_mode": "rerank",
+      "service_request_id": "14f39dc2-9688-4585-bb88-21cfb566cf49",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM086_c1_0087",
+        "AM025_c1_0102",
+        "AM084_c1_0057"
+      ],
+      "context_token_count": 1736,
+      "scores": null,
+      "seconds": 0.428,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV26",
+      "retrieval_mode": "naive",
+      "service_request_id": "3fd7feeb-ae9e-49b7-a539-bed63fa2374b",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM038_c1_0082",
+        "AM056_c1_0104",
+        "AM061_c1_0134"
+      ],
+      "context_token_count": 1730,
+      "scores": null,
+      "seconds": 0.441,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV26",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "680790c1-491d-47e8-9255-70f8137850c4",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM038_c1_0082",
+        "AM089_c1_0063",
+        "AM056_c1_0104"
+      ],
+      "context_token_count": 1714,
+      "scores": null,
+      "seconds": 0.42,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV26",
+      "retrieval_mode": "rerank",
+      "service_request_id": "4bb1d099-4116-43f0-a589-41f4852f62c1",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM074_c1_0038",
+        "AM089_c1_0063",
+        "AM059_c1_0013"
+      ],
+      "context_token_count": 1846,
+      "scores": null,
+      "seconds": 0.506,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV27",
+      "retrieval_mode": "naive",
+      "service_request_id": "42b52691-0ef2-454a-9791-1dbe2220b7ff",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM014_c1_0146",
+        "AM031_c1_0115",
+        "AM011_c1_0150"
+      ],
+      "context_token_count": 1632,
+      "scores": null,
+      "seconds": 0.469,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV27",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "f7ca5831-1bb2-4541-87d9-efdd151205f2",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM011_c1_0150",
+        "AM013_c1_0077",
+        "AM011_c1_0078"
+      ],
+      "context_token_count": 1632,
+      "scores": null,
+      "seconds": 0.424,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV27",
+      "retrieval_mode": "rerank",
+      "service_request_id": "1b80a811-c9ad-49af-b3aa-49dcbfade5cf",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM107_c1_0064",
+        "AM092_c1_0039",
+        "AM107_c1_0136"
+      ],
+      "context_token_count": 1620,
+      "scores": null,
+      "seconds": 0.41,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV28",
+      "retrieval_mode": "naive",
+      "service_request_id": "c910879e-36e4-40ee-8dcb-560d2f317367",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM005_c1_0004",
+        "AM095_c1_0090",
+        "AM006_c1_0052"
+      ],
+      "context_token_count": 1557,
+      "scores": null,
+      "seconds": 0.481,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV28",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "b184c815-02d6-4c38-95d3-e6fedf0692cf",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM041_c1_0143",
+        "AM041_c1_0125",
+        "AM005_c1_0004"
+      ],
+      "context_token_count": 1701,
+      "scores": null,
+      "seconds": 0.408,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV28",
+      "retrieval_mode": "rerank",
+      "service_request_id": "2bc7978b-1e9c-4ab6-a3c0-2f2b8987f4ed",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM041_c1_0137",
+        "AM041_c1_0149",
+        "AM041_c1_0143"
+      ],
+      "context_token_count": 1958,
+      "scores": null,
+      "seconds": 0.45,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV29",
+      "retrieval_mode": "naive",
+      "service_request_id": "be1a1385-05af-40ac-bc47-3d842c963ffc",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM012_c1_0016",
+        "AM031_c1_0066",
+        "AM012_c1_0042"
+      ],
+      "context_token_count": 1434,
+      "scores": null,
+      "seconds": 0.41,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV29",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "6c957431-5be3-4dd2-9c33-dcfb9ea0d848",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM012_c1_0016",
+        "AM065_c1_0132",
+        "AM031_c1_0066"
+      ],
+      "context_token_count": 1678,
+      "scores": null,
+      "seconds": 0.439,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV29",
+      "retrieval_mode": "rerank",
+      "service_request_id": "b890ab66-8243-4a3e-ab76-717616027229",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM065_c1_0132",
+        "AM065_c1_0114",
+        "AM065_c1_0108"
+      ],
+      "context_token_count": 1931,
+      "scores": null,
+      "seconds": 0.424,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV30",
+      "retrieval_mode": "naive",
+      "service_request_id": "e66418fd-0759-4849-b2ae-43b7e329dfa6",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM004_c1_0002",
+        "AM062_c1_0051",
+        "AM031_c1_0096"
+      ],
+      "context_token_count": 1597,
+      "scores": null,
+      "seconds": 0.49,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV30",
+      "retrieval_mode": "hybrid",
+      "service_request_id": "e5ae3747-db6b-47db-bfc6-4ec5a9185ad7",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM004_c1_0002",
+        "AM001_c1_0119",
+        "AM062_c1_0051"
+      ],
+      "context_token_count": 1736,
+      "scores": null,
+      "seconds": 0.449,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    },
+    {
+      "question_id": "AM-DEV30",
+      "retrieval_mode": "rerank",
+      "service_request_id": "b904415b-efe3-4dd2-9a3c-574e8c3fd69b",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM007_c1_0067",
+        "AM011_c1_0117",
+        "AM002_c1_0141"
+      ],
+      "context_token_count": 2135,
+      "scores": null,
+      "seconds": 0.46,
+      "usage": null,
+      "error": "OpenAIConnectionError: Connection error."
+    }
+  ]
+}

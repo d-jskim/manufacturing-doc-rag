@@ -1,0 +1,1300 @@
+{
+  "run_id": "e04_c1_m1_p1_development_faithfulness_20261113_0626",
+  "source_run_id": "e04_c1_m1_p1_development_all_20261113_0626",
+  "metric": "ragas_faithfulness",
+  "model": "gpt-6-luna",
+  "dataset": "manufacturing_advanced",
+  "active_config": {
+    "dataset": "manufacturing_advanced",
+    "chunk_version": "c1",
+    "embedding": "m1",
+    "prompt": "p1",
+    "retrieval_modes": {
+      "naive": "r1",
+      "hybrid": "r2",
+      "rerank": "r3"
+    },
+    "final_k": 3,
+    "context_token_budget": 2373
+  },
+  "answer_result": "experiments/04_retrieval/results/manufacturing_advanced/e04_c1_m1_p1_development_all_20261113_0626.json",
+  "summary": {
+    "naive": {
+      "mean_faithfulness": 0.8929,
+      "evaluated_count": 26,
+      "error_count": 4
+    },
+    "hybrid": {
+      "mean_faithfulness": 0.7554,
+      "evaluated_count": 26,
+      "error_count": 4
+    },
+    "rerank": {
+      "mean_faithfulness": 0.6373,
+      "evaluated_count": 26,
+      "error_count": 4
+    }
+  },
+  "rows": [
+    {
+      "question_id": "AM-DEV01",
+      "retrieval_mode": "naive",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM007_c1_0001",
+        "AM055_c1_0001",
+        "AM010_c1_0001"
+      ],
+      "context_token_count": 923,
+      "faithfulness": 1.0,
+      "seconds": 17.707,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV01",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM008_c1_0060",
+        "AM007_c1_0020",
+        "AM007_c1_0001"
+      ],
+      "context_token_count": 1412,
+      "faithfulness": 0.8,
+      "seconds": 22.445,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV01",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM055_c1_0001",
+        "AM007_c1_0001",
+        "AM007_c1_0013"
+      ],
+      "context_token_count": 1301,
+      "faithfulness": 0.9090909090909091,
+      "seconds": 20.382,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV02",
+      "retrieval_mode": "naive",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM017_c1_0001",
+        "AM008_c1_0001",
+        "AM008_c1_0010"
+      ],
+      "context_token_count": 1195,
+      "faithfulness": 1.0,
+      "seconds": 10.285,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV02",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM008_c1_0001",
+        "AM008_c1_0005",
+        "AM008_c1_0002"
+      ],
+      "context_token_count": 1281,
+      "faithfulness": 1.0,
+      "seconds": 13.393,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV02",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM008_c1_0001",
+        "AM008_c1_0010",
+        "AM008_c1_0058"
+      ],
+      "context_token_count": 1480,
+      "faithfulness": 1.0,
+      "seconds": 11.611,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV03",
+      "retrieval_mode": "naive",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM012_c1_0001",
+        "AM012_c1_0010",
+        "AM012_c1_0033"
+      ],
+      "context_token_count": 1382,
+      "faithfulness": 1.0,
+      "seconds": 13.882,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV03",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM012_c1_0001",
+        "AM012_c1_0073",
+        "AM012_c1_0010"
+      ],
+      "context_token_count": 1411,
+      "faithfulness": 1.0,
+      "seconds": 12.653,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV03",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM012_c1_0001",
+        "AM012_c1_0010",
+        "AM012_c1_0004"
+      ],
+      "context_token_count": 1427,
+      "faithfulness": 1.0,
+      "seconds": 11.954,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV04",
+      "retrieval_mode": "naive",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM013_c1_0040",
+        "AM035_c1_0044",
+        "AM013_c1_0001"
+      ],
+      "context_token_count": 1165,
+      "faithfulness": 0.8888888888888888,
+      "seconds": 19.216,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV04",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM035_c1_0044",
+        "AM035_c1_0011",
+        "AM035_c1_0062"
+      ],
+      "context_token_count": 1572,
+      "faithfulness": 1.0,
+      "seconds": 12.779,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV04",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM035_c1_0011",
+        "AM035_c1_0023",
+        "AM035_c1_0062"
+      ],
+      "context_token_count": 1851,
+      "faithfulness": 1.0,
+      "seconds": 18.638,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV05",
+      "retrieval_mode": "naive",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM016_c1_0056",
+        "AM015_c1_0065",
+        "AM008_c1_0002"
+      ],
+      "context_token_count": 1520,
+      "faithfulness": null,
+      "seconds": 29.472,
+      "error": "IncompleteOutputException: The output is incomplete due to a max_tokens length limit."
+    },
+    {
+      "question_id": "AM-DEV05",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM016_c1_0022",
+        "AM015_c1_0074",
+        "AM016_c1_0010"
+      ],
+      "context_token_count": 1407,
+      "faithfulness": 1.0,
+      "seconds": 28.338,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV05",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM015_c1_0054",
+        "AM049_c1_0052",
+        "AM015_c1_0065"
+      ],
+      "context_token_count": 1738,
+      "faithfulness": 0.8,
+      "seconds": 24.072,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV06",
+      "retrieval_mode": "naive",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM047_c1_0030",
+        "AM048_c1_0057",
+        "AM019_c1_0012"
+      ],
+      "context_token_count": 1179,
+      "faithfulness": 0.7,
+      "seconds": 24.79,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV06",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM019_c1_0012",
+        "AM047_c1_0030",
+        "AM013_c1_0011"
+      ],
+      "context_token_count": 956,
+      "faithfulness": 0.7,
+      "seconds": 21.894,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV06",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM019_c1_0012",
+        "AM017_c1_0011",
+        "AM024_c1_0001"
+      ],
+      "context_token_count": 905,
+      "faithfulness": 1.0,
+      "seconds": 17.141,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV07",
+      "retrieval_mode": "naive",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM049_c1_0037",
+        "AM050_c1_0071",
+        "AM039_c1_0070"
+      ],
+      "context_token_count": 1868,
+      "faithfulness": 1.0,
+      "seconds": 21.325,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV07",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM022_c1_0001",
+        "AM050_c1_0027",
+        "AM022_c1_0024"
+      ],
+      "context_token_count": 1318,
+      "faithfulness": 0.75,
+      "seconds": 16.074,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV07",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM049_c1_0037",
+        "AM050_c1_0027",
+        "AM054_c1_0021"
+      ],
+      "context_token_count": 1824,
+      "faithfulness": 0.8461538461538461,
+      "seconds": 22.567,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV08",
+      "retrieval_mode": "naive",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "AM011_c1_0026",
+        "AM037_c1_0001",
+        "AM007_c1_0038"
+      ],
+      "context_token_count": 1597,
+      "faithfulness": 0.8571428571428571,
+      "seconds": 17.118,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV08",
+      "retrieval_mode": "hybrid",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "AM037_c1_0001",
+        "AM038_c1_0030",
+        "AM011_c1_0026"
+      ],
+      "context_token_count": 1550,
+      "faithfulness": 1.0,
+      "seconds": 13.143,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV08",
+      "retrieval_mode": "rerank",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "AM048_c1_0042",
+        "AM037_c1_0001",
+        "AM048_c1_0050"
+      ],
+      "context_token_count": 1550,
+      "faithfulness": 1.0,
+      "seconds": 14.451,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV09",
+      "retrieval_mode": "naive",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM017_c1_0011",
+        "AM030_c1_0001",
+        "AM030_c1_0031"
+      ],
+      "context_token_count": 985,
+      "faithfulness": 1.0,
+      "seconds": 12.757,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV09",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM017_c1_0011",
+        "AM030_c1_0001",
+        "AM030_c1_0031"
+      ],
+      "context_token_count": 985,
+      "faithfulness": 1.0,
+      "seconds": 11.245,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV09",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM030_c1_0001",
+        "AM017_c1_0011",
+        "AM030_c1_0022"
+      ],
+      "context_token_count": 878,
+      "faithfulness": 1.0,
+      "seconds": 10.754,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV10",
+      "retrieval_mode": "naive",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM018_c1_0001",
+        "AM047_c1_0028",
+        "AM035_c1_0011"
+      ],
+      "context_token_count": 1243,
+      "faithfulness": 0.8571428571428571,
+      "seconds": 16.053,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV10",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM047_c1_0028",
+        "AM019_c1_0038",
+        "AM025_c1_0023"
+      ],
+      "context_token_count": 1561,
+      "faithfulness": 0.875,
+      "seconds": 20.072,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV10",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM019_c1_0038",
+        "AM017_c1_0058",
+        "AM047_c1_0028"
+      ],
+      "context_token_count": 1530,
+      "faithfulness": 1.0,
+      "seconds": 13.191,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV11",
+      "retrieval_mode": "naive",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM011_c1_0019",
+        "AM011_c1_0005",
+        "AM025_c1_0014"
+      ],
+      "context_token_count": 1537,
+      "faithfulness": 0.8,
+      "seconds": 15.972,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV11",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM008_c1_0001",
+        "AM019_c1_0001",
+        "AM013_c1_0065"
+      ],
+      "context_token_count": 1696,
+      "faithfulness": 1.0,
+      "seconds": 11.871,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV11",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM019_c1_0005",
+        "AM013_c1_0065",
+        "AM008_c1_0001"
+      ],
+      "context_token_count": 1944,
+      "faithfulness": 1.0,
+      "seconds": 12.27,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV12",
+      "retrieval_mode": "naive",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM007_c1_0057",
+        "AM011_c1_0065",
+        "AM007_c1_0009"
+      ],
+      "context_token_count": 1927,
+      "faithfulness": 0.8888888888888888,
+      "seconds": 27.654,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV12",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM035_c1_0023",
+        "AM055_c1_0018",
+        "AM007_c1_0057"
+      ],
+      "context_token_count": 2037,
+      "faithfulness": 1.0,
+      "seconds": 12.887,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV12",
+      "retrieval_mode": "rerank",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM013_c1_0057",
+        "AM055_c1_0018",
+        "AM013_c1_0001"
+      ],
+      "context_token_count": 1550,
+      "faithfulness": 1.0,
+      "seconds": 10.867,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV13",
+      "retrieval_mode": "naive",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "AM002_c1_0001",
+        "AM001_c1_0003",
+        "AM108_c1_0080"
+      ],
+      "context_token_count": 1379,
+      "faithfulness": null,
+      "seconds": 33.396,
+      "error": "IncompleteOutputException: The output is incomplete due to a max_tokens length limit."
+    },
+    {
+      "question_id": "AM-DEV13",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM002_c1_0001",
+        "AM001_c1_0001",
+        "AM001_c1_0003"
+      ],
+      "context_token_count": 1306,
+      "faithfulness": null,
+      "seconds": 30.356,
+      "error": "IncompleteOutputException: The output is incomplete due to a max_tokens length limit."
+    },
+    {
+      "question_id": "AM-DEV13",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM001_c1_0001",
+        "AM001_c1_0002",
+        "AM002_c1_0001"
+      ],
+      "context_token_count": 1313,
+      "faithfulness": null,
+      "seconds": 27.969,
+      "error": "IncompleteOutputException: The output is incomplete due to a max_tokens length limit."
+    },
+    {
+      "question_id": "AM-DEV14",
+      "retrieval_mode": "naive",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM003_c1_0003",
+        "AM005_c1_0004",
+        "AM006_c1_0100"
+      ],
+      "context_token_count": 1339,
+      "faithfulness": 0.6363636363636364,
+      "seconds": 22.792,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV14",
+      "retrieval_mode": "hybrid",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM003_c1_0003",
+        "AM005_c1_0004",
+        "AM003_c1_0004"
+      ],
+      "context_token_count": 1351,
+      "faithfulness": 0.0,
+      "seconds": 8.078,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV14",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM006_c1_0036",
+        "AM003_c1_0003",
+        "AM005_c1_0004"
+      ],
+      "context_token_count": 1334,
+      "faithfulness": 0.0,
+      "seconds": 13.27,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV15",
+      "retrieval_mode": "naive",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "AM003_c1_0040",
+        "AM006_c1_0100",
+        "AM003_c1_0042"
+      ],
+      "context_token_count": 1461,
+      "faithfulness": 0.6,
+      "seconds": 17.36,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV15",
+      "retrieval_mode": "hybrid",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "AM003_c1_0003",
+        "AM003_c1_0004",
+        "AM003_c1_0040"
+      ],
+      "context_token_count": 1403,
+      "faithfulness": 0.75,
+      "seconds": 15.075,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV15",
+      "retrieval_mode": "rerank",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "AM003_c1_0003",
+        "AM001_c1_0001",
+        "AM006_c1_0036"
+      ],
+      "context_token_count": 1391,
+      "faithfulness": 0.9,
+      "seconds": 18.426,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV16",
+      "retrieval_mode": "naive",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM038_c1_0082",
+        "AM066_c1_0038",
+        "AM054_c1_0103"
+      ],
+      "context_token_count": 1741,
+      "faithfulness": 1.0,
+      "seconds": 21.888,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV16",
+      "retrieval_mode": "hybrid",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM038_c1_0094",
+        "AM038_c1_0082",
+        "AM061_c1_0147"
+      ],
+      "context_token_count": 1696,
+      "faithfulness": null,
+      "seconds": 31.237,
+      "error": "IncompleteOutputException: The output is incomplete due to a max_tokens length limit."
+    },
+    {
+      "question_id": "AM-DEV16",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM061_c1_0147",
+        "AM036_c1_0122",
+        "AM114_c1_0044"
+      ],
+      "context_token_count": 1721,
+      "faithfulness": 0.0,
+      "seconds": 9.284,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV17",
+      "retrieval_mode": "naive",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM012_c1_0140",
+        "AM042_c1_0142",
+        "AM054_c1_0111"
+      ],
+      "context_token_count": 1614,
+      "faithfulness": 0.9166666666666666,
+      "seconds": 29.177,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV17",
+      "retrieval_mode": "hybrid",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM012_c1_0140",
+        "AM003_c1_0004",
+        "AM042_c1_0142"
+      ],
+      "context_token_count": 1579,
+      "faithfulness": 1.0,
+      "seconds": 23.907,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV17",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM094_c1_0029",
+        "AM079_c1_0004",
+        "AM063_c1_0129"
+      ],
+      "context_token_count": 1882,
+      "faithfulness": 0.0,
+      "seconds": 8.242,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV18",
+      "retrieval_mode": "naive",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM005_c1_0004",
+        "AM006_c1_0052",
+        "AM006_c1_0058"
+      ],
+      "context_token_count": 1411,
+      "faithfulness": 0.8888888888888888,
+      "seconds": 24.443,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV18",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM005_c1_0004",
+        "AM116_c1_0006",
+        "AM006_c1_0052"
+      ],
+      "context_token_count": 1554,
+      "faithfulness": null,
+      "seconds": 29.281,
+      "error": "IncompleteOutputException: The output is incomplete due to a max_tokens length limit."
+    },
+    {
+      "question_id": "AM-DEV18",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM116_c1_0006",
+        "AM115_c1_0120",
+        "AM115_c1_0114"
+      ],
+      "context_token_count": 1919,
+      "faithfulness": 1.0,
+      "seconds": 24.773,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV19",
+      "retrieval_mode": "naive",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "AM012_c1_0016",
+        "AM105_c1_0126",
+        "AM014_c1_0094"
+      ],
+      "context_token_count": 1778,
+      "faithfulness": 0.9,
+      "seconds": 30.753,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV19",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM012_c1_0016",
+        "AM115_c1_0006",
+        "AM105_c1_0126"
+      ],
+      "context_token_count": 1796,
+      "faithfulness": null,
+      "seconds": 30.926,
+      "error": "IncompleteOutputException: The output is incomplete due to a max_tokens length limit."
+    },
+    {
+      "question_id": "AM-DEV19",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM115_c1_0006",
+        "AM114_c1_0150",
+        "AM114_c1_0138"
+      ],
+      "context_token_count": 1946,
+      "faithfulness": null,
+      "seconds": 31.918,
+      "error": "IncompleteOutputException: The output is incomplete due to a max_tokens length limit."
+    },
+    {
+      "question_id": "AM-DEV20",
+      "retrieval_mode": "naive",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM004_c1_0002",
+        "AM004_c1_0003",
+        "AM005_c1_0003"
+      ],
+      "context_token_count": 1288,
+      "faithfulness": 0.8,
+      "seconds": 30.201,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV20",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM004_c1_0002",
+        "AM001_c1_0107",
+        "AM004_c1_0003"
+      ],
+      "context_token_count": 1565,
+      "faithfulness": 0.8181818181818182,
+      "seconds": 23.637,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV20",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM007_c1_0127",
+        "AM001_c1_0107",
+        "AM002_c1_0129"
+      ],
+      "context_token_count": 2135,
+      "faithfulness": 0.9,
+      "seconds": 21.09,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV21",
+      "retrieval_mode": "naive",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM014_c1_0001",
+        "AM051_c1_0013",
+        "AM030_c1_0046"
+      ],
+      "context_token_count": 1392,
+      "faithfulness": null,
+      "seconds": 29.018,
+      "error": "IncompleteOutputException: The output is incomplete due to a max_tokens length limit."
+    },
+    {
+      "question_id": "AM-DEV21",
+      "retrieval_mode": "hybrid",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM038_c1_0070",
+        "AM014_c1_0001",
+        "AM003_c1_0004"
+      ],
+      "context_token_count": 1454,
+      "faithfulness": 0.0,
+      "seconds": 10.542,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV21",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM014_c1_0005",
+        "AM031_c1_0084",
+        "AM048_c1_0021"
+      ],
+      "context_token_count": 1587,
+      "faithfulness": 0.0,
+      "seconds": 12.186,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV22",
+      "retrieval_mode": "naive",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM041_c1_0147",
+        "AM011_c1_0150",
+        "AM021_c1_0150"
+      ],
+      "context_token_count": 1632,
+      "faithfulness": null,
+      "seconds": 31.206,
+      "error": "IncompleteOutputException: The output is incomplete due to a max_tokens length limit."
+    },
+    {
+      "question_id": "AM-DEV22",
+      "retrieval_mode": "hybrid",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM041_c1_0147",
+        "AM093_c1_0034",
+        "AM011_c1_0150"
+      ],
+      "context_token_count": 1615,
+      "faithfulness": 0.0,
+      "seconds": 8.81,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV22",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM093_c1_0034",
+        "AM094_c1_0112",
+        "AM093_c1_0118"
+      ],
+      "context_token_count": 1589,
+      "faithfulness": 0.0,
+      "seconds": 7.757,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV23",
+      "retrieval_mode": "naive",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM013_c1_0097",
+        "AM037_c1_0114",
+        "AM029_c1_0117"
+      ],
+      "context_token_count": 1902,
+      "faithfulness": 1.0,
+      "seconds": 24.31,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV23",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM031_c1_0141",
+        "AM013_c1_0097",
+        "AM032_c1_0078"
+      ],
+      "context_token_count": 1924,
+      "faithfulness": 1.0,
+      "seconds": 28.811,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV23",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM032_c1_0078",
+        "AM032_c1_0084",
+        "AM031_c1_0123"
+      ],
+      "context_token_count": 1969,
+      "faithfulness": null,
+      "seconds": 29.765,
+      "error": "IncompleteOutputException: The output is incomplete due to a max_tokens length limit."
+    },
+    {
+      "question_id": "AM-DEV24",
+      "retrieval_mode": "naive",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM053_c1_0086",
+        "AM006_c1_0035",
+        "AM011_c1_0091"
+      ],
+      "context_token_count": 1882,
+      "faithfulness": 0.8571428571428571,
+      "seconds": 24.682,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV24",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM053_c1_0086",
+        "AM114_c1_0011",
+        "AM006_c1_0035"
+      ],
+      "context_token_count": 1888,
+      "faithfulness": 0.9473684210526315,
+      "seconds": 26.711,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV24",
+      "retrieval_mode": "rerank",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "AM114_c1_0011",
+        "AM114_c1_0023",
+        "AM114_c1_0041"
+      ],
+      "context_token_count": 2136,
+      "faithfulness": 0.5,
+      "seconds": 29.947,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV25",
+      "retrieval_mode": "naive",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM006_c1_0002",
+        "AM006_c1_0004",
+        "AM062_c1_0081"
+      ],
+      "context_token_count": 1434,
+      "faithfulness": 0.9090909090909091,
+      "seconds": 22.015,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV25",
+      "retrieval_mode": "hybrid",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM006_c1_0002",
+        "AM006_c1_0004",
+        "AM025_c1_0102"
+      ],
+      "context_token_count": 1520,
+      "faithfulness": 0.0,
+      "seconds": 8.518,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV25",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM086_c1_0087",
+        "AM025_c1_0102",
+        "AM084_c1_0057"
+      ],
+      "context_token_count": 1736,
+      "faithfulness": 0.0,
+      "seconds": 8.048,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV26",
+      "retrieval_mode": "naive",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM038_c1_0082",
+        "AM056_c1_0104",
+        "AM061_c1_0134"
+      ],
+      "context_token_count": 1730,
+      "faithfulness": 1.0,
+      "seconds": 23.202,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV26",
+      "retrieval_mode": "hybrid",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM038_c1_0082",
+        "AM089_c1_0063",
+        "AM056_c1_0104"
+      ],
+      "context_token_count": 1714,
+      "faithfulness": 1.0,
+      "seconds": 25.71,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV26",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM074_c1_0038",
+        "AM089_c1_0063",
+        "AM059_c1_0013"
+      ],
+      "context_token_count": 1846,
+      "faithfulness": 0.0,
+      "seconds": 7.677,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV27",
+      "retrieval_mode": "naive",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM014_c1_0146",
+        "AM031_c1_0115",
+        "AM011_c1_0150"
+      ],
+      "context_token_count": 1632,
+      "faithfulness": 1.0,
+      "seconds": 25.264,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV27",
+      "retrieval_mode": "hybrid",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM011_c1_0150",
+        "AM013_c1_0077",
+        "AM011_c1_0078"
+      ],
+      "context_token_count": 1632,
+      "faithfulness": 1.0,
+      "seconds": 21.504,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV27",
+      "retrieval_mode": "rerank",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM107_c1_0064",
+        "AM092_c1_0039",
+        "AM107_c1_0136"
+      ],
+      "context_token_count": 1620,
+      "faithfulness": null,
+      "seconds": 34.754,
+      "error": "IncompleteOutputException: The output is incomplete due to a max_tokens length limit."
+    },
+    {
+      "question_id": "AM-DEV28",
+      "retrieval_mode": "naive",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM005_c1_0004",
+        "AM095_c1_0090",
+        "AM006_c1_0052"
+      ],
+      "context_token_count": 1557,
+      "faithfulness": 1.0,
+      "seconds": 20.48,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV28",
+      "retrieval_mode": "hybrid",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM041_c1_0143",
+        "AM041_c1_0125",
+        "AM005_c1_0004"
+      ],
+      "context_token_count": 1701,
+      "faithfulness": 1.0,
+      "seconds": 21.362,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV28",
+      "retrieval_mode": "rerank",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM041_c1_0137",
+        "AM041_c1_0149",
+        "AM041_c1_0143"
+      ],
+      "context_token_count": 1958,
+      "faithfulness": 0.8571428571428571,
+      "seconds": 16.046,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV29",
+      "retrieval_mode": "naive",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "AM012_c1_0016",
+        "AM031_c1_0066",
+        "AM012_c1_0042"
+      ],
+      "context_token_count": 1434,
+      "faithfulness": 0.7142857142857143,
+      "seconds": 19.567,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV29",
+      "retrieval_mode": "hybrid",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM012_c1_0016",
+        "AM065_c1_0132",
+        "AM031_c1_0066"
+      ],
+      "context_token_count": 1678,
+      "faithfulness": 0.0,
+      "seconds": 7.724,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV29",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [
+        "AM065_c1_0132",
+        "AM065_c1_0114",
+        "AM065_c1_0108"
+      ],
+      "context_token_count": 1931,
+      "faithfulness": 0.0,
+      "seconds": 8.74,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV30",
+      "retrieval_mode": "naive",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM004_c1_0002",
+        "AM062_c1_0051",
+        "AM031_c1_0096"
+      ],
+      "context_token_count": 1597,
+      "faithfulness": 1.0,
+      "seconds": 22.224,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV30",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM004_c1_0002",
+        "AM001_c1_0119",
+        "AM062_c1_0051"
+      ],
+      "context_token_count": 1736,
+      "faithfulness": 1.0,
+      "seconds": 57.768,
+      "error": null
+    },
+    {
+      "question_id": "AM-DEV30",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "AM007_c1_0067",
+        "AM011_c1_0117",
+        "AM002_c1_0141"
+      ],
+      "context_token_count": 2135,
+      "faithfulness": 0.8571428571428571,
+      "seconds": 38.423,
+      "error": null
+    }
+  ]
+}

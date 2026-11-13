@@ -1,0 +1,1915 @@
+{
+  "run_id": "e04_c1_m1_p1_development_retrieval_20261113_0626",
+  "source_run_id": "e04_c1_m1_p1_development_all_20261113_0626",
+  "dataset": "manufacturing_advanced",
+  "active_config": {
+    "dataset": "manufacturing_advanced",
+    "chunk_version": "c1",
+    "embedding": "m1",
+    "prompt": "p1",
+    "retrieval_modes": {
+      "naive": "r1",
+      "hybrid": "r2",
+      "rerank": "r3"
+    },
+    "final_k": 3,
+    "context_token_budget": 2373
+  },
+  "question_source": "data/raw/manufacturing_advanced/evaluation/development.json",
+  "question_count": 30,
+  "retrieval_modes": {
+    "naive": "r1",
+    "hybrid": "r2",
+    "rerank": "r3"
+  },
+  "k_values": [
+    3
+  ],
+  "answer_result": "experiments/04_retrieval/results/manufacturing_advanced/e04_c1_m1_p1_development_all_20261113_0626.json",
+  "summary": {
+    "naive": {
+      "k3": {
+        "evaluated_count": 30,
+        "not_applicable_count": 0,
+        "hit_at_k": 0.3667,
+        "recall_at_k": 0.2944,
+        "quote_recall_at_k": 0.2848,
+        "mean_k": 3.0
+      },
+      "retrieval_seconds": {
+        "mean": 0.082,
+        "count": 30
+      }
+    },
+    "hybrid": {
+      "k3": {
+        "evaluated_count": 30,
+        "not_applicable_count": 0,
+        "hit_at_k": 0.6333,
+        "recall_at_k": 0.3472,
+        "quote_recall_at_k": 0.378,
+        "mean_k": 3.0
+      },
+      "retrieval_seconds": {
+        "mean": 0.2199,
+        "count": 30
+      }
+    },
+    "rerank": {
+      "k3": {
+        "evaluated_count": 30,
+        "not_applicable_count": 0,
+        "hit_at_k": 0.6667,
+        "recall_at_k": 0.4611,
+        "quote_recall_at_k": 0.4567,
+        "mean_k": 3.0
+      },
+      "retrieval_seconds": {
+        "mean": 89.2784,
+        "count": 30
+      }
+    }
+  },
+  "rows": {
+    "naive": {
+      "k3": [
+        {
+          "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+          "id": "AM-DEV01",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM007_c1_0001",
+            "AM055_c1_0001",
+            "AM010_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM010"
+          ],
+          "found_book_ids": [
+            "AM010"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+          "id": "AM-DEV02",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM017_c1_0001",
+            "AM008_c1_0001",
+            "AM008_c1_0010"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM008",
+            "AM017"
+          ],
+          "found_book_ids": [
+            "AM008",
+            "AM017"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-20 자료에 기록시각, 수신시각, 확인시각이 서로 다르게 적혀 있습니다. 세 시각은 각각 무엇을 뜻하나요?",
+          "id": "AM-DEV03",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM012_c1_0001",
+            "AM012_c1_0010",
+            "AM012_c1_0033"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM012"
+          ],
+          "found_book_ids": [
+            "AM012"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "체크뷰 현장조회 안내의 최근 30일은 어떤 시각을 기준으로 한 범위인가요? 이 값을 외부 보관소의 파일 삭제 기한으로 사용해도 되나요?",
+          "id": "AM-DEV04",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM013_c1_0040",
+            "AM035_c1_0044",
+            "AM013_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM013"
+          ],
+          "found_book_ids": [
+            "AM013"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10 담당자에게 기록담당 역할과 CV-10 대상 권한이 있습니다. 자료 확인과 전달 범위 검토도 끝났습니다. 이 담당자가 기록 파일을 내보내는 일과 CV-10에서 네트워크 자료를 수신하는 일을 각각 할 수 있는지, 기능과 역할 범위로 설명해 주세요.",
+          "id": "AM-DEV05",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM016_c1_0056",
+            "AM015_c1_0065",
+            "AM008_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM008",
+            "AM015"
+          ],
+          "found_book_ids": [
+            "AM008",
+            "AM015"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20에서 오늘 받은 자료에 최신 수신 표시가 있습니다. 출처와 모델은 확인되었지만 원자료 기록시각은 비어 있습니다. 이 자료를 현재 현장 상태라고 설명하면서 정상 확인된 자료 묶음으로 외부 전달해도 되나요?",
+          "id": "AM-DEV06",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM047_c1_0030",
+            "AM048_c1_0057",
+            "AM019_c1_0012"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM017",
+            "AM019"
+          ],
+          "found_book_ids": [
+            "AM019"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "건조한 실내이고 결로가 없는 섭씨 12도 장소에서 CV-10을 검토하고 있습니다. 네트워크 수신조회를 쓰려고 CV-20으로 바꾸면 환경 조건과 수신 기능은 각각 어떻게 달라지나요?",
+          "id": "AM-DEV07",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM049_c1_0037",
+            "AM050_c1_0071",
+            "AM039_c1_0070"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM008",
+            "AM022"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20 고객이 안내서 표지의 개정 1.1만 알려 주었습니다. 이 정보로 현재 자동 소등 기본값을 알려 주세요.",
+          "id": "AM-DEV08",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM011_c1_0026",
+            "AM037_c1_0001",
+            "AM007_c1_0038"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM009"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "출처가 미확인인 자료에 대해 검토자가 대상 자료와 목적을 적어 제한된 화면 조회를 허용했습니다. 이 허용으로 파일 내보내기와 네트워크 전달도 할 수 있나요?",
+          "id": "AM-DEV09",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM017_c1_0011",
+            "AM030_c1_0001",
+            "AM030_c1_0031"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM030"
+          ],
+          "found_book_ids": [
+            "AM030"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-20 기록은 확인 상태가 정상이고 내보내기에는 파일 생성 완료가 보입니다. 이 두 표시만으로 현장 안전 확인과 상대방 수신 완료를 보고하려고 합니다. 각각 어떤 의미로 고쳐 써야 하나요?",
+          "id": "AM-DEV10",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM018_c1_0001",
+            "AM047_c1_0028",
+            "AM035_c1_0011"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM010",
+            "AM018"
+          ],
+          "found_book_ids": [
+            "AM018"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-10 현장조회 양식에 네트워크 수신시각이 비어 있습니다. 다른 정보는 정상입니다. 빈 수신시각만으로 수신 오류라고 보고해도 되나요?",
+          "id": "AM-DEV11",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM011_c1_0019",
+            "AM011_c1_0005",
+            "AM025_c1_0014"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM012"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰의 최근 30일 조회 목록이 비어 있습니다. 이 화면만 근거로 그 기간에 해당 현장에 이상이 전혀 없었다고 확정해 주세요.",
+          "id": "AM-DEV12",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM007_c1_0057",
+            "AM011_c1_0065",
+            "AM007_c1_0009"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM013"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "2027-02-18 16:00 KST 기준 주문 SO-270218-14의 네 장비 중 추가 센서 교체가 필요한 장비는 무엇이며, 나머지는 왜 같은 교체를 진행하지 않나요? 현재 구성과 승인된 통지를 근거로 구분해 주세요.",
+          "id": "AM-DEV13",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM002_c1_0001",
+            "AM001_c1_0003",
+            "AM108_c1_0080"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM001",
+            "AM002"
+          ],
+          "found_book_ids": [
+            "AM001",
+            "AM002"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.5556
+        },
+        {
+          "question": "2027-02-18 16:00 KST 기준 주문 SO-270218-14의 4대 중 출하 가능한 대수와 일련번호를 알려 주세요. 각 장비의 실제 구성, 필요한 조치의 완료 여부, 적용한 검사 기준과 결과, 출하 승인 상태를 근거로 장비별 판단을 설명해 주세요.",
+          "id": "AM-DEV14",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM003_c1_0003",
+            "AM005_c1_0004",
+            "AM006_c1_0100"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM001",
+            "AM002",
+            "AM003"
+          ],
+          "found_book_ids": [
+            "AM003"
+          ],
+          "hit": 1,
+          "recall": 0.3333,
+          "quote_recall": 0.2143
+        },
+        {
+          "question": "2027-02-18 16:00 KST 기준 주문 SO-270218-14의 라인 B 검사기 한 대를 보내려 합니다. 어느 장비인지는 별칭만 적혀 있는데 출하 가능한 것으로 처리해 주세요.",
+          "id": "AM-DEV15",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM003_c1_0040",
+            "AM006_c1_0100",
+            "AM003_c1_0042"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM001",
+            "AM003"
+          ],
+          "found_book_ids": [
+            "AM003"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "HS-280108-00042 / 2028-01-08 16:00 KST 기준으로 변경 통지의 대상과 현재 작업 완료를 구분해 주세요. 네 장비 각각에 추가 교체·FW 적용 또는 완료 증빙이 필요한지, 제외 장비는 어떤 조건 때문에 제외되는지 설명해 주세요.",
+          "id": "AM-DEV16",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM038_c1_0082",
+            "AM066_c1_0038",
+            "AM054_c1_0103"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM005",
+            "AM036",
+            "AM061"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.1429
+        },
+        {
+          "question": "HS-280114-00089 / 2028-01-14 16:00 KST의 네 장비 검사 원기록을 실제 모델·FW와 대조해 주세요. 장비별 접합 분리강도 허용 조건과 측정값을 제시하고, 온도·교정·정상 횟수까지 고려해 유효한 검사 합격 여부를 판단해 주세요.",
+          "id": "AM-DEV17",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM012_c1_0140",
+            "AM042_c1_0142",
+            "AM054_c1_0111"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM009",
+            "AM079",
+            "AM094"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "HS-280203-00256 / 2028-02-03 16:00 KST 기준으로 현재 부분 출고를 진행할 수 있나요? 승인된 납품 방식, 계약 보류, 장비별 유효 승인 시각을 연결해 출고 가능한 대수·일련번호와 남은 계약·승인 조건을 설명해 주세요.",
+          "id": "AM-DEV18",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM005_c1_0004",
+            "AM006_c1_0052",
+            "AM006_c1_0058"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM053",
+            "AM085",
+            "AM116"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "HS-280131-00231 / 2028-01-31 16:00 KST의 승인 원장은 17:30에 취합됐습니다. 문서가 나중에 취합됐다는 이유로 모든 서명을 16:00의 출고 승인으로 봐도 되나요? 장비별 서명 시각·공동 확인·철회 범위를 구분해 주세요.",
+          "id": "AM-DEV19",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM012_c1_0016",
+            "AM105_c1_0126",
+            "AM014_c1_0094"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM084",
+            "AM115"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0714
+        },
+        {
+          "question": "이안기전의 2028-02-09자 신호 응답 확인대 납품건입니다. 부품 수령량을 완성 장비의 작업·검사 완료 대수로 보고해도 되나요? 발주·수령 단위와 장비별 작업 증빙의 차이를 설명해 주세요.",
+          "id": "AM-DEV20",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM004_c1_0002",
+            "AM004_c1_0003",
+            "AM005_c1_0003"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM027",
+            "AM072"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "가람산기의 2028-02-21자 인계에서 “위치 조정셀 오전조”를 바로 출고 승인 처리해 달라고 합니다. 이 별칭으로 한 대를 특정할 수 있나요? 확인해야 할 식별값과 이미 확인 가능한 승인 범위를 알려 주세요.",
+          "id": "AM-DEV21",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM014_c1_0001",
+            "AM051_c1_0013",
+            "AM030_c1_0046"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM003",
+            "AM034",
+            "AM091"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "HS-280227-00444 / 2028-02-27 16:00 KST의 검사 기준에서 목표 FW 4.12.2와 실제 FW를 어떻게 구분해야 하나요? 네 장비에 적용할 정상 유지시간 허용 조건을 고르고, E형 모델 행을 본체 모델과 섞으면 안 되는 이유를 설명해 주세요.",
+          "id": "AM-DEV22",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM041_c1_0147",
+            "AM011_c1_0150",
+            "AM021_c1_0150"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM038",
+            "AM093"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.1111
+        },
+        {
+          "question": "HS-280404-00743 / 2028-04-04 16:00 KST에서 검사 합격과 실제 반출 완료는 같은 상태인가요? 인계 원장의 물류 근거를 장비별로 구분하고, 예약 또는 원본 미수령 상태를 어떻게 회신해야 하는지 설명해 주세요.",
+          "id": "AM-DEV23",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM013_c1_0097",
+            "AM037_c1_0114",
+            "AM029_c1_0117"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM032"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.1429
+        },
+        {
+          "question": "HS-280316-00586 / 2028-03-16 16:00 KST의 완성 장비 시험에서 최초 수치와 재조정 후 수치를 어떻게 적용하나요? 재측정 기록이 있는 장비와 없는 장비를 구분하고, 다른 장비의 원값까지 대체할 수 있는지 알려 주세요.",
+          "id": "AM-DEV24",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM053_c1_0086",
+            "AM006_c1_0035",
+            "AM011_c1_0091"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM098",
+            "AM114"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.1
+        },
+        {
+          "question": "HS-280325-00657 / 2028-03-25 16:00 KST에서 완료 원본이나 승인 서명이 없는 장비를 모두 실제 미작업·검사 불합격이라고 회신해도 되나요? 확인된 작업·검사와 미결 증빙을 장비별로 구분해 주세요.",
+          "id": "AM-DEV25",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM006_c1_0002",
+            "AM006_c1_0004",
+            "AM062_c1_0081"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM025",
+            "AM086",
+            "AM101",
+            "AM116"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "HS-280402-00728 / 2028-04-02 16:00 KST 기준으로 변경 통지의 대상과 현재 작업 완료를 구분해 주세요. 네 장비 각각에 추가 교체·FW 적용 또는 완료 증빙이 필요한지, 제외 장비는 어떤 조건 때문에 제외되는지 설명해 주세요.",
+          "id": "AM-DEV26",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM038_c1_0082",
+            "AM056_c1_0104",
+            "AM061_c1_0134"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM059",
+            "AM074",
+            "AM089"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.1429
+        },
+        {
+          "question": "HS-280411-00799 / 2028-04-11 16:00 KST의 네 장비 검사 원기록을 실제 모델·FW와 대조해 주세요. 장비별 정속 진동값 허용 조건과 측정값을 제시하고, 온도·교정·정상 횟수까지 고려해 유효한 검사 합격 여부를 판단해 주세요.",
+          "id": "AM-DEV27",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM014_c1_0146",
+            "AM031_c1_0115",
+            "AM011_c1_0150"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM005",
+            "AM061",
+            "AM107"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "HS-280420-00870 / 2028-04-20 16:00 KST 기준으로 현재 부분 출고를 진행할 수 있나요? 승인된 납품 방식, 계약 보류, 장비별 유효 승인 시각을 연결해 출고 가능한 대수·일련번호와 남은 계약·승인 조건을 설명해 주세요.",
+          "id": "AM-DEV28",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM005_c1_0004",
+            "AM095_c1_0090",
+            "AM006_c1_0052"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM042",
+            "AM079",
+            "AM110"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0625
+        },
+        {
+          "question": "HS-280610-01277 / 2028-06-10 16:00 KST의 승인 원장은 17:30에 취합됐습니다. 문서가 나중에 취합됐다는 이유로 모든 서명을 16:00의 출고 승인으로 봐도 되나요? 장비별 서명 시각·공동 확인·철회 범위를 구분해 주세요.",
+          "id": "AM-DEV29",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM012_c1_0016",
+            "AM031_c1_0066",
+            "AM012_c1_0042"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM013",
+            "AM065"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "이안기전의 2028-05-08자 밀폐 누설 확인대 납품건입니다. 부품 수령량을 완성 장비의 작업·검사 완료 대수로 보고해도 되나요? 발주·수령 단위와 장비별 작업 증빙의 차이를 설명해 주세요.",
+          "id": "AM-DEV30",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM004_c1_0002",
+            "AM062_c1_0051",
+            "AM031_c1_0096"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM070",
+            "AM100"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        }
+      ]
+    },
+    "hybrid": {
+      "k3": [
+        {
+          "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+          "id": "AM-DEV01",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM008_c1_0060",
+            "AM007_c1_0020",
+            "AM007_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM010"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+          "id": "AM-DEV02",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM008_c1_0001",
+            "AM008_c1_0005",
+            "AM008_c1_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM008",
+            "AM017"
+          ],
+          "found_book_ids": [
+            "AM008"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20 자료에 기록시각, 수신시각, 확인시각이 서로 다르게 적혀 있습니다. 세 시각은 각각 무엇을 뜻하나요?",
+          "id": "AM-DEV03",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM012_c1_0001",
+            "AM012_c1_0073",
+            "AM012_c1_0010"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM012"
+          ],
+          "found_book_ids": [
+            "AM012"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "체크뷰 현장조회 안내의 최근 30일은 어떤 시각을 기준으로 한 범위인가요? 이 값을 외부 보관소의 파일 삭제 기한으로 사용해도 되나요?",
+          "id": "AM-DEV04",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM035_c1_0044",
+            "AM035_c1_0011",
+            "AM035_c1_0062"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM013"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-10 담당자에게 기록담당 역할과 CV-10 대상 권한이 있습니다. 자료 확인과 전달 범위 검토도 끝났습니다. 이 담당자가 기록 파일을 내보내는 일과 CV-10에서 네트워크 자료를 수신하는 일을 각각 할 수 있는지, 기능과 역할 범위로 설명해 주세요.",
+          "id": "AM-DEV05",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM016_c1_0022",
+            "AM015_c1_0074",
+            "AM016_c1_0010"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM008",
+            "AM015"
+          ],
+          "found_book_ids": [
+            "AM015"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20에서 오늘 받은 자료에 최신 수신 표시가 있습니다. 출처와 모델은 확인되었지만 원자료 기록시각은 비어 있습니다. 이 자료를 현재 현장 상태라고 설명하면서 정상 확인된 자료 묶음으로 외부 전달해도 되나요?",
+          "id": "AM-DEV06",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM019_c1_0012",
+            "AM047_c1_0030",
+            "AM013_c1_0011"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM017",
+            "AM019"
+          ],
+          "found_book_ids": [
+            "AM019"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "건조한 실내이고 결로가 없는 섭씨 12도 장소에서 CV-10을 검토하고 있습니다. 네트워크 수신조회를 쓰려고 CV-20으로 바꾸면 환경 조건과 수신 기능은 각각 어떻게 달라지나요?",
+          "id": "AM-DEV07",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM022_c1_0001",
+            "AM050_c1_0027",
+            "AM022_c1_0024"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM008",
+            "AM022"
+          ],
+          "found_book_ids": [
+            "AM022"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20 고객이 안내서 표지의 개정 1.1만 알려 주었습니다. 이 정보로 현재 자동 소등 기본값을 알려 주세요.",
+          "id": "AM-DEV08",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM037_c1_0001",
+            "AM038_c1_0030",
+            "AM011_c1_0026"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM009"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "출처가 미확인인 자료에 대해 검토자가 대상 자료와 목적을 적어 제한된 화면 조회를 허용했습니다. 이 허용으로 파일 내보내기와 네트워크 전달도 할 수 있나요?",
+          "id": "AM-DEV09",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM017_c1_0011",
+            "AM030_c1_0001",
+            "AM030_c1_0031"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM030"
+          ],
+          "found_book_ids": [
+            "AM030"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-20 기록은 확인 상태가 정상이고 내보내기에는 파일 생성 완료가 보입니다. 이 두 표시만으로 현장 안전 확인과 상대방 수신 완료를 보고하려고 합니다. 각각 어떤 의미로 고쳐 써야 하나요?",
+          "id": "AM-DEV10",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM047_c1_0028",
+            "AM019_c1_0038",
+            "AM025_c1_0023"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM010",
+            "AM018"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-10 현장조회 양식에 네트워크 수신시각이 비어 있습니다. 다른 정보는 정상입니다. 빈 수신시각만으로 수신 오류라고 보고해도 되나요?",
+          "id": "AM-DEV11",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM008_c1_0001",
+            "AM019_c1_0001",
+            "AM013_c1_0065"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM012"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰의 최근 30일 조회 목록이 비어 있습니다. 이 화면만 근거로 그 기간에 해당 현장에 이상이 전혀 없었다고 확정해 주세요.",
+          "id": "AM-DEV12",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM035_c1_0023",
+            "AM055_c1_0018",
+            "AM007_c1_0057"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM013"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "2027-02-18 16:00 KST 기준 주문 SO-270218-14의 네 장비 중 추가 센서 교체가 필요한 장비는 무엇이며, 나머지는 왜 같은 교체를 진행하지 않나요? 현재 구성과 승인된 통지를 근거로 구분해 주세요.",
+          "id": "AM-DEV13",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM002_c1_0001",
+            "AM001_c1_0001",
+            "AM001_c1_0003"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM001",
+            "AM002"
+          ],
+          "found_book_ids": [
+            "AM001",
+            "AM002"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.8889
+        },
+        {
+          "question": "2027-02-18 16:00 KST 기준 주문 SO-270218-14의 4대 중 출하 가능한 대수와 일련번호를 알려 주세요. 각 장비의 실제 구성, 필요한 조치의 완료 여부, 적용한 검사 기준과 결과, 출하 승인 상태를 근거로 장비별 판단을 설명해 주세요.",
+          "id": "AM-DEV14",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM003_c1_0003",
+            "AM005_c1_0004",
+            "AM003_c1_0004"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM001",
+            "AM002",
+            "AM003"
+          ],
+          "found_book_ids": [
+            "AM003"
+          ],
+          "hit": 1,
+          "recall": 0.3333,
+          "quote_recall": 0.2143
+        },
+        {
+          "question": "2027-02-18 16:00 KST 기준 주문 SO-270218-14의 라인 B 검사기 한 대를 보내려 합니다. 어느 장비인지는 별칭만 적혀 있는데 출하 가능한 것으로 처리해 주세요.",
+          "id": "AM-DEV15",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM003_c1_0003",
+            "AM003_c1_0004",
+            "AM003_c1_0040"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM001",
+            "AM003"
+          ],
+          "found_book_ids": [
+            "AM003"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.6667
+        },
+        {
+          "question": "HS-280108-00042 / 2028-01-08 16:00 KST 기준으로 변경 통지의 대상과 현재 작업 완료를 구분해 주세요. 네 장비 각각에 추가 교체·FW 적용 또는 완료 증빙이 필요한지, 제외 장비는 어떤 조건 때문에 제외되는지 설명해 주세요.",
+          "id": "AM-DEV16",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM038_c1_0094",
+            "AM038_c1_0082",
+            "AM061_c1_0147"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM005",
+            "AM036",
+            "AM061"
+          ],
+          "found_book_ids": [
+            "AM061"
+          ],
+          "hit": 1,
+          "recall": 0.3333,
+          "quote_recall": 0.5714
+        },
+        {
+          "question": "HS-280114-00089 / 2028-01-14 16:00 KST의 네 장비 검사 원기록을 실제 모델·FW와 대조해 주세요. 장비별 접합 분리강도 허용 조건과 측정값을 제시하고, 온도·교정·정상 횟수까지 고려해 유효한 검사 합격 여부를 판단해 주세요.",
+          "id": "AM-DEV17",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM012_c1_0140",
+            "AM003_c1_0004",
+            "AM042_c1_0142"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM009",
+            "AM079",
+            "AM094"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "HS-280203-00256 / 2028-02-03 16:00 KST 기준으로 현재 부분 출고를 진행할 수 있나요? 승인된 납품 방식, 계약 보류, 장비별 유효 승인 시각을 연결해 출고 가능한 대수·일련번호와 남은 계약·승인 조건을 설명해 주세요.",
+          "id": "AM-DEV18",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM005_c1_0004",
+            "AM116_c1_0006",
+            "AM006_c1_0052"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM053",
+            "AM085",
+            "AM116"
+          ],
+          "found_book_ids": [
+            "AM116"
+          ],
+          "hit": 1,
+          "recall": 0.3333,
+          "quote_recall": 0.4375
+        },
+        {
+          "question": "HS-280131-00231 / 2028-01-31 16:00 KST의 승인 원장은 17:30에 취합됐습니다. 문서가 나중에 취합됐다는 이유로 모든 서명을 16:00의 출고 승인으로 봐도 되나요? 장비별 서명 시각·공동 확인·철회 범위를 구분해 주세요.",
+          "id": "AM-DEV19",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM012_c1_0016",
+            "AM115_c1_0006",
+            "AM105_c1_0126"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM084",
+            "AM115"
+          ],
+          "found_book_ids": [
+            "AM115"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "이안기전의 2028-02-09자 신호 응답 확인대 납품건입니다. 부품 수령량을 완성 장비의 작업·검사 완료 대수로 보고해도 되나요? 발주·수령 단위와 장비별 작업 증빙의 차이를 설명해 주세요.",
+          "id": "AM-DEV20",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM004_c1_0002",
+            "AM001_c1_0107",
+            "AM004_c1_0003"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM027",
+            "AM072"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "가람산기의 2028-02-21자 인계에서 “위치 조정셀 오전조”를 바로 출고 승인 처리해 달라고 합니다. 이 별칭으로 한 대를 특정할 수 있나요? 확인해야 할 식별값과 이미 확인 가능한 승인 범위를 알려 주세요.",
+          "id": "AM-DEV21",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM038_c1_0070",
+            "AM014_c1_0001",
+            "AM003_c1_0004"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM003",
+            "AM034",
+            "AM091"
+          ],
+          "found_book_ids": [
+            "AM003"
+          ],
+          "hit": 1,
+          "recall": 0.3333,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "HS-280227-00444 / 2028-02-27 16:00 KST의 검사 기준에서 목표 FW 4.12.2와 실제 FW를 어떻게 구분해야 하나요? 네 장비에 적용할 정상 유지시간 허용 조건을 고르고, E형 모델 행을 본체 모델과 섞으면 안 되는 이유를 설명해 주세요.",
+          "id": "AM-DEV22",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM041_c1_0147",
+            "AM093_c1_0034",
+            "AM011_c1_0150"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM038",
+            "AM093"
+          ],
+          "found_book_ids": [
+            "AM093"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.7778
+        },
+        {
+          "question": "HS-280404-00743 / 2028-04-04 16:00 KST에서 검사 합격과 실제 반출 완료는 같은 상태인가요? 인계 원장의 물류 근거를 장비별로 구분하고, 예약 또는 원본 미수령 상태를 어떻게 회신해야 하는지 설명해 주세요.",
+          "id": "AM-DEV23",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM031_c1_0141",
+            "AM013_c1_0097",
+            "AM032_c1_0078"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM032"
+          ],
+          "found_book_ids": [
+            "AM032"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "HS-280316-00586 / 2028-03-16 16:00 KST의 완성 장비 시험에서 최초 수치와 재조정 후 수치를 어떻게 적용하나요? 재측정 기록이 있는 장비와 없는 장비를 구분하고, 다른 장비의 원값까지 대체할 수 있는지 알려 주세요.",
+          "id": "AM-DEV24",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM053_c1_0086",
+            "AM114_c1_0011",
+            "AM006_c1_0035"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM098",
+            "AM114"
+          ],
+          "found_book_ids": [
+            "AM114"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.3
+        },
+        {
+          "question": "HS-280325-00657 / 2028-03-25 16:00 KST에서 완료 원본이나 승인 서명이 없는 장비를 모두 실제 미작업·검사 불합격이라고 회신해도 되나요? 확인된 작업·검사와 미결 증빙을 장비별로 구분해 주세요.",
+          "id": "AM-DEV25",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM006_c1_0002",
+            "AM006_c1_0004",
+            "AM025_c1_0102"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM025",
+            "AM086",
+            "AM101",
+            "AM116"
+          ],
+          "found_book_ids": [
+            "AM025"
+          ],
+          "hit": 1,
+          "recall": 0.25,
+          "quote_recall": 0.35
+        },
+        {
+          "question": "HS-280402-00728 / 2028-04-02 16:00 KST 기준으로 변경 통지의 대상과 현재 작업 완료를 구분해 주세요. 네 장비 각각에 추가 교체·FW 적용 또는 완료 증빙이 필요한지, 제외 장비는 어떤 조건 때문에 제외되는지 설명해 주세요.",
+          "id": "AM-DEV26",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM038_c1_0082",
+            "AM089_c1_0063",
+            "AM056_c1_0104"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM059",
+            "AM074",
+            "AM089"
+          ],
+          "found_book_ids": [
+            "AM089"
+          ],
+          "hit": 1,
+          "recall": 0.3333,
+          "quote_recall": 0.5714
+        },
+        {
+          "question": "HS-280411-00799 / 2028-04-11 16:00 KST의 네 장비 검사 원기록을 실제 모델·FW와 대조해 주세요. 장비별 정속 진동값 허용 조건과 측정값을 제시하고, 온도·교정·정상 횟수까지 고려해 유효한 검사 합격 여부를 판단해 주세요.",
+          "id": "AM-DEV27",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM011_c1_0150",
+            "AM013_c1_0077",
+            "AM011_c1_0078"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM005",
+            "AM061",
+            "AM107"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "HS-280420-00870 / 2028-04-20 16:00 KST 기준으로 현재 부분 출고를 진행할 수 있나요? 승인된 납품 방식, 계약 보류, 장비별 유효 승인 시각을 연결해 출고 가능한 대수·일련번호와 남은 계약·승인 조건을 설명해 주세요.",
+          "id": "AM-DEV28",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM041_c1_0143",
+            "AM041_c1_0125",
+            "AM005_c1_0004"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM042",
+            "AM079",
+            "AM110"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0625
+        },
+        {
+          "question": "HS-280610-01277 / 2028-06-10 16:00 KST의 승인 원장은 17:30에 취합됐습니다. 문서가 나중에 취합됐다는 이유로 모든 서명을 16:00의 출고 승인으로 봐도 되나요? 장비별 서명 시각·공동 확인·철회 범위를 구분해 주세요.",
+          "id": "AM-DEV29",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM012_c1_0016",
+            "AM065_c1_0132",
+            "AM031_c1_0066"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM013",
+            "AM065"
+          ],
+          "found_book_ids": [
+            "AM065"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "이안기전의 2028-05-08자 밀폐 누설 확인대 납품건입니다. 부품 수령량을 완성 장비의 작업·검사 완료 대수로 보고해도 되나요? 발주·수령 단위와 장비별 작업 증빙의 차이를 설명해 주세요.",
+          "id": "AM-DEV30",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM004_c1_0002",
+            "AM001_c1_0119",
+            "AM062_c1_0051"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM070",
+            "AM100"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        }
+      ]
+    },
+    "rerank": {
+      "k3": [
+        {
+          "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+          "id": "AM-DEV01",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM055_c1_0001",
+            "AM007_c1_0001",
+            "AM007_c1_0013"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM010"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+          "id": "AM-DEV02",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM008_c1_0001",
+            "AM008_c1_0010",
+            "AM008_c1_0058"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM008",
+            "AM017"
+          ],
+          "found_book_ids": [
+            "AM008"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20 자료에 기록시각, 수신시각, 확인시각이 서로 다르게 적혀 있습니다. 세 시각은 각각 무엇을 뜻하나요?",
+          "id": "AM-DEV03",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM012_c1_0001",
+            "AM012_c1_0010",
+            "AM012_c1_0004"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM012"
+          ],
+          "found_book_ids": [
+            "AM012"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "체크뷰 현장조회 안내의 최근 30일은 어떤 시각을 기준으로 한 범위인가요? 이 값을 외부 보관소의 파일 삭제 기한으로 사용해도 되나요?",
+          "id": "AM-DEV04",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM035_c1_0011",
+            "AM035_c1_0023",
+            "AM035_c1_0062"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM013"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-10 담당자에게 기록담당 역할과 CV-10 대상 권한이 있습니다. 자료 확인과 전달 범위 검토도 끝났습니다. 이 담당자가 기록 파일을 내보내는 일과 CV-10에서 네트워크 자료를 수신하는 일을 각각 할 수 있는지, 기능과 역할 범위로 설명해 주세요.",
+          "id": "AM-DEV05",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM015_c1_0054",
+            "AM049_c1_0052",
+            "AM015_c1_0065"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM008",
+            "AM015"
+          ],
+          "found_book_ids": [
+            "AM015"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20에서 오늘 받은 자료에 최신 수신 표시가 있습니다. 출처와 모델은 확인되었지만 원자료 기록시각은 비어 있습니다. 이 자료를 현재 현장 상태라고 설명하면서 정상 확인된 자료 묶음으로 외부 전달해도 되나요?",
+          "id": "AM-DEV06",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM019_c1_0012",
+            "AM017_c1_0011",
+            "AM024_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM017",
+            "AM019"
+          ],
+          "found_book_ids": [
+            "AM017",
+            "AM019"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "건조한 실내이고 결로가 없는 섭씨 12도 장소에서 CV-10을 검토하고 있습니다. 네트워크 수신조회를 쓰려고 CV-20으로 바꾸면 환경 조건과 수신 기능은 각각 어떻게 달라지나요?",
+          "id": "AM-DEV07",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM049_c1_0037",
+            "AM050_c1_0027",
+            "AM054_c1_0021"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM008",
+            "AM022"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20 고객이 안내서 표지의 개정 1.1만 알려 주었습니다. 이 정보로 현재 자동 소등 기본값을 알려 주세요.",
+          "id": "AM-DEV08",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM048_c1_0042",
+            "AM037_c1_0001",
+            "AM048_c1_0050"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM009"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "출처가 미확인인 자료에 대해 검토자가 대상 자료와 목적을 적어 제한된 화면 조회를 허용했습니다. 이 허용으로 파일 내보내기와 네트워크 전달도 할 수 있나요?",
+          "id": "AM-DEV09",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM030_c1_0001",
+            "AM017_c1_0011",
+            "AM030_c1_0022"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM030"
+          ],
+          "found_book_ids": [
+            "AM030"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-20 기록은 확인 상태가 정상이고 내보내기에는 파일 생성 완료가 보입니다. 이 두 표시만으로 현장 안전 확인과 상대방 수신 완료를 보고하려고 합니다. 각각 어떤 의미로 고쳐 써야 하나요?",
+          "id": "AM-DEV10",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM019_c1_0038",
+            "AM017_c1_0058",
+            "AM047_c1_0028"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM010",
+            "AM018"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-10 현장조회 양식에 네트워크 수신시각이 비어 있습니다. 다른 정보는 정상입니다. 빈 수신시각만으로 수신 오류라고 보고해도 되나요?",
+          "id": "AM-DEV11",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM019_c1_0005",
+            "AM013_c1_0065",
+            "AM008_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM012"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰의 최근 30일 조회 목록이 비어 있습니다. 이 화면만 근거로 그 기간에 해당 현장에 이상이 전혀 없었다고 확정해 주세요.",
+          "id": "AM-DEV12",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM013_c1_0057",
+            "AM055_c1_0018",
+            "AM013_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM013"
+          ],
+          "found_book_ids": [
+            "AM013"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "2027-02-18 16:00 KST 기준 주문 SO-270218-14의 네 장비 중 추가 센서 교체가 필요한 장비는 무엇이며, 나머지는 왜 같은 교체를 진행하지 않나요? 현재 구성과 승인된 통지를 근거로 구분해 주세요.",
+          "id": "AM-DEV13",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM001_c1_0001",
+            "AM001_c1_0002",
+            "AM002_c1_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM001",
+            "AM002"
+          ],
+          "found_book_ids": [
+            "AM001",
+            "AM002"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.7778
+        },
+        {
+          "question": "2027-02-18 16:00 KST 기준 주문 SO-270218-14의 4대 중 출하 가능한 대수와 일련번호를 알려 주세요. 각 장비의 실제 구성, 필요한 조치의 완료 여부, 적용한 검사 기준과 결과, 출하 승인 상태를 근거로 장비별 판단을 설명해 주세요.",
+          "id": "AM-DEV14",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM006_c1_0036",
+            "AM003_c1_0003",
+            "AM005_c1_0004"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM001",
+            "AM002",
+            "AM003"
+          ],
+          "found_book_ids": [
+            "AM003"
+          ],
+          "hit": 1,
+          "recall": 0.3333,
+          "quote_recall": 0.2143
+        },
+        {
+          "question": "2027-02-18 16:00 KST 기준 주문 SO-270218-14의 라인 B 검사기 한 대를 보내려 합니다. 어느 장비인지는 별칭만 적혀 있는데 출하 가능한 것으로 처리해 주세요.",
+          "id": "AM-DEV15",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM003_c1_0003",
+            "AM001_c1_0001",
+            "AM006_c1_0036"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM001",
+            "AM003"
+          ],
+          "found_book_ids": [
+            "AM001",
+            "AM003"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "HS-280108-00042 / 2028-01-08 16:00 KST 기준으로 변경 통지의 대상과 현재 작업 완료를 구분해 주세요. 네 장비 각각에 추가 교체·FW 적용 또는 완료 증빙이 필요한지, 제외 장비는 어떤 조건 때문에 제외되는지 설명해 주세요.",
+          "id": "AM-DEV16",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM061_c1_0147",
+            "AM036_c1_0122",
+            "AM114_c1_0044"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM005",
+            "AM036",
+            "AM061"
+          ],
+          "found_book_ids": [
+            "AM036",
+            "AM061"
+          ],
+          "hit": 1,
+          "recall": 0.6667,
+          "quote_recall": 0.7143
+        },
+        {
+          "question": "HS-280114-00089 / 2028-01-14 16:00 KST의 네 장비 검사 원기록을 실제 모델·FW와 대조해 주세요. 장비별 접합 분리강도 허용 조건과 측정값을 제시하고, 온도·교정·정상 횟수까지 고려해 유효한 검사 합격 여부를 판단해 주세요.",
+          "id": "AM-DEV17",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM094_c1_0029",
+            "AM079_c1_0004",
+            "AM063_c1_0129"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM009",
+            "AM079",
+            "AM094"
+          ],
+          "found_book_ids": [
+            "AM079",
+            "AM094"
+          ],
+          "hit": 1,
+          "recall": 0.6667,
+          "quote_recall": 0.8333
+        },
+        {
+          "question": "HS-280203-00256 / 2028-02-03 16:00 KST 기준으로 현재 부분 출고를 진행할 수 있나요? 승인된 납품 방식, 계약 보류, 장비별 유효 승인 시각을 연결해 출고 가능한 대수·일련번호와 남은 계약·승인 조건을 설명해 주세요.",
+          "id": "AM-DEV18",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM116_c1_0006",
+            "AM115_c1_0120",
+            "AM115_c1_0114"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM053",
+            "AM085",
+            "AM116"
+          ],
+          "found_book_ids": [
+            "AM116"
+          ],
+          "hit": 1,
+          "recall": 0.3333,
+          "quote_recall": 0.4375
+        },
+        {
+          "question": "HS-280131-00231 / 2028-01-31 16:00 KST의 승인 원장은 17:30에 취합됐습니다. 문서가 나중에 취합됐다는 이유로 모든 서명을 16:00의 출고 승인으로 봐도 되나요? 장비별 서명 시각·공동 확인·철회 범위를 구분해 주세요.",
+          "id": "AM-DEV19",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM115_c1_0006",
+            "AM114_c1_0150",
+            "AM114_c1_0138"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM084",
+            "AM115"
+          ],
+          "found_book_ids": [
+            "AM115"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "이안기전의 2028-02-09자 신호 응답 확인대 납품건입니다. 부품 수령량을 완성 장비의 작업·검사 완료 대수로 보고해도 되나요? 발주·수령 단위와 장비별 작업 증빙의 차이를 설명해 주세요.",
+          "id": "AM-DEV20",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM007_c1_0127",
+            "AM001_c1_0107",
+            "AM002_c1_0129"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM027",
+            "AM072"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "가람산기의 2028-02-21자 인계에서 “위치 조정셀 오전조”를 바로 출고 승인 처리해 달라고 합니다. 이 별칭으로 한 대를 특정할 수 있나요? 확인해야 할 식별값과 이미 확인 가능한 승인 범위를 알려 주세요.",
+          "id": "AM-DEV21",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM014_c1_0005",
+            "AM031_c1_0084",
+            "AM048_c1_0021"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM003",
+            "AM034",
+            "AM091"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "HS-280227-00444 / 2028-02-27 16:00 KST의 검사 기준에서 목표 FW 4.12.2와 실제 FW를 어떻게 구분해야 하나요? 네 장비에 적용할 정상 유지시간 허용 조건을 고르고, E형 모델 행을 본체 모델과 섞으면 안 되는 이유를 설명해 주세요.",
+          "id": "AM-DEV22",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM093_c1_0034",
+            "AM094_c1_0112",
+            "AM093_c1_0118"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM038",
+            "AM093"
+          ],
+          "found_book_ids": [
+            "AM093"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.7778
+        },
+        {
+          "question": "HS-280404-00743 / 2028-04-04 16:00 KST에서 검사 합격과 실제 반출 완료는 같은 상태인가요? 인계 원장의 물류 근거를 장비별로 구분하고, 예약 또는 원본 미수령 상태를 어떻게 회신해야 하는지 설명해 주세요.",
+          "id": "AM-DEV23",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM032_c1_0078",
+            "AM032_c1_0084",
+            "AM031_c1_0123"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM032"
+          ],
+          "found_book_ids": [
+            "AM032"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "HS-280316-00586 / 2028-03-16 16:00 KST의 완성 장비 시험에서 최초 수치와 재조정 후 수치를 어떻게 적용하나요? 재측정 기록이 있는 장비와 없는 장비를 구분하고, 다른 장비의 원값까지 대체할 수 있는지 알려 주세요.",
+          "id": "AM-DEV24",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM114_c1_0011",
+            "AM114_c1_0023",
+            "AM114_c1_0041"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM098",
+            "AM114"
+          ],
+          "found_book_ids": [
+            "AM114"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.3
+        },
+        {
+          "question": "HS-280325-00657 / 2028-03-25 16:00 KST에서 완료 원본이나 승인 서명이 없는 장비를 모두 실제 미작업·검사 불합격이라고 회신해도 되나요? 확인된 작업·검사와 미결 증빙을 장비별로 구분해 주세요.",
+          "id": "AM-DEV25",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM086_c1_0087",
+            "AM025_c1_0102",
+            "AM084_c1_0057"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM025",
+            "AM086",
+            "AM101",
+            "AM116"
+          ],
+          "found_book_ids": [
+            "AM025",
+            "AM086"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "HS-280402-00728 / 2028-04-02 16:00 KST 기준으로 변경 통지의 대상과 현재 작업 완료를 구분해 주세요. 네 장비 각각에 추가 교체·FW 적용 또는 완료 증빙이 필요한지, 제외 장비는 어떤 조건 때문에 제외되는지 설명해 주세요.",
+          "id": "AM-DEV26",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM074_c1_0038",
+            "AM089_c1_0063",
+            "AM059_c1_0013"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM059",
+            "AM074",
+            "AM089"
+          ],
+          "found_book_ids": [
+            "AM059",
+            "AM074",
+            "AM089"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "HS-280411-00799 / 2028-04-11 16:00 KST의 네 장비 검사 원기록을 실제 모델·FW와 대조해 주세요. 장비별 정속 진동값 허용 조건과 측정값을 제시하고, 온도·교정·정상 횟수까지 고려해 유효한 검사 합격 여부를 판단해 주세요.",
+          "id": "AM-DEV27",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM107_c1_0064",
+            "AM092_c1_0039",
+            "AM107_c1_0136"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM005",
+            "AM061",
+            "AM107"
+          ],
+          "found_book_ids": [
+            "AM107"
+          ],
+          "hit": 1,
+          "recall": 0.3333,
+          "quote_recall": 0.5833
+        },
+        {
+          "question": "HS-280420-00870 / 2028-04-20 16:00 KST 기준으로 현재 부분 출고를 진행할 수 있나요? 승인된 납품 방식, 계약 보류, 장비별 유효 승인 시각을 연결해 출고 가능한 대수·일련번호와 남은 계약·승인 조건을 설명해 주세요.",
+          "id": "AM-DEV28",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM041_c1_0137",
+            "AM041_c1_0149",
+            "AM041_c1_0143"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM042",
+            "AM079",
+            "AM110"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0625
+        },
+        {
+          "question": "HS-280610-01277 / 2028-06-10 16:00 KST의 승인 원장은 17:30에 취합됐습니다. 문서가 나중에 취합됐다는 이유로 모든 서명을 16:00의 출고 승인으로 봐도 되나요? 장비별 서명 시각·공동 확인·철회 범위를 구분해 주세요.",
+          "id": "AM-DEV29",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM065_c1_0132",
+            "AM065_c1_0114",
+            "AM065_c1_0108"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM013",
+            "AM065"
+          ],
+          "found_book_ids": [
+            "AM065"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "이안기전의 2028-05-08자 밀폐 누설 확인대 납품건입니다. 부품 수령량을 완성 장비의 작업·검사 완료 대수로 보고해도 되나요? 발주·수령 단위와 장비별 작업 증빙의 차이를 설명해 주세요.",
+          "id": "AM-DEV30",
+          "k": 3,
+          "context_chunk_ids": [
+            "AM007_c1_0067",
+            "AM011_c1_0117",
+            "AM002_c1_0141"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "AM070",
+            "AM100"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        }
+      ]
+    }
+  }
+}

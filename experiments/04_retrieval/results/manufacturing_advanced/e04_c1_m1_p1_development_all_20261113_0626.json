@@ -1,0 +1,4143 @@
+{
+  "run_id": "e04_c1_m1_p1_development_all_20261113_0626",
+  "dataset": "manufacturing_advanced",
+  "active_config": {
+    "dataset": "manufacturing_advanced",
+    "chunk_version": "c1",
+    "embedding": "m1",
+    "prompt": "p1",
+    "retrieval_modes": {
+      "naive": "r1",
+      "hybrid": "r2",
+      "rerank": "r3"
+    },
+    "final_k": 3,
+    "context_token_budget": 2373
+  },
+  "question_set": "development",
+  "question_source": "data/raw/manufacturing_advanced/evaluation/development.json",
+  "question_count": 30,
+  "requested_modes": [
+    "naive",
+    "hybrid",
+    "rerank"
+  ],
+  "base_url": "http://127.0.0.1:8001",
+  "timeout_seconds": 600,
+  "summary": {
+    "naive": {
+      "request_count": 30,
+      "status_counts": {
+        "answered": 10,
+        "abstained": 16,
+        "needs_clarification": 4
+      },
+      "normal_latency_seconds": {
+        "mean": 5.7014,
+        "count": 30
+      },
+      "system_error_count": 0,
+      "system_error_rate": 0.0,
+      "token_usage": {
+        "input_tokens": 57386,
+        "output_tokens": 13794,
+        "confirmed_request_count": 30
+      }
+    },
+    "hybrid": {
+      "request_count": 30,
+      "status_counts": {
+        "answered": 18,
+        "needs_clarification": 2,
+        "error": 5,
+        "abstained": 5
+      },
+      "normal_latency_seconds": {
+        "mean": 5.5386,
+        "count": 25
+      },
+      "system_error_count": 5,
+      "system_error_rate": 0.1667,
+      "token_usage": {
+        "input_tokens": 49168,
+        "output_tokens": 11445,
+        "confirmed_request_count": 25
+      }
+    },
+    "rerank": {
+      "request_count": 30,
+      "status_counts": {
+        "answered": 16,
+        "needs_clarification": 3,
+        "abstained": 3,
+        "error": 8
+      },
+      "normal_latency_seconds": {
+        "mean": 99.8717,
+        "count": 22
+      },
+      "system_error_count": 8,
+      "system_error_rate": 0.2667,
+      "token_usage": {
+        "input_tokens": 45687,
+        "output_tokens": 9277,
+        "confirmed_request_count": 22
+      }
+    }
+  },
+  "records": [
+    {
+      "question_id": "AM-DEV01",
+      "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 5.327,
+      "response": {
+        "request_id": "63fe5f00-5bed-4e1b-9bb1-7126607e52ca",
+        "status": "answered",
+        "answer": "‘정상’은 해당 자료의 모델명·출처·기준 시각 등 필수 항목을 확인하고 조회 확인을 마쳤다는 뜻입니다. 자료의 확인 상태를 나타내는 것이며, 현장 전체의 안전이나 실제 설비의 안전 등급을 확인해 주는 표시는 아닙니다. 체크뷰는 설비 안전 등급 판정이나 운전 허가를 제공하지 않으므로, 이 표시만으로 설비가 안전하다거나 운전해도 된다고 말할 수 없습니다. 원자료에 조치 요청이 있을 수 있으므로 자료 확인 상태와 원자료에 적힌 내용도 구분해야 합니다. (S1, S2, S3)",
+        "reason": "자료는 ‘정상’의 의미를 자료 확인 범위로 한정하고, 현장 안전 판정과 운전 허가는 제품 기능에 포함되지 않는다고 설명합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM007",
+            "file_name": "AM007.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM055",
+            "file_name": "AM055.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM010",
+            "file_name": "AM010.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 5.323,
+          "retrieval_seconds": 0.374,
+          "generation_seconds": 4.949,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM007_c1_0001",
+            "AM055_c1_0001",
+            "AM010_c1_0001"
+          ],
+          "context_token_count": 923,
+          "usage": {
+            "input_tokens": 1321,
+            "output_tokens": 350
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV01",
+      "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 4.174,
+      "response": {
+        "request_id": "a52c5277-78da-4e10-bf77-4ef15d13a663",
+        "status": "answered",
+        "answer": "체크뷰의 ‘정상’ 표시는 해당 자료의 모델·출처·기준 시각을 확인하고, 그 자료에 대한 조회 확인을 마쳤다는 뜻입니다. 현장 전체의 안전 상태나 설비의 안전 등급을 확인했다는 뜻은 아니며, 실제 설비 운전 허가나 제어 가능성을 보증하지도 않습니다. 현장 안전과 운전 여부는 별도로 확인해야 합니다. [S3][S2]",
+        "reason": "자료는 정상 표시의 범위를 해당 자료의 확인으로 한정하고, 현장 안전 및 운전 허가는 체크뷰 기능 범위가 아니라고 명시합니다.",
+        "citations": [
+          {
+            "source_id": "S3",
+            "book_id": "AM007",
+            "file_name": "AM007.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM007",
+            "file_name": "AM007.pdf",
+            "page_start": 20,
+            "page_end": 20
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 4.171,
+          "retrieval_seconds": 0.165,
+          "generation_seconds": 4.005,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM008_c1_0060",
+            "AM007_c1_0020",
+            "AM007_c1_0001"
+          ],
+          "context_token_count": 1412,
+          "usage": {
+            "input_tokens": 1810,
+            "output_tokens": 245
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV01",
+      "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 16.871,
+      "response": {
+        "request_id": "d76f4989-b8e5-466f-8725-303c8e06b304",
+        "status": "answered",
+        "answer": "‘정상’ 표시는 체크뷰가 해당 자료의 필수 정보와 조회 확인 범위(모델·출처·기준 시각 등)를 확인했다는 뜻입니다. 현장 설비의 실제 안전 상태나 안전 등급, 설비 제어 또는 운전 허가를 확인·보증하는 표시는 아닙니다. 따라서 이 표시만으로 현장이 안전하다거나 설비 운전이 허가됐다고 판단할 수 없습니다. 현장 상태는 별도의 현장 확인 및 증빙으로 확인해야 합니다.",
+        "reason": "자료 확인 상태와 실제 현장 상태·운전 허가가 별개라고 자료에 명시되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM055",
+            "file_name": "AM055.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM007",
+            "file_name": "AM007.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM007",
+            "file_name": "AM007.pdf",
+            "page_start": 13,
+            "page_end": 13
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 16.868,
+          "retrieval_seconds": 12.379,
+          "generation_seconds": 4.488,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM055_c1_0001",
+            "AM007_c1_0001",
+            "AM007_c1_0013"
+          ],
+          "context_token_count": 1301,
+          "usage": {
+            "input_tokens": 1699,
+            "output_tokens": 180
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV02",
+      "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 3.099,
+      "response": {
+        "request_id": "a354f0dd-f688-4250-bb1c-626aa8ac8b00",
+        "status": "answered",
+        "answer": "CV-10은 단말에 등록된 기록을 현장조회하며 네트워크 수신조회는 제공하지 않습니다. CV-20은 현장조회에 더해 승인된 시험 자료를 네트워크로 받아 수신조회할 수 있습니다. 기록 묶음의 파일 내보내기는 두 모델 모두 제공합니다.",
+        "reason": "모델별 조회 경로와 내보내기 기능 범위가 자료에 명시되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM017",
+            "file_name": "AM017.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM008",
+            "file_name": "AM008.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM008",
+            "file_name": "AM008.pdf",
+            "page_start": 10,
+            "page_end": 10
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 3.097,
+          "retrieval_seconds": 0.076,
+          "generation_seconds": 3.02,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM017_c1_0001",
+            "AM008_c1_0001",
+            "AM008_c1_0010"
+          ],
+          "context_token_count": 1195,
+          "usage": {
+            "input_tokens": 1593,
+            "output_tokens": 195
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV02",
+      "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 3.52,
+      "response": {
+        "request_id": "1357edfa-7dea-44e8-abc9-a56ec26f07d9",
+        "status": "answered",
+        "answer": "CV-10은 단말에 등록된 기록을 현장조회하며 네트워크 수신은 지원하지 않습니다. CV-20은 현장조회에 더해 승인된 시험 자료를 네트워크로 받아 수신조회할 수 있습니다. 기록 묶음의 파일 내보내기는 CV-10과 CV-20 모두 제공됩니다. 다만 사용자별 실행 권한은 자료에서 확인되지 않았습니다.",
+        "reason": "모델별 조회 경로와 내보내기 기능이 자료에 명시되어 있으며, 기능 제공 여부와 사용자 권한은 별도로 기록되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM008",
+            "file_name": "AM008.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM008",
+            "file_name": "AM008.pdf",
+            "page_start": 5,
+            "page_end": 5
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM008",
+            "file_name": "AM008.pdf",
+            "page_start": 2,
+            "page_end": 2
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 3.517,
+          "retrieval_seconds": 0.147,
+          "generation_seconds": 3.369,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM008_c1_0001",
+            "AM008_c1_0005",
+            "AM008_c1_0002"
+          ],
+          "context_token_count": 1281,
+          "usage": {
+            "input_tokens": 1679,
+            "output_tokens": 273
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV02",
+      "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 24.299,
+      "response": {
+        "request_id": "b47198eb-0e0c-4b04-abe2-6f1c7d7f6b80",
+        "status": "answered",
+        "answer": "CV-10은 단말에 등록된 기록을 현장조회하며, 네트워크 수신조회는 제공하지 않습니다. CV-20은 현장조회와 함께 승인된 시험 자료를 네트워크로 받아 수신조회할 수 있습니다. 기록 묶음 파일 내보내기는 두 모델 모두 제공합니다.",
+        "reason": "모델별 조회 경로와 내보내기 기능이 자료에 명시되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM008",
+            "file_name": "AM008.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM008",
+            "file_name": "AM008.pdf",
+            "page_start": 10,
+            "page_end": 10
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 24.296,
+          "retrieval_seconds": 21.186,
+          "generation_seconds": 3.109,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM008_c1_0001",
+            "AM008_c1_0010",
+            "AM008_c1_0058"
+          ],
+          "context_token_count": 1480,
+          "usage": {
+            "input_tokens": 1878,
+            "output_tokens": 191
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV03",
+      "question": "CV-20 자료에 기록시각, 수신시각, 확인시각이 서로 다르게 적혀 있습니다. 세 시각은 각각 무엇을 뜻하나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 2.839,
+      "response": {
+        "request_id": "8e0c09b8-b62f-45ca-b23d-36b3dc59a52e",
+        "status": "answered",
+        "answer": "기록시각은 원자료 작성자가 기록에 남긴 시각, 수신시각은 CV-20이 해당 자료를 받아들인 시각, 확인시각은 체크뷰 사용자가 자료 확인을 마친 시각입니다. 자료 전달이 늦으면 기록시각과 수신시각이 다를 수 있으며, 수신시각을 원자료의 발생 시점으로 대신할 수 없습니다. [S1]",
+        "reason": "CV-20 자료의 세 시각을 구분해 정의한 문서가 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM012",
+            "file_name": "AM012.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 2.836,
+          "retrieval_seconds": 0.075,
+          "generation_seconds": 2.76,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM012_c1_0001",
+            "AM012_c1_0010",
+            "AM012_c1_0033"
+          ],
+          "context_token_count": 1382,
+          "usage": {
+            "input_tokens": 1778,
+            "output_tokens": 189
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV03",
+      "question": "CV-20 자료에 기록시각, 수신시각, 확인시각이 서로 다르게 적혀 있습니다. 세 시각은 각각 무엇을 뜻하나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 2.614,
+      "response": {
+        "request_id": "6dba0deb-9067-484f-b0dc-c7f433572363",
+        "status": "answered",
+        "answer": "기록시각은 원자료 작성자가 기록에 남긴 시각, 수신시각은 CV-20이 자료를 받아들인 시각, 확인시각은 체크뷰 사용자가 자료 확인을 마친 시각입니다. 자료 전달이 늦으면 기록시각과 수신시각은 다를 수 있으며, 수신시각을 원자료의 발생 시각 대신 사용하지 않습니다.",
+        "reason": "CV-20의 세 시각 정의와 서로 대체할 수 없다는 점이 자료에 명시되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM012",
+            "file_name": "AM012.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM012",
+            "file_name": "AM012.pdf",
+            "page_start": 10,
+            "page_end": 10
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 2.611,
+          "retrieval_seconds": 0.163,
+          "generation_seconds": 2.447,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM012_c1_0001",
+            "AM012_c1_0073",
+            "AM012_c1_0010"
+          ],
+          "context_token_count": 1411,
+          "usage": {
+            "input_tokens": 1807,
+            "output_tokens": 149
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV03",
+      "question": "CV-20 자료에 기록시각, 수신시각, 확인시각이 서로 다르게 적혀 있습니다. 세 시각은 각각 무엇을 뜻하나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 75.772,
+      "response": {
+        "request_id": "fcb239c7-8545-4c19-aeb6-1c1d39f4b70e",
+        "status": "answered",
+        "answer": "기록시각은 원자료 작성자가 기록에 남긴 시각, 수신시각은 CV-20이 해당 자료를 받은 시각, 확인시각은 체크뷰 사용자가 자료 확인을 마친 시각입니다. 자료 전달이 늦으면 기록시각과 수신시각이 다를 수 있으며, 수신시각으로 기록시각을 대신할 수 없습니다.",
+        "reason": "CV-20에서 세 시각의 의미와 서로 구분하는 원칙이 매뉴얼에 명시되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM012",
+            "file_name": "AM012.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM012",
+            "file_name": "AM012.pdf",
+            "page_start": 10,
+            "page_end": 10
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 75.769,
+          "retrieval_seconds": 72.904,
+          "generation_seconds": 2.864,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM012_c1_0001",
+            "AM012_c1_0010",
+            "AM012_c1_0004"
+          ],
+          "context_token_count": 1427,
+          "usage": {
+            "input_tokens": 1823,
+            "output_tokens": 188
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV04",
+      "question": "체크뷰 현장조회 안내의 최근 30일은 어떤 시각을 기준으로 한 범위인가요? 이 값을 외부 보관소의 파일 삭제 기한으로 사용해도 되나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 3.042,
+      "response": {
+        "request_id": "ebe11284-d983-4cca-9cbb-de100b844932",
+        "status": "answered",
+        "answer": "최근 30일은 조회 기준 시각 T의 한국 표준시(KST)를 기준으로, 원자료 기록시각이 T에서 정확히 30일 전인 시각부터 T까지인 범위입니다. 시작과 끝을 모두 포함합니다. 이 값을 외부 보관소의 파일 삭제 기한으로 사용하면 안 됩니다. 현장조회 범위와 외부 파일의 보존·삭제 정책은 별개이므로 외부 보관소의 정책 근거를 확인해야 합니다. [S1, S2, S3]",
+        "reason": "자료는 최근 30일을 원자료 기록시각 기준의 현장조회 범위로 정의하고, 외부 파일의 실제 보존·삭제 정책은 별도 기준이며 근거가 확인되지 않았다고 명시합니다. [S1, S2, S3]",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM013",
+            "file_name": "AM013.pdf",
+            "page_start": 40,
+            "page_end": 40
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM035",
+            "file_name": "AM035.pdf",
+            "page_start": 44,
+            "page_end": 44
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM013",
+            "file_name": "AM013.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 3.039,
+          "retrieval_seconds": 0.068,
+          "generation_seconds": 2.97,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM013_c1_0040",
+            "AM035_c1_0044",
+            "AM013_c1_0001"
+          ],
+          "context_token_count": 1165,
+          "usage": {
+            "input_tokens": 1569,
+            "output_tokens": 281
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV04",
+      "question": "체크뷰 현장조회 안내의 최근 30일은 어떤 시각을 기준으로 한 범위인가요? 이 값을 외부 보관소의 파일 삭제 기한으로 사용해도 되나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 3.347,
+      "response": {
+        "request_id": "97d0714a-9efa-481e-9878-3b870d2a4d17",
+        "status": "answered",
+        "answer": "최근 30일은 원자료의 기록시각을 기준으로 한 현장조회 범위입니다. 등록일이나 파일 생성시각 기준이 아니며, 외부 보관소의 파일 보존기간 또는 삭제 기한으로 사용하면 안 됩니다. 외부 파일의 삭제 시점은 보관소의 별도 정책 근거로 확인해야 합니다. [S1][S2][S3]",
+        "reason": "자료에서 조회 범위의 기준은 원자료 기록시각이라고 명시하고, 외부 파일 삭제 정책은 근거가 없어 미확인으로 구분합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM035",
+            "file_name": "AM035.pdf",
+            "page_start": 44,
+            "page_end": 44
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM035",
+            "file_name": "AM035.pdf",
+            "page_start": 11,
+            "page_end": 11
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM035",
+            "file_name": "AM035.pdf",
+            "page_start": 62,
+            "page_end": 62
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 3.344,
+          "retrieval_seconds": 0.182,
+          "generation_seconds": 3.161,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM035_c1_0044",
+            "AM035_c1_0011",
+            "AM035_c1_0062"
+          ],
+          "context_token_count": 1572,
+          "usage": {
+            "input_tokens": 1976,
+            "output_tokens": 260
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV04",
+      "question": "체크뷰 현장조회 안내의 최근 30일은 어떤 시각을 기준으로 한 범위인가요? 이 값을 외부 보관소의 파일 삭제 기한으로 사용해도 되나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 75.26,
+      "response": {
+        "request_id": "8ae8b326-286b-4b87-a1c4-26085aeca28f",
+        "status": "answered",
+        "answer": "최근 30일은 원자료의 기록시각을 기준으로 한 현장조회 범위입니다. 등록일이나 파일 생성시각 기준이 아닙니다. 예를 들어 조회 기준이 2026-11-30 10:00 KST이면 2026-10-31 10:00 자료는 포함되고, 09:59 자료는 제외됩니다. 이 범위를 외부 보관소 파일의 삭제 기한으로 사용하면 안 됩니다. 외부 보관·삭제 시점은 이 자료에서 정하지 않으므로 보관소의 확인을 받아야 합니다.",
+        "reason": "자료는 최근 30일을 원자료 기록시각 기준의 조회 범위로 명시하고, 외부 파일의 보존기간이나 삭제 기한과 구분합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM035",
+            "file_name": "AM035.pdf",
+            "page_start": 11,
+            "page_end": 11
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM035",
+            "file_name": "AM035.pdf",
+            "page_start": 23,
+            "page_end": 23
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM035",
+            "file_name": "AM035.pdf",
+            "page_start": 62,
+            "page_end": 62
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 75.256,
+          "retrieval_seconds": 71.254,
+          "generation_seconds": 4.001,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM035_c1_0011",
+            "AM035_c1_0023",
+            "AM035_c1_0062"
+          ],
+          "context_token_count": 1851,
+          "usage": {
+            "input_tokens": 2255,
+            "output_tokens": 300
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV05",
+      "question": "CV-10 담당자에게 기록담당 역할과 CV-10 대상 권한이 있습니다. 자료 확인과 전달 범위 검토도 끝났습니다. 이 담당자가 기록 파일을 내보내는 일과 CV-10에서 네트워크 자료를 수신하는 일을 각각 할 수 있는지, 기능과 역할 범위로 설명해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 3.873,
+      "response": {
+        "request_id": "9a21b484-a285-47b0-ac7b-09880b8dc4fb",
+        "status": "answered",
+        "answer": "기록 파일 내보내기는 할 수 있습니다. CV-10은 파일 내보내기 기능을 제공하며, 기록담당 역할과 CV-10 대상 권한이 있고 자료 확인 및 전달 범위 검토도 끝났으므로 해당 범위에서 가능합니다 [S1, S2]. 반면 CV-10에서 네트워크 자료를 수신하는 것은 할 수 없습니다. CV-10에는 네트워크 수신 기능이 없으므로 역할이나 대상 권한만으로 수신할 수는 없습니다 [S1, S2].",
+        "reason": "내보내기 권한 범위와 모델 기능을 각각 확인했으며, CV-10의 네트워크 수신 기능은 제공되지 않는다고 자료에 명시되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM016",
+            "file_name": "AM016.pdf",
+            "page_start": 56,
+            "page_end": 56
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM015",
+            "file_name": "AM015.pdf",
+            "page_start": 65,
+            "page_end": 65
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 3.87,
+          "retrieval_seconds": 0.086,
+          "generation_seconds": 3.783,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM016_c1_0056",
+            "AM015_c1_0065",
+            "AM008_c1_0002"
+          ],
+          "context_token_count": 1520,
+          "usage": {
+            "input_tokens": 1954,
+            "output_tokens": 305
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV05",
+      "question": "CV-10 담당자에게 기록담당 역할과 CV-10 대상 권한이 있습니다. 자료 확인과 전달 범위 검토도 끝났습니다. 이 담당자가 기록 파일을 내보내는 일과 CV-10에서 네트워크 자료를 수신하는 일을 각각 할 수 있는지, 기능과 역할 범위로 설명해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 4.102,
+      "response": {
+        "request_id": "03e87026-22a3-4bc5-ad81-a48fe1f1fd77",
+        "status": "answered",
+        "answer": "기록 파일 내보내기는 할 수 있습니다. 기록담당 역할의 기능 범위에 포함되고, CV-10 대상 권한도 있으므로 역할과 대상 모델 조건이 모두 충족됩니다 [S1]. CV-10에서 네트워크 자료를 수신하는 일은 할 수 없습니다. CV-10은 네트워크 수신 기능을 제공하지 않으며, 역할이나 대상 권한을 부여해도 기능이 추가되지는 않습니다 [S3].",
+        "reason": "내보내기는 기록담당 역할과 CV-10 대상 범위에 해당하지만, 네트워크 수신은 CV-10의 기능 범위 밖입니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM016",
+            "file_name": "AM016.pdf",
+            "page_start": 22,
+            "page_end": 22
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM016",
+            "file_name": "AM016.pdf",
+            "page_start": 10,
+            "page_end": 10
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 4.099,
+          "retrieval_seconds": 0.243,
+          "generation_seconds": 3.856,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM016_c1_0022",
+            "AM015_c1_0074",
+            "AM016_c1_0010"
+          ],
+          "context_token_count": 1407,
+          "usage": {
+            "input_tokens": 1841,
+            "output_tokens": 354
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV05",
+      "question": "CV-10 담당자에게 기록담당 역할과 CV-10 대상 권한이 있습니다. 자료 확인과 전달 범위 검토도 끝났습니다. 이 담당자가 기록 파일을 내보내는 일과 CV-10에서 네트워크 자료를 수신하는 일을 각각 할 수 있는지, 기능과 역할 범위로 설명해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 98.69,
+      "response": {
+        "request_id": "fcd92bbe-f61a-46df-b5b9-91ded9e38d78",
+        "status": "answered",
+        "answer": "기록담당 역할과 CV-10 대상 권한이 있고 자료 확인도 끝났으므로, CV-10에서 제공하는 조회자료 내보내기는 할 수 있습니다. 다만 내보내기 가능은 파일 생성까지의 범위이며, 상대방이 파일을 수신했는지는 별도로 확인해야 합니다. 반면 CV-10에는 네트워크 수신 기능이 없으므로, 해당 권한이 있어도 네트워크 자료를 수신할 수는 없습니다. [S1, S3]",
+        "reason": "자료는 역할 허용·대상 허용과 제품 기능을 각각 구분하며, CV-10의 내보내기는 제공 기능이고 네트워크 수신은 미제공 기능이라고 명시합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM015",
+            "file_name": "AM015.pdf",
+            "page_start": 54,
+            "page_end": 54
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM015",
+            "file_name": "AM015.pdf",
+            "page_start": 65,
+            "page_end": 65
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 98.686,
+          "retrieval_seconds": 94.0,
+          "generation_seconds": 4.685,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM015_c1_0054",
+            "AM049_c1_0052",
+            "AM015_c1_0065"
+          ],
+          "context_token_count": 1738,
+          "usage": {
+            "input_tokens": 2172,
+            "output_tokens": 315
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV06",
+      "question": "CV-20에서 오늘 받은 자료에 최신 수신 표시가 있습니다. 출처와 모델은 확인되었지만 원자료 기록시각은 비어 있습니다. 이 자료를 현재 현장 상태라고 설명하면서 정상 확인된 자료 묶음으로 외부 전달해도 되나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 3.848,
+      "response": {
+        "request_id": "a228423c-dfce-4e77-ba8e-8825dd60c90f",
+        "status": "answered",
+        "answer": "아니요. 최신 수신 표시는 마지막으로 수신된 자료라는 뜻이지, 현장 상태가 가장 최근이라는 뜻은 아닙니다. 원자료 기록시각이 비어 있으면 최신성 판단을 보류하고 출처에 확인을 요청해야 합니다. 필수값과 사용자 확인이 완료되기 전에는 자료를 정상 확인된 상태로 처리하지 않으므로, 현재 현장 상태라고 설명하거나 정상 확인된 자료 묶음으로 외부 전달하면 안 됩니다. [S1, S3]",
+        "reason": "수신 시점과 원자료 발생 시점은 구분되며, 원자료 기록시각 미확인과 미완료 상태를 뒷받침하는 자료가 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM047",
+            "file_name": "AM047.pdf",
+            "page_start": 30,
+            "page_end": 30
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM019",
+            "file_name": "AM019.pdf",
+            "page_start": 12,
+            "page_end": 12
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 3.844,
+          "retrieval_seconds": 0.08,
+          "generation_seconds": 3.763,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM047_c1_0030",
+            "AM048_c1_0057",
+            "AM019_c1_0012"
+          ],
+          "context_token_count": 1179,
+          "usage": {
+            "input_tokens": 1599,
+            "output_tokens": 316
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV06",
+      "question": "CV-20에서 오늘 받은 자료에 최신 수신 표시가 있습니다. 출처와 모델은 확인되었지만 원자료 기록시각은 비어 있습니다. 이 자료를 현재 현장 상태라고 설명하면서 정상 확인된 자료 묶음으로 외부 전달해도 되나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 3.986,
+      "response": {
+        "request_id": "cdcad7bc-053f-4837-b8b0-1fa324cfe464",
+        "status": "answered",
+        "answer": "아니요. 최신 수신 표시는 마지막으로 도착한 자료라는 뜻일 뿐, 가장 최근 현장 상태라는 뜻은 아닙니다. 원자료 기록시각이 비어 있으므로 출처에 확인하고 최신성 판단을 보류해야 하며, 정상 확인된 자료 묶음으로 외부 전달해서는 안 됩니다. [S1][S2] 기록시각이 확인되기 전에는 동일 자료를 구분하는 기준도 충족되지 않습니다. [S3]",
+        "reason": "CV-20 자료의 수신 표시 의미와 원자료 기록시각 누락 시 처리 기준이 문서에 명시되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM019",
+            "file_name": "AM019.pdf",
+            "page_start": 12,
+            "page_end": 12
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM047",
+            "file_name": "AM047.pdf",
+            "page_start": 30,
+            "page_end": 30
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM013",
+            "file_name": "AM013.pdf",
+            "page_start": 11,
+            "page_end": 11
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 3.983,
+          "retrieval_seconds": 0.223,
+          "generation_seconds": 3.759,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM019_c1_0012",
+            "AM047_c1_0030",
+            "AM013_c1_0011"
+          ],
+          "context_token_count": 956,
+          "usage": {
+            "input_tokens": 1376,
+            "output_tokens": 322
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV06",
+      "question": "CV-20에서 오늘 받은 자료에 최신 수신 표시가 있습니다. 출처와 모델은 확인되었지만 원자료 기록시각은 비어 있습니다. 이 자료를 현재 현장 상태라고 설명하면서 정상 확인된 자료 묶음으로 외부 전달해도 되나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 90.922,
+      "response": {
+        "request_id": "9545165b-e606-4395-a863-4255f9032ecc",
+        "status": "answered",
+        "answer": "아니요. 최신 수신 표시는 마지막으로 도착한 자료라는 뜻일 뿐, 현장 상태가 최신이라는 뜻은 아닙니다. 원자료 기록시각이 비어 있으므로 현재 현장 상태라고 설명하지 말고 최신성 판단을 보류해야 합니다. 기록시각이 미확인인 자료는 정상 확인된 자료 묶음으로 외부 전달할 수 없습니다. 출처에 원자료 기록시각을 확인하고, 확인 결과와 확인시각을 남긴 뒤 자료 상태를 다시 검토하세요. [S1, S2]",
+        "reason": "수신 표시와 원자료 발생 시점은 구분되며, 기록시각 미확인 자료에는 외부 전달 제한이 적용됩니다. [S1, S2]",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM019",
+            "file_name": "AM019.pdf",
+            "page_start": 12,
+            "page_end": 12
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM017",
+            "file_name": "AM017.pdf",
+            "page_start": 11,
+            "page_end": 11
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 90.919,
+          "retrieval_seconds": 87.044,
+          "generation_seconds": 3.874,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM019_c1_0012",
+            "AM017_c1_0011",
+            "AM024_c1_0001"
+          ],
+          "context_token_count": 905,
+          "usage": {
+            "input_tokens": 1325,
+            "output_tokens": 355
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV07",
+      "question": "건조한 실내이고 결로가 없는 섭씨 12도 장소에서 CV-10을 검토하고 있습니다. 네트워크 수신조회를 쓰려고 CV-20으로 바꾸면 환경 조건과 수신 기능은 각각 어떻게 달라지나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 6.25,
+      "response": {
+        "request_id": "99e6f8e4-e0dd-41ec-a46d-53368a320f6e",
+        "status": "abstained",
+        "answer": "CV-10은 건조한 실내·결로 없음 조건에서 허용 온도가 10~30℃(양끝 포함)이므로 12℃는 범위 안입니다 [S3]. 네트워크 수신조회는 CV-10에서 지원하지 않지만 CV-20에서는 지원합니다 [S1]. 다만 제공 자료에는 CV-20의 온도 허용 범위가 제시되어 있지 않습니다. CV-20이 22℃에서 환경 범위 안이라는 기록만으로 12℃도 허용된다고 판단할 수는 없습니다 [S2].",
+        "reason": "수신 기능의 차이는 확인되지만, CV-20의 해당 모델·펌웨어에 12℃가 허용되는지 확인할 환경 사양 근거가 부족합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM049",
+            "file_name": "AM049.pdf",
+            "page_start": 37,
+            "page_end": 37
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM050",
+            "file_name": "AM050.pdf",
+            "page_start": 71,
+            "page_end": 71
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM039",
+            "file_name": "AM039.pdf",
+            "page_start": 70,
+            "page_end": 70
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 6.247,
+          "retrieval_seconds": 0.073,
+          "generation_seconds": 6.173,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM049_c1_0037",
+            "AM050_c1_0071",
+            "AM039_c1_0070"
+          ],
+          "context_token_count": 1868,
+          "usage": {
+            "input_tokens": 2285,
+            "output_tokens": 554
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV07",
+      "question": "건조한 실내이고 결로가 없는 섭씨 12도 장소에서 CV-10을 검토하고 있습니다. 네트워크 수신조회를 쓰려고 CV-20으로 바꾸면 환경 조건과 수신 기능은 각각 어떻게 달라지나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 5.705,
+      "response": {
+        "request_id": "b00b9dca-4ff8-4174-b8c1-0807d961f721",
+        "status": "answered",
+        "answer": "12℃의 건조한 실내이고 결로가 없다면 CV-10의 환경 조건(10~30℃)에는 해당하지만, CV-20의 조건(15~30℃)에는 해당하지 않아 CV-20은 온도 하한 미달입니다. 기능 면에서는 CV-10은 네트워크 수신을 지원하지 않으며, 수신조회를 위해 교체한 기록에서 CV-20의 기능 범위는 해당 필요에 부합하는 것으로 확인되었습니다. 다만 실제 수신 설정이 적용됐는지는 별도로 확인해야 합니다.",
+        "reason": "두 모델의 환경 온도 범위와 공통 장소 조건은 AM022에, CV-10의 수신 미지원 및 CV-20 교체 관련 기능·설정 확인 사항은 AM050에 기재되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM022",
+            "file_name": "AM022.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM050",
+            "file_name": "AM050.pdf",
+            "page_start": 27,
+            "page_end": 27
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 5.701,
+          "retrieval_seconds": 0.237,
+          "generation_seconds": 5.464,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM022_c1_0001",
+            "AM050_c1_0027",
+            "AM022_c1_0024"
+          ],
+          "context_token_count": 1318,
+          "usage": {
+            "input_tokens": 1735,
+            "output_tokens": 539
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV07",
+      "question": "건조한 실내이고 결로가 없는 섭씨 12도 장소에서 CV-10을 검토하고 있습니다. 네트워크 수신조회를 쓰려고 CV-20으로 바꾸면 환경 조건과 수신 기능은 각각 어떻게 달라지나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 33.405,
+      "response": {
+        "request_id": "e8fcf985-7254-48ca-8c75-ecc76bdb25d6",
+        "status": "answered",
+        "answer": "CV-10의 환경 범위는 10~30℃, CV-20은 15~30℃이며, 두 모델 모두 건조한 실내·결로 없음 조건이 필요합니다. 따라서 말씀하신 12℃ 장소는 CV-10의 온도 범위에는 들지만 CV-20의 온도 범위에는 들지 않습니다. 기능은 반대로, CV-10은 네트워크 수신을 지원하지 않고 CV-20은 지원하므로 CV-20으로 바꾸면 네트워크 수신 기능을 사용할 수 있습니다. 단, 실제 지원 수신 프로파일은 펌웨어에 따라 다를 수 있습니다(예: CV-20 펌웨어 2.0은 NET-A 지원).",
+        "reason": "자료에서 두 모델의 환경 범위와 네트워크 수신 지원 여부를 확인했고, 12℃를 각 온도 범위와 대조했습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM049",
+            "file_name": "AM049.pdf",
+            "page_start": 37,
+            "page_end": 37
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM050",
+            "file_name": "AM050.pdf",
+            "page_start": 27,
+            "page_end": 27
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM054",
+            "file_name": "AM054.pdf",
+            "page_start": 21,
+            "page_end": 21
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 33.402,
+          "retrieval_seconds": 27.846,
+          "generation_seconds": 5.555,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM049_c1_0037",
+            "AM050_c1_0027",
+            "AM054_c1_0021"
+          ],
+          "context_token_count": 1824,
+          "usage": {
+            "input_tokens": 2241,
+            "output_tokens": 596
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV08",
+      "question": "CV-20 고객이 안내서 표지의 개정 1.1만 알려 주었습니다. 이 정보로 현재 자동 소등 기본값을 알려 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 3.586,
+      "response": {
+        "request_id": "15408887-1a10-458f-9213-74a12dd937fc",
+        "status": "needs_clarification",
+        "answer": "표지의 개정 1.1만으로는 기본값을 특정할 수 없습니다. CV-20의 펌웨어 버전을 알려 주세요. 펌웨어 2.1 이상은 기본값 15분, 2.0은 10분입니다. 실제 단말의 현재 설정값을 묻는 것이라면 단말 설정 확인도 필요합니다.",
+        "reason": "기본값은 펌웨어 버전에 따라 다르며, 실제 단말 설정은 기본값과 별도로 적용될 수 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM011",
+            "file_name": "AM011.pdf",
+            "page_start": 26,
+            "page_end": 26
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM037",
+            "file_name": "AM037.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 3.583,
+          "retrieval_seconds": 0.069,
+          "generation_seconds": 3.513,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM011_c1_0026",
+            "AM037_c1_0001",
+            "AM007_c1_0038"
+          ],
+          "context_token_count": 1597,
+          "usage": {
+            "input_tokens": 1991,
+            "output_tokens": 322
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV08",
+      "question": "CV-20 고객이 안내서 표지의 개정 1.1만 알려 주었습니다. 이 정보로 현재 자동 소등 기본값을 알려 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 3.094,
+      "response": {
+        "request_id": "e9f5da72-330b-4db4-9f2f-ca4a471a223e",
+        "status": "needs_clarification",
+        "answer": "안내서 표지의 개정 1.1만으로는 기본값을 특정할 수 없습니다. CV-20의 펌웨어 버전을 알려 주세요. 펌웨어 2.1 이상은 15분, 2.0은 10분입니다. (S1, S2)",
+        "reason": "자동 소등 기본값은 안내서 개정 번호가 아니라 CV-20 펌웨어 버전에 따라 다릅니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM037",
+            "file_name": "AM037.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM038",
+            "file_name": "AM038.pdf",
+            "page_start": 30,
+            "page_end": 30
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 3.091,
+          "retrieval_seconds": 0.156,
+          "generation_seconds": 2.934,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM037_c1_0001",
+            "AM038_c1_0030",
+            "AM011_c1_0026"
+          ],
+          "context_token_count": 1550,
+          "usage": {
+            "input_tokens": 1944,
+            "output_tokens": 226
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV08",
+      "question": "CV-20 고객이 안내서 표지의 개정 1.1만 알려 주었습니다. 이 정보로 현재 자동 소등 기본값을 알려 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 17.26,
+      "response": {
+        "request_id": "11240c2e-b4f6-48f2-8b04-3f0f6871ef85",
+        "status": "needs_clarification",
+        "answer": "안내서 표지의 개정 1.1만으로는 기본값을 확정할 수 없습니다. CV-20의 펌웨어 버전을 알려 주세요. 펌웨어 2.1 이상은 기본 15분, 2.0은 기본 10분입니다. 이는 기본값이며 현재 단말에 별도 설정이 적용됐는지는 별도 확인이 필요합니다.",
+        "reason": "기본 소등값은 안내서 개정 번호가 아니라 CV-20의 펌웨어 범위에 따라 다릅니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM048",
+            "file_name": "AM048.pdf",
+            "page_start": 42,
+            "page_end": 42
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM037",
+            "file_name": "AM037.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 17.257,
+          "retrieval_seconds": 13.144,
+          "generation_seconds": 4.112,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM048_c1_0042",
+            "AM037_c1_0001",
+            "AM048_c1_0050"
+          ],
+          "context_token_count": 1550,
+          "usage": {
+            "input_tokens": 1943,
+            "output_tokens": 315
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV09",
+      "question": "출처가 미확인인 자료에 대해 검토자가 대상 자료와 목적을 적어 제한된 화면 조회를 허용했습니다. 이 허용으로 파일 내보내기와 네트워크 전달도 할 수 있나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 2.054,
+      "response": {
+        "request_id": "e8ea9124-f6cc-47c7-aecc-ff8c160bd29d",
+        "status": "answered",
+        "answer": "아니요. 허용은 지정된 대상 자료를 제한된 화면으로 조회하는 데만 해당합니다. 파일 내보내기와 네트워크 전달은 허용 범위에 포함되지 않습니다.",
+        "reason": "대상 자료와 목적을 기록한 예외도 화면 조회에 한정되며, 내보내기와 전달은 별도 허용 범위가 아닙니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM017",
+            "file_name": "AM017.pdf",
+            "page_start": 11,
+            "page_end": 11
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM030",
+            "file_name": "AM030.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM030",
+            "file_name": "AM030.pdf",
+            "page_start": 31,
+            "page_end": 31
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 2.052,
+          "retrieval_seconds": 0.066,
+          "generation_seconds": 1.985,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM017_c1_0011",
+            "AM030_c1_0001",
+            "AM030_c1_0031"
+          ],
+          "context_token_count": 985,
+          "usage": {
+            "input_tokens": 1394,
+            "output_tokens": 122
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV09",
+      "question": "출처가 미확인인 자료에 대해 검토자가 대상 자료와 목적을 적어 제한된 화면 조회를 허용했습니다. 이 허용으로 파일 내보내기와 네트워크 전달도 할 수 있나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 2.247,
+      "response": {
+        "request_id": "48d776a0-9c36-46d5-834f-878b4dd7b69f",
+        "status": "answered",
+        "answer": "아니요. 허용은 지정된 자료의 화면 조회에 한정되며, 파일 내보내기와 네트워크 전달은 허용되지 않습니다. 검토 목적이라는 이유만으로 허용 범위를 넓힐 수 없습니다.",
+        "reason": "자료가 미확인인 경우 제한 조회 예외는 화면 내용 확인만 허용하고, 파일 내보내기와 네트워크 전달은 범위에서 제외한다고 명시되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM017",
+            "file_name": "AM017.pdf",
+            "page_start": 11,
+            "page_end": 11
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM030",
+            "file_name": "AM030.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM030",
+            "file_name": "AM030.pdf",
+            "page_start": 31,
+            "page_end": 31
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 2.243,
+          "retrieval_seconds": 0.223,
+          "generation_seconds": 2.02,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM017_c1_0011",
+            "AM030_c1_0001",
+            "AM030_c1_0031"
+          ],
+          "context_token_count": 985,
+          "usage": {
+            "input_tokens": 1394,
+            "output_tokens": 136
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV09",
+      "question": "출처가 미확인인 자료에 대해 검토자가 대상 자료와 목적을 적어 제한된 화면 조회를 허용했습니다. 이 허용으로 파일 내보내기와 네트워크 전달도 할 수 있나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 89.513,
+      "response": {
+        "request_id": "45427fe2-87eb-462c-a040-64a2f738db3b",
+        "status": "answered",
+        "answer": "아니요. 이 허용은 지정된 대상 자료를 지정된 목적으로 화면에서 읽는 범위에 한정됩니다. 파일 내보내기와 네트워크 전달은 허용되지 않습니다.",
+        "reason": "출처 미확인 자료의 제한된 화면 조회 예외는 파일 내보내기와 네트워크 전달을 포함하지 않는다고 명시되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM030",
+            "file_name": "AM030.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM017",
+            "file_name": "AM017.pdf",
+            "page_start": 11,
+            "page_end": 11
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM030",
+            "file_name": "AM030.pdf",
+            "page_start": 22,
+            "page_end": 22
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 89.51,
+          "retrieval_seconds": 87.407,
+          "generation_seconds": 2.102,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM030_c1_0001",
+            "AM017_c1_0011",
+            "AM030_c1_0022"
+          ],
+          "context_token_count": 878,
+          "usage": {
+            "input_tokens": 1287,
+            "output_tokens": 106
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV10",
+      "question": "CV-20 기록은 확인 상태가 정상이고 내보내기에는 파일 생성 완료가 보입니다. 이 두 표시만으로 현장 안전 확인과 상대방 수신 완료를 보고하려고 합니다. 각각 어떤 의미로 고쳐 써야 하나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 5.428,
+      "response": {
+        "request_id": "00be2f14-4d43-41f0-836e-f90ee0388af8",
+        "status": "answered",
+        "answer": "현장 안전 확인 완료가 아니라 ‘기록 자료 확인 상태: 정상’으로 표현하세요. 이 상태는 필수값 대조와 사용자 확인이 완료됐다는 뜻이며, 현장 안전 상태를 판정했다는 뜻은 아닙니다 [S2]. 상대방 수신 완료가 아니라 ‘파일 생성 완료, 상대방 수신 확인 대기’로 표현하세요. 파일 생성만으로 상대방이 받거나 열어 봤다고 확인할 수 없습니다 [S1][S2].",
+        "reason": "CV-20 자료 확인 상태와 파일 생성 상태는 현장 안전 판단 및 상대방 수신 확인과 구분해야 합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM018",
+            "file_name": "AM018.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM047",
+            "file_name": "AM047.pdf",
+            "page_start": 28,
+            "page_end": 28
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 5.424,
+          "retrieval_seconds": 0.068,
+          "generation_seconds": 5.355,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM018_c1_0001",
+            "AM047_c1_0028",
+            "AM035_c1_0011"
+          ],
+          "context_token_count": 1243,
+          "usage": {
+            "input_tokens": 1658,
+            "output_tokens": 502
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV10",
+      "question": "CV-20 기록은 확인 상태가 정상이고 내보내기에는 파일 생성 완료가 보입니다. 이 두 표시만으로 현장 안전 확인과 상대방 수신 완료를 보고하려고 합니다. 각각 어떤 의미로 고쳐 써야 하나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 5.1,
+      "response": {
+        "request_id": "897017ab-5b5f-4a8a-a1d4-80c197a56794",
+        "status": "answered",
+        "answer": "다음처럼 고쳐 쓰면 됩니다.\n- 확인 상태: “자료 확인 상태 정상(필수 자료 확인 범위). 현장 안전 확인이나 안전 승인을 뜻하지 않음.”\n- 내보내기: “파일 생성 완료. 상대방 수신은 확인되지 않아 수신 확인 대기.”",
+        "reason": "자료 상태의 정상은 필수 자료 대조와 사용자 확인 범위에 한정되며 현장 안전 판단과 분리됩니다. 파일 생성 완료도 상대방 수신 완료의 근거가 아닙니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM047",
+            "file_name": "AM047.pdf",
+            "page_start": 28,
+            "page_end": 28
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM019",
+            "file_name": "AM019.pdf",
+            "page_start": 38,
+            "page_end": 38
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 5.097,
+          "retrieval_seconds": 0.241,
+          "generation_seconds": 4.856,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM047_c1_0028",
+            "AM019_c1_0038",
+            "AM025_c1_0023"
+          ],
+          "context_token_count": 1561,
+          "usage": {
+            "input_tokens": 1976,
+            "output_tokens": 433
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV10",
+      "question": "CV-20 기록은 확인 상태가 정상이고 내보내기에는 파일 생성 완료가 보입니다. 이 두 표시만으로 현장 안전 확인과 상대방 수신 완료를 보고하려고 합니다. 각각 어떤 의미로 고쳐 써야 하나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 95.848,
+      "response": {
+        "request_id": "0ac69b73-1568-474a-a19a-f8898411844a",
+        "status": "answered",
+        "answer": "‘확인 상태 정상’은 해당 기록의 필수 자료 확인 범위가 정상이라는 뜻으로 고쳐 쓰세요. 현장 안전 확인이나 안전 승인을 뜻하지 않습니다. ‘파일 생성 완료’는 내보내기 파일이 만들어졌다는 뜻이며, 상대방 수신 완료가 아닙니다. 상대방 수신 확인은 ‘확인 대기’로 기록하세요.",
+        "reason": "CV-20 기록은 자료 상태와 파일 생성 상태를 현장 안전 승인 및 상대편 수신 확인과 구분합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM019",
+            "file_name": "AM019.pdf",
+            "page_start": 38,
+            "page_end": 38
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 95.845,
+          "retrieval_seconds": 91.871,
+          "generation_seconds": 3.973,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM019_c1_0038",
+            "AM017_c1_0058",
+            "AM047_c1_0028"
+          ],
+          "context_token_count": 1530,
+          "usage": {
+            "input_tokens": 1945,
+            "output_tokens": 316
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV11",
+      "question": "CV-10 현장조회 양식에 네트워크 수신시각이 비어 있습니다. 다른 정보는 정상입니다. 빈 수신시각만으로 수신 오류라고 보고해도 되나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 4.047,
+      "response": {
+        "request_id": "72960237-3c6d-40d5-88cd-b36438ebff4a",
+        "status": "answered",
+        "answer": "아니요. CV-10은 네트워크 수신 기능을 지원하지 않으므로 현장조회 양식의 네트워크 수신시각이 비어 있다는 사실만으로 수신 오류라고 판단할 수 없습니다. 수신시각은 CV-20의 실제 도착 시각에 적용되며, CV-10의 원자료 기록시각과도 별개입니다.",
+        "reason": "자료에서 CV-10은 네트워크 수신을 지원하지 않으며, 수신시각은 CV-20의 도착 시각으로 정의합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM011",
+            "file_name": "AM011.pdf",
+            "page_start": 19,
+            "page_end": 19
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM011",
+            "file_name": "AM011.pdf",
+            "page_start": 5,
+            "page_end": 5
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM025",
+            "file_name": "AM025.pdf",
+            "page_start": 14,
+            "page_end": 14
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 4.044,
+          "retrieval_seconds": 0.073,
+          "generation_seconds": 3.971,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM011_c1_0019",
+            "AM011_c1_0005",
+            "AM025_c1_0014"
+          ],
+          "context_token_count": 1537,
+          "usage": {
+            "input_tokens": 1941,
+            "output_tokens": 302
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV11",
+      "question": "CV-10 현장조회 양식에 네트워크 수신시각이 비어 있습니다. 다른 정보는 정상입니다. 빈 수신시각만으로 수신 오류라고 보고해도 되나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 3.431,
+      "response": {
+        "request_id": "c1334b3e-b888-487a-b405-c838e4ff9343",
+        "status": "answered",
+        "answer": "아니요. CV-10은 네트워크 수신을 지원하지 않으므로 현장조회 양식의 수신시각이 비어 있다는 사실만으로 수신 오류라고 보고할 수 없습니다. 다만 그 사실만으로 자료 전체를 정상이라고 판정하는 것도 적절하지 않습니다.",
+        "reason": "CV-10의 수신시각 공란은 지원되지 않는 기능에 따른 양식 상태일 수 있으며, 자료 상태 판정과는 구분해야 합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM008",
+            "file_name": "AM008.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM019",
+            "file_name": "AM019.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 3.428,
+          "retrieval_seconds": 0.193,
+          "generation_seconds": 3.234,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM008_c1_0001",
+            "AM019_c1_0001",
+            "AM013_c1_0065"
+          ],
+          "context_token_count": 1696,
+          "usage": {
+            "input_tokens": 2100,
+            "output_tokens": 232
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV11",
+      "question": "CV-10 현장조회 양식에 네트워크 수신시각이 비어 있습니다. 다른 정보는 정상입니다. 빈 수신시각만으로 수신 오류라고 보고해도 되나요?",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 73.246,
+      "response": {
+        "request_id": "1e5f9ca6-54d9-490c-b62f-0eb511a13080",
+        "status": "answered",
+        "answer": "아니요. CV-10 현장조회 양식은 네트워크 수신을 지원하지 않으므로 수신시각이 비어 있는 것만으로 수신 오류라고 보고하면 안 됩니다. 모델·출처·기록시각 대조와 사용자 확인이 정상적으로 끝났다면 정상일 수 있습니다.",
+        "reason": "자료는 CV-10의 네트워크 수신 미지원과 현장조회에서 빈 수신시각이 정상일 수 있음을 명시합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM019",
+            "file_name": "AM019.pdf",
+            "page_start": 5,
+            "page_end": 5
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM008",
+            "file_name": "AM008.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 73.243,
+          "retrieval_seconds": 70.356,
+          "generation_seconds": 2.886,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM019_c1_0005",
+            "AM013_c1_0065",
+            "AM008_c1_0001"
+          ],
+          "context_token_count": 1944,
+          "usage": {
+            "input_tokens": 2348,
+            "output_tokens": 214
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV12",
+      "question": "체크뷰의 최근 30일 조회 목록이 비어 있습니다. 이 화면만 근거로 그 기간에 해당 현장에 이상이 전혀 없었다고 확정해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 3.502,
+      "response": {
+        "request_id": "e237e416-9c98-4aed-8960-fc1aa01a5849",
+        "status": "abstained",
+        "answer": "체크뷰의 최근 30일 조회 목록이 비어 있다는 사실만으로 해당 기간에 현장 이상이 전혀 없었다고 확정할 수 없습니다. 목록 범위는 원자료 기록시각 기준이며, 빈 목록은 자료 누락이나 현장 상태를 판정하는 근거가 아닙니다. 현장 상태를 확인하려면 원자료와 현장 상태에 대한 별도 증빙이 필요합니다.",
+        "reason": "자료는 빈 목록만으로 자료 누락이나 장애를 단정할 수 없고, 자료 상태나 원자료 문구만으로 실제 현장 상태를 입증할 수 없다고 설명합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM007",
+            "file_name": "AM007.pdf",
+            "page_start": 57,
+            "page_end": 57
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM011",
+            "file_name": "AM011.pdf",
+            "page_start": 65,
+            "page_end": 65
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM007",
+            "file_name": "AM007.pdf",
+            "page_start": 9,
+            "page_end": 9
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 3.498,
+          "retrieval_seconds": 0.068,
+          "generation_seconds": 3.429,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM007_c1_0057",
+            "AM011_c1_0065",
+            "AM007_c1_0009"
+          ],
+          "context_token_count": 1927,
+          "usage": {
+            "input_tokens": 2327,
+            "output_tokens": 268
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV12",
+      "question": "체크뷰의 최근 30일 조회 목록이 비어 있습니다. 이 화면만 근거로 그 기간에 해당 현장에 이상이 전혀 없었다고 확정해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 3.925,
+      "response": {
+        "request_id": "e75fce8c-2658-47e5-8010-942dc53b4889",
+        "status": "answered",
+        "answer": "확정할 수 없습니다. 체크뷰의 최근 30일 조회 목록이 비어 있다는 사실은 해당 조건에 맞는 자료가 없다는 뜻일 뿐, 그 기간에 현장 이상이 전혀 없었다는 증거가 아닙니다. 현장 상태는 별도로 확인해야 합니다.",
+        "reason": "자료는 빈 목록과 현장 상태를 분리하며, 최근 30일은 원자료 기록시각 기준의 조회 범위라고 설명합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM035",
+            "file_name": "AM035.pdf",
+            "page_start": 23,
+            "page_end": 23
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM055",
+            "file_name": "AM055.pdf",
+            "page_start": 18,
+            "page_end": 18
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 3.922,
+          "retrieval_seconds": 0.166,
+          "generation_seconds": 3.755,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM035_c1_0023",
+            "AM055_c1_0018",
+            "AM007_c1_0057"
+          ],
+          "context_token_count": 2037,
+          "usage": {
+            "input_tokens": 2437,
+            "output_tokens": 269
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV12",
+      "question": "체크뷰의 최근 30일 조회 목록이 비어 있습니다. 이 화면만 근거로 그 기간에 해당 현장에 이상이 전혀 없었다고 확정해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 137.322,
+      "response": {
+        "request_id": "dd044aab-529d-4613-9616-f270d85c0719",
+        "status": "abstained",
+        "answer": "최근 30일 조회 목록이 비어 있다는 화면만으로 해당 기간 현장에 이상이 전혀 없었다고 확정할 수 없습니다. 현장 상태는 별도로 확인해야 합니다.",
+        "reason": "빈 목록은 선택한 조건에서 표시할 자료가 없다는 뜻일 뿐, 현장 이상 부재를 입증하지 않습니다. 등록 여부나 필터 상태도 확인되지 않았다면 그 제한을 함께 고려해야 합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM013",
+            "file_name": "AM013.pdf",
+            "page_start": 57,
+            "page_end": 57
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM055",
+            "file_name": "AM055.pdf",
+            "page_start": 18,
+            "page_end": 18
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM013",
+            "file_name": "AM013.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 137.318,
+          "retrieval_seconds": 134.613,
+          "generation_seconds": 2.705,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM013_c1_0057",
+            "AM055_c1_0018",
+            "AM013_c1_0001"
+          ],
+          "context_token_count": 1550,
+          "usage": {
+            "input_tokens": 1950,
+            "output_tokens": 179
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV13",
+      "question": "2027-02-18 16:00 KST 기준 주문 SO-270218-14의 네 장비 중 추가 센서 교체가 필요한 장비는 무엇이며, 나머지는 왜 같은 교체를 진행하지 않나요? 현재 구성과 승인된 통지를 근거로 구분해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 6.969,
+      "response": {
+        "request_id": "fc9dfac2-2671-4c48-837e-08a68e921fd9",
+        "status": "needs_clarification",
+        "answer": "승인 통지 ECN-270216-S17 개정 B에 따르면 추가 센서 교체 대상은 MT-240이며 일련번호가 M240-270401~M240-270450이고 현재 센서 lot가 S2701A인 장비입니다. 이 세 조건을 모두 확인해야 합니다. M240-270402는 2027-02-17에 S2702B 장착과 펌웨어 2.4.1 적용이 완료되어 같은 교체를 반복하지 않습니다. 다만 제공된 자료에는 주문의 나머지 세 장비의 모델·일련번호·현재 센서 lot가 없습니다. 네 장비 각각의 현재 구성(모델, 일련번호, 센서 lot, 펌웨어)을 알려 주시면 대상과 비대상을 구분할 수 있습니다.",
+        "reason": "승인 통지의 적용 조건과 한 장비의 완료 이력은 확인되지만, 나머지 장비가 적용 조건을 충족하는지 판단할 구성 정보가 없습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM002",
+            "file_name": "AM002.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM001",
+            "file_name": "AM001.pdf",
+            "page_start": 3,
+            "page_end": 3
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 6.966,
+          "retrieval_seconds": 0.067,
+          "generation_seconds": 6.898,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM002_c1_0001",
+            "AM001_c1_0003",
+            "AM108_c1_0080"
+          ],
+          "context_token_count": 1379,
+          "usage": {
+            "input_tokens": 1801,
+            "output_tokens": 554
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV13",
+      "question": "2027-02-18 16:00 KST 기준 주문 SO-270218-14의 네 장비 중 추가 센서 교체가 필요한 장비는 무엇이며, 나머지는 왜 같은 교체를 진행하지 않나요? 현재 구성과 승인된 통지를 근거로 구분해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 6.607,
+      "response": {
+        "request_id": "d0fe8aea-6230-411c-9740-a7ca5e7ab5ba",
+        "status": "answered",
+        "answer": "추가 센서 교체 대상은 M240-270401입니다. 승인 통지 ECN-270216-S17 개정 B는 MT-240 모델, 일련번호 M240-270401~M240-270450, 현재 센서 lot S2701A의 세 조건을 모두 충족하는 장비에 적용합니다. M240-270401은 현재 SC-17 센서 lot가 S2701A이고 실제 펌웨어가 2.4.0이므로 대상입니다. 승인 lot S2702B로 센서를 교체하고 실제 펌웨어를 2.4.1로 적용한 뒤 해당 구성으로 재검사해야 합니다. [S1, S2]\n\n나머지 세 장비는 다음 이유로 같은 교체를 진행하지 않습니다.\n- M240-270402: 현재 구성은 이미 S2702B·펌웨어 2.4.1이며, 2027-02-17 작업 완료서에 센서 교체와 펌웨어 적용이 기록되어 있습니다. 같은 교체를 반복하지 않습니다. 다만 새 구성 검사와 출하 승인은 별도 기록으로 확인해야 합니다. [S1, S2, S3]\n- M240-270403: 현재 lot가 S2701B이므로 통지에서 명시적으로 제외한 lot입니다. [S1, S2]\n- M24E-270404: 모델이 MT-240E로, 통지 대상 모델 MT-240과 다른 별도 모델이므로 제외됩니다. [S1, S2]",
+        "reason": "승인 통지의 적용 조건을 주문별 실물 구성 및 완료 기록과 대조했습니다. 기준일 이전에 완료된 교체는 현재 구성과 작업 이력으로 반영했습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM002",
+            "file_name": "AM002.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM001",
+            "file_name": "AM001.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM001",
+            "file_name": "AM001.pdf",
+            "page_start": 3,
+            "page_end": 3
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 6.604,
+          "retrieval_seconds": 0.201,
+          "generation_seconds": 6.402,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM002_c1_0001",
+            "AM001_c1_0001",
+            "AM001_c1_0003"
+          ],
+          "context_token_count": 1306,
+          "usage": {
+            "input_tokens": 1727,
+            "output_tokens": 595
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV13",
+      "question": "2027-02-18 16:00 KST 기준 주문 SO-270218-14의 네 장비 중 추가 센서 교체가 필요한 장비는 무엇이며, 나머지는 왜 같은 교체를 진행하지 않나요? 현재 구성과 승인된 통지를 근거로 구분해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 43.674,
+      "response": {
+        "request_id": "a1aeb468-1b57-4f0b-a8ef-dad0d85a9f00",
+        "status": "answered",
+        "answer": "추가 센서 교체 대상은 M240-270401입니다. 현재 MT-240이고, 일련번호가 승인 범위 M240-270401~M240-270450에 들며, 현재 센서 lot가 S2701A여서 통지의 세 조건을 모두 충족합니다. 현재 펌웨어는 2.4.0이므로 승인된 S2702B 교체와 펌웨어 2.4.1 적용 후 해당 구성으로 재검사해야 합니다.\n\n나머지 세 장비는 같은 교체 대상이 아닙니다.\n- M240-270402: 현재 S2702B·펌웨어 2.4.1이며, 2월 17일 교체와 제품 정보 화면 확인이 기록되어 있어 같은 교체를 반복하지 않습니다.\n- M240-270403: 현재 lot가 S2701B로, 통지에서 제외한 lot입니다.\n- M24E-270404: 모델이 MT-240E로, 통지 대상 모델 MT-240과 다르며 명시적 제외 대상입니다.\n\n교체 대상 여부나 완료 이력만으로 검사 합격 또는 출하 승인을 뜻하지는 않습니다.",
+        "reason": "2027-02-18 09:00 KST 실물 구성 대조와 승인 개정 B의 적용 조건을 비교했습니다. 승인 통지는 MT-240 모델, 지정 일련번호 범위, 현재 lot S2701A를 모두 요구합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM001",
+            "file_name": "AM001.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM001",
+            "file_name": "AM001.pdf",
+            "page_start": 2,
+            "page_end": 2
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM002",
+            "file_name": "AM002.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 43.671,
+          "retrieval_seconds": 36.179,
+          "generation_seconds": 7.49,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM001_c1_0001",
+            "AM001_c1_0002",
+            "AM002_c1_0001"
+          ],
+          "context_token_count": 1313,
+          "usage": {
+            "input_tokens": 1734,
+            "output_tokens": 744
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV14",
+      "question": "2027-02-18 16:00 KST 기준 주문 SO-270218-14의 4대 중 출하 가능한 대수와 일련번호를 알려 주세요. 각 장비의 실제 구성, 필요한 조치의 완료 여부, 적용한 검사 기준과 결과, 출하 승인 상태를 근거로 장비별 판단을 설명해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 5.464,
+      "response": {
+        "request_id": "0e7bc007-461e-49ed-89c1-9da57a8dfd34",
+        "status": "abstained",
+        "answer": "2027-02-18 16:00 KST 기준, 출하 승인된 장비는 2대입니다: M240-270403, M24E-270404. M240-270401은 ECN 조치 및 조치 후 재검사 대기, M240-270402는 새 구성 검사 부적합으로 재조정 및 재검사 대기이며 두 장비 모두 출하 승인이 없습니다. 다만 제공된 자료에는 각 장비의 실제 구성, 적용 검사 기준과 구체적인 검사 결과가 없어, 요청하신 근거를 포함한 장비별 판단을 완결할 수 없습니다.",
+        "reason": "S1은 기준 시각의 승인 상태와 미완료 조치를 명시하지만 실제 구성 및 검사 기준·결과는 제시하지 않습니다. 따라서 확인 가능한 승인 수량과 일련번호만 제시합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM003",
+            "file_name": "AM003.pdf",
+            "page_start": 3,
+            "page_end": 3
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 5.46,
+          "retrieval_seconds": 0.089,
+          "generation_seconds": 5.371,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM003_c1_0003",
+            "AM005_c1_0004",
+            "AM006_c1_0100"
+          ],
+          "context_token_count": 1339,
+          "usage": {
+            "input_tokens": 1771,
+            "output_tokens": 512
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV14",
+      "question": "2027-02-18 16:00 KST 기준 주문 SO-270218-14의 4대 중 출하 가능한 대수와 일련번호를 알려 주세요. 각 장비의 실제 구성, 필요한 조치의 완료 여부, 적용한 검사 기준과 결과, 출하 승인 상태를 근거로 장비별 판단을 설명해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 502,
+      "client_latency_seconds": 8.814,
+      "response": {
+        "request_id": "db4cbd67-c1ae-43df-ad65-00741b729ceb",
+        "status": "error",
+        "answer": "요청을 처리하지 못했습니다. 잠시 후 다시 시도해 주세요.",
+        "reason": "model_error:LengthFinishReasonError",
+        "citations": [],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 8.811,
+          "retrieval_seconds": 0.283,
+          "generation_seconds": 8.527,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM003_c1_0003",
+            "AM005_c1_0004",
+            "AM003_c1_0004"
+          ],
+          "context_token_count": 1351,
+          "usage": null
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV14",
+      "question": "2027-02-18 16:00 KST 기준 주문 SO-270218-14의 4대 중 출하 가능한 대수와 일련번호를 알려 주세요. 각 장비의 실제 구성, 필요한 조치의 완료 여부, 적용한 검사 기준과 결과, 출하 승인 상태를 근거로 장비별 판단을 설명해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 502,
+      "client_latency_seconds": 45.111,
+      "response": {
+        "request_id": "0fb544d7-1614-47ab-93a9-1e3ceb0a6e85",
+        "status": "error",
+        "answer": "요청을 처리하지 못했습니다. 잠시 후 다시 시도해 주세요.",
+        "reason": "model_error:LengthFinishReasonError",
+        "citations": [],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 45.108,
+          "retrieval_seconds": 36.361,
+          "generation_seconds": 8.747,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM006_c1_0036",
+            "AM003_c1_0003",
+            "AM005_c1_0004"
+          ],
+          "context_token_count": 1334,
+          "usage": null
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV15",
+      "question": "2027-02-18 16:00 KST 기준 주문 SO-270218-14의 라인 B 검사기 한 대를 보내려 합니다. 어느 장비인지는 별칭만 적혀 있는데 출하 가능한 것으로 처리해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 5.903,
+      "response": {
+        "request_id": "37b25c4d-7a90-4cca-86b7-37e8abead319",
+        "status": "needs_clarification",
+        "answer": "별칭에 해당하는 장비의 일련번호(또는 별칭-일련번호 대응표)와 SO-270218-14에 적용되는 검사·품질 승인 및 출고 조건 자료를 알려 주세요. 현재 자료만으로는 해당 장비를 출하 가능으로 처리할 수 없습니다.",
+        "reason": "제공된 자료는 SO-270223-1018, SO-270226-1019, SO-270525-2048에 관한 것으로 요청 주문 및 기준 시각과 일치하지 않습니다. 별칭과 실제 장비의 대응도 확인되지 않습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM003",
+            "file_name": "AM003.pdf",
+            "page_start": 40,
+            "page_end": 40
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM006",
+            "file_name": "AM006.pdf",
+            "page_start": 100,
+            "page_end": 100
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM003",
+            "file_name": "AM003.pdf",
+            "page_start": 42,
+            "page_end": 42
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 5.899,
+          "retrieval_seconds": 0.083,
+          "generation_seconds": 5.816,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM003_c1_0040",
+            "AM006_c1_0100",
+            "AM003_c1_0042"
+          ],
+          "context_token_count": 1461,
+          "usage": {
+            "input_tokens": 1868,
+            "output_tokens": 505
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV15",
+      "question": "2027-02-18 16:00 KST 기준 주문 SO-270218-14의 라인 B 검사기 한 대를 보내려 합니다. 어느 장비인지는 별칭만 적혀 있는데 출하 가능한 것으로 처리해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 4.766,
+      "response": {
+        "request_id": "fc68dc0c-451f-428a-aba2-1b6f76810df8",
+        "status": "needs_clarification",
+        "answer": "라인 B 검사기의 별칭이 어떤 일련번호를 가리키는지 알려 주세요. 16:00 KST 기준 출하 승인된 장비는 M240-270403과 M24E-270404뿐이며, 별칭과 일련번호의 대응 정보는 자료에 없습니다. 해당 장비가 둘 중 하나인지 확인해 주세요.",
+        "reason": "출하 승인은 두 일련번호에만 한정되어 있고, 별칭만으로는 대상 장비를 식별할 수 없습니다. 승인 여부는 실제 운송장 발행이나 물류 인계를 뜻하지 않습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM003",
+            "file_name": "AM003.pdf",
+            "page_start": 3,
+            "page_end": 3
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 4.763,
+          "retrieval_seconds": 0.192,
+          "generation_seconds": 4.57,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM003_c1_0003",
+            "AM003_c1_0004",
+            "AM003_c1_0040"
+          ],
+          "context_token_count": 1403,
+          "usage": {
+            "input_tokens": 1809,
+            "output_tokens": 270
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV15",
+      "question": "2027-02-18 16:00 KST 기준 주문 SO-270218-14의 라인 B 검사기 한 대를 보내려 합니다. 어느 장비인지는 별칭만 적혀 있는데 출하 가능한 것으로 처리해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 55.155,
+      "response": {
+        "request_id": "396d6674-5f53-4a7a-a069-1da451cf7713",
+        "status": "needs_clarification",
+        "answer": "‘라인 B 검사기’는 주문의 네 장비 모두에 쓰이는 별칭이라 특정 장비를 식별할 수 없습니다. 일련번호를 알려 주세요. 2027-02-18 16:00 KST 기준 출하 승인이 기록된 장비는 M240-270403과 M24E-270404뿐이며, 다른 두 장비에는 승인이 없습니다. 또한 승인은 내부 출하 가능 확인이지 실제 물류 인계나 반출 완료를 뜻하지 않습니다.",
+        "reason": "별칭만으로는 승인된 장비 중 어느 한 대를 보내려는 것인지 판단할 수 없습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM003",
+            "file_name": "AM003.pdf",
+            "page_start": 3,
+            "page_end": 3
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM001",
+            "file_name": "AM001.pdf",
+            "page_start": 1,
+            "page_end": 1
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 55.152,
+          "retrieval_seconds": 50.844,
+          "generation_seconds": 4.307,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM003_c1_0003",
+            "AM001_c1_0001",
+            "AM006_c1_0036"
+          ],
+          "context_token_count": 1391,
+          "usage": {
+            "input_tokens": 1798,
+            "output_tokens": 329
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV16",
+      "question": "HS-280108-00042 / 2028-01-08 16:00 KST 기준으로 변경 통지의 대상과 현재 작업 완료를 구분해 주세요. 네 장비 각각에 추가 교체·FW 적용 또는 완료 증빙이 필요한지, 제외 장비는 어떤 조건 때문에 제외되는지 설명해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 5.773,
+      "response": {
+        "request_id": "1c727c02-c90e-4dc0-bfcd-4067339bb670",
+        "status": "abstained",
+        "answer": "제공된 자료만으로는 HS-280108-00042의 변경 통지 대상과 4대 장비별 현재 작업 완료 여부를 구분할 수 없습니다. S1은 주문 HS-280110-00062, S2는 HS-280308-00528, S3은 HS-280204-00263에 관한 통지여서 모두 질문의 주문과 다릅니다. 특히 S2와 S3은 기준일인 2028-01-08보다 효력일도 늦습니다. 따라서 이 자료로는 네 장비에 추가 교체·FW 적용이 필요한지, 완료 증빙이 있는지 또는 제외 장비가 어떤 조건으로 제외되는지 판단할 수 없습니다.",
+        "reason": "질문 주문에 적용되는 변경 통지와 장비별 구성·작업 완료 기록이 제공되지 않았습니다. 대상 주문이 다른 통지의 범위나 완료 조건을 이 주문에 적용할 근거가 없습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM038",
+            "file_name": "AM038.pdf",
+            "page_start": 82,
+            "page_end": 82
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM066",
+            "file_name": "AM066.pdf",
+            "page_start": 38,
+            "page_end": 38
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM054",
+            "file_name": "AM054.pdf",
+            "page_start": 103,
+            "page_end": 103
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 5.77,
+          "retrieval_seconds": 0.075,
+          "generation_seconds": 5.694,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM038_c1_0082",
+            "AM066_c1_0038",
+            "AM054_c1_0103"
+          ],
+          "context_token_count": 1741,
+          "usage": {
+            "input_tokens": 2169,
+            "output_tokens": 481
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV16",
+      "question": "HS-280108-00042 / 2028-01-08 16:00 KST 기준으로 변경 통지의 대상과 현재 작업 완료를 구분해 주세요. 네 장비 각각에 추가 교체·FW 적용 또는 완료 증빙이 필요한지, 제외 장비는 어떤 조건 때문에 제외되는지 설명해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 9.489,
+      "response": {
+        "request_id": "5d9ab6f3-770b-4dc9-9149-60e43a464f65",
+        "status": "abstained",
+        "answer": "2028-01-08 16:00 KST 기준 기록상 H460-28000423은 장착·FW 적용·작업자 및 생산기술 양측 서명이 확인되어 완료된 장비이며, 추가 교체·FW 적용은 필요하지 않습니다. H460-28000421은 요청 접수와 완료 원본을 받지 못한 상태입니다. 따라서 완료 여부를 확인할 원본 증빙이 필요하지만, 현재 기록만으로 추가 교체·FW 적용이 필요한지는 단정할 수 없습니다. H460-28000422와 H460-28000424는 기록상 이번 변경 비대상입니다. 다만 제공된 자료에는 이 두 장비가 제외된 구체적 조건이 없습니다. S1·S2는 다른 주문의 통지이므로 이 주문의 대상·제외 조건을 대신하지 않습니다. 부품 COA와 수령 기록만으로는 장비별 유지 공급압력 시험이나 내부 출하 승인도 입증되지 않습니다.",
+        "reason": "대상 주문의 변경 통지 및 제외 기준이 제공되지 않아 두 비대상 장비의 제외 사유와 변경 적용 여부를 확정할 수 없습니다. 장비별 작업 상태는 S3에 기록되어 있으나, 421은 완료 증빙이 미수령이며 실제 미작업을 뜻하지 않습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM038",
+            "file_name": "AM038.pdf",
+            "page_start": 94,
+            "page_end": 94
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM038",
+            "file_name": "AM038.pdf",
+            "page_start": 82,
+            "page_end": 82
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM061",
+            "file_name": "AM061.pdf",
+            "page_start": 147,
+            "page_end": 147
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 9.486,
+          "retrieval_seconds": 0.27,
+          "generation_seconds": 9.215,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM038_c1_0094",
+            "AM038_c1_0082",
+            "AM061_c1_0147"
+          ],
+          "context_token_count": 1696,
+          "usage": {
+            "input_tokens": 2124,
+            "output_tokens": 741
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV16",
+      "question": "HS-280108-00042 / 2028-01-08 16:00 KST 기준으로 변경 통지의 대상과 현재 작업 완료를 구분해 주세요. 네 장비 각각에 추가 교체·FW 적용 또는 완료 증빙이 필요한지, 제외 장비는 어떤 조건 때문에 제외되는지 설명해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 502,
+      "client_latency_seconds": 67.719,
+      "response": {
+        "request_id": "50b76d2c-de3c-4604-990a-bbbb19bbafee",
+        "status": "error",
+        "answer": "요청을 처리하지 못했습니다. 잠시 후 다시 시도해 주세요.",
+        "reason": "model_error:LengthFinishReasonError",
+        "citations": [],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 67.715,
+          "retrieval_seconds": 59.254,
+          "generation_seconds": 8.46,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM061_c1_0147",
+            "AM036_c1_0122",
+            "AM114_c1_0044"
+          ],
+          "context_token_count": 1721,
+          "usage": null
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV17",
+      "question": "HS-280114-00089 / 2028-01-14 16:00 KST의 네 장비 검사 원기록을 실제 모델·FW와 대조해 주세요. 장비별 접합 분리강도 허용 조건과 측정값을 제시하고, 온도·교정·정상 횟수까지 고려해 유효한 검사 합격 여부를 판단해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 4.415,
+      "response": {
+        "request_id": "ccb56875-7edb-4f8b-8247-ee21fc7c1ad4",
+        "status": "abstained",
+        "answer": "제공된 자료만으로는 HS-280114-00089의 2028-01-14 16:00 KST 검사에 대한 네 장비의 유효 합격 여부를 판단할 수 없습니다. 검색 자료에는 해당 시각의 네 장비별 원기록(실제 모델·FW, 측정값, 온도, 치구 교정 상태, 정상 횟수)이 없습니다. 제시된 허용 기준도 각각 다른 주문에 적용되고 기준 승인·효력 시점이 2028년 6~8월이어서, 이 주문·검사 시점에 적용된 기준이라고 확인할 수 없습니다. 판정을 위해 해당 주문의 적용 기준과 네 장비의 검사 원기록을 제공해 주세요.",
+        "reason": "자료 S1~S3은 허용 조건과 공통 검사 요건을 설명하지만, 대상 주문과 검사 시점이 일치하지 않고 네 장비의 원기록도 포함하지 않습니다. 따라서 장비별 허용 조건 및 유효 합격 여부를 근거 있게 대조할 수 없습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM012",
+            "file_name": "AM012.pdf",
+            "page_start": 140,
+            "page_end": 140
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM042",
+            "file_name": "AM042.pdf",
+            "page_start": 142,
+            "page_end": 142
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM054",
+            "file_name": "AM054.pdf",
+            "page_start": 111,
+            "page_end": 111
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 4.411,
+          "retrieval_seconds": 0.07,
+          "generation_seconds": 4.341,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM012_c1_0140",
+            "AM042_c1_0142",
+            "AM054_c1_0111"
+          ],
+          "context_token_count": 1614,
+          "usage": {
+            "input_tokens": 2058,
+            "output_tokens": 410
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV17",
+      "question": "HS-280114-00089 / 2028-01-14 16:00 KST의 네 장비 검사 원기록을 실제 모델·FW와 대조해 주세요. 장비별 접합 분리강도 허용 조건과 측정값을 제시하고, 온도·교정·정상 횟수까지 고려해 유효한 검사 합격 여부를 판단해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 5.063,
+      "response": {
+        "request_id": "5c67612f-5b63-4ae6-9306-87008e48eae4",
+        "status": "abstained",
+        "answer": "제공된 자료만으로는 HS-280114-00089의 네 장비 원기록이나 실제 모델·FW, 측정값 및 검사 조건을 확인할 수 없어 장비별 유효한 합격 여부를 판단할 수 없습니다. 필요한 자료는 해당 주문의 네 장비 검사 원기록(검사 시각, 실제 모델·FW, 측정값, 온도, 정상 횟수, 치구 및 교정 상태)과 2028-01-14에 해당 주문에 적용된 검사 허용 기준입니다.",
+        "reason": "S1과 S3에는 다른 주문을 대상으로 하고 2028년 6~7월에 효력이 발생하는 기준만 있습니다. 요청한 검사일보다 뒤의 기준이며 대상 주문도 달라, 이를 2028-01-14 검사에 적용할 근거가 없습니다. S2는 다른 장비·주문의 업체 회신으로 요청한 원기록을 제공하지 않습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM012",
+            "file_name": "AM012.pdf",
+            "page_start": 140,
+            "page_end": 140
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM003",
+            "file_name": "AM003.pdf",
+            "page_start": 4,
+            "page_end": 4
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM042",
+            "file_name": "AM042.pdf",
+            "page_start": 142,
+            "page_end": 142
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 5.059,
+          "retrieval_seconds": 0.216,
+          "generation_seconds": 4.842,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM012_c1_0140",
+            "AM003_c1_0004",
+            "AM042_c1_0142"
+          ],
+          "context_token_count": 1579,
+          "usage": {
+            "input_tokens": 2022,
+            "output_tokens": 426
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV17",
+      "question": "HS-280114-00089 / 2028-01-14 16:00 KST의 네 장비 검사 원기록을 실제 모델·FW와 대조해 주세요. 장비별 접합 분리강도 허용 조건과 측정값을 제시하고, 온도·교정·정상 횟수까지 고려해 유효한 검사 합격 여부를 판단해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 502,
+      "client_latency_seconds": 73.73,
+      "response": {
+        "request_id": "b851ed4c-8c5b-4c11-88e0-27910179fa5b",
+        "status": "error",
+        "answer": "요청을 처리하지 못했습니다. 잠시 후 다시 시도해 주세요.",
+        "reason": "model_error:LengthFinishReasonError",
+        "citations": [],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 73.727,
+          "retrieval_seconds": 64.049,
+          "generation_seconds": 9.677,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM094_c1_0029",
+            "AM079_c1_0004",
+            "AM063_c1_0129"
+          ],
+          "context_token_count": 1882,
+          "usage": null
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV18",
+      "question": "HS-280203-00256 / 2028-02-03 16:00 KST 기준으로 현재 부분 출고를 진행할 수 있나요? 승인된 납품 방식, 계약 보류, 장비별 유효 승인 시각을 연결해 출고 가능한 대수·일련번호와 남은 계약·승인 조건을 설명해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 6.925,
+      "response": {
+        "request_id": "911df8fb-06bc-4773-9425-04f77ca0cc8f",
+        "status": "abstained",
+        "answer": "HS-280203-00256의 2028-02-03 16:00 KST 기준 부분 출고 가능 여부와 출고 가능한 대수·일련번호는 확인할 수 없습니다. 자료에 나온 부분 출하 승인(S1)은 SO-270220-08에만 적용되고, 장비별 승인 원장(S2, S3)도 각각 다른 주문·고객에 관한 내용입니다. 따라서 이 자료들로 해당 주문의 승인된 납품 방식, 계약 보류 여부, 장비별 유효 승인 시각을 판단하거나 출고 가능 수량을 산정할 수 없습니다. 해당 주문의 기준 시각 현재 납품 방식 승인, 계약·보류 상태, 장비별 일련번호와 검사·개별 출하 승인 시각이 기재된 자료를 제공해 주세요.",
+        "reason": "검색 자료가 모두 질문의 주문번호 및 기준일과 일치하지 않아 적용 가능한 출고 근거가 없습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM005",
+            "file_name": "AM005.pdf",
+            "page_start": 4,
+            "page_end": 4
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM006",
+            "file_name": "AM006.pdf",
+            "page_start": 52,
+            "page_end": 52
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM006",
+            "file_name": "AM006.pdf",
+            "page_start": 58,
+            "page_end": 58
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 6.922,
+          "retrieval_seconds": 0.085,
+          "generation_seconds": 6.836,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM005_c1_0004",
+            "AM006_c1_0052",
+            "AM006_c1_0058"
+          ],
+          "context_token_count": 1411,
+          "usage": {
+            "input_tokens": 1846,
+            "output_tokens": 379
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV18",
+      "question": "HS-280203-00256 / 2028-02-03 16:00 KST 기준으로 현재 부분 출고를 진행할 수 있나요? 승인된 납품 방식, 계약 보류, 장비별 유효 승인 시각을 연결해 출고 가능한 대수·일련번호와 남은 계약·승인 조건을 설명해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 8.011,
+      "response": {
+        "request_id": "b716c94e-5dc5-42e6-80a8-d8796253753b",
+        "status": "answered",
+        "answer": "2028-02-03 16:00 KST 기준 부분 출고 지시는 1대에 대해 가능합니다. H440-28002562는 15:00 품질 서명이 확인되고, 16:00 출고 조건이 충족으로 기록되어 있어 출고 가능한 대상입니다. 나머지 H440-28002561, H440-28002563, H440-28002564는 선행 증빙 확인 중이며 출고 조건 미충족입니다. 주문의 승인된 납품 방식은 부분 납품이고 계약 보류 CL-00256은 없으므로, 별도 계약 조건은 남아 있지 않습니다. 다만 나머지 3대는 선행 증빙 및 이에 따른 유효한 검사 확인과 개별 승인이 필요합니다. 17:00에 등록된 승인은 기준 시각 이후이므로 16:00 판단에 소급 적용할 수 없습니다. 모든 장비의 물류 인계 원본은 미수령이므로 실제 반출 완료는 확인되지 않았습니다.",
+        "reason": "주문·기준 시각과 일치하는 원장에 장비별 16:00 출고 조건 및 승인 시각, 부분 납품 방식, 계약 보류 상태, 물류 근거가 기재되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S2",
+            "book_id": "AM116",
+            "file_name": "AM116.pdf",
+            "page_start": 6,
+            "page_end": 6
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 8.008,
+          "retrieval_seconds": 0.237,
+          "generation_seconds": 7.77,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM005_c1_0004",
+            "AM116_c1_0006",
+            "AM006_c1_0052"
+          ],
+          "context_token_count": 1554,
+          "usage": {
+            "input_tokens": 1989,
+            "output_tokens": 770
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV18",
+      "question": "HS-280203-00256 / 2028-02-03 16:00 KST 기준으로 현재 부분 출고를 진행할 수 있나요? 승인된 납품 방식, 계약 보류, 장비별 유효 승인 시각을 연결해 출고 가능한 대수·일련번호와 남은 계약·승인 조건을 설명해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 179.173,
+      "response": {
+        "request_id": "13260143-c65f-4792-9c82-550e1c062beb",
+        "status": "answered",
+        "answer": "2028-02-03 16:00 KST 기준으로 승인된 납품 방식은 부분 납품이고 계약 보류 CL-00256은 없습니다. 따라서 출고 지시 조건을 충족한 H440-28002562 1대에 대해 부분 출고를 진행할 수 있습니다. 이 장비는 15:00 품질 서명이 기록되어 16:00 출고 조건이 충족된 것으로 표시되어 있습니다. H440-28002561, H440-28002563, H440-28002564는 선행 증빙 확인 중이고 출고 조건 미충족이므로 현재 대상에 포함할 수 없습니다. 다만 네 장비 모두 물류 인계 원본이 미수령 상태여서 실제 반출이 완료됐는지는 확인되지 않습니다. 나머지 3대는 필요한 선행 증빙과 유효한 개별 승인이 확인되어야 하며, 17:00 승인 기록은 16:00 판단에 소급 적용되지 않습니다.",
+        "reason": "대상 주문과 기준 시각이 명시된 자료에서 납품 방식, 계약 보류, 일련번호별 승인·출고 조건 및 물류 인계 상태를 확인했습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM116",
+            "file_name": "AM116.pdf",
+            "page_start": 6,
+            "page_end": 6
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 179.169,
+          "retrieval_seconds": 172.494,
+          "generation_seconds": 6.674,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM116_c1_0006",
+            "AM115_c1_0120",
+            "AM115_c1_0114"
+          ],
+          "context_token_count": 1919,
+          "usage": {
+            "input_tokens": 2354,
+            "output_tokens": 576
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV19",
+      "question": "HS-280131-00231 / 2028-01-31 16:00 KST의 승인 원장은 17:30에 취합됐습니다. 문서가 나중에 취합됐다는 이유로 모든 서명을 16:00의 출고 승인으로 봐도 되나요? 장비별 서명 시각·공동 확인·철회 범위를 구분해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 6.846,
+      "response": {
+        "request_id": "b4fb5bf5-11d2-46ff-b2a6-0f54f7898400",
+        "status": "needs_clarification",
+        "answer": "아니요. 17:30 취합만으로 모든 서명을 16:00 출고 승인으로 소급할 수는 없습니다. 제공된 유사 원장에서는 17:00 서명은 16:00 판단에 사용하지 않고, 기준 시각 이전의 유효 서명·필요한 공동 확인·장비별 철회 표시를 따로 대조하도록 합니다. 철회 표시는 해당 일련번호의 승인에 한정되며 다른 장비의 서명이나 앞선 검사 수치까지 취소하지 않습니다. 다만 S2와 S3는 다른 주문의 기록이므로, HS-280131-00231의 장비별 서명 시각·공동 확인 여부·철회 범위는 확인할 수 없습니다. 해당 주문의 일련번호별 승인 원장 행과 공동 확인 및 철회 기록을 제공해 주세요.",
+        "reason": "제공 자료에는 질문한 주문의 개별 장비 기록이 없고, 유사 원장의 규칙만 확인됩니다.",
+        "citations": [
+          {
+            "source_id": "S2",
+            "book_id": "AM105",
+            "file_name": "AM105.pdf",
+            "page_start": 126,
+            "page_end": 126
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM014",
+            "file_name": "AM014.pdf",
+            "page_start": 94,
+            "page_end": 94
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 6.842,
+          "retrieval_seconds": 0.07,
+          "generation_seconds": 6.771,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM012_c1_0016",
+            "AM105_c1_0126",
+            "AM014_c1_0094"
+          ],
+          "context_token_count": 1778,
+          "usage": {
+            "input_tokens": 2222,
+            "output_tokens": 653
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV19",
+      "question": "HS-280131-00231 / 2028-01-31 16:00 KST의 승인 원장은 17:30에 취합됐습니다. 문서가 나중에 취합됐다는 이유로 모든 서명을 16:00의 출고 승인으로 봐도 되나요? 장비별 서명 시각·공동 확인·철회 범위를 구분해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 8.742,
+      "response": {
+        "request_id": "0432ef85-bac6-444c-ab10-dc17de5aa24a",
+        "status": "answered",
+        "answer": "아니요. 원장이 17:30에 취합됐다는 사실만으로 서명을 모두 16:00의 출고 승인으로 볼 수 없습니다. 장비별로 구분하면:\n- H430-28002311: 품질 서명이 17:00으로 기록되어 16:00 이후입니다. 생산기술 확인이 있어도 16:00 판단에는 소급 적용되지 않으며, 출고 조건은 미충족입니다. 물류 인계 원본도 미수령입니다.\n- H430-28002312: 품질 서명은 15:00이고 생산기술 확인도 기록되어 있습니다. 16:00 출고 조건은 충족이며, 15:50 인계 서명과 운송장이 일치해 실제 물류 인계 근거도 있습니다.\n- H430-28002313 및 H430-28002314: 선행 증빙 확인 중이고 생산기술 확인만 기재되어 있어 16:00 출고 조건은 미충족입니다. 물류 인계 원본도 미수령입니다.\n공동 확인이 필요한 구성은 두 확인 서명이 모두 있어야 승인 완료로 기록할 수 있습니다. 승인 철회는 해당 장비의 개별 행에 15:30 철회가 기록된 경우에만 그 장비의 승인 철회로 봅니다. 제시된 장비별 행에는 그런 철회 표시가 없으며, 철회가 있더라도 다른 장비의 서명이나 앞선 검사 수치까지 취소하는 것은 아닙니다. 이 주문의 유효한 납품 조건은 승인된 부분 납품이고 계약 보류는 없습니다.",
+        "reason": "해당 주문의 원장은 16:00 기준 판단과 장비별 서명·물류 시각을 구분하며, 17:00 서명은 16:00에 소급하지 않는다고 명시합니다.",
+        "citations": [
+          {
+            "source_id": "S2",
+            "book_id": "AM115",
+            "file_name": "AM115.pdf",
+            "page_start": 6,
+            "page_end": 6
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 8.739,
+          "retrieval_seconds": 0.233,
+          "generation_seconds": 8.505,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM012_c1_0016",
+            "AM115_c1_0006",
+            "AM105_c1_0126"
+          ],
+          "context_token_count": 1796,
+          "usage": {
+            "input_tokens": 2240,
+            "output_tokens": 789
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV19",
+      "question": "HS-280131-00231 / 2028-01-31 16:00 KST의 승인 원장은 17:30에 취합됐습니다. 문서가 나중에 취합됐다는 이유로 모든 서명을 16:00의 출고 승인으로 봐도 되나요? 장비별 서명 시각·공동 확인·철회 범위를 구분해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 232.511,
+      "response": {
+        "request_id": "738c5e89-24eb-42e4-b27b-82ed2ee82db7",
+        "status": "answered",
+        "answer": "아니요. 17:30 취합은 16:00 기준을 바꾸지 않으며, 17:00에 등록된 서명은 16:00 승인으로 소급할 수 없습니다.\n\n- H430-28002311: 품질 서명은 17:00으로 기준 시각 이후입니다. 생산기술 확인이 기재돼 있어도 16:00 승인으로 볼 수 없고, 출고 조건은 미충족입니다. 물류 인계 원본도 미수령입니다.\n- H430-28002312: 품질 서명은 15:00이고 생산기술 확인도 기재돼 있습니다. 원장상 16:00 출고 조건은 충족이며, 15:50 인계 서명과 운송장이 일치해 실제 반출 근거도 있습니다. 다만 개별 승인의 선행 조건은 작업 증빙과 HQ-03-00231에 따른 유효한 검사 확인입니다.\n- H430-28002313 및 H430-28002314: 서명 시각은 기재되지 않았고, 선행 증빙 확인 중이며 생산기술 확인만 기재돼 있습니다. 두 행 모두 16:00 출고 조건 미충족이고 물류 인계 원본도 미수령입니다.\n\n철회는 해당 일련번호 행에 15:30 승인 철회가 기록된 경우에만 그 장비의 승인을 철회한 것으로 봅니다. 이 자료의 장비별 행에는 그런 철회가 기재돼 있지 않습니다. 철회가 있더라도 해당 장비에 한정되며, 앞선 검사 수치나 다른 장비의 서명까지 취소하지 않습니다.",
+        "reason": "해당 주문의 원장은 장비별 승인 시각·공동 확인·출고 및 물류 근거를 구분하고, 17:00 서명은 16:00 판단에 사용하지 않는다고 명시합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM115",
+            "file_name": "AM115.pdf",
+            "page_start": 6,
+            "page_end": 6
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 232.508,
+          "retrieval_seconds": 224.477,
+          "generation_seconds": 8.03,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM115_c1_0006",
+            "AM114_c1_0150",
+            "AM114_c1_0138"
+          ],
+          "context_token_count": 1946,
+          "usage": {
+            "input_tokens": 2389,
+            "output_tokens": 793
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV20",
+      "question": "이안기전의 2028-02-09자 신호 응답 확인대 납품건입니다. 부품 수령량을 완성 장비의 작업·검사 완료 대수로 보고해도 되나요? 발주·수령 단위와 장비별 작업 증빙의 차이를 설명해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 8.075,
+      "response": {
+        "request_id": "40af8351-63cb-4308-8f61-66bee76d142d",
+        "status": "abstained",
+        "answer": "현재 자료만으로는 이안기전의 2028-02-09 신호 응답 확인대 납품건에 부품 수령량을 완성 장비의 작업·검사 완료 대수로 보고해도 되는지 확정할 수 없습니다. 참고 자료의 사례에서는 발주·수령 수량이 부품 단위이고, 장비별 작업 완료는 일련번호와 실제 작업 내용·시각·확인 기록으로 별도 입증하며, 부품 COA도 완성 장비 검사 성적서를 대신하지 않습니다(S1, S2, S3). 다만 해당 자료는 2027년 한빛정밀의 CB-8 키트 건으로, 질문의 회사·품목·기준일과 다르므로 그 구분을 이번 납품건에 그대로 적용할 근거가 부족합니다. 판단하려면 해당 건의 발주서, 수령 전표, 장비별 작업 기록 및 검사 성적서가 필요합니다.",
+        "reason": "검색 자료는 다른 회사·품목·연도의 사례라 해당 납품건의 발주·수령 단위와 장비별 작업·검사 증빙을 확인할 수 없습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM004",
+            "file_name": "AM004.pdf",
+            "page_start": 2,
+            "page_end": 2
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM004",
+            "file_name": "AM004.pdf",
+            "page_start": 3,
+            "page_end": 3
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM005",
+            "file_name": "AM005.pdf",
+            "page_start": 3,
+            "page_end": 3
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 8.071,
+          "retrieval_seconds": 0.067,
+          "generation_seconds": 8.003,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM004_c1_0002",
+            "AM004_c1_0003",
+            "AM005_c1_0003"
+          ],
+          "context_token_count": 1288,
+          "usage": {
+            "input_tokens": 1716,
+            "output_tokens": 650
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV20",
+      "question": "이안기전의 2028-02-09자 신호 응답 확인대 납품건입니다. 부품 수령량을 완성 장비의 작업·검사 완료 대수로 보고해도 되나요? 발주·수령 단위와 장비별 작업 증빙의 차이를 설명해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 7.633,
+      "response": {
+        "request_id": "adfcb210-0c55-410b-b763-df529a53658e",
+        "status": "answered",
+        "answer": "아니요. 부품 수령량을 완성 장비의 작업·검사 완료 대수로 보고하면 안 됩니다. 발주·입고는 부품 품목과 수량(예: 세트)을 기록하고, 완성 장비 작업은 장비별 일련번호에 연결해 실제 작업 내용·시각 및 확인 기록으로 입증해야 합니다. 검사와 출하 승인도 별도 기록입니다. 따라서 이안기전의 2028-02-09 납품건에서도 수령 수량만으로 작업 또는 검사 완료 대수를 산정할 수 없습니다. 해당 건의 실제 완료 대수는 일련번호별 작업·검사 기록을 확인해야 합니다.",
+        "reason": "자료는 부품 입고 수량과 장비별 작업 완료 증빙을 구분하고, 부품 수령 기록만으로 장비 작업 완료를 판단하지 않도록 명시합니다. 다만 검색 자료에는 2028-02-09 해당 납품건의 실제 발주·수령·장비별 작업·검사 기록이 없어 그 건의 완료 대수 자체는 확인할 수 없습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM004",
+            "file_name": "AM004.pdf",
+            "page_start": 2,
+            "page_end": 2
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM004",
+            "file_name": "AM004.pdf",
+            "page_start": 3,
+            "page_end": 3
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 7.629,
+          "retrieval_seconds": 0.195,
+          "generation_seconds": 7.434,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM004_c1_0002",
+            "AM001_c1_0107",
+            "AM004_c1_0003"
+          ],
+          "context_token_count": 1565,
+          "usage": {
+            "input_tokens": 1992,
+            "output_tokens": 710
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV20",
+      "question": "이안기전의 2028-02-09자 신호 응답 확인대 납품건입니다. 부품 수령량을 완성 장비의 작업·검사 완료 대수로 보고해도 되나요? 발주·수령 단위와 장비별 작업 증빙의 차이를 설명해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 196.017,
+      "response": {
+        "request_id": "32254143-9f7b-4dda-a4ca-bd2756302eda",
+        "status": "answered",
+        "answer": "아니요. 제어 모듈 등 부품의 수령량을 완성 장비의 작업·검사 완료 대수로 보고하면 안 됩니다. 부품 발주·수령은 부품의 세트 수이고, 완성 장비 대수와는 집계 단위가 다릅니다. 작업·검사 완료 대수는 장비별 일련번호에 연결된 작업 및 검사 증빙으로 확인해야 합니다. 다만 제공 자료에는 2028-02-09 납품건의 거래 내역이나 장비별 완료 증빙이 없어, 그 건의 실제 수령량과 완료 대수는 확인할 수 없습니다.",
+        "reason": "자료에는 이안기전의 다른 날짜 기록에서 완성 장비 4대와 제어 모듈 발주·수령 3세트를 별도 집계한다고 명시되어 있습니다. 이는 두 수량을 합산하거나 서로 대체해 보고할 수 없다는 근거지만, 2028-02-09 건 자체를 입증하지는 않습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM007",
+            "file_name": "AM007.pdf",
+            "page_start": 127,
+            "page_end": 127
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 196.013,
+          "retrieval_seconds": 187.652,
+          "generation_seconds": 8.361,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM007_c1_0127",
+            "AM001_c1_0107",
+            "AM002_c1_0129"
+          ],
+          "context_token_count": 2135,
+          "usage": {
+            "input_tokens": 2561,
+            "output_tokens": 772
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV21",
+      "question": "가람산기의 2028-02-21자 인계에서 “위치 조정셀 오전조”를 바로 출고 승인 처리해 달라고 합니다. 이 별칭으로 한 대를 특정할 수 있나요? 확인해야 할 식별값과 이미 확인 가능한 승인 범위를 알려 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 7.122,
+      "response": {
+        "request_id": "ef7668f8-4c5b-4596-8e28-dc6b195dc55b",
+        "status": "abstained",
+        "answer": "“위치 조정셀 오전조”라는 별칭만으로는 한 대를 특정할 수 없습니다. 확인을 위해 장비 관리번호나 모델·시리얼번호, 원자료의 고유 키, 자료 출처, 원자료 기록시각을 대조해야 합니다. 제공 자료에는 가람산기 장비나 2028-02-21 인계의 식별값이 없으므로 대상 장비를 확정할 수 없고, 출고 승인 범위도 확인할 수 없습니다. S3의 화면 대조 범위는 별도 CV-20 자료에만 해당하므로 이 출고 요청의 승인 근거로 적용할 수 없습니다.",
+        "reason": "별칭·제목만으로는 후보를 구별할 수 없으며, 이 요청에 해당하는 장비 기록이나 출고 승인 자료가 제공되지 않았습니다. 식별은 관리번호·모델·출처·원자료 기록시각 또는 고유 자료 키로 확인해야 합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM014",
+            "file_name": "AM014.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM030",
+            "file_name": "AM030.pdf",
+            "page_start": 46,
+            "page_end": 46
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 7.118,
+          "retrieval_seconds": 0.066,
+          "generation_seconds": 7.051,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM014_c1_0001",
+            "AM051_c1_0013",
+            "AM030_c1_0046"
+          ],
+          "context_token_count": 1392,
+          "usage": {
+            "input_tokens": 1816,
+            "output_tokens": 741
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV21",
+      "question": "가람산기의 2028-02-21자 인계에서 “위치 조정셀 오전조”를 바로 출고 승인 처리해 달라고 합니다. 이 별칭으로 한 대를 특정할 수 있나요? 확인해야 할 식별값과 이미 확인 가능한 승인 범위를 알려 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 502,
+      "client_latency_seconds": 7.635,
+      "response": {
+        "request_id": "e023eabf-008a-44fa-aabd-2723186298e5",
+        "status": "error",
+        "answer": "요청을 처리하지 못했습니다. 잠시 후 다시 시도해 주세요.",
+        "reason": "model_error:LengthFinishReasonError",
+        "citations": [],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 7.631,
+          "retrieval_seconds": 0.239,
+          "generation_seconds": 7.392,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM038_c1_0070",
+            "AM014_c1_0001",
+            "AM003_c1_0004"
+          ],
+          "context_token_count": 1454,
+          "usage": null
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV21",
+      "question": "가람산기의 2028-02-21자 인계에서 “위치 조정셀 오전조”를 바로 출고 승인 처리해 달라고 합니다. 이 별칭으로 한 대를 특정할 수 있나요? 확인해야 할 식별값과 이미 확인 가능한 승인 범위를 알려 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 502,
+      "client_latency_seconds": 86.021,
+      "response": {
+        "request_id": "a3699993-58c6-466a-aa39-d5d32d13c071",
+        "status": "error",
+        "answer": "요청을 처리하지 못했습니다. 잠시 후 다시 시도해 주세요.",
+        "reason": "model_error:LengthFinishReasonError",
+        "citations": [],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 86.018,
+          "retrieval_seconds": 76.871,
+          "generation_seconds": 9.146,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM014_c1_0005",
+            "AM031_c1_0084",
+            "AM048_c1_0021"
+          ],
+          "context_token_count": 1587,
+          "usage": null
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV22",
+      "question": "HS-280227-00444 / 2028-02-27 16:00 KST의 검사 기준에서 목표 FW 4.12.2와 실제 FW를 어떻게 구분해야 하나요? 네 장비에 적용할 정상 유지시간 허용 조건을 고르고, E형 모델 행을 본체 모델과 섞으면 안 되는 이유를 설명해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 12.248,
+      "response": {
+        "request_id": "292266a2-6944-4401-844c-88bd37a72814",
+        "status": "abstained",
+        "answer": "목표 FW는 변경 후 도달하려는 버전이고, 실제 FW는 검사 시점에 장비에 설치되어 있는 버전입니다. 자료에는 검사 기준을 측정 시각의 실제 모델·FW로 선택하고, 목표 FW로 미리 판정하지 않는다고 명시되어 있습니다(S1). 다만 제공 자료에는 실제 FW 4.12.2나 정상 유지시간 허용 조건이 없습니다. 자료의 허용값은 다른 주문의 정속 진동값 기준이므로 HS-280227-00444의 네 장비에 적용할 수 없습니다. 또한 제공 자료에서 HT-470E는 HT-470과 별도의 행이며 허용값도 다릅니다. 따라서 E형 장비를 본체 모델 행에 섞으면 해당 구성에 맞지 않는 기준을 적용할 수 있습니다(S1). 네 장비별 기준을 고르려면 적용 대상 주문의 유지시간 기준표와 각 장비의 실제 모델·검사 시점 FW가 필요합니다.",
+        "reason": "검색 자료는 질문의 주문·검사일과 일치하지 않고, 후일 승인된 다른 주문의 정속 진동 기준만 포함합니다. 정상 유지시간 기준과 네 장비의 실제 구성이 확인되지 않아 적용 조건을 확정할 수 없습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM041",
+            "file_name": "AM041.pdf",
+            "page_start": 147,
+            "page_end": 147
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 12.244,
+          "retrieval_seconds": 0.066,
+          "generation_seconds": 12.177,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM041_c1_0147",
+            "AM011_c1_0150",
+            "AM021_c1_0150"
+          ],
+          "context_token_count": 1632,
+          "usage": {
+            "input_tokens": 2069,
+            "output_tokens": 763
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV22",
+      "question": "HS-280227-00444 / 2028-02-27 16:00 KST의 검사 기준에서 목표 FW 4.12.2와 실제 FW를 어떻게 구분해야 하나요? 네 장비에 적용할 정상 유지시간 허용 조건을 고르고, E형 모델 행을 본체 모델과 섞으면 안 되는 이유를 설명해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 502,
+      "client_latency_seconds": 9.214,
+      "response": {
+        "request_id": "8c5e70f8-1e6f-45be-a8f5-41bd45bc9e10",
+        "status": "error",
+        "answer": "요청을 처리하지 못했습니다. 잠시 후 다시 시도해 주세요.",
+        "reason": "model_error:LengthFinishReasonError",
+        "citations": [],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 9.21,
+          "retrieval_seconds": 0.287,
+          "generation_seconds": 8.923,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM041_c1_0147",
+            "AM093_c1_0034",
+            "AM011_c1_0150"
+          ],
+          "context_token_count": 1615,
+          "usage": null
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV22",
+      "question": "HS-280227-00444 / 2028-02-27 16:00 KST의 검사 기준에서 목표 FW 4.12.2와 실제 FW를 어떻게 구분해야 하나요? 네 장비에 적용할 정상 유지시간 허용 조건을 고르고, E형 모델 행을 본체 모델과 섞으면 안 되는 이유를 설명해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 502,
+      "client_latency_seconds": 17.611,
+      "response": {
+        "request_id": "0e0435e9-a9cf-401f-abf5-f9d95873f5fb",
+        "status": "error",
+        "answer": "요청을 처리하지 못했습니다. 잠시 후 다시 시도해 주세요.",
+        "reason": "model_error:LengthFinishReasonError",
+        "citations": [],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 17.607,
+          "retrieval_seconds": 6.581,
+          "generation_seconds": 11.025,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM093_c1_0034",
+            "AM094_c1_0112",
+            "AM093_c1_0118"
+          ],
+          "context_token_count": 1589,
+          "usage": null
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV23",
+      "question": "HS-280404-00743 / 2028-04-04 16:00 KST에서 검사 합격과 실제 반출 완료는 같은 상태인가요? 인계 원장의 물류 근거를 장비별로 구분하고, 예약 또는 원본 미수령 상태를 어떻게 회신해야 하는지 설명해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 7.314,
+      "response": {
+        "request_id": "279bdcf1-cfba-4cbc-86c6-0fc228da7093",
+        "status": "abstained",
+        "answer": "검사 합격·승인과 실제 반출 완료는 같은 상태가 아닙니다. 실제 반출 근거는 해당 장비의 운송장과 인수 서명이 함께 일치하는 경우이며, 출고 조건 충족 여부와 물류 실행 여부는 별도로 기록해야 합니다 [S1, S2, S3]. 예약만 접수됐거나 인계 원본을 받지 못했다면 ‘반출 완료’로 회신하지 말고 ‘반출 상태 미확인(예약 접수)’ 또는 ‘반출 상태 미확인(인계 원본 미수령)’으로 회신해야 합니다 [S1, S2, S3]. 다만 제공된 자료는 주문 HS-280404-00743의 원장이 아니라 다른 주문의 기록이므로, 해당 주문의 장비별 물류 근거와 2028-04-04 16:00 시점의 상태는 확인할 수 없습니다.",
+        "reason": "자료에는 반출 판정 기준은 있지만 요청한 주문·기준 시각의 장비별 원장 행이 없어 대상 장비별 판정을 뒷받침할 근거가 없습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM013",
+            "file_name": "AM013.pdf",
+            "page_start": 97,
+            "page_end": 97
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM037",
+            "file_name": "AM037.pdf",
+            "page_start": 114,
+            "page_end": 114
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM029",
+            "file_name": "AM029.pdf",
+            "page_start": 117,
+            "page_end": 117
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 7.311,
+          "retrieval_seconds": 0.066,
+          "generation_seconds": 7.245,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM013_c1_0097",
+            "AM037_c1_0114",
+            "AM029_c1_0117"
+          ],
+          "context_token_count": 1902,
+          "usage": {
+            "input_tokens": 2331,
+            "output_tokens": 666
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV23",
+      "question": "HS-280404-00743 / 2028-04-04 16:00 KST에서 검사 합격과 실제 반출 완료는 같은 상태인가요? 인계 원장의 물류 근거를 장비별로 구분하고, 예약 또는 원본 미수령 상태를 어떻게 회신해야 하는지 설명해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 8.283,
+      "response": {
+        "request_id": "dd627813-0d48-4b80-b69d-867755517643",
+        "status": "answered",
+        "answer": "아닙니다. 검사 승인·출고 조건 충족과 실제 반출은 별도 상태입니다. 2028-04-04 16:00 KST 기준으로 보면:\n- H510-28007431: 생산기술 미서명, 출고 조건 미충족, 물류 인계 원본 미수령. 승인 완료나 실제 반출로 회신하지 않습니다.\n- H510-28007432: 품질 서명 및 생산기술 확인, 출고 조건 충족. 다만 운송 예약만 접수되어 실제 반출은 미확인입니다. ‘승인/출고 조건 충족, 운송 예약 접수, 실제 반출 미확인’으로 회신합니다.\n- H510-28007433: 생산기술 확인은 있으나 선행 증빙 확인 중, 출고 조건 미충족, 물류 인계 원본 미수령. 승인 완료나 실제 반출로 회신하지 않습니다.\n- H510-28007434: 품질 서명 및 생산기술 확인, 출고 조건 충족. 15:50 인계 서명과 운송장이 일치하므로 실제 반출 근거가 있습니다.\n예약만 접수된 경우에는 ‘운송 예약 접수, 실제 반출 미확인’으로, 인계 원본을 받지 못한 경우에는 ‘물류 인계 원본 미수령, 반출 상태 미확인’으로 구분해 회신하세요. 17:00 승인 행은 16:00 판단에 소급해 반영하지 않습니다.",
+        "reason": "해당 주문과 기준 시각을 다루는 원장에서 장비별 승인·출고 조건과 물류 근거가 별도 열로 기록되어 있으며, 실제 반출은 15:50 인계 서명과 운송장이 일치한 경우에만 근거로 인정합니다.",
+        "citations": [
+          {
+            "source_id": "S3",
+            "book_id": "AM032",
+            "file_name": "AM032.pdf",
+            "page_start": 78,
+            "page_end": 78
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 8.28,
+          "retrieval_seconds": 0.244,
+          "generation_seconds": 8.035,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM031_c1_0141",
+            "AM013_c1_0097",
+            "AM032_c1_0078"
+          ],
+          "context_token_count": 1924,
+          "usage": {
+            "input_tokens": 2353,
+            "output_tokens": 738
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV23",
+      "question": "HS-280404-00743 / 2028-04-04 16:00 KST에서 검사 합격과 실제 반출 완료는 같은 상태인가요? 인계 원장의 물류 근거를 장비별로 구분하고, 예약 또는 원본 미수령 상태를 어떻게 회신해야 하는지 설명해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 67.541,
+      "response": {
+        "request_id": "d1683351-8e60-4e9b-a8fa-53765ae1c587",
+        "status": "answered",
+        "answer": "아니요. 검사 승인·출고 지시 조건 충족과 실제 물류 반출 완료는 서로 다른 상태입니다. 2028-04-04 16:00 기준으로 장비별 물류 근거는 다음과 같습니다.\n- H510-28007431: 선행 증빙 확인 중이며 생산기술 미서명, 출고 조건 미충족. 물류 인계 원본 미수령이므로 실제 반출은 미확인입니다.\n- H510-28007432: 15:00 품질 서명 및 생산기술 확인, 출고 조건 충족. 다만 운송 예약만 접수되어 실제 반출은 미확인입니다.\n- H510-28007433: 선행 증빙 확인 중이며 생산기술 확인은 있으나 출고 조건 미충족. 물류 인계 원본 미수령이므로 실제 반출은 미확인입니다.\n- H510-28007434: 15:00 품질 서명 및 생산기술 확인, 출고 조건 충족. 15:50 인계 서명과 운송장이 일치하여 실제 반출 근거가 확인됩니다.\n따라서 예약만 접수됐거나 인계 원본을 받지 못한 경우에는 ‘반출 완료’로 회신하지 말고 ‘반출 상태 미확인(예약만 접수)’ 또는 ‘반출 상태 미확인(인계 원본 미수령)’으로 구분해 회신해야 합니다. 실제 반출 근거로 기재할 수 있는 것은 운송장과 인수 서명이 함께 일치한 경우입니다.",
+        "reason": "해당 주문의 16:00 원장은 출고 조건과 물류 실행을 별도로 기록하며, 실제 반출 근거를 운송장과 인수 서명이 함께 일치한 경우로 한정합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM032",
+            "file_name": "AM032.pdf",
+            "page_start": 78,
+            "page_end": 78
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 67.538,
+          "retrieval_seconds": 60.528,
+          "generation_seconds": 7.009,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM032_c1_0078",
+            "AM032_c1_0084",
+            "AM031_c1_0123"
+          ],
+          "context_token_count": 1969,
+          "usage": {
+            "input_tokens": 2398,
+            "output_tokens": 695
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV24",
+      "question": "HS-280316-00586 / 2028-03-16 16:00 KST의 완성 장비 시험에서 최초 수치와 재조정 후 수치를 어떻게 적용하나요? 재측정 기록이 있는 장비와 없는 장비를 구분하고, 다른 장비의 원값까지 대체할 수 있는지 알려 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 13.126,
+      "response": {
+        "request_id": "a25b331f-d848-433d-aee9-e58b44b74175",
+        "status": "abstained",
+        "answer": "제공 자료에는 HS-280316-00586 / 2028-03-16 시험 기록이 없습니다. 따라서 해당 주문에서 재측정 기록이 있는 장비와 없는 장비를 일련번호별로 구분하거나 수치를 확정할 수 없습니다. 다만 기록 적용 원칙은 다음과 같습니다. 재조정 후 재측정이 있고 그 기록의 실제 lot/FW가 대조표와 일치하며 시험이 유효하면, 해당 장비의 수치만 최신 유효 재측정값으로 대체합니다. 최초 원값은 이력으로 보존합니다. 재측정 기록이 없는 장비는 최초값을 유지하며, 기록 미수령은 0이나 불합격으로 바꾸지 않습니다. 다른 장비의 최초 원값을 가져와 대체하는 것은 허용되지 않습니다. 대상 주문의 장비별 최초·재측정 원기록과 실제 lot/FW 대조표를 제공해 주세요.",
+        "reason": "인용 자료는 다른 주문·시험일의 기록이므로 대상 주문의 장비별 재측정 유무와 실제 수치를 확인할 수 없습니다. 다만 해당 자료에는 최신 유효 재측정값은 바뀐 장비의 행에만 적용하고 다른 장비의 원값은 바꾸지 않는 원칙이 명시되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM053",
+            "file_name": "AM053.pdf",
+            "page_start": 86,
+            "page_end": 86
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM006",
+            "file_name": "AM006.pdf",
+            "page_start": 35,
+            "page_end": 35
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM011",
+            "file_name": "AM011.pdf",
+            "page_start": 91,
+            "page_end": 91
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 13.122,
+          "retrieval_seconds": 0.067,
+          "generation_seconds": 13.054,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM053_c1_0086",
+            "AM006_c1_0035",
+            "AM011_c1_0091"
+          ],
+          "context_token_count": 1882,
+          "usage": {
+            "input_tokens": 2315,
+            "output_tokens": 724
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV24",
+      "question": "HS-280316-00586 / 2028-03-16 16:00 KST의 완성 장비 시험에서 최초 수치와 재조정 후 수치를 어떻게 적용하나요? 재측정 기록이 있는 장비와 없는 장비를 구분하고, 다른 장비의 원값까지 대체할 수 있는지 알려 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 9.913,
+      "response": {
+        "request_id": "826c1894-6260-4694-a05d-51d5797dfbf1",
+        "status": "answered",
+        "answer": "주문 HS-280316-00586에 해당하는 기록은 2028-03-16 시험(10:00~11:30 KST)입니다. 장비별 적용은 다음과 같습니다.\n- H500-28005861: 최초값 993 rpm 적용. 재측정 기록 없음.\n- H500-28005862: 최초값 1012 rpm 적용. 재측정 기록 없음.\n- H500-28005863: 시험 원본 미수령이므로 수치 적용 불가. 0이나 불합격으로 대체하지 않습니다.\n- H500-28005864: 최초값 986 rpm은 이력으로 보존하고, 조정 후 11:30 재측정값 1000 rpm을 해당 장비의 최신 유효 기록으로 적용합니다. 재측정 원본의 lot/FW가 대조표와 일치하는지 먼저 확인해야 합니다.\n재측정으로 바꾸는 것은 해당 장비의 행뿐입니다. 다른 장비의 최초 원값을 대체하거나 함께 변경할 수 없습니다. 제공된 기록에는 시험 시간이 10:00~11:30으로 기재되어 있어 16:00 시험 기록은 확인되지 않습니다.",
+        "reason": "주문 번호와 시험일이 일치하는 완성 장비 검사 원기록에 장비별 최초값, 미수령 상태, 5864의 조정 전·후 값과 재측정 적용 원칙이 기재되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S2",
+            "book_id": "AM114",
+            "file_name": "AM114.pdf",
+            "page_start": 11,
+            "page_end": 11
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 9.91,
+          "retrieval_seconds": 0.252,
+          "generation_seconds": 9.657,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM053_c1_0086",
+            "AM114_c1_0011",
+            "AM006_c1_0035"
+          ],
+          "context_token_count": 1888,
+          "usage": {
+            "input_tokens": 2321,
+            "output_tokens": 796
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV24",
+      "question": "HS-280316-00586 / 2028-03-16 16:00 KST의 완성 장비 시험에서 최초 수치와 재조정 후 수치를 어떻게 적용하나요? 재측정 기록이 있는 장비와 없는 장비를 구분하고, 다른 장비의 원값까지 대체할 수 있는지 알려 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 184.356,
+      "response": {
+        "request_id": "eb2720bb-2a7c-495e-ae7c-6a62e84fd91e",
+        "status": "needs_clarification",
+        "answer": "확인 부탁드립니다. HS-280316-00586의 시험 시각을 2028-03-16 16:00 KST로 지정하신 것이 맞나요? 자료 S1에는 시험 시간이 10:00~11:30 KST로 기록되어 있습니다. 이 기록을 말씀하신 것이라면, H500-28005864는 최초값 986 rpm 대신 재측정값 1000 rpm을 적용하되 재측정 원본의 lot/FW가 대조표와 일치하는지 먼저 확인합니다. 그 밖의 장비에는 해당 장비의 기록을 적용하며, 다른 장비의 최초값으로 대체하지 않습니다. H500-28005863은 원본 미수령으로 기록되어 있어 다른 장비의 값으로 채우지 않습니다.",
+        "reason": "주문 번호와 날짜는 일치하지만, 질문의 16:00 시각과 자료의 시험 시간(10:00~11:30)이 달라 해당 기록이 질문의 기준 시각에 적용되는지 확인이 필요합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM114",
+            "file_name": "AM114.pdf",
+            "page_start": 11,
+            "page_end": 11
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 184.352,
+          "retrieval_seconds": 177.203,
+          "generation_seconds": 7.148,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM114_c1_0011",
+            "AM114_c1_0023",
+            "AM114_c1_0041"
+          ],
+          "context_token_count": 2136,
+          "usage": {
+            "input_tokens": 2569,
+            "output_tokens": 608
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV25",
+      "question": "HS-280325-00657 / 2028-03-25 16:00 KST에서 완료 원본이나 승인 서명이 없는 장비를 모두 실제 미작업·검사 불합격이라고 회신해도 되나요? 확인된 작업·검사와 미결 증빙을 장비별로 구분해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 7.192,
+      "response": {
+        "request_id": "d53b3aba-cc14-42fc-bfbc-4d7fe19d8af1",
+        "status": "abstained",
+        "answer": "아니요. 완료 원본이나 승인 서명이 없다는 이유만으로 실제 미작업 또는 검사 불합격이라고 회신할 수는 없습니다. 다만 HS-280325-00657의 장비별 작업·검사 기록이 제공되지 않아, 이 건에서 확인된 작업·검사와 미결 증빙을 장비별로 나눠 드릴 수는 없습니다. 확인된 자료는 다른 주문·기준일의 기록이므로 이 건의 장비 상태로 적용할 수 없습니다. 장비별 원본과 승인 기록을 대조한 뒤 회신해야 합니다.",
+        "reason": "자료는 미수령 원본을 실제 미실시의 증거로 단정하지 말고, 승인 대기와 검사 불합격을 구분하라고 안내하지만, 제공된 장비별 기록은 요청한 HS 주문에 해당하지 않습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM006",
+            "file_name": "AM006.pdf",
+            "page_start": 2,
+            "page_end": 2
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM062",
+            "file_name": "AM062.pdf",
+            "page_start": 81,
+            "page_end": 81
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 7.188,
+          "retrieval_seconds": 0.066,
+          "generation_seconds": 7.121,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM006_c1_0002",
+            "AM006_c1_0004",
+            "AM062_c1_0081"
+          ],
+          "context_token_count": 1434,
+          "usage": {
+            "input_tokens": 1864,
+            "output_tokens": 637
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV25",
+      "question": "HS-280325-00657 / 2028-03-25 16:00 KST에서 완료 원본이나 승인 서명이 없는 장비를 모두 실제 미작업·검사 불합격이라고 회신해도 되나요? 확인된 작업·검사와 미결 증빙을 장비별로 구분해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 502,
+      "client_latency_seconds": 8.399,
+      "response": {
+        "request_id": "81043613-0068-48f1-8139-e612f1b21f1d",
+        "status": "error",
+        "answer": "요청을 처리하지 못했습니다. 잠시 후 다시 시도해 주세요.",
+        "reason": "model_error:LengthFinishReasonError",
+        "citations": [],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 8.396,
+          "retrieval_seconds": 0.241,
+          "generation_seconds": 8.155,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM006_c1_0002",
+            "AM006_c1_0004",
+            "AM025_c1_0102"
+          ],
+          "context_token_count": 1520,
+          "usage": null
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV25",
+      "question": "HS-280325-00657 / 2028-03-25 16:00 KST에서 완료 원본이나 승인 서명이 없는 장비를 모두 실제 미작업·검사 불합격이라고 회신해도 되나요? 확인된 작업·검사와 미결 증빙을 장비별로 구분해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 502,
+      "client_latency_seconds": 81.22,
+      "response": {
+        "request_id": "14f39dc2-9688-4585-bb88-21cfb566cf49",
+        "status": "error",
+        "answer": "요청을 처리하지 못했습니다. 잠시 후 다시 시도해 주세요.",
+        "reason": "model_error:LengthFinishReasonError",
+        "citations": [],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 81.218,
+          "retrieval_seconds": 71.515,
+          "generation_seconds": 9.702,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM086_c1_0087",
+            "AM025_c1_0102",
+            "AM084_c1_0057"
+          ],
+          "context_token_count": 1736,
+          "usage": null
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV26",
+      "question": "HS-280402-00728 / 2028-04-02 16:00 KST 기준으로 변경 통지의 대상과 현재 작업 완료를 구분해 주세요. 네 장비 각각에 추가 교체·FW 적용 또는 완료 증빙이 필요한지, 제외 장비는 어떤 조건 때문에 제외되는지 설명해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 5.395,
+      "response": {
+        "request_id": "3fd7feeb-ae9e-49b7-a539-bed63fa2374b",
+        "status": "abstained",
+        "answer": "2028-04-02 16:00 KST 기준으로 HS-280402-00728의 네 장비별 추가 교체·FW 적용 여부, 완료 증빙 필요 여부, 제외 여부를 판정할 수 없습니다. 제공된 자료는 다른 주문(HS-280110-00062, HS-280208-00289, HS-280224-00419)에 관한 통지이며, 대상 주문의 장비 모델·최초 lot·작업 이력·검사 및 완료 증빙이 없습니다. 해당 통지들에서는 적용 대상이 주문·모델·최초 lot 조건으로 정해지고, 완료는 실제 교체와 FW 적용, 서명 완료서 및 새 구성 검사로 확인하며, 부품 수령만으로 완료 처리하지 않는다고 규정합니다. 대상 주문의 장비별 구성과 이력 및 적용 통지/개정 자료가 필요합니다.",
+        "reason": "검색 자료가 질문의 주문번호와 기준일에 적용된다는 근거가 없어 네 장비의 대상·제외·완료 상태를 확정할 수 없습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM038",
+            "file_name": "AM038.pdf",
+            "page_start": 82,
+            "page_end": 82
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM056",
+            "file_name": "AM056.pdf",
+            "page_start": 104,
+            "page_end": 104
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM061",
+            "file_name": "AM061.pdf",
+            "page_start": 134,
+            "page_end": 134
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 5.392,
+          "retrieval_seconds": 0.078,
+          "generation_seconds": 5.313,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM038_c1_0082",
+            "AM056_c1_0104",
+            "AM061_c1_0134"
+          ],
+          "context_token_count": 1730,
+          "usage": {
+            "input_tokens": 2158,
+            "output_tokens": 503
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV26",
+      "question": "HS-280402-00728 / 2028-04-02 16:00 KST 기준으로 변경 통지의 대상과 현재 작업 완료를 구분해 주세요. 네 장비 각각에 추가 교체·FW 적용 또는 완료 증빙이 필요한지, 제외 장비는 어떤 조건 때문에 제외되는지 설명해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 8.085,
+      "response": {
+        "request_id": "680790c1-491d-47e8-9255-70f8137850c4",
+        "status": "abstained",
+        "answer": "기록상 장비별 현재 상태는 다음과 같습니다. H480-28007281과 H480-28007283은 장착·FW 적용 및 작업자·생산기술 양측 서명이 확인되어, 이번 변경 작업의 완료 증빙은 확인된 상태입니다. H480-28007282는 요청 접수만 확인되고 완료 원본은 미수령이므로, 원본 작업 기록을 추가로 확인해야 완료 여부를 판단할 수 있습니다. 다만 완료 원본이 없다는 사실만으로 실제 작업 미실시를 단정할 수는 없습니다. H480-28007284는 이번 변경 비대상으로 기록되어 있습니다. 부품 COA는 장비별 시험이나 내부 출하 승인 증빙을 대신하지 않습니다. 제공된 자료에는 변경 통지 HC-280402-00728의 대상 모델·lot 및 제외 조건이 없어, 28007284가 어떤 조건 때문에 제외됐는지와 네 장비 중 추가 교체·FW 적용이 필요한 대상이 있는지는 확정할 수 없습니다. 이를 판단하려면 해당 변경 통지의 적용 범위와 변경 사양이 필요합니다.",
+        "reason": "실행 기록은 장비별 작업 상태를 보여 주지만, 적용 대상·제외 조건을 정하는 변경 통지 원문은 제공되지 않았습니다.",
+        "citations": [
+          {
+            "source_id": "S2",
+            "book_id": "AM089",
+            "file_name": "AM089.pdf",
+            "page_start": 63,
+            "page_end": 63
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 8.081,
+          "retrieval_seconds": 0.249,
+          "generation_seconds": 7.832,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM038_c1_0082",
+            "AM089_c1_0063",
+            "AM056_c1_0104"
+          ],
+          "context_token_count": 1714,
+          "usage": {
+            "input_tokens": 2142,
+            "output_tokens": 779
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV26",
+      "question": "HS-280402-00728 / 2028-04-02 16:00 KST 기준으로 변경 통지의 대상과 현재 작업 완료를 구분해 주세요. 네 장비 각각에 추가 교체·FW 적용 또는 완료 증빙이 필요한지, 제외 장비는 어떤 조건 때문에 제외되는지 설명해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 502,
+      "client_latency_seconds": 70.282,
+      "response": {
+        "request_id": "4bb1d099-4116-43f0-a589-41f4852f62c1",
+        "status": "error",
+        "answer": "요청을 처리하지 못했습니다. 잠시 후 다시 시도해 주세요.",
+        "reason": "model_error:LengthFinishReasonError",
+        "citations": [],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 70.279,
+          "retrieval_seconds": 62.275,
+          "generation_seconds": 8.004,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM074_c1_0038",
+            "AM089_c1_0063",
+            "AM059_c1_0013"
+          ],
+          "context_token_count": 1846,
+          "usage": null
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV27",
+      "question": "HS-280411-00799 / 2028-04-11 16:00 KST의 네 장비 검사 원기록을 실제 모델·FW와 대조해 주세요. 장비별 정속 진동값 허용 조건과 측정값을 제시하고, 온도·교정·정상 횟수까지 고려해 유효한 검사 합격 여부를 판단해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 5.438,
+      "response": {
+        "request_id": "42b52691-0ef2-454a-9791-1dbe2220b7ff",
+        "status": "abstained",
+        "answer": "제공 자료만으로는 네 장비의 유효한 검사 합격 여부를 판단할 수 없습니다. 네 장비의 검사 원기록이 없어 실제 모델·FW, 정속 진동 측정값, 검사 온도, 정상 횟수, 치구 교정 상태를 확인할 수 없습니다. 또한 S1~S3은 각각 다른 주문의 기준이며 효력일이 모두 2028-04-11보다 늦으므로 HS-280411-00799의 해당 검사에 적용할 기준이라고 볼 근거가 없습니다. 판단을 위해 해당 주문에 적용되는 기준 문서와 네 장비의 원기록(검사 시각 포함)을 제공해 주세요.",
+        "reason": "검색 자료는 다른 주문의 후속 기준 문서뿐이며, 요청한 네 장비의 원기록과 2028-04-11 검사에 적용되는 기준이 없습니다. 따라서 허용 조건과 측정값을 대조하거나 유효 합격 여부를 확정할 수 없습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM014",
+            "file_name": "AM014.pdf",
+            "page_start": 146,
+            "page_end": 146
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM031",
+            "file_name": "AM031.pdf",
+            "page_start": 115,
+            "page_end": 115
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM011",
+            "file_name": "AM011.pdf",
+            "page_start": 150,
+            "page_end": 150
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 5.435,
+          "retrieval_seconds": 0.064,
+          "generation_seconds": 5.37,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM014_c1_0146",
+            "AM031_c1_0115",
+            "AM011_c1_0150"
+          ],
+          "context_token_count": 1632,
+          "usage": {
+            "input_tokens": 2075,
+            "output_tokens": 507
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV27",
+      "question": "HS-280411-00799 / 2028-04-11 16:00 KST의 네 장비 검사 원기록을 실제 모델·FW와 대조해 주세요. 장비별 정속 진동값 허용 조건과 측정값을 제시하고, 온도·교정·정상 횟수까지 고려해 유효한 검사 합격 여부를 판단해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 4.999,
+      "response": {
+        "request_id": "f7ca5831-1bb2-4541-87d9-efdd151205f2",
+        "status": "abstained",
+        "answer": "네 장비의 유효한 검사 합격 여부는 판단할 수 없습니다. 제공된 자료에는 HS-280411-00799의 네 장비 검사 원기록(실제 모델·FW, 측정값, 검사 온도, 정상 횟수, 치구 교정 상태)이 없습니다. 또한 S1–S3은 다른 주문에 적용되는 기준이며 효력일도 2028-06-04~2028-06-07로, 요청하신 2028-04-11 검사에 적용된다는 근거가 없습니다. 해당 주문·검사 시점에 적용되는 승인 기준과 네 장비의 원기록을 제공해 주세요.",
+        "reason": "다른 주문의 기준을 요청 대상에 적용하거나 검사 결과를 추정할 수 없습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM011",
+            "file_name": "AM011.pdf",
+            "page_start": 150,
+            "page_end": 150
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM013",
+            "file_name": "AM013.pdf",
+            "page_start": 77,
+            "page_end": 77
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM011",
+            "file_name": "AM011.pdf",
+            "page_start": 78,
+            "page_end": 78
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 4.995,
+          "retrieval_seconds": 0.23,
+          "generation_seconds": 4.765,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM011_c1_0150",
+            "AM013_c1_0077",
+            "AM011_c1_0078"
+          ],
+          "context_token_count": 1632,
+          "usage": {
+            "input_tokens": 2075,
+            "output_tokens": 424
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV27",
+      "question": "HS-280411-00799 / 2028-04-11 16:00 KST의 네 장비 검사 원기록을 실제 모델·FW와 대조해 주세요. 장비별 정속 진동값 허용 조건과 측정값을 제시하고, 온도·교정·정상 횟수까지 고려해 유효한 검사 합격 여부를 판단해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 64.696,
+      "response": {
+        "request_id": "1b80a811-c9ad-49af-b3aa-49dcbfade5cf",
+        "status": "abstained",
+        "answer": "판정에 필요한 네 장비의 검사 원기록과 실제 모델·FW를 확인할 수 없어 유효한 검사 합격 여부를 판단할 수 없습니다. 적용 허용값은 HT-470/FW 4.7.0: 4.5 mm/s 이하, HT-470/FW 4.7.2: 3.5 mm/s 이하, HT-470E/FW 4.7.0: 5 mm/s 이하, HT-470E/FW 4.7.2: 4 mm/s 이하입니다. 유효한 시험은 온도 20~24℃, 검사 시점에 유효 교정된 FJ-07 치구, 정상 동작 16회 전부를 모두 충족해야 하며, 품질 승인에는 품질책임자의 개별 서명이 필요합니다. 대상 일련번호는 H470-28007991~H470-28007994입니다. 다만 S2의 ‘이번 변경 비대상’ 기재는 실제 모델·FW나 검사 결과를 입증하지 않습니다. 네 장비 각각의 실제 모델·FW와 검사 원기록(측정값, 온도, 치구 교정 유효 여부, 정상 횟수), 품질책임자 승인 기록을 제공해 주세요.",
+        "reason": "S1은 주문에 적용되는 허용 기준과 공통 유효 조건을 제시하지만, 네 장비의 실제 구성 및 검사 결과를 담고 있지 않습니다. S2는 일련번호와 변경 비대상 상태만 확인하며 검사 원기록은 제공하지 않습니다. 따라서 허용값과 비교하거나 최종 합격을 판정할 근거가 부족합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM107",
+            "file_name": "AM107.pdf",
+            "page_start": 64,
+            "page_end": 64
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM092",
+            "file_name": "AM092.pdf",
+            "page_start": 39,
+            "page_end": 39
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 64.692,
+          "retrieval_seconds": 57.325,
+          "generation_seconds": 7.367,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM107_c1_0064",
+            "AM092_c1_0039",
+            "AM107_c1_0136"
+          ],
+          "context_token_count": 1620,
+          "usage": {
+            "input_tokens": 2063,
+            "output_tokens": 699
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV28",
+      "question": "HS-280420-00870 / 2028-04-20 16:00 KST 기준으로 현재 부분 출고를 진행할 수 있나요? 승인된 납품 방식, 계약 보류, 장비별 유효 승인 시각을 연결해 출고 가능한 대수·일련번호와 남은 계약·승인 조건을 설명해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 4.76,
+      "response": {
+        "request_id": "c910879e-36e4-40ee-8dcb-560d2f317367",
+        "status": "abstained",
+        "answer": "기준 시각에 부분 출고가 가능한지, 출고 가능 대수·일련번호, 남은 계약 보류 및 장비별 승인 조건을 판단할 수 없습니다. 제공된 자료에 주문 HS-280420-00870의 승인된 납품 방식, 계약 보류 상태 또는 해당 일련번호별 유효 승인 기록이 없습니다. 해당 주문의 기준 시각 현재 납품 조건·계약 상태와 장비별 검사 및 승인 원장을 제공해 주세요.",
+        "reason": "자료는 각각 다른 주문을 다룹니다: S1은 SO-270220-08, S2는 HS-280911-02020, S3은 SO-270314-2024입니다. 다른 주문의 승인이나 조건을 대상 주문에 적용할 근거가 없습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM005",
+            "file_name": "AM005.pdf",
+            "page_start": 4,
+            "page_end": 4
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM095",
+            "file_name": "AM095.pdf",
+            "page_start": 90,
+            "page_end": 90
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM006",
+            "file_name": "AM006.pdf",
+            "page_start": 52,
+            "page_end": 52
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 4.757,
+          "retrieval_seconds": 0.064,
+          "generation_seconds": 4.692,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM005_c1_0004",
+            "AM095_c1_0090",
+            "AM006_c1_0052"
+          ],
+          "context_token_count": 1557,
+          "usage": {
+            "input_tokens": 1992,
+            "output_tokens": 431
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV28",
+      "question": "HS-280420-00870 / 2028-04-20 16:00 KST 기준으로 현재 부분 출고를 진행할 수 있나요? 승인된 납품 방식, 계약 보류, 장비별 유효 승인 시각을 연결해 출고 가능한 대수·일련번호와 남은 계약·승인 조건을 설명해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 5.847,
+      "response": {
+        "request_id": "b184c815-02d6-4c38-95d3-e6fedf0692cf",
+        "status": "abstained",
+        "answer": "HS-280420-00870의 2028-04-20 16:00 KST 기준 부분 출고 가능 여부와 출고 가능한 대수·일련번호는 확인할 수 없습니다. 제공 자료는 각각 HS-280420-00868과 HS-280420-00865의 기록이며, 부분 출하 절차 자료도 다른 주문(SO-270220-08)에 한정됩니다. 따라서 00870에 적용되는 승인된 납품 방식, 계약 보류 상태, 장비별 유효 승인 시각 및 일련번호 기록을 연결해 판단할 근거가 없습니다. 00870의 해당 기준시각 출고·승인 대조 원장과 계약 보류 기록, 적용 납품 방식의 승인 근거가 필요합니다.",
+        "reason": "자료의 주문 대상이 질문의 HS-280420-00870과 일치하지 않아 출고 조건이나 개별 장비 상태를 대입할 수 없습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM041",
+            "file_name": "AM041.pdf",
+            "page_start": 143,
+            "page_end": 143
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM041",
+            "file_name": "AM041.pdf",
+            "page_start": 125,
+            "page_end": 125
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM005",
+            "file_name": "AM005.pdf",
+            "page_start": 4,
+            "page_end": 4
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 5.844,
+          "retrieval_seconds": 0.242,
+          "generation_seconds": 5.602,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM041_c1_0143",
+            "AM041_c1_0125",
+            "AM005_c1_0004"
+          ],
+          "context_token_count": 1701,
+          "usage": {
+            "input_tokens": 2136,
+            "output_tokens": 409
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV28",
+      "question": "HS-280420-00870 / 2028-04-20 16:00 KST 기준으로 현재 부분 출고를 진행할 수 있나요? 승인된 납품 방식, 계약 보류, 장비별 유효 승인 시각을 연결해 출고 가능한 대수·일련번호와 남은 계약·승인 조건을 설명해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 167.968,
+      "response": {
+        "request_id": "2bc7978b-1e9c-4ab6-a3c0-2f2b8987f4ed",
+        "status": "abstained",
+        "answer": "HS-280420-00870의 2028-04-20 16:00 KST 기준 부분 출고 가능 여부, 출고 가능한 대수·일련번호, 남은 계약·승인 조건은 판단할 수 없습니다. 제공된 기록은 각각 HS-280420-00867, HS-280420-00868, HS-280420-00869에 대한 것이므로 해당 주문의 납품 방식·계약 보류·장비별 유효 승인 시각을 HS-280420-00870에 적용할 근거가 없습니다. 주문번호 00870의 승인·출고·인계 기록과 계약 보류 현황을 제공해 주세요.",
+        "reason": "검색 자료의 대상 주문번호가 질문의 HS-280420-00870과 모두 다릅니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM041",
+            "file_name": "AM041.pdf",
+            "page_start": 137,
+            "page_end": 137
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM041",
+            "file_name": "AM041.pdf",
+            "page_start": 149,
+            "page_end": 149
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM041",
+            "file_name": "AM041.pdf",
+            "page_start": 143,
+            "page_end": 143
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 167.964,
+          "retrieval_seconds": 163.613,
+          "generation_seconds": 4.35,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM041_c1_0137",
+            "AM041_c1_0149",
+            "AM041_c1_0143"
+          ],
+          "context_token_count": 1958,
+          "usage": {
+            "input_tokens": 2393,
+            "output_tokens": 333
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV29",
+      "question": "HS-280610-01277 / 2028-06-10 16:00 KST의 승인 원장은 17:30에 취합됐습니다. 문서가 나중에 취합됐다는 이유로 모든 서명을 16:00의 출고 승인으로 봐도 되나요? 장비별 서명 시각·공동 확인·철회 범위를 구분해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 5.048,
+      "response": {
+        "request_id": "be1a1385-05af-40ac-bc47-3d842c963ffc",
+        "status": "abstained",
+        "answer": "아니요. 원장 취합 시각이 17:30이라는 사실만으로 각 서명을 16:00의 출고 승인으로 볼 근거는 없습니다. 다만 제공된 자료에는 HS-280610-01277의 장비별 서명 시각, 공동 확인 여부, 철회 범위가 없어 이를 구분할 수 없습니다. 해당 항목을 판단하려면 원장의 서명·확인·철회 이력과 각 시각의 원천이 필요합니다.",
+        "reason": "자료는 원자료 기록·수신·확인 시각을 서로 구분하고, 자료 확인을 설비 운전이나 안전 승인으로 확대하지 말라는 일반 원칙만 제시합니다. 이 건의 서명별 이력은 포함하지 않습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM012",
+            "file_name": "AM012.pdf",
+            "page_start": 16,
+            "page_end": 16
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM031",
+            "file_name": "AM031.pdf",
+            "page_start": 66,
+            "page_end": 66
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM012",
+            "file_name": "AM012.pdf",
+            "page_start": 42,
+            "page_end": 42
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 5.045,
+          "retrieval_seconds": 0.075,
+          "generation_seconds": 4.97,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM012_c1_0016",
+            "AM031_c1_0066",
+            "AM012_c1_0042"
+          ],
+          "context_token_count": 1434,
+          "usage": {
+            "input_tokens": 1880,
+            "output_tokens": 353
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV29",
+      "question": "HS-280610-01277 / 2028-06-10 16:00 KST의 승인 원장은 17:30에 취합됐습니다. 문서가 나중에 취합됐다는 이유로 모든 서명을 16:00의 출고 승인으로 봐도 되나요? 장비별 서명 시각·공동 확인·철회 범위를 구분해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 502,
+      "client_latency_seconds": 7.587,
+      "response": {
+        "request_id": "6c957431-5be3-4dd2-9c33-dcfb9ea0d848",
+        "status": "error",
+        "answer": "요청을 처리하지 못했습니다. 잠시 후 다시 시도해 주세요.",
+        "reason": "model_error:LengthFinishReasonError",
+        "citations": [],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 7.584,
+          "retrieval_seconds": 0.242,
+          "generation_seconds": 7.341,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM012_c1_0016",
+            "AM065_c1_0132",
+            "AM031_c1_0066"
+          ],
+          "context_token_count": 1678,
+          "usage": null
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV29",
+      "question": "HS-280610-01277 / 2028-06-10 16:00 KST의 승인 원장은 17:30에 취합됐습니다. 문서가 나중에 취합됐다는 이유로 모든 서명을 16:00의 출고 승인으로 봐도 되나요? 장비별 서명 시각·공동 확인·철회 범위를 구분해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 502,
+      "client_latency_seconds": 221.794,
+      "response": {
+        "request_id": "b890ab66-8243-4a3e-ab76-717616027229",
+        "status": "error",
+        "answer": "요청을 처리하지 못했습니다. 잠시 후 다시 시도해 주세요.",
+        "reason": "model_error:LengthFinishReasonError",
+        "citations": [],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 221.79,
+          "retrieval_seconds": 214.507,
+          "generation_seconds": 7.283,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM065_c1_0132",
+            "AM065_c1_0114",
+            "AM065_c1_0108"
+          ],
+          "context_token_count": 1931,
+          "usage": null
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV30",
+      "question": "이안기전의 2028-05-08자 밀폐 누설 확인대 납품건입니다. 부품 수령량을 완성 장비의 작업·검사 완료 대수로 보고해도 되나요? 발주·수령 단위와 장비별 작업 증빙의 차이를 설명해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 6.237,
+      "response": {
+        "request_id": "e66418fd-0759-4849-b2ae-43b7e329dfa6",
+        "status": "answered",
+        "answer": "아니요. 부품 수령량만으로 완성 장비의 작업·검사 완료 대수를 보고할 수는 없습니다. 발주량은 발주한 부품의 수량·단위이고, 수령량은 창고 입고 전표로 확인하는 부품 수량입니다. 장비 완료 대수는 장비 일련번호별 장착 등 작업 기록과 작업자·생산기술 확인으로 확인해야 하며, 완성 장비 검사는 별도의 검사·출하 승인 기록으로 확인해야 합니다. 부품 납품 검사 자료도 장비별 검사 증빙을 대신하지 않습니다. 따라서 이안기전의 2028-05-08 납품 건에 대해서도 해당 발주·입고 전표만 있다면 부품 수령량으로 보고하고, 완료 대수는 장비별 작업·검사 증빙에 따라 별도로 집계해야 합니다. 제공된 자료에는 이 납품 건의 실제 수량이나 장비별 기록이 없어 완료 대수 자체는 확인할 수 없습니다. [S1, S2, S3]",
+        "reason": "자료는 부품 발주·수령과 완성 장비 주문·작업·검사를 서로 다른 범위와 증빙으로 구분합니다. 다만 제공된 예시는 해당 납품 건의 원기록이 아니므로 실제 완료 대수는 산정할 수 없습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM004",
+            "file_name": "AM004.pdf",
+            "page_start": 2,
+            "page_end": 2
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM062",
+            "file_name": "AM062.pdf",
+            "page_start": 51,
+            "page_end": 51
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM031",
+            "file_name": "AM031.pdf",
+            "page_start": 96,
+            "page_end": 96
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 6.233,
+          "retrieval_seconds": 0.066,
+          "generation_seconds": 6.167,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM004_c1_0002",
+            "AM062_c1_0051",
+            "AM031_c1_0096"
+          ],
+          "context_token_count": 1597,
+          "usage": {
+            "input_tokens": 2025,
+            "output_tokens": 619
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV30",
+      "question": "이안기전의 2028-05-08자 밀폐 누설 확인대 납품건입니다. 부품 수령량을 완성 장비의 작업·검사 완료 대수로 보고해도 되나요? 발주·수령 단위와 장비별 작업 증빙의 차이를 설명해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 5.862,
+      "response": {
+        "request_id": "e5ae3747-db6b-47db-bfc6-4ec5a9185ad7",
+        "status": "answered",
+        "answer": "아니요. 부품 수령량을 그대로 완성 장비의 작업·검사 완료 대수로 보고하면 안 됩니다. 발주·수령량은 부품의 품목과 단위(예: 세트)로 기록하고, 완성 장비의 작업·검사 완료는 장비별 일련번호와 작업·검사 증빙으로 확인해야 합니다. 부품 입고 전표는 수령 사실을, 작업자 및 생산기술 기록은 장비별 장착·적용 작업을, 검사·출하 승인 문서는 각각 해당 장비의 검사·승인을 증명합니다 [S1]. 사례에서도 부품 4세트 수령과 장비별 작업 확인은 별도로 기록되었고, 완료 원본이 없는 장비는 완료 대수에 포함할 근거가 없었습니다 [S3]. 따라서 2028-05-08 이안기전 납품건의 실제 완료 대수는 제공된 자료만으로 확정할 수 없습니다. 해당 건의 발주·입고 전표와 장비별 일련번호 및 작업·검사 기록을 대조해야 합니다.",
+        "reason": "자료는 부품 구매·수령 단위와 완성 장비의 작업·검사 기록이 서로 다른 범위임을 보여 주지만, 2028-05-08 이안기전 납품건 자체의 수량이나 장비별 완료 기록은 제공하지 않습니다 [S1, S3].",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM004",
+            "file_name": "AM004.pdf",
+            "page_start": 2,
+            "page_end": 2
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM062",
+            "file_name": "AM062.pdf",
+            "page_start": 51,
+            "page_end": 51
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 5.859,
+          "retrieval_seconds": 0.205,
+          "generation_seconds": 5.654,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM004_c1_0002",
+            "AM001_c1_0119",
+            "AM062_c1_0051"
+          ],
+          "context_token_count": 1736,
+          "usage": {
+            "input_tokens": 2163,
+            "output_tokens": 560
+          }
+        }
+      }
+    },
+    {
+      "question_id": "AM-DEV30",
+      "question": "이안기전의 2028-05-08자 밀폐 누설 확인대 납품건입니다. 부품 수령량을 완성 장비의 작업·검사 완료 대수로 보고해도 되나요? 발주·수령 단위와 장비별 작업 증빙의 차이를 설명해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 200,
+      "client_latency_seconds": 177.753,
+      "response": {
+        "request_id": "b904415b-efe3-4dd2-9a3c-574e8c3fd69b",
+        "status": "answered",
+        "answer": "아니요. 부품 수령량을 완성 장비의 작업·검사 완료 대수로 보고하면 안 됩니다. 발주·수령량은 부품 단위(예: 세트)이고, 작업·검사 완료는 장비별 확인 대상이므로 집계 단위를 구분해야 합니다. 장비별 완료 대수는 해당 장비의 식별값과 작업·검사 완료 증빙으로 확인해야 합니다. 다만 제공된 자료는 2028-05-08 이안기전 납품 기록이 아니므로, 그 건의 실제 부품 수령량이나 완료 대수는 확인할 수 없습니다.",
+        "reason": "자료는 부품 발주·창고 수령량과 완성 장비 수를 별도로 기록하고, 두 집계 단위를 합치지 않는다고 명시합니다. 또한 해당 자료의 주문 대조만으로는 출하 승인이나 물류 인계까지 확인되지 않습니다. 제공 자료에는 2028-05-08 건의 장비별 작업·검사 증빙이 없습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "AM007",
+            "file_name": "AM007.pdf",
+            "page_start": 67,
+            "page_end": 67
+          },
+          {
+            "source_id": "S2",
+            "book_id": "AM011",
+            "file_name": "AM011.pdf",
+            "page_start": 117,
+            "page_end": 117
+          },
+          {
+            "source_id": "S3",
+            "book_id": "AM002",
+            "file_name": "AM002.pdf",
+            "page_start": 141,
+            "page_end": 141
+          }
+        ],
+        "retrieval_mode": "rerank",
+        "metrics": {
+          "latency_seconds": 177.749,
+          "retrieval_seconds": 172.621,
+          "generation_seconds": 5.128,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "AM007_c1_0067",
+            "AM011_c1_0117",
+            "AM002_c1_0141"
+          ],
+          "context_token_count": 2135,
+          "usage": {
+            "input_tokens": 2562,
+            "output_tokens": 473
+          }
+        }
+      }
+    }
+  ]
+}

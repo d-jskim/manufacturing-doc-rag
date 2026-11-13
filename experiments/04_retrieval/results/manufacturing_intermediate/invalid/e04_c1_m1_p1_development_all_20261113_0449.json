@@ -1,0 +1,284 @@
+{
+  "run_id": "e04_c1_m1_p1_development_all_20261113_0449",
+  "dataset": "manufacturing_intermediate",
+  "active_config": {
+    "dataset": "manufacturing_intermediate",
+    "chunk_version": "c1",
+    "embedding": "m1",
+    "prompt": "p1",
+    "retrieval_modes": {
+      "naive": "r1",
+      "hybrid": "r2",
+      "rerank": "r3"
+    },
+    "final_k": 3,
+    "context_token_budget": 2373
+  },
+  "question_set": "development",
+  "question_source": "data/raw/manufacturing_intermediate/evaluation/development.json",
+  "question_count": 30,
+  "requested_modes": [
+    "naive",
+    "hybrid",
+    "rerank"
+  ],
+  "base_url": "http://127.0.0.1:8001",
+  "timeout_seconds": 180.0,
+  "summary": {
+    "naive": {
+      "request_count": 2,
+      "status_counts": {
+        "answered": 2
+      },
+      "normal_latency_seconds": {
+        "mean": 61.2485,
+        "count": 2
+      },
+      "system_error_count": 0,
+      "system_error_rate": 0.0,
+      "token_usage": {
+        "input_tokens": 3101,
+        "output_tokens": 481,
+        "confirmed_request_count": 2
+      }
+    },
+    "hybrid": {
+      "request_count": 2,
+      "status_counts": {
+        "answered": 2
+      },
+      "normal_latency_seconds": {
+        "mean": 33.587,
+        "count": 2
+      },
+      "system_error_count": 0,
+      "system_error_rate": 0.0,
+      "token_usage": {
+        "input_tokens": 3701,
+        "output_tokens": 495,
+        "confirmed_request_count": 2
+      }
+    },
+    "rerank": {
+      "request_count": 1,
+      "status_counts": {
+        "error": 1
+      },
+      "normal_latency_seconds": {
+        "mean": null,
+        "count": 0
+      },
+      "system_error_count": 1,
+      "system_error_rate": 1.0,
+      "token_usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "confirmed_request_count": 0
+      }
+    }
+  },
+  "records": [
+    {
+      "question_id": "IM-DEV-01",
+      "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 4.953,
+      "response": {
+        "request_id": "1a4cff08-d669-4ae0-9d00-41a97c449723",
+        "status": "answered",
+        "answer": "‘정상’ 표시는 해당 자료의 필수 항목과 조회 확인이 끝났다는 뜻입니다. 자료에 따라 모델·출처·기준 시각을 대조하고 사용자 확인을 기록한 범위에만 적용됩니다. 현장 전체가 안전하다는 뜻도, 실제 설비의 안전 등급이나 운전 허가를 확인·보증한다는 뜻도 아닙니다. 실제 현장 상태는 별도의 현장 증빙으로 확인해야 합니다.",
+        "reason": "자료들은 정상 표시의 범위를 자료 확인으로 한정하고, 현장 안전 판단·설비 제어·운전 허가는 체크뷰의 제공 범위가 아니라고 설명합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "IM01",
+            "file_name": "IM01.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "IM49",
+            "file_name": "IM49.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S3",
+            "book_id": "IM01",
+            "file_name": "IM01.pdf",
+            "page_start": 9,
+            "page_end": 9
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 4.95,
+          "retrieval_seconds": 0.432,
+          "generation_seconds": 4.517,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "IM01_c1_0001",
+            "IM49_c1_0001",
+            "IM01_c1_0009"
+          ],
+          "context_token_count": 1110,
+          "usage": {
+            "input_tokens": 1508,
+            "output_tokens": 269
+          }
+        }
+      }
+    },
+    {
+      "question_id": "IM-DEV-01",
+      "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 3.472,
+      "response": {
+        "request_id": "af35af94-f73c-4b36-81d1-c606c2a08e10",
+        "status": "answered",
+        "answer": "‘정상’은 모델·출처·원자료 기준 시각을 대조하고 사용자 확인까지 마친 자료의 확인 상태를 뜻합니다. 체크뷰 자료가 확인된 범위에서 정상이라는 의미이지, 현장 설비 상태가 정상임을 확인한 것은 아닙니다. 현장 증빙이 없다면 현장 상태는 별도로 미확인입니다. 따라서 이 표시만으로 현장 안전을 보증하거나 안전 승인·운전 허가를 받았다고 볼 수 없으며, 체크뷰는 설비 제어 또는 현장 운전 허가를 대신하지 않습니다. [S1, S2]",
+        "reason": "자료는 정상 표시를 자료 확인 범위에 한정하고, 현장 상태 및 안전 승인·운전 허가와 구분한다고 명시합니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "IM01",
+            "file_name": "IM01.pdf",
+            "page_start": 13,
+            "page_end": 13
+          },
+          {
+            "source_id": "S2",
+            "book_id": "IM01",
+            "file_name": "IM01.pdf",
+            "page_start": 20,
+            "page_end": 20
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 3.47,
+          "retrieval_seconds": 0.132,
+          "generation_seconds": 3.337,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "IM01_c1_0013",
+            "IM01_c1_0020",
+            "IM02_c1_0060"
+          ],
+          "context_token_count": 1675,
+          "usage": {
+            "input_tokens": 2073,
+            "output_tokens": 284
+          }
+        }
+      }
+    },
+    {
+      "question_id": "IM-DEV-01",
+      "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+      "retrieval_mode": "rerank",
+      "http_status": 0,
+      "client_latency_seconds": 180.005,
+      "response": {
+        "status": "error",
+        "reason": "client_error:ReadTimeout"
+      }
+    },
+    {
+      "question_id": "IM-DEV-02",
+      "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+      "retrieval_mode": "naive",
+      "http_status": 200,
+      "client_latency_seconds": 117.553,
+      "response": {
+        "request_id": "639141e1-d00c-4c2c-aad1-9048ea632496",
+        "status": "answered",
+        "answer": "CV-10은 단말에 등록된 기록을 현장조회하며 네트워크 수신조회는 제공하지 않습니다. CV-20은 현장조회에 더해 승인된 시험 자료를 네트워크로 수신해 수신조회 화면에서 볼 수 있습니다. 기록 묶음의 파일 내보내기는 CV-10과 CV-20 모두에서 제공됩니다.",
+        "reason": "모델별 조회 경로와 내보내기 기능 범위가 자료에 명시되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S2",
+            "book_id": "IM02",
+            "file_name": "IM02.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S3",
+            "book_id": "IM02",
+            "file_name": "IM02.pdf",
+            "page_start": 10,
+            "page_end": 10
+          }
+        ],
+        "retrieval_mode": "naive",
+        "metrics": {
+          "latency_seconds": 117.547,
+          "retrieval_seconds": 114.49,
+          "generation_seconds": 3.057,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "IM11_c1_0001",
+            "IM02_c1_0001",
+            "IM02_c1_0010"
+          ],
+          "context_token_count": 1195,
+          "usage": {
+            "input_tokens": 1593,
+            "output_tokens": 212
+          }
+        }
+      }
+    },
+    {
+      "question_id": "IM-DEV-02",
+      "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+      "retrieval_mode": "hybrid",
+      "http_status": 200,
+      "client_latency_seconds": 63.708,
+      "response": {
+        "request_id": "1ae533cb-c202-45e6-b18d-4300f9e3e419",
+        "status": "answered",
+        "answer": "CV-10은 단말에 등록된 기록을 현장조회하며 네트워크 수신조회는 제공하지 않습니다. CV-20은 현장조회에 더해 승인된 시험 자료를 네트워크로 받아 수신조회할 수 있습니다. 기록 묶음의 파일 내보내기는 두 모델 모두 제공합니다.",
+        "reason": "모델별 조회 경로와 파일 내보내기 기능이 자료에 명시되어 있습니다.",
+        "citations": [
+          {
+            "source_id": "S1",
+            "book_id": "IM02",
+            "file_name": "IM02.pdf",
+            "page_start": 1,
+            "page_end": 1
+          },
+          {
+            "source_id": "S2",
+            "book_id": "IM02",
+            "file_name": "IM02.pdf",
+            "page_start": 5,
+            "page_end": 5
+          }
+        ],
+        "retrieval_mode": "hybrid",
+        "metrics": {
+          "latency_seconds": 63.704,
+          "retrieval_seconds": 59.886,
+          "generation_seconds": 3.818,
+          "attempts": 1,
+          "context_chunk_ids": [
+            "IM02_c1_0001",
+            "IM02_c1_0005",
+            "IM02_c1_0024"
+          ],
+          "context_token_count": 1230,
+          "usage": {
+            "input_tokens": 1628,
+            "output_tokens": 211
+          }
+        }
+      }
+    }
+  ]
+}

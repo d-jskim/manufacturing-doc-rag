@@ -1,0 +1,22 @@
+run_id: e04_c1_m1_p1_development_all_20261113_0449
+dataset: manufacturing_intermediate
+status: invalid
+stage: answer_generation
+result_file: e04_c1_m1_p1_development_all_20261113_0449.json
+failure_analysis:
+  title: Failure Analysis
+  items:
+    - failure_id: e04_r3_request_timeout
+      type: execution_error
+      title: Intermediate R3 요청 시간 초과
+      status: confirmed
+      affected_versions:
+        - r3
+      expectation: Basic과 같은 180초 제한 안에 R1·R2·R3 응답이 완료될 것으로 예상함
+      observed: 첫 R3 요청이 180초를 초과했고, 서버에서 계속 실행된 작업이 다음 R1·R2 요청 시간까지 증가시킴
+      possible_cause: 입력 한도를 초과하는 긴 C1 청크가 증가해 Cross-encoder 재순위 처리 시간이 길어진 것으로 추정함
+      evidence:
+        - 전체 3,750개 C1 청크 중 1,690개가 임베딩 입력 한도를 초과함
+        - 첫 R3 요청이 client_error:ReadTimeout으로 기록됨
+        - 시간 초과 뒤 R1 검색 시간이 114.490초, R2 검색 시간이 59.886초로 증가함
+      follow_up: 검색 설정은 유지하고 요청 제한만 600초로 늘려 순차 재실행함
