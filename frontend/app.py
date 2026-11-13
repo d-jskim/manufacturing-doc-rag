@@ -1,7 +1,52 @@
-"""Streamlit 앱 진입점: 메뉴(st.navigation) 구성."""
+"""Streamlit 앱 진입점: 샘플 로그인과 공통 메뉴 구성."""
+
+import sqlite3
+
 import streamlit as st
 
+from chat_store import initialize, list_users
+
 st.set_page_config(page_title="제조 문서 RAG", layout="wide")
+
+try:
+    initialize()
+    users = list_users()
+except sqlite3.Error:
+    st.error("사용자 데이터베이스를 열지 못했습니다.")
+    st.stop()
+
+user_by_id = {user["user_id"]: user for user in users}
+user_id = st.session_state.get("chat_user_id")
+
+if user_id not in user_by_id:
+    st.title("제조 문서 RAG")
+    st.caption("시연용 샘플 로그인입니다. 실제 인증과 문서 접근 권한은 적용되지 않습니다.")
+    chosen_user = st.selectbox(
+        "샘플 사용자",
+        options=list(user_by_id),
+        format_func=lambda key: (
+            f"{user_by_id[key]['name']} · {user_by_id[key]['department']} · "
+            f"{user_by_id[key]['position']} · {user_by_id[key]['role']}"
+        ),
+    )
+    if st.button("로그인", type="primary"):
+        st.session_state.chat_user_id = chosen_user
+        st.session_state.chat_session_id = None
+        st.rerun()
+    st.stop()
+
+user = user_by_id[user_id]
+header_title, header_user = st.columns([5, 1])
+with header_title:
+    st.markdown("**제조 문서 RAG**")
+with header_user:
+    with st.popover(f"👤 {user['name']}"):
+        st.write(f"{user['department']} · {user['position']}")
+        st.caption(user["role"])
+        if st.button("로그아웃"):
+            st.session_state.chat_user_id = None
+            st.session_state.chat_session_id = None
+            st.rerun()
 
 pages = {
     "서비스": [
