@@ -1,0 +1,65 @@
+failure_id: e04_c3_judge_cp949
+source_run_id: e04_c3_m1_p1_development_all_20261113_0955
+judge_result: e04_c3_m1_p1_development_judge_20261113_0955.json
+partial_snapshot: e04_c3_m1_p1_development_judge_20261113_0955_attempt1_partial.json
+
+stage: judge
+failure_type: evaluation_environment_error
+status: partial
+
+error:
+  name: UnicodeEncodeError
+  encoding: CP949
+  character: 条
+  description: Judge 결과 콘솔 출력 과정에서 CP949가 응답 문자를 인코딩하지 못해 프로세스가 중단됨
+
+observed:
+  total_count: 90
+  completed_count: 38
+  evaluation_error_count: 0
+  unattempted_count: 52
+
+fixed_conditions:
+  dataset: manufacturing_basic
+  chunk_version: c3
+  embedding: m1
+  prompt: p1
+  retrieval_modes:
+    naive: r1
+    hybrid: r2
+    rerank: r3
+  final_k: 3
+  context_token_budget: 2373
+  judge_max_tokens: 2048
+
+decision:
+  action: UTF-8 출력 환경에서 미시도 52건만 이어서 평가
+  rerun_completed_rows: false
+  rerun_full_set: false
+  preserve_partial_result: true
+  change_experiment_conditions: false
+
+rationale:
+  - C3 답변 생성 90건과 검색 평가 90건은 정상 완료됨
+  - C3 Faithfulness 90건도 정상 완료됨
+  - Judge 38건은 평가 오류 없이 정상 저장됨
+  - 중단 원인은 C3·M1·P1·R1·R2·R3 조건이 아니라 콘솔 출력 인코딩임
+  - 정상 38건을 다시 평가하면 API 비용과 평가 결과 변동만 증가함
+  - 미시도 52건은 동일한 저장 답변과 검색 문맥으로 평가할 수 있음
+  - 부분 결과를 별도 보존하면 환경 실패 이력과 최종 품질 결과를 함께 유지할 수 있음
+
+follow_up:
+  - attempt1 부분 결과를 보존함
+  - 코드와 실험 조건은 변경하지 않음
+  - PowerShell과 Python 표준 출력만 UTF-8로 설정함
+  - 완료된 38건을 제외하고 미시도 52건만 평가함
+  - 총 90건 확인 후 C3 보고서를 생성함
+
+resolution:
+  completed_count: 90
+  evaluation_error_count: 0
+  resumed_count: 52
+  experiment_conditions_changed: false
+  full_set_rerun: false
+  result: completed
+  report_file: e04_retrieval_c3_m1_p1_r1-r2-r3_development_20261113_0955_report.yaml
