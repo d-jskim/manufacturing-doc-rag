@@ -1,0 +1,1112 @@
+{
+  "run_id": "e04_c3_m1_p1_development_faithfulness_20261113_1305",
+  "source_run_id": "e04_c3_m1_p1_development_all_20261113_1305",
+  "metric": "ragas_faithfulness",
+  "model": "gpt-6-luna",
+  "dataset": "manufacturing_intermediate",
+  "active_config": {
+    "dataset": "manufacturing_intermediate",
+    "chunk_version": "c3",
+    "embedding": "m1",
+    "prompt": "p1",
+    "retrieval_modes": {
+      "naive": "r1",
+      "hybrid": "r2",
+      "rerank": "r3"
+    },
+    "final_k": 3,
+    "context_token_budget": 2373
+  },
+  "answer_result": "experiments/04_retrieval/results/manufacturing_intermediate/e04_c3_m1_p1_development_all_20261113_1305.json",
+  "summary": {
+    "naive": {
+      "mean_faithfulness": 0.7612,
+      "evaluated_count": 14,
+      "error_count": 16
+    },
+    "hybrid": {
+      "mean_faithfulness": 0.967,
+      "evaluated_count": 15,
+      "error_count": 15
+    },
+    "rerank": {
+      "mean_faithfulness": 0.9669,
+      "evaluated_count": 12,
+      "error_count": 18
+    }
+  },
+  "rows": [
+    {
+      "question_id": "IM-DEV-01",
+      "retrieval_mode": "naive",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM01_c3_0001",
+        "IM49_c3_0001",
+        "IM04_c3_0001"
+      ],
+      "context_token_count": 933,
+      "faithfulness": 1.0,
+      "seconds": 17.099,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-01",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM01_c3_0016",
+        "IM49_c3_0001",
+        "IM01_c3_0028"
+      ],
+      "context_token_count": 1422,
+      "faithfulness": 1.0,
+      "seconds": 23.276,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-01",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM49_c3_0001",
+        "IM01_c3_0001",
+        "IM01_c3_0016"
+      ],
+      "context_token_count": 1284,
+      "faithfulness": 1.0,
+      "seconds": 15.288,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-02",
+      "retrieval_mode": "naive",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM02_c3_0001",
+        "IM02_c3_0056",
+        "IM11_c3_0001"
+      ],
+      "context_token_count": 697,
+      "faithfulness": 1.0,
+      "seconds": 11.904,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-02",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM02_c3_0001",
+        "IM02_c3_0005",
+        "IM02_c3_0056"
+      ],
+      "context_token_count": 891,
+      "faithfulness": 1.0,
+      "seconds": 11.654,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-02",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM02_c3_0001",
+        "IM02_c3_0014",
+        "IM02_c3_0091"
+      ],
+      "context_token_count": 1447,
+      "faithfulness": 0.8571428571428571,
+      "seconds": 12.372,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-03",
+      "retrieval_mode": "naive",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM06_c3_0001",
+        "IM04_c3_0092",
+        "IM13_c3_0027"
+      ],
+      "context_token_count": 604,
+      "faithfulness": 0.8,
+      "seconds": 10.915,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-03",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM06_c3_0001",
+        "IM06_c3_0095",
+        "IM04_c3_0092"
+      ],
+      "context_token_count": 977,
+      "faithfulness": 1.0,
+      "seconds": 11.125,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-03",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM06_c3_0001",
+        "IM06_c3_0011",
+        "IM50_c3_0016"
+      ],
+      "context_token_count": 1367,
+      "faithfulness": 1.0,
+      "seconds": 11.827,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-04",
+      "retrieval_mode": "naive",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM29_c3_0023",
+        "IM07_c3_0059",
+        "IM29_c3_0002"
+      ],
+      "context_token_count": 606,
+      "faithfulness": 0.16666666666666666,
+      "seconds": 14.017,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-04",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM29_c3_0065",
+        "IM07_c3_0001",
+        "IM42_c3_0114"
+      ],
+      "context_token_count": 914,
+      "faithfulness": 1.0,
+      "seconds": 9.36,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-04",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM29_c3_0035",
+        "IM29_c3_0018",
+        "IM29_c3_0092"
+      ],
+      "context_token_count": 1666,
+      "faithfulness": 1.0,
+      "seconds": 18.663,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-05",
+      "retrieval_mode": "naive",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM10_c3_0059",
+        "IM09_c3_0073",
+        "IM10_c3_0032"
+      ],
+      "context_token_count": 1445,
+      "faithfulness": null,
+      "seconds": 27.455,
+      "error": "IncompleteOutputException: The output is incomplete due to a max_tokens length limit."
+    },
+    {
+      "question_id": "IM-DEV-05",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM09_c3_0083",
+        "IM10_c3_0059",
+        "IM10_c3_0024"
+      ],
+      "context_token_count": 1397,
+      "faithfulness": 1.0,
+      "seconds": 14.45,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-05",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM09_c3_0073",
+        "IM43_c3_0078",
+        "IM10_c3_0012"
+      ],
+      "context_token_count": 1612,
+      "faithfulness": 0.9,
+      "seconds": 17.636,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-06",
+      "retrieval_mode": "naive",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM13_c3_0006",
+        "IM46_c3_0051",
+        "IM42_c3_0114"
+      ],
+      "context_token_count": 533,
+      "faithfulness": 1.0,
+      "seconds": 15.96,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-06",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM13_c3_0019",
+        "IM13_c3_0006",
+        "IM07_c3_0013"
+      ],
+      "context_token_count": 704,
+      "faithfulness": 0.7777777777777778,
+      "seconds": 16.543,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-06",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM13_c3_0019",
+        "IM23_c3_0097",
+        "IM13_c3_0006"
+      ],
+      "context_token_count": 769,
+      "faithfulness": 0.8461538461538461,
+      "seconds": 20.141,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-07",
+      "retrieval_mode": "naive",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "IM01_c3_0009",
+        "IM17_c3_0086",
+        "IM48_c3_0046"
+      ],
+      "context_token_count": 819,
+      "faithfulness": 1.0,
+      "seconds": 16.739,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-07",
+      "retrieval_mode": "hybrid",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "IM17_c3_0086",
+        "IM16_c3_0001",
+        "IM44_c3_0089"
+      ],
+      "context_token_count": 884,
+      "faithfulness": 1.0,
+      "seconds": 16.951,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-07",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM43_c3_0055",
+        "IM44_c3_0034",
+        "IM48_c3_0035"
+      ],
+      "context_token_count": 1669,
+      "faithfulness": null,
+      "seconds": 24.718,
+      "error": "IncompleteOutputException: The output is incomplete due to a max_tokens length limit."
+    },
+    {
+      "question_id": "IM-DEV-08",
+      "retrieval_mode": "naive",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "IM42_c3_0069",
+        "IM31_c3_0001",
+        "IM01_c3_0055"
+      ],
+      "context_token_count": 1139,
+      "faithfulness": 1.0,
+      "seconds": 15.999,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-08",
+      "retrieval_mode": "hybrid",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "IM31_c3_0001",
+        "IM42_c3_0069",
+        "IM32_c3_0040"
+      ],
+      "context_token_count": 1147,
+      "faithfulness": 1.0,
+      "seconds": 18.026,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-08",
+      "retrieval_mode": "rerank",
+      "status": "needs_clarification",
+      "context_chunk_ids": [
+        "IM42_c3_0056",
+        "IM31_c3_0001",
+        "IM42_c3_0069"
+      ],
+      "context_token_count": 1018,
+      "faithfulness": 1.0,
+      "seconds": 14.147,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-09",
+      "retrieval_mode": "naive",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM11_c3_0019",
+        "IM24_c3_0001",
+        "IM24_c3_0047"
+      ],
+      "context_token_count": 997,
+      "faithfulness": 1.0,
+      "seconds": 9.731,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-09",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM11_c3_0019",
+        "IM24_c3_0001",
+        "IM24_c3_0047"
+      ],
+      "context_token_count": 997,
+      "faithfulness": 1.0,
+      "seconds": 11.224,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-09",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM24_c3_0001",
+        "IM11_c3_0019",
+        "IM24_c3_0032"
+      ],
+      "context_token_count": 890,
+      "faithfulness": 1.0,
+      "seconds": 10.699,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-10",
+      "retrieval_mode": "naive",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM12_c3_0001",
+        "IM22_c3_0038",
+        "IM21_c3_0045"
+      ],
+      "context_token_count": 681,
+      "faithfulness": 0.8571428571428571,
+      "seconds": 14.854,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-10",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM41_c3_0044",
+        "IM20_c3_0050",
+        "IM12_c3_0001"
+      ],
+      "context_token_count": 948,
+      "faithfulness": 1.0,
+      "seconds": 17.002,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-10",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM13_c3_0055",
+        "IM20_c3_0070",
+        "IM11_c3_0091"
+      ],
+      "context_token_count": 1465,
+      "faithfulness": 1.0,
+      "seconds": 13.259,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-11",
+      "retrieval_mode": "naive",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM13_c3_0006",
+        "IM07_c3_0043",
+        "IM49_c3_0030"
+      ],
+      "context_token_count": 415,
+      "faithfulness": 1.0,
+      "seconds": 9.903,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-11",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM13_c3_0006",
+        "IM02_c3_0001",
+        "IM07_c3_0099"
+      ],
+      "context_token_count": 1175,
+      "faithfulness": 1.0,
+      "seconds": 15.172,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-11",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM13_c3_0006",
+        "IM02_c3_0001",
+        "IM07_c3_0099"
+      ],
+      "context_token_count": 1175,
+      "faithfulness": 1.0,
+      "seconds": 13.798,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-12",
+      "retrieval_mode": "naive",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "IM20_c3_0083",
+        "IM01_c3_0086",
+        "IM37_c3_0011"
+      ],
+      "context_token_count": 808,
+      "faithfulness": 0.8333333333333334,
+      "seconds": 13.687,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-12",
+      "retrieval_mode": "hybrid",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "IM20_c3_0083",
+        "IM07_c3_0001",
+        "IM01_c3_0086"
+      ],
+      "context_token_count": 972,
+      "faithfulness": 1.0,
+      "seconds": 13.199,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-12",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM07_c3_0085",
+        "IM07_c3_0093",
+        "IM07_c3_0001"
+      ],
+      "context_token_count": 1376,
+      "faithfulness": 1.0,
+      "seconds": 13.205,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-13",
+      "retrieval_mode": "naive",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM41_c3_0001",
+        "IM50_c3_0001",
+        "IM41_c3_0007"
+      ],
+      "context_token_count": 1369,
+      "faithfulness": 1.0,
+      "seconds": 10.898,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-13",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM41_c3_0001",
+        "IM50_c3_0001",
+        "IM41_c3_0044"
+      ],
+      "context_token_count": 1293,
+      "faithfulness": 1.0,
+      "seconds": 8.873,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-13",
+      "retrieval_mode": "rerank",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM50_c3_0001",
+        "IM41_c3_0001",
+        "IM41_c3_0044"
+      ],
+      "context_token_count": 1293,
+      "faithfulness": 1.0,
+      "seconds": 8.558,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-14",
+      "retrieval_mode": "naive",
+      "status": "error",
+      "context_chunk_ids": [
+        "IM48_c3_0053",
+        "IM06_c3_0061",
+        "IM22_c3_0012"
+      ],
+      "context_token_count": 1448,
+      "faithfulness": 0.0,
+      "seconds": 7.043,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-14",
+      "retrieval_mode": "hybrid",
+      "status": "answered",
+      "context_chunk_ids": [
+        "IM05_c3_0001",
+        "IM15_c3_0001",
+        "IM05_c3_0009"
+      ],
+      "context_token_count": 1515,
+      "faithfulness": 0.7272727272727273,
+      "seconds": 18.782,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-14",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-15",
+      "retrieval_mode": "naive",
+      "status": "error",
+      "context_chunk_ids": [
+        "IM43_c3_0062",
+        "IM43_c3_0029",
+        "IM43_c3_0001"
+      ],
+      "context_token_count": 1620,
+      "faithfulness": 0.0,
+      "seconds": 8.124,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-15",
+      "retrieval_mode": "hybrid",
+      "status": "abstained",
+      "context_chunk_ids": [
+        "IM43_c3_0061",
+        "IM43_c3_0001",
+        "IM43_c3_0109"
+      ],
+      "context_token_count": 1303,
+      "faithfulness": 1.0,
+      "seconds": 21.423,
+      "error": null
+    },
+    {
+      "question_id": "IM-DEV-15",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-16",
+      "retrieval_mode": "naive",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-16",
+      "retrieval_mode": "hybrid",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-16",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-17",
+      "retrieval_mode": "naive",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-17",
+      "retrieval_mode": "hybrid",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-17",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-18",
+      "retrieval_mode": "naive",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-18",
+      "retrieval_mode": "hybrid",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-18",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-19",
+      "retrieval_mode": "naive",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-19",
+      "retrieval_mode": "hybrid",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-19",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-20",
+      "retrieval_mode": "naive",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-20",
+      "retrieval_mode": "hybrid",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-20",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-21",
+      "retrieval_mode": "naive",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-21",
+      "retrieval_mode": "hybrid",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-21",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-22",
+      "retrieval_mode": "naive",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-22",
+      "retrieval_mode": "hybrid",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-22",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-23",
+      "retrieval_mode": "naive",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-23",
+      "retrieval_mode": "hybrid",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-23",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-24",
+      "retrieval_mode": "naive",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-24",
+      "retrieval_mode": "hybrid",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-24",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-25",
+      "retrieval_mode": "naive",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-25",
+      "retrieval_mode": "hybrid",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-25",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-26",
+      "retrieval_mode": "naive",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-26",
+      "retrieval_mode": "hybrid",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-26",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-27",
+      "retrieval_mode": "naive",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-27",
+      "retrieval_mode": "hybrid",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-27",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-28",
+      "retrieval_mode": "naive",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-28",
+      "retrieval_mode": "hybrid",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-28",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-29",
+      "retrieval_mode": "naive",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-29",
+      "retrieval_mode": "hybrid",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-29",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-30",
+      "retrieval_mode": "naive",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-30",
+      "retrieval_mode": "hybrid",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    },
+    {
+      "question_id": "IM-DEV-30",
+      "retrieval_mode": "rerank",
+      "status": "error",
+      "context_chunk_ids": [],
+      "context_token_count": null,
+      "faithfulness": null,
+      "seconds": 0.0,
+      "error": "ValueError: 실제 사용 문맥 정보가 없습니다."
+    }
+  ]
+}

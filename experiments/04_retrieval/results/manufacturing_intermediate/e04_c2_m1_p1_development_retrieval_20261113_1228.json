@@ -1,0 +1,1894 @@
+{
+  "run_id": "e04_c2_m1_p1_development_retrieval_20261113_1228",
+  "source_run_id": "e04_c2_m1_p1_development_all_20261113_1228",
+  "dataset": "manufacturing_intermediate",
+  "active_config": {
+    "dataset": "manufacturing_intermediate",
+    "chunk_version": "c2",
+    "embedding": "m1",
+    "prompt": "p1",
+    "retrieval_modes": {
+      "naive": "r1",
+      "hybrid": "r2",
+      "rerank": "r3"
+    },
+    "final_k": 3,
+    "context_token_budget": 2373
+  },
+  "question_source": "data/raw/manufacturing_intermediate/evaluation/development.json",
+  "question_count": 30,
+  "retrieval_modes": {
+    "naive": "r1",
+    "hybrid": "r2",
+    "rerank": "r3"
+  },
+  "k_values": [
+    3
+  ],
+  "answer_result": "experiments/04_retrieval/results/manufacturing_intermediate/e04_c2_m1_p1_development_all_20261113_1228.json",
+  "summary": {
+    "naive": {
+      "k3": {
+        "evaluated_count": 30,
+        "not_applicable_count": 0,
+        "hit_at_k": 0.7,
+        "recall_at_k": 0.45,
+        "quote_recall_at_k": 0.3,
+        "mean_k": 2.8
+      },
+      "retrieval_seconds": {
+        "mean": 0.0356,
+        "count": 28
+      }
+    },
+    "hybrid": {
+      "k3": {
+        "evaluated_count": 30,
+        "not_applicable_count": 0,
+        "hit_at_k": 0.7333,
+        "recall_at_k": 0.5222,
+        "quote_recall_at_k": 0.4278,
+        "mean_k": 2.7
+      },
+      "retrieval_seconds": {
+        "mean": 0.0944,
+        "count": 27
+      }
+    },
+    "rerank": {
+      "k3": {
+        "evaluated_count": 30,
+        "not_applicable_count": 0,
+        "hit_at_k": 0.6667,
+        "recall_at_k": 0.4833,
+        "quote_recall_at_k": 0.4322,
+        "mean_k": 2.7
+      },
+      "retrieval_seconds": {
+        "mean": 1.0036,
+        "count": 27
+      }
+    }
+  },
+  "rows": {
+    "naive": {
+      "k3": [
+        {
+          "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+          "id": "IM-DEV-01",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM01_c2_0001",
+            "IM49_c2_0001",
+            "IM01_c2_0012"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM04"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+          "id": "IM-DEV-02",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM11_c2_0001",
+            "IM02_c2_0055",
+            "IM02_c2_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM02",
+            "IM11"
+          ],
+          "found_book_ids": [
+            "IM02",
+            "IM11"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-20 자료에 기록시각, 수신시각, 확인시각이 서로 다르게 적혀 있습니다. 세 시각은 각각 무엇을 뜻하나요?",
+          "id": "IM-DEV-03",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM06_c2_0001",
+            "IM04_c2_0091",
+            "IM13_c2_0027"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM06"
+          ],
+          "found_book_ids": [
+            "IM06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "체크뷰 현장조회 안내의 최근 30일은 어떤 시각을 기준으로 한 범위인가요? 이 값을 외부 보관소의 파일 삭제 기한으로 사용해도 되나요?",
+          "id": "IM-DEV-04",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM29_c2_0023",
+            "IM29_c2_0002",
+            "IM07_c2_0059"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM07"
+          ],
+          "found_book_ids": [
+            "IM07"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-10 담당자에게 기록담당 역할과 CV-10 대상 권한이 있습니다. 자료 확인과 전달 범위 검토도 끝났습니다. 이 담당자가 기록 파일을 내보내는 일과 CV-10에서 네트워크 자료를 수신하는 일을 각각 할 수 있는지, 기능과 역할 범위로 설명해 주세요.",
+          "id": "IM-DEV-05",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM10_c2_0059",
+            "IM10_c2_0032",
+            "IM09_c2_0073"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM02",
+            "IM09"
+          ],
+          "found_book_ids": [
+            "IM09"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20에서 오늘 받은 자료에 최신 수신 표시가 있습니다. 출처와 모델은 확인되었지만 원자료 기록시각은 비어 있습니다. 이 자료를 현재 현장 상태라고 설명하면서 정상 확인된 자료 묶음으로 외부 전달해도 되나요?",
+          "id": "IM-DEV-06",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM47_c2_0108",
+            "IM13_c2_0006",
+            "IM46_c2_0050"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM11",
+            "IM13"
+          ],
+          "found_book_ids": [
+            "IM13"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "건조한 실내이고 결로가 없는 섭씨 12도 장소에서 CV-10을 검토하고 있습니다. 네트워크 수신조회를 쓰려고 CV-20으로 바꾸면 환경 조건과 수신 기능은 각각 어떻게 달라지나요?",
+          "id": "IM-DEV-07",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM01_c2_0009",
+            "IM17_c2_0084",
+            "IM48_c2_0044"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM02",
+            "IM16"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20 고객이 안내서 표지의 개정 1.1만 알려 주었습니다. 이 정보로 현재 자동 소등 기본값을 알려 주세요.",
+          "id": "IM-DEV-08",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM05_c2_0031",
+            "IM31_c2_0001",
+            "IM42_c2_0090"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM03"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "출처가 미확인인 자료에 대해 검토자가 대상 자료와 목적을 적어 제한된 화면 조회를 허용했습니다. 이 허용으로 파일 내보내기와 네트워크 전달도 할 수 있나요?",
+          "id": "IM-DEV-09",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM11_c2_0018",
+            "IM24_c2_0001",
+            "IM24_c2_0039"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM24"
+          ],
+          "found_book_ids": [
+            "IM24"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-20 기록은 확인 상태가 정상이고 내보내기에는 파일 생성 완료가 보입니다. 이 두 표시만으로 현장 안전 확인과 상대방 수신 완료를 보고하려고 합니다. 각각 어떤 의미로 고쳐 써야 하나요?",
+          "id": "IM-DEV-10",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM12_c2_0001",
+            "IM22_c2_0037",
+            "IM21_c2_0044"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM04",
+            "IM12"
+          ],
+          "found_book_ids": [
+            "IM12"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-10 현장조회 양식에 네트워크 수신시각이 비어 있습니다. 다른 정보는 정상입니다. 빈 수신시각만으로 수신 오류라고 보고해도 되나요?",
+          "id": "IM-DEV-11",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM13_c2_0006",
+            "IM07_c2_0043",
+            "IM49_c2_0030"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM06"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰의 최근 30일 조회 목록이 비어 있습니다. 이 화면만 근거로 그 기간에 해당 현장에 이상이 전혀 없었다고 확정해 주세요.",
+          "id": "IM-DEV-12",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM20_c2_0082",
+            "IM02_c2_0015",
+            "IM37_c2_0011"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM07"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "동쪽자료실에서 접수한 ‘파일 수신 확인 요청’은 제품 기능 상담과 전달 확인 중 어느 업무로 분류하며, 접수 기록상 다음 확인 담당 창구는 어디인가요?",
+          "id": "IM-DEV-13",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM41_c2_0001",
+            "IM50_c2_0001",
+            "IM41_c2_0007"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM41",
+            "IM50"
+          ],
+          "found_book_ids": [
+            "IM41",
+            "IM50"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "수신 필드 대조표의 ‘주기 확인 A’에서 어떤 열이 원자료 기록시각이고 어떤 열이 수신시각인가요? 선택한 프로파일에서 필수인 열과 선택인 열도 구분해 주세요.",
+          "id": "IM-DEV-14",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM48_c2_0051",
+            "IM06_c2_0061",
+            "IM05_c2_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM15"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "모델 교체 검토 ‘전환 A’의 현재 모델과 실제 펌웨어에서 요청한 수신 프로파일을 사용할 수 있나요? 교체 후보의 기능과 권한 변경 효과를 구분해 주세요.",
+          "id": "IM-DEV-15",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM43_c2_0087",
+            "IM43_c2_0001",
+            "IM43_c2_0059"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM14",
+            "IM43"
+          ],
+          "found_book_ids": [
+            "IM43"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "환경 검토 ‘자료실 이전 A’에 기록된 장소에서 현재 단말과 교체 후보가 각각 환경 조건을 충족하는지 알려 주세요. 부분 정정으로 바뀐 항목과 그대로인 항목도 나누어 주세요.",
+          "id": "IM-DEV-16",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM48_c2_0001",
+            "IM43_c2_0059",
+            "IM33_c2_0002"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM16",
+            "IM17",
+            "IM33"
+          ],
+          "found_book_ids": [
+            "IM33"
+          ],
+          "hit": 1,
+          "recall": 0.3333,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "검토 접수 ‘메모 A’의 담당자는 메모 초안을 작성하고 파일 내보내기를 실행할 수 있나요? 역할, 대상 모델, 해당 시점 배정 상태와 메모 검토 단계를 각각 설명해 주세요.",
+          "id": "IM-DEV-17",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM23_c2_0032",
+            "IM09_c2_0026",
+            "IM09_c2_0010"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM10",
+            "IM23"
+          ],
+          "found_book_ids": [
+            "IM23"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "‘정기 수신 A’의 연속 관찰 구간에서 예정 조회 횟수는 몇 회인가요? 초·분 단위를 맞춰 계산하고 이 수치가 실제 수신 성공 횟수도 보장하는지 설명해 주세요.",
+          "id": "IM-DEV-18",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM14_c2_0020",
+            "IM14_c2_0012",
+            "IM14_c2_0014"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM14",
+            "IM39",
+            "IM40"
+          ],
+          "found_book_ids": [
+            "IM14"
+          ],
+          "hit": 1,
+          "recall": 0.3333,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "동일 제목 자료 두 건 중 출처 이름만 바로잡은 ‘정정 A’를 적용하면 무엇이 바뀌나요? 원자료 기록시각과 어느 자료가 더 최근에 발생했는지도 함께 정리해 주세요.",
+          "id": "IM-DEV-19",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM27_c2_0111",
+            "IM27_c2_0073",
+            "IM27_c2_0018"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM26",
+            "IM27"
+          ],
+          "found_book_ids": [
+            "IM27"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "표시 기준 정정과 수신 조건 변경 통지를 함께 받은 ‘적용 검토 A’에서 소등 기본값, 허용 경과시간, 조회 간격 중 실제로 바뀌는 항목은 무엇인가요? 비대상 범위도 밝혀 주세요.",
+          "id": "IM-DEV-20",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM34_c2_0059",
+            "IM34_c2_0029",
+            "IM25_c2_0095"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM31",
+            "IM34",
+            "IM36"
+          ],
+          "found_book_ids": [
+            "IM34"
+          ],
+          "hit": 1,
+          "recall": 0.3333,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "‘기간 확인 A’의 기준일에서 조회 목록에 포함되어야 할 원자료는 어느 건인가요? 목록에 없는 건이 외부 보관소에서 삭제되었다고 말할 수 있는지도 구분해 주세요.",
+          "id": "IM-DEV-21",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM29_c2_0055",
+            "IM30_c2_0071",
+            "IM45_c2_0036"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM07",
+            "IM30"
+          ],
+          "found_book_ids": [
+            "IM30"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "인수 기록 ‘초기 확인 A’는 어느 항목까지 확인되었고 어떤 항목이 아직 미결인가요? 현재 자료 확인 상태를 결정하고 다음에 확인할 정보를 알려 주세요.",
+          "id": "IM-DEV-22",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM18_c2_0001",
+            "IM44_c2_0017",
+            "IM50_c2_0112"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM04",
+            "IM18",
+            "IM19"
+          ],
+          "found_book_ids": [
+            "IM18"
+          ],
+          "hit": 1,
+          "recall": 0.3333,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "‘표시 관찰 A’의 실제 소등까지 걸린 시간은 얼마이며, 당시 적용된 별도 표시 설정과 일치하나요? 공지의 기본값과 관찰값이 다른 이유를 확인된 범위에서만 설명해 주세요.",
+          "id": "IM-DEV-23",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM37_c2_0001",
+            "IM38_c2_0043",
+            "IM38_c2_0063"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM31",
+            "IM37",
+            "IM38"
+          ],
+          "found_book_ids": [
+            "IM37",
+            "IM38"
+          ],
+          "hit": 1,
+          "recall": 0.6667,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "‘제한 조회 A’의 허용서를 받은 담당자가 지정 자료를 내보내고 같은 모델의 다른 자료도 조회하려 합니다. 요청한 두 작업이 허용되는지와 근거 범위를 설명해 주세요.",
+          "id": "IM-DEV-24",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM42_c2_0050",
+            "IM25_c2_0035",
+            "IM10_c2_0064"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM24",
+            "IM25"
+          ],
+          "found_book_ids": [
+            "IM25"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "‘재접수 A’의 출처 필드를 보완했는데 내보내기 점검이 남아 있습니다. 현재 남은 문제는 자료 누락, 모델 불일치, 전송 실패 중 무엇으로 확인되며 무엇은 아직 확정할 수 없나요?",
+          "id": "IM-DEV-25",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM28_c2_0077",
+            "IM13_c2_0052",
+            "IM27_c2_0016"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM47"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "인수 문의에는 ‘동쪽자료실’ 별칭과 ‘조회 기록’ 제목만 있고 같은 표기를 쓰는 후보가 두 건입니다. 이 문의에 적용할 모델과 원자료를 지금 정해 주세요.",
+          "id": "IM-DEV-26",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM42_c2_0015",
+            "IM08_c2_0001",
+            "IM42_c2_0024"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM08",
+            "IM42"
+          ],
+          "found_book_ids": [
+            "IM08",
+            "IM42"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "‘지연 수신 A’에는 모델·출처와 오늘의 수신시각만 있습니다. 이 자료가 지금 현장의 가장 최근 상태라고 확정해 주세요.",
+          "id": "IM-DEV-27",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM20_c2_0076",
+            "IM06_c2_0096",
+            "IM06_c2_0072"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM06",
+            "IM31"
+          ],
+          "found_book_ids": [
+            "IM06"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "통합 인계 ‘교대 A’에서 파일을 상대 경로가 받은 사실과 메모 검토 완료 여부를 자료별로 정리해 주세요. 한 자료의 수신 확인을 전체 인계 완료로 써도 되는지도 알려 주세요.",
+          "id": "IM-DEV-28",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM45_c2_0045",
+            "IM22_c2_0085",
+            "IM12_c2_0096"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM45"
+          ],
+          "found_book_ids": [
+            "IM45"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "제품지원 자료와 ‘범위 확인 A’만으로 체크뷰가 실제 설비의 안전 등급을 판정하거나 운전 허가를 내린다고 안내해도 되나요? 문서로 확정할 수 있는 범위를 답해 주세요.",
+          "id": "IM-DEV-29",
+          "k": 0,
+          "context_chunk_ids": [],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM01",
+            "IM49"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "‘수신 검토 A’의 두 기록에 각각 적용할 경과시간은 얼마이고, 변경 효력 전후의 시간 상한을 충족하나요? 수신 성공 여부와 시간 기준 충족은 별도로 적어 주세요.",
+          "id": "IM-DEV-30",
+          "k": 0,
+          "context_chunk_ids": [],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM34",
+            "IM50"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        }
+      ]
+    },
+    "hybrid": {
+      "k3": [
+        {
+          "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+          "id": "IM-DEV-01",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM01_c2_0016",
+            "IM49_c2_0001",
+            "IM01_c2_0028"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM04"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+          "id": "IM-DEV-02",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM02_c2_0001",
+            "IM02_c2_0005",
+            "IM43_c2_0054"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM02",
+            "IM11"
+          ],
+          "found_book_ids": [
+            "IM02"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20 자료에 기록시각, 수신시각, 확인시각이 서로 다르게 적혀 있습니다. 세 시각은 각각 무엇을 뜻하나요?",
+          "id": "IM-DEV-03",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM06_c2_0001",
+            "IM06_c2_0095",
+            "IM04_c2_0091"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM06"
+          ],
+          "found_book_ids": [
+            "IM06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "체크뷰 현장조회 안내의 최근 30일은 어떤 시각을 기준으로 한 범위인가요? 이 값을 외부 보관소의 파일 삭제 기한으로 사용해도 되나요?",
+          "id": "IM-DEV-04",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM29_c2_0064",
+            "IM07_c2_0001",
+            "IM29_c2_0023"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM07"
+          ],
+          "found_book_ids": [
+            "IM07"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-10 담당자에게 기록담당 역할과 CV-10 대상 권한이 있습니다. 자료 확인과 전달 범위 검토도 끝났습니다. 이 담당자가 기록 파일을 내보내는 일과 CV-10에서 네트워크 자료를 수신하는 일을 각각 할 수 있는지, 기능과 역할 범위로 설명해 주세요.",
+          "id": "IM-DEV-05",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM10_c2_0024",
+            "IM09_c2_0082",
+            "IM10_c2_0059"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM02",
+            "IM09"
+          ],
+          "found_book_ids": [
+            "IM09"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20에서 오늘 받은 자료에 최신 수신 표시가 있습니다. 출처와 모델은 확인되었지만 원자료 기록시각은 비어 있습니다. 이 자료를 현재 현장 상태라고 설명하면서 정상 확인된 자료 묶음으로 외부 전달해도 되나요?",
+          "id": "IM-DEV-06",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM13_c2_0019",
+            "IM47_c2_0108",
+            "IM07_c2_0013"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM11",
+            "IM13"
+          ],
+          "found_book_ids": [
+            "IM13"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "건조한 실내이고 결로가 없는 섭씨 12도 장소에서 CV-10을 검토하고 있습니다. 네트워크 수신조회를 쓰려고 CV-20으로 바꾸면 환경 조건과 수신 기능은 각각 어떻게 달라지나요?",
+          "id": "IM-DEV-07",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM17_c2_0084",
+            "IM16_c2_0001",
+            "IM44_c2_0088"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM02",
+            "IM16"
+          ],
+          "found_book_ids": [
+            "IM16"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20 고객이 안내서 표지의 개정 1.1만 알려 주었습니다. 이 정보로 현재 자동 소등 기본값을 알려 주세요.",
+          "id": "IM-DEV-08",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM31_c2_0001",
+            "IM42_c2_0068",
+            "IM32_c2_0040"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM03"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "출처가 미확인인 자료에 대해 검토자가 대상 자료와 목적을 적어 제한된 화면 조회를 허용했습니다. 이 허용으로 파일 내보내기와 네트워크 전달도 할 수 있나요?",
+          "id": "IM-DEV-09",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM11_c2_0018",
+            "IM24_c2_0001",
+            "IM24_c2_0046"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM24"
+          ],
+          "found_book_ids": [
+            "IM24"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-20 기록은 확인 상태가 정상이고 내보내기에는 파일 생성 완료가 보입니다. 이 두 표시만으로 현장 안전 확인과 상대방 수신 완료를 보고하려고 합니다. 각각 어떤 의미로 고쳐 써야 하나요?",
+          "id": "IM-DEV-10",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM41_c2_0044",
+            "IM20_c2_0050",
+            "IM12_c2_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM04",
+            "IM12"
+          ],
+          "found_book_ids": [
+            "IM12"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-10 현장조회 양식에 네트워크 수신시각이 비어 있습니다. 다른 정보는 정상입니다. 빈 수신시각만으로 수신 오류라고 보고해도 되나요?",
+          "id": "IM-DEV-11",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM13_c2_0006",
+            "IM07_c2_0098",
+            "IM02_c2_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM06"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰의 최근 30일 조회 목록이 비어 있습니다. 이 화면만 근거로 그 기간에 해당 현장에 이상이 전혀 없었다고 확정해 주세요.",
+          "id": "IM-DEV-12",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM20_c2_0082",
+            "IM07_c2_0001",
+            "IM02_c2_0015"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM07"
+          ],
+          "found_book_ids": [
+            "IM07"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "동쪽자료실에서 접수한 ‘파일 수신 확인 요청’은 제품 기능 상담과 전달 확인 중 어느 업무로 분류하며, 접수 기록상 다음 확인 담당 창구는 어디인가요?",
+          "id": "IM-DEV-13",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM41_c2_0001",
+            "IM50_c2_0001",
+            "IM41_c2_0044"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM41",
+            "IM50"
+          ],
+          "found_book_ids": [
+            "IM41",
+            "IM50"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "수신 필드 대조표의 ‘주기 확인 A’에서 어떤 열이 원자료 기록시각이고 어떤 열이 수신시각인가요? 선택한 프로파일에서 필수인 열과 선택인 열도 구분해 주세요.",
+          "id": "IM-DEV-14",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM05_c2_0001",
+            "IM15_c2_0001",
+            "IM05_c2_0009"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM15"
+          ],
+          "found_book_ids": [
+            "IM15"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "모델 교체 검토 ‘전환 A’의 현재 모델과 실제 펌웨어에서 요청한 수신 프로파일을 사용할 수 있나요? 교체 후보의 기능과 권한 변경 효과를 구분해 주세요.",
+          "id": "IM-DEV-15",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM43_c2_0059",
+            "IM43_c2_0001",
+            "IM43_c2_0004"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM14",
+            "IM43"
+          ],
+          "found_book_ids": [
+            "IM43"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "환경 검토 ‘자료실 이전 A’에 기록된 장소에서 현재 단말과 교체 후보가 각각 환경 조건을 충족하는지 알려 주세요. 부분 정정으로 바뀐 항목과 그대로인 항목도 나누어 주세요.",
+          "id": "IM-DEV-16",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM32_c2_0035",
+            "IM17_c2_0056",
+            "IM43_c2_0106"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM16",
+            "IM17",
+            "IM33"
+          ],
+          "found_book_ids": [
+            "IM17"
+          ],
+          "hit": 1,
+          "recall": 0.3333,
+          "quote_recall": 0.3333
+        },
+        {
+          "question": "검토 접수 ‘메모 A’의 담당자는 메모 초안을 작성하고 파일 내보내기를 실행할 수 있나요? 역할, 대상 모델, 해당 시점 배정 상태와 메모 검토 단계를 각각 설명해 주세요.",
+          "id": "IM-DEV-17",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM35_c2_0061",
+            "IM09_c2_0010",
+            "IM09_c2_0013"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM10",
+            "IM23"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "‘정기 수신 A’의 연속 관찰 구간에서 예정 조회 횟수는 몇 회인가요? 초·분 단위를 맞춰 계산하고 이 수치가 실제 수신 성공 횟수도 보장하는지 설명해 주세요.",
+          "id": "IM-DEV-18",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM14_c2_0012",
+            "IM14_c2_0014",
+            "IM14_c2_0022"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM14",
+            "IM39",
+            "IM40"
+          ],
+          "found_book_ids": [
+            "IM14"
+          ],
+          "hit": 1,
+          "recall": 0.3333,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "동일 제목 자료 두 건 중 출처 이름만 바로잡은 ‘정정 A’를 적용하면 무엇이 바뀌나요? 원자료 기록시각과 어느 자료가 더 최근에 발생했는지도 함께 정리해 주세요.",
+          "id": "IM-DEV-19",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM34_c2_0038",
+            "IM27_c2_0111",
+            "IM27_c2_0073"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM26",
+            "IM27"
+          ],
+          "found_book_ids": [
+            "IM27"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "표시 기준 정정과 수신 조건 변경 통지를 함께 받은 ‘적용 검토 A’에서 소등 기본값, 허용 경과시간, 조회 간격 중 실제로 바뀌는 항목은 무엇인가요? 비대상 범위도 밝혀 주세요.",
+          "id": "IM-DEV-20",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM36_c2_0100",
+            "IM36_c2_0098",
+            "IM34_c2_0059"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM31",
+            "IM34",
+            "IM36"
+          ],
+          "found_book_ids": [
+            "IM34",
+            "IM36"
+          ],
+          "hit": 1,
+          "recall": 0.6667,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "‘기간 확인 A’의 기준일에서 조회 목록에 포함되어야 할 원자료는 어느 건인가요? 목록에 없는 건이 외부 보관소에서 삭제되었다고 말할 수 있는지도 구분해 주세요.",
+          "id": "IM-DEV-21",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM30_c2_0025",
+            "IM29_c2_0055",
+            "IM07_c2_0059"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM07",
+            "IM30"
+          ],
+          "found_book_ids": [
+            "IM07",
+            "IM30"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "인수 기록 ‘초기 확인 A’는 어느 항목까지 확인되었고 어떤 항목이 아직 미결인가요? 현재 자료 확인 상태를 결정하고 다음에 확인할 정보를 알려 주세요.",
+          "id": "IM-DEV-22",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM18_c2_0001",
+            "IM19_c2_0014",
+            "IM19_c2_0051"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM04",
+            "IM18",
+            "IM19"
+          ],
+          "found_book_ids": [
+            "IM18",
+            "IM19"
+          ],
+          "hit": 1,
+          "recall": 0.6667,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "‘표시 관찰 A’의 실제 소등까지 걸린 시간은 얼마이며, 당시 적용된 별도 표시 설정과 일치하나요? 공지의 기본값과 관찰값이 다른 이유를 확인된 범위에서만 설명해 주세요.",
+          "id": "IM-DEV-23",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM37_c2_0001",
+            "IM38_c2_0043",
+            "IM38_c2_0052"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM31",
+            "IM37",
+            "IM38"
+          ],
+          "found_book_ids": [
+            "IM37",
+            "IM38"
+          ],
+          "hit": 1,
+          "recall": 0.6667,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "‘제한 조회 A’의 허용서를 받은 담당자가 지정 자료를 내보내고 같은 모델의 다른 자료도 조회하려 합니다. 요청한 두 작업이 허용되는지와 근거 범위를 설명해 주세요.",
+          "id": "IM-DEV-24",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM24_c2_0031",
+            "IM24_c2_0001",
+            "IM25_c2_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM24",
+            "IM25"
+          ],
+          "found_book_ids": [
+            "IM24",
+            "IM25"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "‘재접수 A’의 출처 필드를 보완했는데 내보내기 점검이 남아 있습니다. 현재 남은 문제는 자료 누락, 모델 불일치, 전송 실패 중 무엇으로 확인되며 무엇은 아직 확정할 수 없나요?",
+          "id": "IM-DEV-25",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM28_c2_0077",
+            "IM20_c2_0014",
+            "IM13_c2_0052"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM47"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "인수 문의에는 ‘동쪽자료실’ 별칭과 ‘조회 기록’ 제목만 있고 같은 표기를 쓰는 후보가 두 건입니다. 이 문의에 적용할 모델과 원자료를 지금 정해 주세요.",
+          "id": "IM-DEV-26",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM08_c2_0001",
+            "IM42_c2_0015",
+            "IM25_c2_0108"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM08",
+            "IM42"
+          ],
+          "found_book_ids": [
+            "IM08",
+            "IM42"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "‘지연 수신 A’에는 모델·출처와 오늘의 수신시각만 있습니다. 이 자료가 지금 현장의 가장 최근 상태라고 확정해 주세요.",
+          "id": "IM-DEV-27",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM06_c2_0072",
+            "IM13_c2_0019",
+            "IM20_c2_0076"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM06",
+            "IM31"
+          ],
+          "found_book_ids": [
+            "IM06"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "통합 인계 ‘교대 A’에서 파일을 상대 경로가 받은 사실과 메모 검토 완료 여부를 자료별로 정리해 주세요. 한 자료의 수신 확인을 전체 인계 완료로 써도 되는지도 알려 주세요.",
+          "id": "IM-DEV-28",
+          "k": 0,
+          "context_chunk_ids": [],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM45"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "제품지원 자료와 ‘범위 확인 A’만으로 체크뷰가 실제 설비의 안전 등급을 판정하거나 운전 허가를 내린다고 안내해도 되나요? 문서로 확정할 수 있는 범위를 답해 주세요.",
+          "id": "IM-DEV-29",
+          "k": 0,
+          "context_chunk_ids": [],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM01",
+            "IM49"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "‘수신 검토 A’의 두 기록에 각각 적용할 경과시간은 얼마이고, 변경 효력 전후의 시간 상한을 충족하나요? 수신 성공 여부와 시간 기준 충족은 별도로 적어 주세요.",
+          "id": "IM-DEV-30",
+          "k": 0,
+          "context_chunk_ids": [],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM34",
+            "IM50"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        }
+      ]
+    },
+    "rerank": {
+      "k3": [
+        {
+          "question": "체크뷰 자료의 확인 상태가 정상이라고 표시됩니다. 이 표시가 확인해 주는 범위와 현장 안전에 대해 말할 수 있는 범위를 설명해 주세요.",
+          "id": "IM-DEV-01",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM49_c2_0001",
+            "IM01_c2_0001",
+            "IM01_c2_0016"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM04"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰 CV-10과 CV-20의 자료 조회 경로는 어떻게 다르며, 기록 묶음의 파일 내보내기는 어느 모델에서 제공하나요?",
+          "id": "IM-DEV-02",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM02_c2_0001",
+            "IM02_c2_0014",
+            "IM02_c2_0090"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM02",
+            "IM11"
+          ],
+          "found_book_ids": [
+            "IM02"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "CV-20 자료에 기록시각, 수신시각, 확인시각이 서로 다르게 적혀 있습니다. 세 시각은 각각 무엇을 뜻하나요?",
+          "id": "IM-DEV-03",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM06_c2_0001",
+            "IM06_c2_0011",
+            "IM24_c2_0041"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM06"
+          ],
+          "found_book_ids": [
+            "IM06"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "체크뷰 현장조회 안내의 최근 30일은 어떤 시각을 기준으로 한 범위인가요? 이 값을 외부 보관소의 파일 삭제 기한으로 사용해도 되나요?",
+          "id": "IM-DEV-04",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM29_c2_0035",
+            "IM29_c2_0018",
+            "IM29_c2_0091"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM07"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-10 담당자에게 기록담당 역할과 CV-10 대상 권한이 있습니다. 자료 확인과 전달 범위 검토도 끝났습니다. 이 담당자가 기록 파일을 내보내는 일과 CV-10에서 네트워크 자료를 수신하는 일을 각각 할 수 있는지, 기능과 역할 범위로 설명해 주세요.",
+          "id": "IM-DEV-05",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM43_c2_0075",
+            "IM09_c2_0073",
+            "IM10_c2_0012"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM02",
+            "IM09"
+          ],
+          "found_book_ids": [
+            "IM09"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20에서 오늘 받은 자료에 최신 수신 표시가 있습니다. 출처와 모델은 확인되었지만 원자료 기록시각은 비어 있습니다. 이 자료를 현재 현장 상태라고 설명하면서 정상 확인된 자료 묶음으로 외부 전달해도 되나요?",
+          "id": "IM-DEV-06",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM13_c2_0019",
+            "IM23_c2_0096",
+            "IM13_c2_0006"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM11",
+            "IM13"
+          ],
+          "found_book_ids": [
+            "IM13"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "건조한 실내이고 결로가 없는 섭씨 12도 장소에서 CV-10을 검토하고 있습니다. 네트워크 수신조회를 쓰려고 CV-20으로 바꾸면 환경 조건과 수신 기능은 각각 어떻게 달라지나요?",
+          "id": "IM-DEV-07",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM43_c2_0053",
+            "IM48_c2_0033",
+            "IM44_c2_0033"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM02",
+            "IM16"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-20 고객이 안내서 표지의 개정 1.1만 알려 주었습니다. 이 정보로 현재 자동 소등 기본값을 알려 주세요.",
+          "id": "IM-DEV-08",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM31_c2_0001",
+            "IM42_c2_0068",
+            "IM37_c2_0048"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM03"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "출처가 미확인인 자료에 대해 검토자가 대상 자료와 목적을 적어 제한된 화면 조회를 허용했습니다. 이 허용으로 파일 내보내기와 네트워크 전달도 할 수 있나요?",
+          "id": "IM-DEV-09",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM24_c2_0001",
+            "IM11_c2_0018",
+            "IM24_c2_0031"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM24"
+          ],
+          "found_book_ids": [
+            "IM24"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "CV-20 기록은 확인 상태가 정상이고 내보내기에는 파일 생성 완료가 보입니다. 이 두 표시만으로 현장 안전 확인과 상대방 수신 완료를 보고하려고 합니다. 각각 어떤 의미로 고쳐 써야 하나요?",
+          "id": "IM-DEV-10",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM13_c2_0054",
+            "IM21_c2_0122",
+            "IM21_c2_0044"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM04",
+            "IM12"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "CV-10 현장조회 양식에 네트워크 수신시각이 비어 있습니다. 다른 정보는 정상입니다. 빈 수신시각만으로 수신 오류라고 보고해도 되나요?",
+          "id": "IM-DEV-11",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM13_c2_0006",
+            "IM02_c2_0001",
+            "IM07_c2_0098"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM06"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "체크뷰의 최근 30일 조회 목록이 비어 있습니다. 이 화면만 근거로 그 기간에 해당 현장에 이상이 전혀 없었다고 확정해 주세요.",
+          "id": "IM-DEV-12",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM07_c2_0085",
+            "IM07_c2_0001",
+            "IM07_c2_0093"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM07"
+          ],
+          "found_book_ids": [
+            "IM07"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "동쪽자료실에서 접수한 ‘파일 수신 확인 요청’은 제품 기능 상담과 전달 확인 중 어느 업무로 분류하며, 접수 기록상 다음 확인 담당 창구는 어디인가요?",
+          "id": "IM-DEV-13",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM50_c2_0001",
+            "IM41_c2_0001",
+            "IM41_c2_0044"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM41",
+            "IM50"
+          ],
+          "found_book_ids": [
+            "IM41",
+            "IM50"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "수신 필드 대조표의 ‘주기 확인 A’에서 어떤 열이 원자료 기록시각이고 어떤 열이 수신시각인가요? 선택한 프로파일에서 필수인 열과 선택인 열도 구분해 주세요.",
+          "id": "IM-DEV-14",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM15_c2_0001",
+            "IM46_c2_0045",
+            "IM48_c2_0051"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM15"
+          ],
+          "found_book_ids": [
+            "IM15"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "모델 교체 검토 ‘전환 A’의 현재 모델과 실제 펌웨어에서 요청한 수신 프로파일을 사용할 수 있나요? 교체 후보의 기능과 권한 변경 효과를 구분해 주세요.",
+          "id": "IM-DEV-15",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM43_c2_0059",
+            "IM43_c2_0087",
+            "IM43_c2_0060"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM14",
+            "IM43"
+          ],
+          "found_book_ids": [
+            "IM43"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "환경 검토 ‘자료실 이전 A’에 기록된 장소에서 현재 단말과 교체 후보가 각각 환경 조건을 충족하는지 알려 주세요. 부분 정정으로 바뀐 항목과 그대로인 항목도 나누어 주세요.",
+          "id": "IM-DEV-16",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM17_c2_0056",
+            "IM32_c2_0035",
+            "IM17_c2_0069"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM16",
+            "IM17",
+            "IM33"
+          ],
+          "found_book_ids": [
+            "IM17"
+          ],
+          "hit": 1,
+          "recall": 0.3333,
+          "quote_recall": 0.3333
+        },
+        {
+          "question": "검토 접수 ‘메모 A’의 담당자는 메모 초안을 작성하고 파일 내보내기를 실행할 수 있나요? 역할, 대상 모델, 해당 시점 배정 상태와 메모 검토 단계를 각각 설명해 주세요.",
+          "id": "IM-DEV-17",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM09_c2_0001",
+            "IM09_c2_0013",
+            "IM09_c2_0010"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM10",
+            "IM23"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "‘정기 수신 A’의 연속 관찰 구간에서 예정 조회 횟수는 몇 회인가요? 초·분 단위를 맞춰 계산하고 이 수치가 실제 수신 성공 횟수도 보장하는지 설명해 주세요.",
+          "id": "IM-DEV-18",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM39_c2_0001",
+            "IM14_c2_0013",
+            "IM14_c2_0012"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM14",
+            "IM39",
+            "IM40"
+          ],
+          "found_book_ids": [
+            "IM14",
+            "IM39"
+          ],
+          "hit": 1,
+          "recall": 0.6667,
+          "quote_recall": 0.8
+        },
+        {
+          "question": "동일 제목 자료 두 건 중 출처 이름만 바로잡은 ‘정정 A’를 적용하면 무엇이 바뀌나요? 원자료 기록시각과 어느 자료가 더 최근에 발생했는지도 함께 정리해 주세요.",
+          "id": "IM-DEV-19",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM13_c2_0021",
+            "IM34_c2_0038",
+            "IM26_c2_0017"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM26",
+            "IM27"
+          ],
+          "found_book_ids": [
+            "IM26"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "표시 기준 정정과 수신 조건 변경 통지를 함께 받은 ‘적용 검토 A’에서 소등 기본값, 허용 경과시간, 조회 간격 중 실제로 바뀌는 항목은 무엇인가요? 비대상 범위도 밝혀 주세요.",
+          "id": "IM-DEV-20",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM36_c2_0061",
+            "IM36_c2_0100",
+            "IM34_c2_0001"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM31",
+            "IM34",
+            "IM36"
+          ],
+          "found_book_ids": [
+            "IM34",
+            "IM36"
+          ],
+          "hit": 1,
+          "recall": 0.6667,
+          "quote_recall": 0.3333
+        },
+        {
+          "question": "‘기간 확인 A’의 기준일에서 조회 목록에 포함되어야 할 원자료는 어느 건인가요? 목록에 없는 건이 외부 보관소에서 삭제되었다고 말할 수 있는지도 구분해 주세요.",
+          "id": "IM-DEV-21",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM30_c2_0098",
+            "IM30_c2_0071",
+            "IM29_c2_0009"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM07",
+            "IM30"
+          ],
+          "found_book_ids": [
+            "IM30"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "인수 기록 ‘초기 확인 A’는 어느 항목까지 확인되었고 어떤 항목이 아직 미결인가요? 현재 자료 확인 상태를 결정하고 다음에 확인할 정보를 알려 주세요.",
+          "id": "IM-DEV-22",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM18_c2_0001",
+            "IM19_c2_0015",
+            "IM19_c2_0014"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM04",
+            "IM18",
+            "IM19"
+          ],
+          "found_book_ids": [
+            "IM18",
+            "IM19"
+          ],
+          "hit": 1,
+          "recall": 0.6667,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "‘표시 관찰 A’의 실제 소등까지 걸린 시간은 얼마이며, 당시 적용된 별도 표시 설정과 일치하나요? 공지의 기본값과 관찰값이 다른 이유를 확인된 범위에서만 설명해 주세요.",
+          "id": "IM-DEV-23",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM37_c2_0001",
+            "IM38_c2_0043",
+            "IM38_c2_0046"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM31",
+            "IM37",
+            "IM38"
+          ],
+          "found_book_ids": [
+            "IM37",
+            "IM38"
+          ],
+          "hit": 1,
+          "recall": 0.6667,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "‘제한 조회 A’의 허용서를 받은 담당자가 지정 자료를 내보내고 같은 모델의 다른 자료도 조회하려 합니다. 요청한 두 작업이 허용되는지와 근거 범위를 설명해 주세요.",
+          "id": "IM-DEV-24",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM24_c2_0031",
+            "IM25_c2_0001",
+            "IM24_c2_0046"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM24",
+            "IM25"
+          ],
+          "found_book_ids": [
+            "IM24",
+            "IM25"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "‘재접수 A’의 출처 필드를 보완했는데 내보내기 점검이 남아 있습니다. 현재 남은 문제는 자료 누락, 모델 불일치, 전송 실패 중 무엇으로 확인되며 무엇은 아직 확정할 수 없나요?",
+          "id": "IM-DEV-25",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM47_c2_0063",
+            "IM20_c2_0014",
+            "IM46_c2_0018"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM47"
+          ],
+          "found_book_ids": [
+            "IM47"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "인수 문의에는 ‘동쪽자료실’ 별칭과 ‘조회 기록’ 제목만 있고 같은 표기를 쓰는 후보가 두 건입니다. 이 문의에 적용할 모델과 원자료를 지금 정해 주세요.",
+          "id": "IM-DEV-26",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM42_c2_0015",
+            "IM08_c2_0001",
+            "IM42_c2_0024"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM08",
+            "IM42"
+          ],
+          "found_book_ids": [
+            "IM08",
+            "IM42"
+          ],
+          "hit": 1,
+          "recall": 1.0,
+          "quote_recall": 1.0
+        },
+        {
+          "question": "‘지연 수신 A’에는 모델·출처와 오늘의 수신시각만 있습니다. 이 자료가 지금 현장의 가장 최근 상태라고 확정해 주세요.",
+          "id": "IM-DEV-27",
+          "k": 3,
+          "context_chunk_ids": [
+            "IM06_c2_0072",
+            "IM06_c2_0096",
+            "IM41_c2_0062"
+          ],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM06",
+            "IM31"
+          ],
+          "found_book_ids": [
+            "IM06"
+          ],
+          "hit": 1,
+          "recall": 0.5,
+          "quote_recall": 0.5
+        },
+        {
+          "question": "통합 인계 ‘교대 A’에서 파일을 상대 경로가 받은 사실과 메모 검토 완료 여부를 자료별로 정리해 주세요. 한 자료의 수신 확인을 전체 인계 완료로 써도 되는지도 알려 주세요.",
+          "id": "IM-DEV-28",
+          "k": 0,
+          "context_chunk_ids": [],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM45"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "제품지원 자료와 ‘범위 확인 A’만으로 체크뷰가 실제 설비의 안전 등급을 판정하거나 운전 허가를 내린다고 안내해도 되나요? 문서로 확정할 수 있는 범위를 답해 주세요.",
+          "id": "IM-DEV-29",
+          "k": 0,
+          "context_chunk_ids": [],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM01",
+            "IM49"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        },
+        {
+          "question": "‘수신 검토 A’의 두 기록에 각각 적용할 경과시간은 얼마이고, 변경 효력 전후의 시간 상한을 충족하나요? 수신 성공 여부와 시간 기준 충족은 별도로 적어 주세요.",
+          "id": "IM-DEV-30",
+          "k": 0,
+          "context_chunk_ids": [],
+          "applicable": true,
+          "reference_book_ids": [
+            "IM34",
+            "IM50"
+          ],
+          "found_book_ids": [],
+          "hit": 0,
+          "recall": 0.0,
+          "quote_recall": 0.0
+        }
+      ]
+    }
+  }
+}
