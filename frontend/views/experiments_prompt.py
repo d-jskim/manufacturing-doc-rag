@@ -3,6 +3,7 @@
 import altair as alt
 import pandas as pd
 import streamlit as st
+import yaml
 
 from components.report import (
     format_experiment_id,
@@ -11,7 +12,7 @@ from components.report import (
     show_result_analysis,
 )
 from results_loader import (
-    list_datasets,
+    PROJECT_ROOT,
     list_report_files,
     load_report_file,
     load_result,
@@ -19,14 +20,14 @@ from results_loader import (
 )
 
 EXPERIMENT = "03_prompt"
+DATASET = "manufacturing_basic"
 
 
 def percent(value):
     return value * 100 if value is not None else None
 
 
-dataset = st.selectbox("데이터셋", list_datasets(EXPERIMENT))
-report_files = list_report_files(EXPERIMENT, dataset)
+report_files = list_report_files(EXPERIMENT, DATASET)
 
 if not report_files:
     st.error("승인된 실행 보고서가 없습니다.")
@@ -43,6 +44,9 @@ selected_report_path = st.selectbox(
 report = reports[selected_report_path]
 settings = report["settings"]
 baseline_prompt = report["baseline_prompt"]
+prompt_config_path = PROJECT_ROOT / "configs" / "prompts" / f"{baseline_prompt}.yaml"
+with prompt_config_path.open(encoding="utf-8") as file:
+    prompt_config = yaml.safe_load(file)
 
 st.header(report["title"])
 st.markdown(
@@ -58,6 +62,8 @@ columns[2].metric(
     format_experiment_id(report, settings["chunk_version"]),
 )
 columns[3].metric("생성 모델", settings["generation_model"])
+st.markdown("**기준 프롬프트 개요**")
+st.markdown("\n".join(f"- {item}" for item in prompt_config["overview"]))
 show_experiment_id_definitions(
     report,
     [
@@ -74,7 +80,7 @@ operation_rows = []
 for prompt_version, source in report["prompt_results"].items():
     source_base = results_dir(
         source["source_experiment"],
-        source["source_dataset"],
+        DATASET,
     )
     answers = load_result(source_base / source["files"]["answers"])
     faithfulness = load_result(source_base / source["files"]["faithfulness"])

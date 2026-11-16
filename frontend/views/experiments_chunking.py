@@ -11,7 +11,6 @@ from components.report import (
     show_result_analysis,
 )
 from results_loader import (
-    list_datasets,
     list_report_files,
     load_report_file,
     load_result,
@@ -19,12 +18,10 @@ from results_loader import (
 )
 
 EXPERIMENT = "02_chunking"
+DATASET = "manufacturing_basic"
 CHUNK_VERSIONS = ("c1", "c2", "c3")
 
-datasets = list_datasets(EXPERIMENT)
-dataset = st.selectbox("데이터셋", datasets)
-
-report_files = list_report_files(EXPERIMENT, dataset)
+report_files = list_report_files(EXPERIMENT, DATASET)
 
 if not report_files:
     st.error("승인된 실행 보고서가 없습니다.")
@@ -39,7 +36,7 @@ selected_report_path = st.selectbox(
 )
 
 report = reports[selected_report_path]
-base = results_dir(EXPERIMENT, dataset)
+base = results_dir(EXPERIMENT, DATASET)
 settings = report["settings"]
 
 # 선택한 실행별 보고서에 지정된 결과 파일만 사용한다.

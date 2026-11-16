@@ -9,7 +9,6 @@ from components.report import (
     show_experiment_id_definitions,
 )
 from results_loader import (
-    list_datasets,
     list_report_files,
     load_report_file,
     load_result,
@@ -17,13 +16,34 @@ from results_loader import (
 )
 
 EXPERIMENT = "04_retrieval"
+DATASET = "manufacturing_basic"
 MODES = ("naive", "hybrid", "rerank")
 MODE_COLORS = ["#94A3B8", "#60A5FA", "#2563EB"]
 JUDGE_CRITERIA = ("facts", "conditions", "evidence", "decision")
+JUDGE_METRICS = {
+    "사실 충족률": "facts",
+    "조건 충족률": "conditions",
+    "근거 충족률": "evidence",
+    "판단 충족률": "decision",
+}
 
-datasets = list_datasets(EXPERIMENT)
-dataset = st.selectbox("데이터셋", datasets)
-report_files = list_report_files(EXPERIMENT, dataset)
+
+def format_evaluation(value: float, evaluated: int, total: int, percent=False) -> str:
+    score = f"{value:.1f}%" if percent else f"{value:.4f}"
+    return f"{score} ({evaluated}/{total})"
+
+
+def format_judge_evaluation(
+    value: float, evaluated: int, not_applicable: int
+) -> str:
+    passed = round(value / 100 * evaluated)
+    text = f"{value:.1f}% ({passed}/{evaluated})"
+    if not_applicable:
+        text += f" · 해당 없음 {not_applicable}건"
+    return text
+
+
+report_files = list_report_files(EXPERIMENT, DATASET)
 
 if not report_files:
     st.error("승인된 실행 보고서가 없습니다.")
@@ -37,7 +57,7 @@ selected_report_path = st.selectbox(
 )
 
 report = reports[selected_report_path]
-base = results_dir(EXPERIMENT, dataset)
+base = results_dir(EXPERIMENT, DATASET)
 
 # 선택한 실행별 보고서에 지정된 결과 파일만 사용한다.
 retrieval = load_result(base / report["result_files"]["retrieval"])
@@ -97,6 +117,7 @@ for mode in MODES:
     faith = faithfulness["summary"][mode]
     scores = judge["summary"][mode]
     statuses = service["status_counts"]
+    faith_total = faith["evaluated_count"] + faith["error_count"]
 
     quality_rows.append(
         {
@@ -105,6 +126,9 @@ for mode in MODES:
             "Recall@3": search["recall_at_k"] * 100,
             # RAGAS 논문 표기처럼 0~1 점수를 유지한다.
             "Faithfulness": faith["mean_faithfulness"],
+            "Faithfulness 평가 수": faith["evaluated_count"],
+            "Faithfulness 전체": faith_total,
+            "Faithfulness 오류": faith["error_count"],
             "사실 충족률": scores["facts"]["pass_rate"] * 100,
             "조건 충족률": (
                 scores["conditions"]["pass_rate"] * 100
@@ -115,6 +139,18 @@ for mode in MODES:
             "판단 충족률": (
                 scores["decision"]["pass_rate"] * 100
             ),
+            "Judge 전체": scores["request_count"],
+            "Judge 오류": scores["evaluation_error_count"],
+            **{
+                f"{metric} 평가 수": scores[criterion]["evaluated_count"]
+                for metric, criterion in JUDGE_METRICS.items()
+            },
+            **{
+                f"{metric} 해당 없음": scores[criterion][
+                    "not_applicable_count"
+                ]
+                for metric, criterion in JUDGE_METRICS.items()
+            },
         }
     )
 
@@ -166,33 +202,55 @@ for mode in MODES:
 quality = pd.DataFrame(quality_rows)
 coverage = pd.DataFrame(coverage_rows)
 operations = pd.DataFrame(operation_rows)
+quality_display = quality[
+    [
+        "방식",
+        "Hit@3",
+        "Recall@3",
+        "Faithfulness",
+        "Faithfulness 오류",
+        *JUDGE_METRICS,
+        "Judge 오류",
+    ]
+].copy()
+quality_display["Faithfulness"] = quality.apply(
+    lambda row: format_evaluation(
+        row["Faithfulness"],
+        row["Faithfulness 평가 수"],
+        row["Faithfulness 전체"],
+    ),
+    axis=1,
+)
+for metric in JUDGE_METRICS:
+    quality_display[metric] = quality.apply(
+        lambda row, metric=metric: format_judge_evaluation(
+            row[metric],
+            row[f"{metric} 평가 수"],
+            row[f"{metric} 해당 없음"],
+        ),
+        axis=1,
+    )
+quality_display["Faithfulness 오류"] = quality_display["Faithfulness 오류"].map(
+    lambda count: f"{count}건"
+)
+quality_display["Judge 오류"] = quality_display["Judge 오류"].map(
+    lambda count: f"{count}건"
+)
 
 st.subheader("품질 비교")
+st.caption(
+    "Judge 괄호는 통과/실제 평가 건수입니다. 평가 오류와 해당 없음은 충족률에서 제외합니다."
+)
 
 # 표는 검색, Faithfulness, Judge 순서로 배치한다.
 # 비율 지표만 %로 표시하고 Faithfulness는 0~1 점수를 유지한다.
 st.dataframe(
-    quality,
+    quality_display,
     hide_index=True,
     width="stretch",
     column_config={
         "Hit@3": st.column_config.NumberColumn(format="%.1f%%"),
         "Recall@3": st.column_config.NumberColumn(format="%.1f%%"),
-        "Faithfulness": st.column_config.NumberColumn(
-            format="%.4f"
-        ),
-        "사실 충족률": st.column_config.NumberColumn(
-            format="%.1f%%"
-        ),
-        "조건 충족률": st.column_config.NumberColumn(
-            format="%.1f%%"
-        ),
-        "근거 충족률": st.column_config.NumberColumn(
-            format="%.1f%%"
-        ),
-        "판단 충족률": st.column_config.NumberColumn(
-            format="%.1f%%"
-        ),
     },
 )
 
@@ -224,16 +282,42 @@ def make_metric_chart(
     is_ratio: bool,
 ) -> alt.Chart:
     """지표의 원래 단위를 유지한 막대그래프를 만든다."""
-    chart_data = quality[["방식", metric]].copy()
-
-    # 단위는 축에 표시하므로 막대에는 숫자만 표시한다.
-    chart_data["표시값"] = chart_data[metric].map(
-        lambda value: (
-            f"{value:.1f}"
-            if is_ratio
-            else f"{value:.4f}"
+    chart_columns = ["방식", metric]
+    if metric == "Faithfulness":
+        chart_columns.extend(
+            ["Faithfulness 평가 수", "Faithfulness 전체", "Faithfulness 오류"]
         )
-    )
+    elif metric in JUDGE_METRICS:
+        chart_columns.extend(
+            [f"{metric} 평가 수", f"{metric} 해당 없음", "Judge 오류"]
+        )
+    chart_data = quality[chart_columns].copy()
+
+    if metric == "Faithfulness":
+        chart_data["표시값"] = chart_data.apply(
+            lambda row: format_evaluation(
+                row[metric],
+                row["Faithfulness 평가 수"],
+                row["Faithfulness 전체"],
+            ),
+            axis=1,
+        )
+        chart_data["평가 오류"] = chart_data["Faithfulness 오류"]
+    elif metric in JUDGE_METRICS:
+        chart_data["표시값"] = chart_data.apply(
+            lambda row: format_judge_evaluation(
+                row[metric],
+                row[f"{metric} 평가 수"],
+                row[f"{metric} 해당 없음"],
+            ),
+            axis=1,
+        )
+        chart_data["평가 오류"] = chart_data["Judge 오류"]
+        chart_data["해당 없음"] = chart_data[f"{metric} 해당 없음"]
+    else:
+        chart_data["표시값"] = chart_data[metric].map(
+            lambda value: f"{value:.1f}" if is_ratio else f"{value:.4f}"
+        )
 
     base_chart = alt.Chart(chart_data).encode(
         y=alt.Y(
@@ -251,10 +335,17 @@ def make_metric_chart(
                 range=MODE_COLORS,
             ),
         ),
-        tooltip=[
-            alt.Tooltip("방식:N"),
-            alt.Tooltip("표시값:N", title=metric),
-        ],
+        tooltip=[alt.Tooltip("방식:N"), alt.Tooltip("표시값:N", title=metric)]
+        + (
+            [alt.Tooltip("평가 오류:Q", title="평가 오류")]
+            if "평가 오류" in chart_data
+            else []
+        )
+        + (
+            [alt.Tooltip("해당 없음:Q", title="해당 없음")]
+            if "해당 없음" in chart_data
+            else []
+        ),
     )
 
     bars = base_chart.mark_bar(size=26).encode(

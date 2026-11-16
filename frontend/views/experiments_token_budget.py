@@ -12,7 +12,6 @@ from components.report import (
     show_predictions,
 )
 from results_loader import (
-    list_datasets,
     list_report_files,
     load_report_file,
     load_result,
@@ -20,9 +19,9 @@ from results_loader import (
 )
 
 EXPERIMENT = "01_token_budget"
+DATASET = "manufacturing_basic"
 
-dataset = st.selectbox("데이터셋", list_datasets(EXPERIMENT))
-report_files = list_report_files(EXPERIMENT, dataset)
+report_files = list_report_files(EXPERIMENT, DATASET)
 
 if not report_files:
     st.error("승인된 실행 보고서가 없습니다.")
@@ -36,7 +35,7 @@ selected_report_path = st.selectbox(
 )
 
 report = reports[selected_report_path]
-selected = results_dir(EXPERIMENT, dataset) / report["result_file"]
+selected = results_dir(EXPERIMENT, DATASET) / report["result_file"]
 
 show_header(report["title"], report["purpose"])
 show_experiment_id_definitions(report, ["c0", "p0", "r0"])

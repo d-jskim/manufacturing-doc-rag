@@ -70,6 +70,176 @@ def validate_metric_result(path: Path, source_run_id: str) -> dict:
     return result
 
 
+def build_result_analysis(
+    modes: list[str],
+    final_k: int,
+    retrieval: dict,
+    answers: dict,
+    faithfulness: dict,
+) -> dict:
+    items = {}
+
+    for mode in modes:
+        search = retrieval["summary"][mode][f"k{final_k}"]
+        service = answers["summary"][mode]
+        faith = faithfulness["summary"][mode]["mean_faithfulness"]
+        items[mode] = {
+            "summary": (
+                f"Hit@{final_k} {search['hit_at_k']:.2%}, "
+                f"Recall@{final_k} {search['recall_at_k']:.2%}, "
+                f"Faithfulness {faith:.4f}"
+            ),
+            "limitation": (
+                f"시스템 오류 {service['system_error_count']}건, "
+                f"평균 검색 {retrieval['summary'][mode]['retrieval_seconds']['mean']:.3f}초, "
+                f"평균 응답 {service['normal_latency_seconds']['mean']:.3f}초"
+            ),
+        }
+
+    return {"title": "Result Analysis", "items": items}
+
+
+def build_failure_analysis(
+    modes: list[str],
+    final_k: int,
+    active_config: dict,
+    manifest: dict,
+    retrieval: dict,
+    answers: dict,
+    faithfulness: dict,
+    judge: dict,
+) -> dict:
+    items = []
+    chunk_count = manifest.get("chunk_count", 0)
+    over_limit = manifest.get("over_limit_chunk_count", 0)
+
+    if over_limit:
+        ratio = over_limit / chunk_count if chunk_count else 0
+        max_tokens = manifest.get("chunk_config", {}).get("max_encoded_tokens")
+        items.append(
+            {
+                "failure_id": "e04_embedding_input_limit",
+                "type": "data_issue",
+                "title": "청크의 임베딩 입력 한도 초과",
+                "status": "confirmed",
+                "affected_versions": [
+                    active_config["chunk_version"],
+                    active_config["embedding"],
+                ],
+                "expectation": "Basic Baseline을 그대로 적용해 데이터 난이도 증가에 따른 입력 한도 초과 규모를 확인함",
+                "observed": f"전체 {chunk_count:,}개 중 {over_limit:,}개({ratio:.1%})가 {max_tokens}토큰 입력 한도를 초과함",
+                "possible_cause": "페이지 단위 청크 길이가 임베딩 모델의 최대 입력 길이보다 긴 문서가 포함됨",
+                "evidence": [
+                    f"청킹 버전: {active_config['chunk_version']}",
+                    f"임베딩 모델: {active_config['embedding']}",
+                    f"입력 한도 초과 청크: {over_limit:,}개",
+                ],
+                "follow_up": "Baseline 결과를 보존한 뒤 C2·C3 또는 상위 문맥을 보강한 분할 청킹으로 재실험함",
+            }
+        )
+
+    error_modes = [
+        mode for mode in modes if answers["summary"][mode]["system_error_count"]
+    ]
+    if error_modes:
+        items.append(
+            {
+                "failure_id": "e04_generation_errors",
+                "type": "execution_error",
+                "title": "답변 생성 시스템 오류 발생",
+                "status": "confirmed",
+                "affected_versions": [active_config["retrieval_modes"][mode] for mode in error_modes],
+                "expectation": "모든 평가 질문에서 정상 응답을 생성함",
+                "observed": ", ".join(
+                    f"{mode} {answers['summary'][mode]['system_error_count']}건"
+                    for mode in error_modes
+                ),
+                "possible_cause": "검색·재정렬·생성 단계의 처리 시간과 외부 모델 호출 오류가 누적된 것으로 추정함",
+                "evidence": [
+                    f"{mode} 오류율 {answers['summary'][mode]['system_error_rate']:.2%}"
+                    for mode in error_modes
+                ],
+                "follow_up": "오류 유형별 로그를 분리하고 동일 질문을 재실행해 재현 여부를 확인함",
+            }
+        )
+
+    if "rerank" in modes:
+        rerank_seconds = retrieval["summary"]["rerank"]["retrieval_seconds"]["mean"]
+        reference_mode = "naive" if "naive" in modes else modes[0]
+        reference_seconds = retrieval["summary"][reference_mode]["retrieval_seconds"]["mean"]
+        if rerank_seconds > max(5, reference_seconds * 10):
+            items.append(
+                {
+                    "failure_id": "e04_rerank_latency",
+                    "type": "execution_error",
+                    "title": "Reranking 검색 지연 증가",
+                    "status": "confirmed",
+                    "affected_versions": [active_config["retrieval_modes"]["rerank"]],
+                    "expectation": "Reranking의 품질 개선 효과를 서비스 응답이 가능한 시간 안에서 확보함",
+                    "observed": f"Reranking 평균 검색 {rerank_seconds:.3f}초, {reference_mode} {reference_seconds:.3f}초",
+                    "possible_cause": "후보 청크별 Cross-encoder 재정렬 비용이 데이터 규모와 함께 증가한 것으로 추정함",
+                    "evidence": [
+                        f"Reranking 검색 시간이 {reference_mode}보다 {rerank_seconds / reference_seconds:.1f}배 김"
+                    ],
+                    "follow_up": "후보 수·배치 처리·재정렬 모델 실행 장치를 분리해 지연 원인을 측정함",
+                }
+            )
+
+    recall = {
+        mode: retrieval["summary"][mode][f"k{final_k}"]["recall_at_k"]
+        for mode in modes
+    }
+    faith = {
+        mode: faithfulness["summary"][mode]["mean_faithfulness"]
+        for mode in modes
+        if faithfulness["summary"][mode]["mean_faithfulness"] is not None
+    }
+    if faith:
+        best_recall = max(recall, key=recall.get)
+        worst_faith = min(faith, key=faith.get)
+        if best_recall == worst_faith and len(modes) > 1:
+            items.append(
+                {
+                    "failure_id": "e04_retrieval_answer_mismatch",
+                    "type": "hypothesis_miss",
+                    "title": "검색 개선과 답변 근거 충실도 불일치",
+                    "status": "hypothesis",
+                    "affected_versions": [active_config["retrieval_modes"][best_recall]],
+                    "expectation": "Recall이 높은 검색 방식이 더 높은 Faithfulness를 보일 것으로 예상함",
+                    "observed": f"{best_recall} Recall@{final_k} {recall[best_recall]:.2%}, Faithfulness {faith[best_recall]:.4f}",
+                    "possible_cause": "관련 청크를 더 찾았더라도 조합된 문맥의 경쟁 정보나 생성 단계가 답변 근거성을 낮췄을 수 있음",
+                    "evidence": [
+                        f"최고 Recall 방식: {best_recall}",
+                        f"최저 Faithfulness 방식: {worst_faith}",
+                    ],
+                    "follow_up": "동일 질문의 검색 청크와 생성 답변을 대조해 문맥 조합·인용 실패 유형을 분류함",
+                }
+            )
+
+    faith_errors = sum(item["error_count"] for item in faithfulness["summary"].values())
+    judge_errors = sum(item["evaluation_error_count"] for item in judge["summary"].values())
+    if faith_errors or judge_errors:
+        items.append(
+            {
+                "failure_id": "e04_evaluation_incomplete",
+                "type": "evaluation_issue",
+                "title": "자동 평가 일부 미완료",
+                "status": "confirmed",
+                "affected_versions": [active_config["retrieval_modes"][mode] for mode in modes],
+                "expectation": "모든 답변의 Faithfulness와 Judge 평가를 완료함",
+                "observed": f"Faithfulness 오류 {faith_errors}건, Judge 오류 {judge_errors}건",
+                "possible_cause": "평가 모델 출력 길이 초과 또는 외부 API 연결 오류가 발생함",
+                "evidence": [
+                    f"Faithfulness 오류: {faith_errors}건",
+                    f"Judge 오류: {judge_errors}건",
+                ],
+                "follow_up": "정상 평가 결과는 유지하고 오류 항목만 재개해 보고서를 다시 생성함",
+            }
+        )
+
+    return {"title": "Failure Analysis", "items": items}
+
+
 def build_report(
     dataset: str,
     run_id: str,
