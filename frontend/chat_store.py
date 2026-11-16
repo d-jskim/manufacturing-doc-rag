@@ -1,5 +1,6 @@
 """SQLite 기반 샘플 사용자와 채팅 이력 저장소."""
 
+import json
 import sqlite3
 from contextlib import contextmanager
 from pathlib import Path
@@ -66,6 +67,19 @@ def initialize(db_path: Path = DEFAULT_DB) -> None:
         db.executemany(
             "INSERT OR IGNORE INTO users VALUES (?, ?, ?, ?, ?)", SAMPLE_USERS
         )
+        columns = {row["name"] for row in db.execute("PRAGMA table_info(chat_messages)")}
+        additions = {
+            "dataset": "TEXT",
+            "chunk_version": "TEXT",
+            "embedding": "TEXT",
+            "prompt": "TEXT",
+            "latency_seconds": "REAL",
+            "result_json": "TEXT",
+            "comparison_group_id": "TEXT",
+        }
+        for name, definition in additions.items():
+            if name not in columns:
+                db.execute(f"ALTER TABLE chat_messages ADD COLUMN {name} {definition}")
 
 
 def list_users(db_path: Path = DEFAULT_DB) -> list[dict]:
@@ -90,7 +104,14 @@ def create_session(user_id: str, session_id: str, title: str, db_path: Path = DE
         )
 
 
-def save_exchange(user_id: str, session_id: str, question: str, result: dict, db_path: Path = DEFAULT_DB) -> None:
+def save_exchange(
+    user_id: str,
+    session_id: str,
+    question: str,
+    result: dict,
+    db_path: Path = DEFAULT_DB,
+    comparison_group_id: str | None = None,
+) -> None:
     with connect(db_path) as db:
         owner = db.execute(
             "SELECT 1 FROM chat_sessions WHERE session_id = ? AND user_id = ?",
@@ -100,10 +121,26 @@ def save_exchange(user_id: str, session_id: str, question: str, result: dict, db
             raise ValueError("사용자의 대화 세션을 찾을 수 없습니다.")
         cursor = db.execute(
             """INSERT INTO chat_messages
-               (session_id, question, answer, status, reason, retrieval_mode, request_id)
-               VALUES (?, ?, ?, ?, ?, ?, ?)""",
-            (session_id, question, result["answer"], result["status"], result.get("reason"),
-             result["retrieval_mode"], result.get("request_id")),
+               (session_id, question, answer, status, reason, retrieval_mode, request_id,
+                dataset, chunk_version, embedding, prompt, latency_seconds, result_json,
+                comparison_group_id)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            (
+                session_id,
+                question,
+                result["answer"],
+                result["status"],
+                result.get("reason"),
+                result["retrieval_mode"],
+                result.get("request_id"),
+                result.get("settings", {}).get("dataset"),
+                result.get("settings", {}).get("chunk_version"),
+                result.get("settings", {}).get("embedding"),
+                result.get("settings", {}).get("prompt"),
+                result.get("metrics", {}).get("latency_seconds"),
+                json.dumps(result, ensure_ascii=False),
+                comparison_group_id,
+            ),
         )
         db.executemany(
             """INSERT INTO answer_citations
@@ -119,12 +156,16 @@ def load_messages(user_id: str, session_id: str, db_path: Path = DEFAULT_DB) -> 
         rows = db.execute(
             """SELECT m.* FROM chat_messages m
                JOIN chat_sessions s ON s.session_id = m.session_id
-               WHERE s.user_id = ? AND s.session_id = ? ORDER BY m.message_id""",
+               WHERE s.user_id = ? AND s.session_id = ?
+                 AND m.comparison_group_id IS NULL
+               ORDER BY m.message_id""",
             (user_id, session_id),
         ).fetchall()
         messages = []
         for row in rows:
             message = dict(row)
+            if message.get("result_json"):
+                message.update(json.loads(message["result_json"]))
             message["citations"] = [
                 dict(citation) for citation in db.execute(
                     "SELECT * FROM answer_citations WHERE message_id = ? ORDER BY citation_id",
@@ -133,3 +174,51 @@ def load_messages(user_id: str, session_id: str, db_path: Path = DEFAULT_DB) -> 
             ]
             messages.append(message)
         return messages
+
+
+def save_comparison(
+    user_id: str,
+    session_id: str,
+    question: str,
+    results: list[dict],
+    group_id: str,
+    db_path: Path = DEFAULT_DB,
+) -> None:
+    for result in results:
+        save_exchange(
+            user_id,
+            session_id,
+            question,
+            result,
+            db_path,
+            comparison_group_id=group_id,
+        )
+
+
+def load_comparisons(
+    user_id: str, session_id: str, db_path: Path = DEFAULT_DB
+) -> list[dict]:
+    with connect(db_path) as db:
+        rows = db.execute(
+            """SELECT m.* FROM chat_messages m
+               JOIN chat_sessions s ON s.session_id = m.session_id
+               WHERE s.user_id = ? AND s.session_id = ?
+                 AND m.comparison_group_id IS NOT NULL
+               ORDER BY m.message_id""",
+            (user_id, session_id),
+        ).fetchall()
+        groups = {}
+        for row in rows:
+            message = dict(row)
+            result = json.loads(message["result_json"])
+            group = groups.setdefault(
+                message["comparison_group_id"],
+                {
+                    "group_id": message["comparison_group_id"],
+                    "question": message["question"],
+                    "created_at": message["created_at"],
+                    "results": [],
+                },
+            )
+            group["results"].append(result)
+        return list(groups.values())

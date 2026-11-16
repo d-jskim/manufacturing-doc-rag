@@ -53,8 +53,7 @@ pages = {
         st.Page("views/service_chat.py", title="AI 어시스턴트", default=True),
     ],
     "관리자": [
-        st.Page("views/admin_dashboard.py", title="대시보드(준비 중)"),
-        st.Page("views/admin_active_config.py", title="운영 설정"),
+        st.Page("views/admin_dashboard.py", title="대시보드"),
     ],
     "실험": [
     st.Page(

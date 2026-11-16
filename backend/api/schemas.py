@@ -14,6 +14,10 @@ class QueryRequest(BaseModel):
         default=None,
         description="검색 방식. 생략하면 운영 설정의 기본값을 사용한다.",
     )
+    chunk_version: Literal["c1", "c2", "c3"] | None = Field(
+        default=None,
+        description="청킹 버전. 생략하면 운영 설정의 기본값을 사용한다.",
+    )
     source: Literal["service", "evaluation", "security"] = Field(
         default="service",
         description="요청 출처",
@@ -27,6 +31,16 @@ class QueryRequest(BaseModel):
         default=None,
         max_length=100,
         description="평가 질문 ID",
+    )
+    user_id: str | None = Field(
+        default=None,
+        max_length=100,
+        description="서비스 사용자 ID",
+    )
+    session_id: str | None = Field(
+        default=None,
+        max_length=100,
+        description="서비스 대화 세션 ID",
     )
 
     @field_validator("question")
@@ -56,6 +70,27 @@ class Citation(BaseModel):
     page_end: int
 
 
+class RetrievalResult(BaseModel):
+    rank: int
+    chunk_id: str
+    book_id: str
+    file_name: str
+    page_start: int
+    page_end: int
+    text: str
+    score: float
+    score_type: str
+    used_in_answer: bool
+    metadata: dict = Field(default_factory=dict)
+
+
+class QuerySettings(BaseModel):
+    dataset: str
+    chunk_version: str
+    embedding: str
+    prompt: str
+
+
 class TokenUsage(BaseModel):
     input_tokens: int
     output_tokens: int
@@ -82,5 +117,7 @@ class QueryResponse(BaseModel):
     answer: str
     reason: str | None
     citations: list[Citation]
+    retrieval_results: list[RetrievalResult] = Field(default_factory=list)
     retrieval_mode: str
+    settings: QuerySettings | None = None
     metrics: QueryMetrics | None = None

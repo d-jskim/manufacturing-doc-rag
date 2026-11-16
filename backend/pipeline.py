@@ -66,29 +66,19 @@ class RAGPipeline:
             prompt_config["generation"]["model"],
             "o200k_base",
         )
-        self.collection = (
-            f"{self.config['dataset']}_"
-            f"{self.config['chunk_version']}_"
-            f"{self.embedder.model_code}"
-        )
         self.langfuse = get_client()
-        self.keyword_indexes = self._build_keyword_indexes()
+        self.keyword_indexes = {}
         self.rerankers = self._build_rerankers()
 
-    def _build_keyword_indexes(self) -> dict:
-        """하이브리드 검색이 있으면 단어 분리 방식별 BM25 색인을 한 번 만든다."""
-        tokenizer_names = {
-            config["keyword_tokenizer"]
-            for config in self.retrieval_configs.values()
-            if config["method"] in {"hybrid", "hybrid_rerank"}
-        }
-        if not tokenizer_names:
-            return {}
-
+    def _keyword_index(self, chunk_version: str, tokenizer_name: str) -> BM25Index:
+        """청킹 버전과 토크나이저별 BM25 색인을 처음 요청할 때 만든다."""
+        cache_key = (chunk_version, tokenizer_name)
+        if cache_key in self.keyword_indexes:
+            return self.keyword_indexes[cache_key]
         chunks_path = (
             PROCESSED_DIR
             / self.config["dataset"]
-            / self.config["chunk_version"]
+            / chunk_version
             / "chunks.jsonl"
         )
         chunks = [
@@ -96,10 +86,10 @@ class RAGPipeline:
             for line in chunks_path.read_text(encoding="utf-8").splitlines()
             if line.strip()
         ]
-        return {
-            name: BM25Index(chunks, make_tokenizer(name))
-            for name in tokenizer_names
-        }
+        self.keyword_indexes[cache_key] = BM25Index(
+            chunks, make_tokenizer(tokenizer_name)
+        )
+        return self.keyword_indexes[cache_key]
 
     def _build_rerankers(self) -> dict:
         """재순위 검색 방식별 Cross-encoder를 서버 시작 시 한 번 만든다."""
@@ -113,8 +103,17 @@ class RAGPipeline:
     def retrieval_modes(self) -> list[str]:
         return list(self.retrieval_configs)
 
-    def retrieve(self, question: str, retrieval_mode: str) -> dict:
+    def retrieve(
+        self,
+        question: str,
+        retrieval_mode: str,
+        chunk_version: str | None = None,
+    ) -> dict:
         """질문을 검색하고 선택한 방식으로 후보를 정렬한 뒤 문맥을 채운다."""
+        chunk_version = chunk_version or self.config["chunk_version"]
+        collection = (
+            f"{self.config['dataset']}_{chunk_version}_{self.embedder.model_code}"
+        )
         retrieval_config = self.retrieval_configs[retrieval_mode]
         method = retrieval_config["method"]
         query_vector = self.embedder.embed_query(question)
@@ -122,7 +121,7 @@ class RAGPipeline:
         if method == "dense":
             candidates = search(
                 self.client,
-                self.collection,
+                collection,
                 query_vector,
                 retrieval_config["candidate_count"],
                 exact=retrieval_config["exact"],
@@ -130,14 +129,14 @@ class RAGPipeline:
         else:
             dense = search(
                 self.client,
-                self.collection,
+                collection,
                 query_vector,
                 retrieval_config["dense_candidate_count"],
                 exact=retrieval_config["exact"],
             )
-            keyword = self.keyword_indexes[
-                retrieval_config["keyword_tokenizer"]
-            ].search(
+            keyword = self._keyword_index(
+                chunk_version, retrieval_config["keyword_tokenizer"]
+            ).search(
                 question,
                 retrieval_config["keyword_candidate_count"],
             )
@@ -162,6 +161,8 @@ class RAGPipeline:
         )
         return {
             "retrieval_version": retrieval_config["retrieval_version"],
+            "chunk_version": chunk_version,
+            "collection": collection,
             "score_type": SCORE_TYPES[method],
             "final_k": final_k,
             "candidates": candidates,
@@ -176,6 +177,9 @@ class RAGPipeline:
         request_id: str | None = None,
         source: str = "service",
         extra_metadata: dict | None = None,
+        chunk_version: str | None = None,
+        user_id: str | None = None,
+        session_id: str | None = None,
     ) -> dict:
         """질문 하나를 검색부터 답변까지 처리한다. 요청 하나가 Langfuse trace 하나가 된다.
 
@@ -185,6 +189,7 @@ class RAGPipeline:
         retrieval_mode = (
             retrieval_mode or self.config["default_retrieval_mode"]
         )
+        chunk_version = chunk_version or self.config["chunk_version"]
         request_id = request_id or str(uuid.uuid4())
         retrieval_version = self.retrieval_configs[
             retrieval_mode
@@ -193,11 +198,13 @@ class RAGPipeline:
             "source": source,
             "request_id": request_id,
             "dataset": self.config["dataset"],
-            "chunk_version": self.config["chunk_version"],
+            "chunk_version": chunk_version,
             "embedding": self.embedder.model_code,
             "prompt": self.generator.prompt_version,
             "retrieval": retrieval_version,
             "retrieval_mode": retrieval_mode,
+            **({"user_id": user_id} if user_id else {}),
+            **({"session_id": session_id} if session_id else {}),
             **(extra_metadata or {}),
         }
         trace_id = self.langfuse.create_trace_id(seed=request_id)
@@ -210,97 +217,173 @@ class RAGPipeline:
             trace_context={"trace_id": trace_id},
         ) as root:
             with propagate_attributes(
+                user_id=user_id,
+                session_id=session_id,
                 trace_name="rag_query",
                 tags=[source, retrieval_mode],
-                metadata={
-                    key: str(value)
-                    for key, value in metadata.items()
-                },
+                metadata={key: str(value) for key, value in metadata.items()},
             ):
-                with self.langfuse.start_as_current_observation(
-                    name="retrieval",
-                    as_type="retriever",
-                    input={"question": question},
-                ) as span:
-                    retrieval = self.retrieve(question, retrieval_mode)
-                    retrieval_seconds = time.perf_counter() - start
-                    retrieval_record = {
-                        "version": retrieval["retrieval_version"],
-                        "collection": self.collection,
-                        "score_type": retrieval["score_type"],
-                        "final_k": retrieval["final_k"],
-                        "candidates": [
-                            {
-                                "chunk_id": candidate["chunk_id"],
-                                "score": round(candidate["score"], 4),
-                                **{
-                                    key: round(candidate[key], 4)
-                                    for key in (
-                                        "rrf_score",
-                                        "rerank_score",
-                                    )
-                                    if key in candidate
-                                },
-                                **{
-                                    key: candidate[key]
-                                    for key in (
-                                        "dense_rank",
-                                        "keyword_rank",
-                                        "rerank_rank",
-                                    )
-                                    if key in candidate
-                                },
-                            }
-                            for candidate in retrieval["candidates"]
-                        ],
-                        "context_chunk_ids": [
-                            candidate["chunk_id"]
-                            for candidate in retrieval["context"]
-                        ],
-                        "context_token_count": retrieval[
-                            "context_token_count"
-                        ],
-                        "seconds": round(retrieval_seconds, 3),
+                try:
+                    with self.langfuse.start_as_current_observation(
+                        name="retrieval",
+                        as_type="retriever",
+                        input={"question": question},
+                    ) as span:
+                        retrieval = self.retrieve(
+                            question, retrieval_mode, chunk_version
+                        )
+                        retrieval_seconds = time.perf_counter() - start
+                        retrieval_record = {
+                            "version": retrieval["retrieval_version"],
+                            "collection": retrieval["collection"],
+                            "score_type": retrieval["score_type"],
+                            "final_k": retrieval["final_k"],
+                            "candidates": [
+                                {
+                                    "chunk_id": candidate["chunk_id"],
+                                    "score": round(candidate["score"], 4),
+                                    **{
+                                        key: round(candidate[key], 4)
+                                        for key in (
+                                            "rrf_score",
+                                            "rerank_score",
+                                        )
+                                        if key in candidate
+                                    },
+                                    **{
+                                        key: candidate[key]
+                                        for key in (
+                                            "dense_rank",
+                                            "keyword_rank",
+                                            "rerank_rank",
+                                        )
+                                        if key in candidate
+                                    },
+                                }
+                                for candidate in retrieval["candidates"]
+                            ],
+                            "context_chunk_ids": [
+                                candidate["chunk_id"]
+                                for candidate in retrieval["context"]
+                            ],
+                            "context_token_count": retrieval[
+                                "context_token_count"
+                            ],
+                            "seconds": round(retrieval_seconds, 3),
+                        }
+                        span.update(output=retrieval_record)
+
+                    result = self.generator.generate(
+                        question,
+                        retrieval["context"],
+                        callbacks=[CallbackHandler()],
+                    )
+                    result["generation_seconds"] = result.pop(
+                        "latency_seconds"
+                    )
+
+                    total_seconds = round(time.perf_counter() - start, 3)
+                    settings = {
+                        "dataset": self.config["dataset"],
+                        "chunk_version": chunk_version,
+                        "embedding": self.embedder.model_code,
+                        "prompt": self.generator.prompt_version,
                     }
-                    span.update(output=retrieval_record)
-
-                result = self.generator.generate(
-                    question,
-                    retrieval["context"],
-                    callbacks=[CallbackHandler()],
-                )
-                result["generation_seconds"] = result.pop(
-                    "latency_seconds"
-                )
-
-            output = {
-                key: result[key]
-                for key in (
-                    "status",
-                    "answer",
-                    "reason",
-                    "citations",
-                )
-            }
-            if result["status"] == "error":
-                root.update(
-                    output=output,
-                    level="ERROR",
-                    status_message=result["error"],
-                )
-            else:
-                root.update(output=output)
+                    context_chunk_ids = set(
+                        retrieval_record["context_chunk_ids"]
+                    )
+                    root_retrieval_results = [
+                        {
+                            "rank": rank,
+                            "chunk_id": candidate["chunk_id"],
+                            "file_name": candidate["file_name"],
+                            "page_start": candidate["page_start"],
+                            "page_end": candidate["page_end"],
+                            "text": candidate["text"],
+                            "score": candidate["score"],
+                            "score_type": retrieval["score_type"],
+                            "used_in_answer": candidate["chunk_id"]
+                            in context_chunk_ids,
+                        }
+                        for rank, candidate in enumerate(
+                            retrieval["candidates"][: retrieval["final_k"]],
+                            start=1,
+                        )
+                    ]
+                    output = {
+                        "request_id": request_id,
+                        "trace_id": trace_id,
+                        "status": result["status"],
+                        "answer": result["answer"],
+                        "reason": result["reason"],
+                        "citations": result["citations"],
+                        "settings": settings,
+                        "retrieval": retrieval_record,
+                        "retrieval_results": root_retrieval_results,
+                        "timings": {
+                            "total_seconds": total_seconds,
+                            "retrieval_seconds": retrieval_record["seconds"],
+                            "generation_seconds": result[
+                                "generation_seconds"
+                            ],
+                        },
+                        "usage": result["usage"],
+                        "error": result["error"],
+                    }
+                    usage_details = None
+                    if result["usage"]:
+                        input_tokens = result["usage"]["input_tokens"]
+                        output_tokens = result["usage"]["output_tokens"]
+                        usage_details = {
+                            "input": input_tokens,
+                            "output": output_tokens,
+                            "total": input_tokens + output_tokens,
+                        }
+                    root_metadata = {
+                        **metadata,
+                        "status": result["status"],
+                        "error": result["error"],
+                    }
+                    if result["status"] == "error":
+                        root.update(
+                            output=output,
+                            metadata=root_metadata,
+                            usage_details=usage_details,
+                            level="ERROR",
+                            status_message=result["error"],
+                        )
+                    else:
+                        root.update(
+                            output=output,
+                            metadata=root_metadata,
+                            usage_details=usage_details,
+                        )
+                except Exception as exc:
+                    error = f"pipeline_error:{type(exc).__name__}"
+                    root.update(
+                        output={
+                            "request_id": request_id,
+                            "trace_id": trace_id,
+                            "status": "error",
+                            "error": error,
+                        },
+                        metadata={**metadata, "status": "error", "error": error},
+                        level="ERROR",
+                        status_message=error,
+                    )
+                    raise
 
         return {
             "request_id": request_id,
             "trace_id": trace_id,
             "retrieval_mode": retrieval_mode,
+            "retrieval_results": retrieval["candidates"][
+                : retrieval["final_k"]
+            ],
+            "settings": settings,
             **result,
             "retrieval": retrieval_record,
-            "latency_seconds": round(
-                time.perf_counter() - start,
-                3,
-            ),
+            "latency_seconds": total_seconds,
         }
 
     def flush(self) -> None:
