@@ -1,6 +1,7 @@
 """서비스 > AI 어시스턴트."""
 
 import json
+import os
 import sqlite3
 import uuid
 from functools import lru_cache
@@ -22,7 +23,7 @@ from chat_store import (
 ROOT = Path(__file__).resolve().parents[2]
 CONFIGS = ROOT / "configs"
 PROCESSED = ROOT / "data" / "processed" / "manufacturing_basic"
-API_URL = "http://127.0.0.1:8000"
+API_URL = os.getenv("RAG_API_URL", "http://127.0.0.1:8000").rstrip("/")
 EXPECTED = {
     "dataset": "manufacturing_basic",
     "embedding": "m1",

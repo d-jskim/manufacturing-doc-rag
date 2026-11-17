@@ -1,12 +1,23 @@
 """SQLite 기반 샘플 사용자와 채팅 이력 저장소."""
 
 import json
+import os
 import sqlite3
 from contextlib import contextmanager
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_DB = ROOT / "data" / "chat" / "chat.sqlite3"
+
+
+def default_db_path() -> Path:
+    configured = os.getenv("CHAT_DB_PATH")
+    if not configured:
+        return ROOT / "data" / "chat" / "chat.sqlite3"
+    path = Path(configured).expanduser()
+    return path if path.is_absolute() else ROOT / path
+
+
+DEFAULT_DB = default_db_path()
 
 SAMPLE_USERS = (
     ("demo_quality", "김민수", "품질관리팀", "대리", "품질 담당자"),

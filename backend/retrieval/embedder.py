@@ -1,5 +1,7 @@
 """설정(configs/embedding/*.yaml)에 따라 문서와 질문을 벡터로 바꾼다."""
 
+import os
+
 from sentence_transformers import SentenceTransformer
 
 
@@ -10,7 +12,10 @@ class Embedder:
         self.passage_prefix = config["passage_prefix"]
         self.query_prefix = config["query_prefix"]
         self.batch_size = config["batch_size"]
-        self._model = SentenceTransformer(self.model_name)  # GPU가 있으면 자동으로 GPU 사용
+        self._model = SentenceTransformer(
+            self.model_name,
+            device=os.getenv("EMBEDDING_DEVICE") or None,
+        )
         self.device = str(self._model.device)
 
     def embed_passages(self, texts: list[str]) -> list[list[float]]:

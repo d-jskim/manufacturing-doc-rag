@@ -44,6 +44,34 @@ class FakeLangfuse:
         return observation
 
 
+class FakePoint:
+    def __init__(self, payload):
+        self.payload = payload
+
+
+class FakeQdrantClient:
+    def __init__(self):
+        self.offsets = []
+
+    def scroll(self, **kwargs):
+        self.offsets.append(kwargs["offset"])
+        if kwargs["offset"] is None:
+            return [FakePoint({"chunk_id": "c1", "text": "첫 청크"})], "next"
+        return [FakePoint({"chunk_id": "c2", "text": "둘째 청크"})], None
+
+
+def test_qdrant_chunks_restore_bm25_corpus_without_local_data():
+    pipeline = pipeline_module.RAGPipeline.__new__(pipeline_module.RAGPipeline)
+    pipeline.config = {"dataset": "manufacturing_basic"}
+    pipeline.embedder = FakeEmbedder()
+    pipeline.client = FakeQdrantClient()
+
+    chunks = pipeline._qdrant_chunks("c3")
+
+    assert [chunk["chunk_id"] for chunk in chunks] == ["c1", "c2"]
+    assert pipeline.client.offsets == [None, "next"]
+
+
 def test_retrieve_uses_final_k_and_keeps_all_candidates(monkeypatch):
     candidates = [
         {

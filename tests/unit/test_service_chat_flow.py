@@ -68,6 +68,14 @@ def test_new_session_api_failure_does_not_create_empty_session(monkeypatch):
     assert created == []
 
 
+def test_api_url_uses_deployment_environment(monkeypatch):
+    monkeypatch.setenv("RAG_API_URL", "https://api.example.com/")
+
+    module = load_service_chat(monkeypatch)
+
+    assert module.API_URL == "https://api.example.com"
+
+
 def test_existing_session_is_reused_without_creating_another(monkeypatch):
     module = load_service_chat(monkeypatch)
     client = FakeClient()

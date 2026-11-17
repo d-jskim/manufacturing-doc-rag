@@ -2,6 +2,7 @@
 API와 평가 실험이 함께 쓴다."""
 
 import json
+import os
 import time
 import uuid
 from pathlib import Path
@@ -48,6 +49,11 @@ class RAGPipeline:
             mode: load_yaml(CONFIGS_DIR / "retrieval" / f"{version}.yaml")
             for mode, version in self.config["retrieval_modes"].items()
         }
+        reranker_device = os.getenv("RERANKER_DEVICE")
+        if reranker_device:
+            for retrieval_config in self.retrieval_configs.values():
+                if retrieval_config["method"] == "hybrid_rerank":
+                    retrieval_config["reranker_device"] = reranker_device
         for mode, retrieval_config in self.retrieval_configs.items():
             method = retrieval_config["method"]
             uses_rrf = method in {"hybrid", "hybrid_rerank"}
@@ -60,7 +66,13 @@ class RAGPipeline:
                 )
 
         self.embedder = Embedder(embedding_config)
-        self.client = QdrantClient(url=self.config["qdrant_url"])
+        self.config["qdrant_url"] = os.getenv(
+            "QDRANT_URL", self.config["qdrant_url"]
+        )
+        self.client = QdrantClient(
+            url=self.config["qdrant_url"],
+            api_key=os.getenv("QDRANT_API_KEY") or None,
+        )
         self.generator = Generator(prompt_config)
         self.counter = TiktokenCounter(
             prompt_config["generation"]["model"],
@@ -81,15 +93,41 @@ class RAGPipeline:
             / chunk_version
             / "chunks.jsonl"
         )
-        chunks = [
-            json.loads(line)
-            for line in chunks_path.read_text(encoding="utf-8").splitlines()
-            if line.strip()
-        ]
+        chunks = (
+            [
+                json.loads(line)
+                for line in chunks_path.read_text(encoding="utf-8").splitlines()
+                if line.strip()
+            ]
+            if chunks_path.exists()
+            else self._qdrant_chunks(chunk_version)
+        )
         self.keyword_indexes[cache_key] = BM25Index(
             chunks, make_tokenizer(tokenizer_name)
         )
         return self.keyword_indexes[cache_key]
+
+    def _qdrant_chunks(self, chunk_version: str) -> list[dict]:
+        """로컬 청크 파일이 없으면 Qdrant payload로 BM25 문서를 복원한다."""
+        collection = (
+            f"{self.config['dataset']}_{chunk_version}_{self.embedder.model_code}"
+        )
+        chunks = []
+        offset = None
+        while True:
+            points, offset = self.client.scroll(
+                collection_name=collection,
+                limit=256,
+                offset=offset,
+                with_payload=True,
+                with_vectors=False,
+            )
+            chunks.extend(point.payload for point in points if point.payload)
+            if offset is None:
+                break
+        if not chunks:
+            raise RuntimeError(f"Qdrant Collection이 비어 있습니다: {collection}")
+        return chunks
 
     def _build_rerankers(self) -> dict:
         """재순위 검색 방식별 Cross-encoder를 서버 시작 시 한 번 만든다."""
